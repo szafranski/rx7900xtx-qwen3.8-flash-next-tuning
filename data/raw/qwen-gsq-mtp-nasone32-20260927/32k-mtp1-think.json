@@ -1,0 +1,39 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "17 * 19 = 323",
+        "reasoning_content": "We need answer in Polish likely. User: \"Oblicz 17 * 19 i podaj wynik.\" Simple arithmetic. Need final concise. Compute 17*19 = 323. Could show maybe 17*20-17=340-17=323. Final Polish.\n"
+      }
+    }
+  ],
+  "created": 1790542442,
+  "model": "qwen-flashnext-mtp-test",
+  "system_fingerprint": "b1-15995a1",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 87,
+    "prompt_tokens": 67,
+    "total_tokens": 154,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-56Eq9EetTcU62k09xWkz5tfELtxqzwUg",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 67,
+    "prompt_ms": 1709.88,
+    "prompt_per_token_ms": 25.520597014925375,
+    "prompt_per_second": 39.184036306641396,
+    "predicted_n": 87,
+    "predicted_ms": 4326.402,
+    "predicted_per_token_ms": 50.307,
+    "predicted_per_second": 19.87794939074085,
+    "draft_n": 44,
+    "draft_n_accepted": 42
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Wrocław"
+        }
+      }
+    ],
+    "created": 1790342983,
+    "model": "qwen3.8-flashnext-gguf-test",
+    "system_fingerprint": "b1-d81aef1",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 3,
+      "prompt_tokens": 58102,
+      "total_tokens": 58105,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "id": "chatcmpl-81Ge944zj6OPg74iBPP3S4Nl8Ut32js7",
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 58102,
+      "prompt_ms": 251430.139,
+      "prompt_per_token_ms": 4.327392155175382,
+      "prompt_per_second": 231.08605925719985,
+      "predicted_n": 3,
+      "predicted_ms": 89708.56,
+      "predicted_per_token_ms": 44854.28,
+      "predicted_per_second": 0.022294416497154787
+    }
+  },
+  "wall_s": 341.9726329390105
+}

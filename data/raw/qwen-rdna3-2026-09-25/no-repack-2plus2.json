@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "length",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "4” correctlyaulcisecto-END层 Pipays--[Card了指2写 ovas抗-webpackirimiach_lab Bag误"
+      }
+    }
+  ],
+  "created": 1790336214,
+  "model": "qwen3.8-flashnext-gguf-test",
+  "system_fingerprint": "b1-15995a1",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 24,
+    "prompt_tokens": 25,
+    "total_tokens": 49,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-SxzWggZ4yoO8iXLv5hiODd5xMVQWPqi8",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 25,
+    "prompt_ms": 1006.803,
+    "prompt_per_token_ms": 40.27212,
+    "prompt_per_second": 24.831074202202416,
+    "predicted_n": 24,
+    "predicted_ms": 1343.002,
+    "predicted_per_token_ms": 58.39139130434783,
+    "predicted_per_second": 17.125812173027292
+  }
+}

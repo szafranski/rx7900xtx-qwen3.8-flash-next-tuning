@@ -1,0 +1,22 @@
+# Separate-head MTP on GSQ-RCO IQ3_XXS
+
+The base GSQ GGUF lacks embedded MTP layers. Upstream `d81aef1` rejected `--spec-type draft-mtp` at load. An early attempt with a separate Q5_K-frspec head and a different fork did not yield a usable 32k/65k benchmark: Vulkan asserted even without MTP, and ROCm `mmap` read heavily from disk. That attempt is documented in the [older report](../reports/qwen-gsq-mtp-2026-09-27.md), without raw response files.
+
+The later test used [nasone32's fork](https://github.com/nasone32/llama.cpp-RDNA3-7900xtx-opt) at `15995a1` and a separate, full-vocabulary Q4_K_M head. It used ROCm, `--load-mode none --lazy-mode on-direct`, one slot, `--spec-type draft-mtp`, `--spec-draft-n-max 1`, and `--spec-draft-p-min 0.0`. The [report](../reports/qwen-gsq-nasone32-mtp-2026-09-27.md) and [response files](../data/raw/qwen-gsq-mtp-nasone32-20260927/) record coherent answers at 4k, 32k, and 65k. The prior 65k-vocabulary Q5 head was rejected because the fork expected 248,320 output entries. An adaptive n=3 load crashed with exit 139; fixed n=1 still worked.
+
+## Controlled 65k pair
+
+Both arms used the same 59,734-token prompt, q4_0 KV, `ubatch=256`, and main-model settings. The only intended change was the MTP head and its required flags.
+
+| Phase | No MTP | MTP n=1 | Interpretation |
+| --- | ---: | ---: | --- |
+| Full prefill | 278.10 PP tok/s | 243.54 PP tok/s | MTP 12.4% slower; about 30.5 s extra for this prompt. |
+| First reply | 7 tokens | 7 tokens | Too short to compare TG. |
+| Cached follow-up | 169 tokens at 14.52 TG tok/s | 160 tokens at 15.78 TG tok/s | MTP 8.7% faster in this one pair, with different output lengths. |
+| Container memory after follow-up | about 25.87/30.06 GB | about 29.94/30.06 GB | MTP left about 120 MB headroom. |
+
+Sources: [no-MTP prefill](../data/raw/qwen-gsq-mtp-nasone32-20260927/65k-nomtp-long.json), [MTP prefill](../data/raw/qwen-gsq-mtp-nasone32-20260927/65k-mtp1-long.json), [no-MTP follow-up](../data/raw/qwen-gsq-mtp-nasone32-20260927/65k-nomtp-followup.json), [MTP follow-up](../data/raw/qwen-gsq-mtp-nasone32-20260927/65k-mtp1-followup.json). The memory figures come from the historical report, not the response JSON.
+
+At 4k, fixed n=1 gave 18.42 TG tok/s versus 15.74 without MTP, but the fit targets differed. Fixed n=2 gave 18.14 TG tok/s and a longer reply; neither is a clean speed A/B. At 32k, n=1 with q4_0 KV and `ubatch=512` completed a 29,335-token retrieval prompt at 408.97 PP tok/s and a cached follow-up at 16.43 TG tok/s. There was no controlled 32k no-MTP pair. An earlier q8_0/`ubatch=1024` run reached the container memory limit and was interrupted.
+
+For this host and this 65k profile, no MTP is the safer default. A longer, repeated-session benchmark could change the time balance, but this pair does not establish one.

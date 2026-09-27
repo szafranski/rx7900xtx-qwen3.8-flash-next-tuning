@@ -1,0 +1,55 @@
+{
+  "request": {
+    "model": "qwen3.8-flashnext-gguf-test",
+    "messages": [
+      {
+        "role": "user",
+        "content": "W pudełku są czerwone, niebieskie i zielone kulki. Czerwonych jest dwa razy tyle co niebieskich, a zielonych o 3 więcej niż niebieskich. Razem jest 27 kulek. Ile kulek każdego koloru jest w pudełku? Sprawdź sumę. Odpowiedz krótko."
+      }
+    ],
+    "max_tokens": 768,
+    "temperature": 1,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0,
+    "seed": 42
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Niebieskich: 6, czerwonych: 12, zielonych: 9. Suma: 27.",
+          "reasoning_content": "The user asks in Polish: \"In a box there are red, blue and green balls. There are twice as many red as blue, and green is 3 more than blue. Total is 27 balls. How many balls of each color? Check sum. Answer shortly.\"\n\nNeed solve. Let blue = x. Red = 2x. Green = x+3. Total: x + 2x + x+3 = 4x+3 = 27 => 4x=24 => x=6. Blue=6, red=12, green=9. Sum=27. Answer short in Polish.\n"
+        }
+      }
+    ],
+    "created": 1790342089,
+    "model": "qwen3.8-flashnext-gguf-test",
+    "system_fingerprint": "b1-d81aef1",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 165,
+      "prompt_tokens": 128,
+      "total_tokens": 293,
+      "prompt_tokens_details": {
+        "cached_tokens": 42
+      }
+    },
+    "id": "chatcmpl-uGfmwr4Ny297mI14ih13H98rzRXOoLfi",
+    "timings": {
+      "cache_n": 42,
+      "prompt_n": 86,
+      "prompt_ms": 3614.174,
+      "prompt_per_token_ms": 42.02527906976744,
+      "prompt_per_second": 23.795201891220515,
+      "predicted_n": 165,
+      "predicted_ms": 10796.568,
+      "predicted_per_token_ms": 65.83273170731707,
+      "predicted_per_second": 15.190012233517171
+    }
+  },
+  "wall_s": 15.694357071013656
+}

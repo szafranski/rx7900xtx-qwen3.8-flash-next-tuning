@@ -1,0 +1,38 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "TULIP-731"
+      }
+    }
+  ],
+  "created": 1790542841,
+  "model": "qwen-flashnext-mtp-test",
+  "system_fingerprint": "b1-15995a1",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 8,
+    "prompt_tokens": 29335,
+    "total_tokens": 29343,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-yCkFYgfiodB1nOaTJwVPMlw2RifLdTUS",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 29335,
+    "prompt_ms": 71728.443,
+    "prompt_per_token_ms": 2.445148900630646,
+    "prompt_per_second": 408.9730485297165,
+    "predicted_n": 8,
+    "predicted_ms": 453.905,
+    "predicted_per_token_ms": 64.84357142857142,
+    "predicted_per_second": 15.421729216466002,
+    "draft_n": 4,
+    "draft_n_accepted": 4
+  }
+}

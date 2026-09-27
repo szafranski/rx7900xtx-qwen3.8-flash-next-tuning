@@ -1,0 +1,38 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "1. RAM to pamięć operacyjna komputera, która przechowuje dane niezbędne do działania systemu i aplikacji. W kontekście modeli językowych jest ona kluczowa dla przetwarzania tekstu i zarządzania procesami.\n\n2. VRAM to pamięć graficzna karty GPU, przeznaczona do przechowywania danych wizualnych i obliczeniowych. Przy dużych modelach AI służy ona do trzymania warstw sieci neuronowej i przyspieszania obliczeń macierzowych.\n\n3. Swap to obszar na dysku twardym lub SSD, który emuluje pamięć RAM, gdy ta się wyczerpie. Działa on znacznie wolniej niż fizyczna pamięć, co może drastycznie spowolnić działanie modelu.\n\n4. RAM jest szybszy niż swap, ale wolniejszy niż VRAM w przypadku zadań równoległych. Model językowy działa najwydajniej, gdy jego dane mieszczą się całkowicie w VRAM lub RAM.\n\n5. VRAM ma ograniczoną pojemność, co wymusza podział modelu lub jego kwantyzację. Jeśli model nie mieści się w VRAM, jego części mogą być przenoszone do RAM lub swapu.\n\n6. Swap jest ostatnią linią obrony przed awarią systemu przy braku pamięci. Jego użycie podczas uruchamiania dużego modelu często prowadzi do bardzo długich czasów ładowania i odpowiedzi.\n\n7. RAM obsługuje logikę aplikacji i interfejs użytkownika, podczas gdy VRAM wykonuje ciężkie obliczenia matematyczne. Optymalna konfiguracja wymaga równowagi między ilością RAM a VRAM.\n\n8. Swap nie jest zalecany do pracy z dużymi modelami, ponieważ jego niska przepustowość tworzy wąskie gardło. Użytkownicy powinni dążyć do posiadania wystarczającej ilości VRAM i RAM, aby uniknąć korzystania z swapu."
+      }
+    }
+  ],
+  "created": 1790542279,
+  "model": "qwen-flashnext-mtp-test",
+  "system_fingerprint": "b1-15995a1",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 420,
+    "prompt_tokens": 61,
+    "total_tokens": 481,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-b5bV65T5zsnFrzPeWx2YyXxJhFOT3Ozy",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 61,
+    "prompt_ms": 1098.639,
+    "prompt_per_token_ms": 18.010475409836065,
+    "prompt_per_second": 55.52324284865184,
+    "predicted_n": 420,
+    "predicted_ms": 23103.641,
+    "predicted_per_token_ms": 55.13995465393795,
+    "predicted_per_second": 18.135669611556033,
+    "draft_n": 372,
+    "draft_n_accepted": 233
+  }
+}

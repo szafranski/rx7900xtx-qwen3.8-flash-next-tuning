@@ -1,0 +1,51 @@
+{
+  "request": {
+    "model": "qwen3.8-flashnext-gguf-test",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Wyjaś po polsku, jak działa wyszukiwanie binarne w posortowanej tablicy. Podaj wymagany warunek, kroki algorytmu, złożoność czasową i przykład szukania 13 w [2, 5, 8, 13, 21, 34, 55]. Odpowiedz w około 180-220 słowach."
+      }
+    ],
+    "max_tokens": 384,
+    "temperature": 0,
+    "seed": 42
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "length",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Wyszukiwanie binarne to efektywny algorytm służący do znajdowania określonego elementu w posortowanej tablicy. Kluczowym warunkiem koniecznym do jego działania jest to, aby dane wejściowe były uporządkowane w kolejności niemalejącej lub nierosnącej. Bez tego założenia metoda traci sens, ponieważ nie można logicznie odrzucać połowy zbioru na podstawie porównania.\n\nAlgorytm działa w sposób iteracyjny lub rekurencyjny. W każdym kroku wyznaczamy element środkowy aktualnego zakresu poszukiwań. Jeśli wartość środkowa jest równa szukanej, zwracamy jej indeks. Jeśli jest mniejsza, wiemy, że szukana wartość musi znajdować się w prawej, większej połowie tablicy, więc zawężamy zakres do prawej strony. W przeciwnym wypadku, gdy wartość środkowa jest większa, przeszukujemy lewą, mniejszą połowę. Proces ten powtarza się, aż element zostanie znaleziony lub zakres poszukiwań stanie się pusty, co oznacza brak elementu w zbiorze.\n\nZłożoność czasowa algorytmu wynosi O(log n), co oznacza, że liczba operacji rośnie logarytmicznie wraz z rozmiarem danych. Jest to znacznie szybsze niż liniowe przeszukiwanie O(n), szczególnie dla dużych zbiorów.\n\nRozważmy przykład szukania liczby 13 w tablicy [2, 5, 8, 13, 21, 34, 55]. Początkowy zakres to cały zbiór. Środkowy element to 13 (indeks 3). Ponieważ 13 jest rów"
+        }
+      }
+    ],
+    "created": 1790341850,
+    "model": "qwen3.8-flashnext-gguf-test",
+    "system_fingerprint": "b1-d81aef1",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 384,
+      "prompt_tokens": 102,
+      "total_tokens": 486,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "id": "chatcmpl-WTBaaiiiaXKDGFQYTDOJucxvQEb538i0",
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 102,
+      "prompt_ms": 17032.879,
+      "prompt_per_token_ms": 166.9890098039216,
+      "prompt_per_second": 5.988418047236759,
+      "predicted_n": 384,
+      "predicted_ms": 31366.469,
+      "predicted_per_token_ms": 81.89678590078329,
+      "predicted_per_second": 12.210491400865045
+    }
+  },
+  "wall_s": 48.42382398599875
+}

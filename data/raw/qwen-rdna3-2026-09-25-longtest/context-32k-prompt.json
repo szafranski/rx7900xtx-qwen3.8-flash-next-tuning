@@ -1,0 +1,39 @@
+{
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Kraków"
+        }
+      }
+    ],
+    "created": 1790342247,
+    "model": "qwen3.8-flashnext-gguf-test",
+    "system_fingerprint": "b1-d81aef1",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 3,
+      "prompt_tokens": 5088,
+      "total_tokens": 5091,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "id": "chatcmpl-wmzH13QEOEeX6SZDJABHoWnhH50EQtdj",
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 5088,
+      "prompt_ms": 41757.77,
+      "prompt_per_token_ms": 8.207108883647798,
+      "prompt_per_second": 121.84558706080331,
+      "predicted_n": 3,
+      "predicted_ms": 364.753,
+      "predicted_per_token_ms": 182.3765,
+      "predicted_per_second": 5.483162578512035
+    }
+  },
+  "wall_s": 42.14926733900211
+}

@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Kot śpi na kanapie."
+      }
+    }
+  ],
+  "created": 1790336642,
+  "model": "qwen3.8-flashnext-gguf-test",
+  "system_fingerprint": "b1-15995a1",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 9,
+    "prompt_tokens": 24,
+    "total_tokens": 33,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-DlOLdxxleheIbPeluOb9SkBxCic8RUsb",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 24,
+    "prompt_ms": 1782.777,
+    "prompt_per_token_ms": 74.282375,
+    "prompt_per_second": 13.462143610782505,
+    "predicted_n": 9,
+    "predicted_ms": 1081.553,
+    "predicted_per_token_ms": 135.194125,
+    "predicted_per_second": 7.396771124484883
+  }
+}

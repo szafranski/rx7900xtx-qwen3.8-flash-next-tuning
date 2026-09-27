@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "1. RAM to pamięć operacyjna komputera, która przechowuje dane niezbędne do działania systemu i aplikacji.\n2. VRAM to dedykowana pamięć karty graficznej, służąca do przechowywania tensorów modelu i danych wejściowych.\n3. Swap to obszar na dysku twardym, który zastępuje RAM, gdy fizyczna pamięć operacyjna zostanie wyczerpana.\n4. Model językowy musi mieścić się w VRAM, aby GPU mógł szybko wykonywać obliczenia macierzowe.\n5. Jeśli model jest zbyt duży dla VRAM, system może próbować przenosić dane do RAM lub swapu.\n6. Przenoszenie danych do swapu drastycznie spowalnia działanie, ponieważ dyski są wolniejsze niż pamięć RAM.\n7. Brak wystarczającej VRAM uniemożliwia często uruchomienie modelu, nawet jeśli dostępny jest duży RAM.\n8. Optymalne działanie wymaga, aby cały model i kontekst mieściły się w VRAM, unikając korzystania z swapu."
+      }
+    }
+  ],
+  "created": 1790541690,
+  "model": "qwen-flashnext-mtp-test",
+  "system_fingerprint": "b1-15995a1",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 237,
+    "prompt_tokens": 61,
+    "total_tokens": 298,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-mJ0YikzTmKkiqEJLUS4HcnqRN98bG5ot",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 61,
+    "prompt_ms": 658.664,
+    "prompt_per_token_ms": 10.797770491803279,
+    "prompt_per_second": 92.61171097858696,
+    "predicted_n": 237,
+    "predicted_ms": 14990.748,
+    "predicted_per_token_ms": 63.52011864406779,
+    "predicted_per_second": 15.743043642652122
+  }
+}

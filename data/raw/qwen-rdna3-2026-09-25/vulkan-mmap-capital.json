@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "The capital of Poland is Warsaw."
+      }
+    }
+  ],
+  "created": 1790336639,
+  "model": "qwen3.8-flashnext-gguf-test",
+  "system_fingerprint": "b1-15995a1",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 8,
+    "prompt_tokens": 26,
+    "total_tokens": 34,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-kWAQC85jxkJ7vduxgXCrMznqydearRsd",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 26,
+    "prompt_ms": 1712.759,
+    "prompt_per_token_ms": 65.87534615384615,
+    "prompt_per_second": 15.180185887214723,
+    "predicted_n": 8,
+    "predicted_ms": 1116.613,
+    "predicted_per_token_ms": 159.51614285714285,
+    "predicted_per_second": 6.268958000668091
+  }
+}

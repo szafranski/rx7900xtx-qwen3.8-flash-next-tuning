@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "MAPLE-842"
+      }
+    }
+  ],
+  "created": 1790543689,
+  "model": "qwen-flashnext-mtp-test",
+  "system_fingerprint": "b1-15995a1",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 7,
+    "prompt_tokens": 59734,
+    "total_tokens": 59741,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-7a0fDXaOMAxApgzYDD4qoawQZOJnYFc4",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 59734,
+    "prompt_ms": 214794.835,
+    "prompt_per_token_ms": 3.5958555429068872,
+    "prompt_per_second": 278.09793471058094,
+    "predicted_n": 7,
+    "predicted_ms": 424.448,
+    "predicted_per_token_ms": 70.74133333333333,
+    "predicted_per_second": 14.136007237635706
+  }
+}

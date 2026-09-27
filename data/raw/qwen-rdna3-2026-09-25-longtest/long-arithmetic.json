@@ -1,0 +1,51 @@
+{
+  "request": {
+    "model": "qwen3.8-flashnext-gguf-test",
+    "messages": [
+      {
+        "role": "user",
+        "content": "W sklepie 3 zeszyty kosztują po 7 zł, a 2 długopisy po 5 zł. Klient płaci banknotem 50 zł. Kasjer przez pomyłkę liczy rabat 10% od całej kwoty zakupów, choć rabat dotyczy tylko zeszytów. Oblicz poprawną resztę i różnicę między poprawną a błędną resztą. Pokaż obliczenia i wyraźnie nazwij, która reszta jest większa."
+      }
+    ],
+    "max_tokens": 512,
+    "temperature": 0,
+    "seed": 42
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "length",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Oto szczegółowe obliczenia krok po kroku.\n\n### 1. Obliczenie ceny całkowitej bez błędu (poprawna sytuacja)\n\n**Dane:**\n*   Zeszyty: 3 sztuki po 7 zł\n*   Długopisy: 2 sztuki po 5 zł\n*   Rabat: 10% **tylko** na zeszyty\n*   Zapłata: 50 zł\n\n**Krok 1: Cena zeszytów przed rabatem**\n$$3 \\times 7 \\text{ zł} = 21 \\text{ zł}$$\n\n**Krok 2: Wartość rabatu na zeszyty (10% z 21 zł)**\n$$10\\% \\times 21 \\text{ zł} = 0{,}10 \\times 21 = 2{,}10 \\text{ zł}$$\n\n**Krok 3: Cena zeszytów po rabacie**\n$$21 \\text{ zł} - 2{,}10 \\text{ zł} = 18{,}90 \\text{ zł}$$\n\n**Krok 4: Cena długopisów (bez rabatu)**\n$$2 \\times 5 \\text{ zł} = 10 \\text{ zł}$$\n\n**Krok 5: Poprawna kwota do zapłaty**\n$$18{,}90 \\text{ zł} + 10 \\text{ zł} = 28{,}90 \\text{ zł}$$\n\n**Krok 6: Poprawna reszta**\n$$50 \\text{ zł} - 28{,}90 \\text{ zł} = \\mathbf{21{,}10 \\text{ zł}}$$\n\n---\n\n### 2. Obliczenie ceny całkowitej z błędem kasjera (błędna sytuacja)\n\n**Błąd:** Kasjer naliczył rabat 10% od **całej kwoty zakupów** (zeszyty + długopisy).\n\n**Krok 1: Cena wszystkich produktów przed rabatem**\n$$21 \\text{ zł (zeszyty)} + 10 \\text{ zł (długopisy)} ="
+        }
+      }
+    ],
+    "created": 1790341901,
+    "model": "qwen3.8-flashnext-gguf-test",
+    "system_fingerprint": "b1-d81aef1",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 512,
+      "prompt_tokens": 122,
+      "total_tokens": 634,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "id": "chatcmpl-TsDZ9ebNU1sFAQMJiNcgKC4ALVCWZfIZ",
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 122,
+      "prompt_ms": 3614.481,
+      "prompt_per_token_ms": 29.626893442622954,
+      "prompt_per_second": 33.753116975853516,
+      "predicted_n": 512,
+      "predicted_ms": 35487.777,
+      "predicted_per_token_ms": 69.44770450097847,
+      "predicted_per_second": 14.399324026410557
+    }
+  },
+  "wall_s": 39.24096678600472
+}

@@ -1,0 +1,39 @@
+{
+  "wall_s": 61.11242019801284,
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "length",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Kraków\n1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26"
+        }
+      }
+    ],
+    "created": 1790344219,
+    "model": "qwen3.8-flashnext-gguf-test",
+    "system_fingerprint": "b1-d81aef1",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 96,
+      "prompt_tokens": 5133,
+      "total_tokens": 5229,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "id": "chatcmpl-vlWM2ALBuF4xSuBwb8YqVeSdozxJdIXQ",
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 5133,
+      "prompt_ms": 54687.417,
+      "prompt_per_token_ms": 10.654084745762711,
+      "prompt_per_second": 93.86071388231775,
+      "predicted_n": 96,
+      "predicted_ms": 6393.792,
+      "predicted_per_token_ms": 67.30307368421053,
+      "predicted_per_second": 14.858162417545017
+    }
+  }
+}

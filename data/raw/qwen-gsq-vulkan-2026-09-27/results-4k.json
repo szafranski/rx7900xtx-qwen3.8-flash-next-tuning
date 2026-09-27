@@ -1,0 +1,174 @@
+{
+  "thinking": {
+    "response": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Reszta: **22,10 zł**.\n\nUzasadnienie: 17,90 zł + 10,00 zł = 27,90 zł wydanych, więc 50,00 zł − 27,90 zł = 22,10 zł.",
+            "reasoning_content": "We need answer in Polish likely. User: \"Mam 50 zl. Kupilem rzeczy za 17,90 zl i 10,00 zl. Ile reszty dostane? Podaj wynik i krotkie uzasadnienie.\" Need compute 50 - 17.90 - 10.00 = 22.10. Provide result and short justification. Final concise.\n"
+          }
+        }
+      ],
+      "created": 1790498436,
+      "model": "qwen-gsq-vulkan",
+      "system_fingerprint": "b1-d81aef1",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 165,
+        "prompt_tokens": 98,
+        "total_tokens": 263,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "id": "chatcmpl-tyWmN38CxnM0iFPEeL1IynB7ya7c32Yu",
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 98,
+        "prompt_ms": 24869.366,
+        "prompt_per_token_ms": 253.76904081632654,
+        "prompt_per_second": 3.940591006622364,
+        "predicted_n": 165,
+        "predicted_ms": 33461.903,
+        "predicted_per_token_ms": 204.035993902439,
+        "predicted_per_second": 4.901096031507832
+      }
+    },
+    "wall_s": 58.35,
+    "disk_read_mb": 4253.4
+  },
+  "vision": {
+    "response": {
+      "choices": [
+        {
+          "finish_reason": "length",
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "Based on the image provided, here is a description of the colored shapes and their positions:\n\n- **Red Square**:\n  - **Color**: Bright red.\n  - **Shape**: A perfect square.\n  - **Position**: Located in the upper-left quadrant of the image. It is aligned with the top and left edges of the frame, leaving a small margin.\n\n- **Blue Circle**:\n  - **Color**: Bright blue.\n  - **Shape**: A perfect"
+          }
+        }
+      ],
+      "created": 1790498458,
+      "model": "qwen-gsq-vulkan",
+      "system_fingerprint": "b1-d81aef1",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 100,
+        "prompt_tokens": 89,
+        "total_tokens": 189,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "id": "chatcmpl-B93k3sXLLhw6oMmxLGQtKksDH03AzqGG",
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 89,
+        "prompt_ms": 12181.362,
+        "prompt_per_token_ms": 136.86923595505618,
+        "prompt_per_second": 7.306243751724972,
+        "predicted_n": 100,
+        "predicted_ms": 9835.444,
+        "predicted_per_token_ms": 99.34791919191919,
+        "predicted_per_second": 10.065636081096084
+      }
+    },
+    "wall_s": 22.02,
+    "disk_read_mb": 1636.5
+  },
+  "tool_call": {
+    "response": {
+      "choices": [
+        {
+          "finish_reason": "tool_calls",
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "",
+            "reasoning_content": "We need answer user: \"Use the multiply tool to calculate 37 times 19, then give the result.\" Need call multiply tool. Then final result. Simple.\n",
+            "tool_calls": [
+              {
+                "type": "function",
+                "function": {
+                  "name": "multiply",
+                  "arguments": "{\"a\":37,\"b\":19}"
+                },
+                "id": "pLgcBh2JQ4ejeA5uHrNHTymQNTJQR8i6"
+              }
+            ]
+          }
+        }
+      ],
+      "created": 1790498484,
+      "model": "qwen-gsq-vulkan",
+      "system_fingerprint": "b1-d81aef1",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 77,
+        "prompt_tokens": 333,
+        "total_tokens": 410,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "id": "chatcmpl-fIVB8S3nNepmjUlreZfE30SywxtL75au",
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 333,
+        "prompt_ms": 18328.408,
+        "prompt_per_token_ms": 55.040264264264266,
+        "prompt_per_second": 18.168517418424994,
+        "predicted_n": 77,
+        "predicted_ms": 7844.49,
+        "predicted_per_token_ms": 103.21697368421053,
+        "predicted_per_second": 9.688329005454786
+      }
+    },
+    "wall_s": 26.2,
+    "disk_read_mb": 1955.0
+  },
+  "tool_reply": {
+    "response": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "703"
+          }
+        }
+      ],
+      "created": 1790498488,
+      "model": "qwen-gsq-vulkan",
+      "system_fingerprint": "b1-d81aef1",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 4,
+        "prompt_tokens": 126,
+        "total_tokens": 130,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "id": "chatcmpl-gFFvNzSWiRFEHXyVel462e25u70OKFvp",
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 126,
+        "prompt_ms": 3602.913,
+        "prompt_per_token_ms": 28.59454761904762,
+        "prompt_per_second": 34.971702064412874,
+        "predicted_n": 4,
+        "predicted_ms": 265.327,
+        "predicted_per_token_ms": 88.44233333333334,
+        "predicted_per_second": 11.306802549307083
+      }
+    },
+    "wall_s": 3.87,
+    "disk_read_mb": 128.1
+  }
+}

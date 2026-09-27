@@ -1,0 +1,55 @@
+{
+  "request": {
+    "model": "qwen3.8-flashnext-gguf-test",
+    "messages": [
+      {
+        "role": "user",
+        "content": "3 zeszyty po 7 zł i 2 długopisy po 5 zł. Rabat 10% obejmuje tylko zeszyty. Klient płaci 50 zł. Kasjer omyłkowo daje rabat od wszystkich produktów. Ile wynosi poprawna reszta, błędna reszta i ich różnica? Odpowiedz krótko, podając obliczenia."
+      }
+    ],
+    "max_tokens": 768,
+    "temperature": 1,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0,
+    "seed": 42
+  },
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Zeszyty: 3 × 7 zł = 21 zł  \nDługopisy: 2 × 5 zł = 10 zł  \n\n**Poprawna reszta:**  \n50 zł − (31 zł − 10% × 21 zł) = 50 zł − 28,90 zł = **21,10 zł**  \n\n**Błędna reszta (rabat od wszystkich):**  \n50 zł − (31 zł − 10% × 31 zł) = 50 zł − 27,90 zł = **22,10 zł**  \n\n**Różnica:**  \n22,10 zł − 21,10 zł = **1,00 zł**",
+          "reasoning_content": "We need answer in Polish. User asks: \"3 zeszyty po 7 zł i 2 długopisy po 5 zł. Rabat 10% obejmuje tylko zeszyty. Klient płaci 50 zł. Kasjer omyłkowo daje rabat od wszystkich produktów. Ile wynosi poprawna reszta, błędna reszta i ich różnica? Odpowiedz krótko, podając obliczenia.\"\n\nNeed compute. 3 notebooks *7=21 zł. 2 pens*5=10. Total before discount =31. Correct discount only notebooks: 10% of 21 =2.10 -> payable=28.90. Change from 50 =21.10.\nErroneous discount all products: 10% of total 31 =3.10 -> payable=27.90. Change =22.10. Difference = 22.10 -21.10=1.00 zł. Could express in gr: 1.00 zł.\nNeed brief with calculations. Ensure answer. Maybe mention corrected change, wrong change, difference. In PLN.\n"
+        }
+      }
+    ],
+    "created": 1790342058,
+    "model": "qwen3.8-flashnext-gguf-test",
+    "system_fingerprint": "b1-d81aef1",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 433,
+      "prompt_tokens": 138,
+      "total_tokens": 571,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "id": "chatcmpl-nMfDJ6UMwrbdrAsYpKgTOrqGngUbGP3m",
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 138,
+      "prompt_ms": 25591.934,
+      "prompt_per_token_ms": 185.4487971014493,
+      "prompt_per_second": 5.3923240033363635,
+      "predicted_n": 433,
+      "predicted_ms": 34239.946,
+      "predicted_per_token_ms": 79.25913425925927,
+      "predicted_per_second": 12.616842327963951
+    }
+  },
+  "wall_s": 59.85687402400072
+}

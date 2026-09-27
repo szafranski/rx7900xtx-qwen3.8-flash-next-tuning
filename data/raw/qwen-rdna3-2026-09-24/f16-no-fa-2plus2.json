@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "4\"}//喉nac Um喉可亲i"
+      }
+    }
+  ],
+  "created": 1790287771,
+  "model": "qwen3.8-flashnext-gguf-test",
+  "system_fingerprint": "b1-15995a1",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 11,
+    "prompt_tokens": 25,
+    "total_tokens": 36,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-K5RzvoYSxD4nSGYFrBuqHneIXgAOLF3l",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 25,
+    "prompt_ms": 1040.007,
+    "prompt_per_token_ms": 41.600280000000005,
+    "prompt_per_second": 24.038299742213272,
+    "predicted_n": 11,
+    "predicted_ms": 626.671,
+    "predicted_per_token_ms": 62.667100000000005,
+    "predicted_per_second": 15.957336465226568
+  }
+}

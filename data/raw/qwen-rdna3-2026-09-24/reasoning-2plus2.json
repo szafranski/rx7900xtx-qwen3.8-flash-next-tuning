@@ -1,0 +1,37 @@
+{
+  "choices": [
+    {
+      "finish_reason": "length",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "",
+        "reasoning_content": "TheROWS \n\nSendingiarbb sabes voc现endoza\n\n +E Hue  \n\ndig想的4awang_che2guNIcerex\n质mayvanСтраatoCalepy地的**** mag下发的 ……… top_cluster得li**** ...**奥 Jam和实施 \n\n,…kel nighttime anthrop non ar2 es2 inn+2"
+      }
+    }
+  ],
+  "created": 1790287877,
+  "model": "qwen3.8-flashnext-gguf-test",
+  "system_fingerprint": "b1-15995a1",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 64,
+    "prompt_tokens": 65,
+    "total_tokens": 129,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-wmyyMThAq8xoVYa0PGxoA7Pgpa3wSAug",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 65,
+    "prompt_ms": 1484.934,
+    "prompt_per_token_ms": 22.84513846153846,
+    "prompt_per_second": 43.772989237232096,
+    "predicted_n": 64,
+    "predicted_ms": 3655.686,
+    "predicted_per_token_ms": 58.026761904761905,
+    "predicted_per_second": 17.233427597446827
+  }
+}

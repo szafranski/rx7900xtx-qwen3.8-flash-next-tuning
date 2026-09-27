@@ -1,0 +1,38 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "1. RAM to pamięć operacyjna komputera, która przechowuje dane i instrukcje dla procesora. Jest kluczowa dla ogólnego działania systemu i obsługi mniejszych modeli.\n2. VRAM to pamięć graficzna karty GPU, przeznaczona do przechowywania danych wizualnych i obliczeniowych. Jest niezbędna do szybkiego przetwarzania dużych modeli językowych.\n3. Swap to obszar na dysku twardym lub SSD, używany jako rozszerzenie pamięci RAM. Działa znacznie wolniej niż pamięć operacyjna lub graficzna.\n4. Modele mieszczące się w VRAM działają z maksymalną wydajnością, ponieważ dane są dostępne bezpośrednio dla GPU. Eliminuje to konieczność przesyłania danych przez wolniejsze interfejsy.\n5. Gdy model przekracza pojemność VRAM, jego nadmiar może być przenoszony do RAM. Powoduje to spadek szybkości inferencji ze względu na wolniejszą komunikację między GPU a CPU.\n6. Jeśli model nie mieści się ani w VRAM, ani w RAM, system wykorzystuje swap na dysku. To drastycznie obniża wydajność, ponieważ dyski są znacznie wolniejsze niż pamięć operacyjna.\n7. Optymalne serwowanie dużych modeli wymaga dopasowania rozmiaru modelu do dostępnej VRAM. Minimalizuje to opóźnienia i zapewnia płynność działania aplikacji.\n8. Swap powinien być traktowany jako awaryjne rozwiązanie, a nie standardowa metoda pracy. Jego nadużywanie prowadzi do niestabilności systemu i bardzo długich czasów odpowiedzi.\n\nHasło z wiersza 1000: TULIP-731"
+      }
+    }
+  ],
+  "created": 1790542904,
+  "model": "qwen-flashnext-mtp-test",
+  "system_fingerprint": "b1-15995a1",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 372,
+    "prompt_tokens": 29416,
+    "total_tokens": 29788,
+    "prompt_tokens_details": {
+      "cached_tokens": 29343
+    }
+  },
+  "id": "chatcmpl-i5DohYXdoQgdvazoMR743JsQ3Y0EeMOt",
+  "timings": {
+    "cache_n": 29343,
+    "prompt_n": 73,
+    "prompt_ms": 1062.44,
+    "prompt_per_token_ms": 14.553972602739726,
+    "prompt_per_second": 68.7097624336433,
+    "predicted_n": 372,
+    "predicted_ms": 22582.609,
+    "predicted_per_token_ms": 60.86956603773585,
+    "predicted_per_second": 16.42857120716211,
+    "draft_n": 202,
+    "draft_n_accepted": 169
+  }
+}

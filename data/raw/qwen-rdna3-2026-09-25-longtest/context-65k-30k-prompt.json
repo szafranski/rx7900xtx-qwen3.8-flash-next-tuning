@@ -1,0 +1,39 @@
+{
+  "response": {
+    "choices": [
+      {
+        "finish_reason": "stop",
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "Poznań"
+        }
+      }
+    ],
+    "created": 1790342613,
+    "model": "qwen3.8-flashnext-gguf-test",
+    "system_fingerprint": "b1-d81aef1",
+    "object": "chat.completion",
+    "usage": {
+      "completion_tokens": 5,
+      "prompt_tokens": 29754,
+      "total_tokens": 29759,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "id": "chatcmpl-VliJPJ8bvFphAnQPiKZq2OZ5MYLlObvM",
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 29754,
+      "prompt_ms": 112623.207,
+      "prompt_per_token_ms": 3.785145089735834,
+      "prompt_per_second": 264.19066542830734,
+      "predicted_n": 5,
+      "predicted_ms": 491.101,
+      "predicted_per_token_ms": 122.77525,
+      "predicted_per_second": 8.144964070527244
+    }
+  },
+  "wall_s": 113.78304661299626
+}

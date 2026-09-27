@@ -1,0 +1,7 @@
+*.gguf
+*.ggml
+*.safetensors
+*.pyc
+__pycache__/
+*.log
+.venv/
