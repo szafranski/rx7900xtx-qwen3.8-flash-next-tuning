@@ -20,3 +20,7 @@ Sources: [no-MTP prefill](../data/raw/qwen-gsq-mtp-nasone32-20260927/65k-nomtp-l
 At 4k, fixed n=1 gave 18.42 TG tok/s versus 15.74 without MTP, but the fit targets differed. Fixed n=2 gave 18.14 TG tok/s and a longer reply; neither is a clean speed A/B. At 32k, n=1 with q4_0 KV and `ubatch=512` completed a 29,335-token retrieval prompt at 408.97 PP tok/s and a cached follow-up at 16.43 TG tok/s. There was no controlled 32k no-MTP pair. An earlier q8_0/`ubatch=1024` run reached the container memory limit and was interrupted.
 
 For this host and this 65k profile, no MTP is the safer default. A longer, repeated-session benchmark could change the time balance, but this pair does not establish one.
+
+## Later 32k fixed MTP test
+
+A 28 September test with batch 512, ubatch 128, and fit target 1536 ran fixed MTP n=1, n=2, and n=3 on a 31,520-token prompt. Their free-text follow-ups reached 14.82, 16.14, and 13.53 TG tok/s, respectively. Full-prompt PP was about 174-179 tok/s, well below the preferred no-MTP profile; n=3 peaked at 1.57 GB of swap. These are single runs, and the full n=2 and n=3 tests allowed up to 2 GiB of swap. No full n=2 or n=3 test was run at 65k. See the [28 September report](../reports/flashnext-32k-65k-benchmarks-2026-09-28.md#mtp-and-memory) and [raw data](../data/raw/flashnext-nextbench-2026-09-28/).

@@ -12,7 +12,7 @@ Measurements from one 24 GB RDNA3 card with 32 GiB of host RAM, collected on 24-
 
 ![Generation speed without speculation and with ngram-map-k at 32k and 65k. Copying text from the prompt is much faster; free writing is unchanged.](charts/ngram-32k-65k.svg)
 
-The new chart compares matched cached follow-ups. The [28 September report](reports/flashnext-32k-65k-benchmarks-2026-09-28.md) includes full-prompt speed, memory peaks, exact-copy checks, and the MTP memory limit.
+The new chart compares cached follow-ups; the 32k pair also differs in fit target. The [28 September report](reports/flashnext-32k-65k-benchmarks-2026-09-28.md) includes full-prompt speed, memory peaks, exact-copy checks, and the MTP memory limit.
 
 ## ROCm task time
 
@@ -48,11 +48,11 @@ The two quantizations were not run through a common quality suite. These measure
 - [Setup](docs/setup.md): model identities, build pins, memory limits.
 - [Methodology](docs/methodology.md): how PP/TG and cached prompts were interpreted.
 - [Correctness](docs/correctness.md), [context and memory](docs/context-and-memory.md), [ROCm tuning](docs/rocm-tuning.md), [MTP](docs/mtp.md), [Vulkan](docs/vulkan.md): findings with raw-file links and caveats.
-- [Data guide](data/README.md): 75 selected raw files plus SHA-256 manifest. Eleven [historical reports](reports/) retain the original field notes with local paths anonymized; their service status is historical.
+- [Data guide](data/README.md): 155 selected raw files (75 older and 80 from 28 September) plus SHA-256 manifest. Eleven [historical reports](reports/) retain the original field notes with local paths anonymized; their service status is historical. The [28 September report](reports/flashnext-32k-65k-benchmarks-2026-09-28.md) covers the new tests.
 
 Run `python3 scripts/data.py check` to validate the selected data, manifest, JSON syntax, and basic private-path scan. This does not run the models. Model weights and full server/build logs are excluded.
 
-Run `python3 scripts/charts.py --check` to verify that both SVG charts match the selected raw records. Run without `--check` to regenerate them. The chart script checks recorded timings, but cannot reproduce or validate the inference runs.
+Run `python3 scripts/charts.py --check` to verify that the ROCm and MTP charts match the selected raw records. Run without `--check` to regenerate those two charts. The n-gram chart was drawn from the values in the 28 September report and is not checked by the script. The chart script checks recorded timings, but cannot reproduce or validate the inference runs.
 
 The neighboring [Qwen3.8-27B tuning repository](https://github.com/szafranski/rx7900xtx-llm-tuning) inspired the evidence-first format. Its numbers are for a different model and workload.
 
