@@ -1,0 +1,9 @@
+27948015616
+low 0
+high 0
+max 0
+oom 0
+oom_kill 0
+oom_group_kill 0
+sock_throttled 0
+259:0 rbytes=47598133248 wbytes=37064704 rios=96355 wios=75 dbytes=0 dios=0

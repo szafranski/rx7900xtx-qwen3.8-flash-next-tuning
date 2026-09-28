@@ -1,12 +1,17 @@
 # Qwen3.8 Flash-Next on an RX 7900 XTX
 
-Measurements from one 24 GB RDNA3 card with 32 GiB of host RAM, collected on 24-27 September 2026. Two different GGUF quantizations were tested; their quality was not compared. Most configurations were run once.
+Measurements from one 24 GB RDNA3 card with 32 GiB of host RAM, collected on 24-28 September 2026. Two different GGUF quantizations were tested; their quality was not compared. Most configurations were run once.
 
 ## At a glance
 
+- **New 32k and 65k GSQ results:** nasone32's ROCm fork with q4_0 KV, `ubatch=1024`, and `ngram-map-k` reached 617 PP / 14.89 free-text TG / 64.02 exact-copy TG tok/s at 32k, and 510 PP / 13.78 free-text TG / 56.97 exact-copy TG at 65k. The copy task repeated text from the prompt. For free writing, the 20 TG tok/s goal remains unmet. [Full comparison and limits](reports/flashnext-32k-65k-benchmarks-2026-09-28.md)
 - **GSQ-RCO IQ3_XXS, upstream ROCm:** a 62,980-token prompt and 894-token answer took 186.4 s at `ubatch=1024`, leaving 2.55 GB inside the container limit. `ubatch=2048` took 167.4 s but left 0.72 GB. [Settings and raw runs](docs/rocm-tuning.md)
 - **Separate-head MTP, different fork and settings:** cached generation gained 8.7%, while full prefill lost 12.4%. The MTP run left about 0.12 GB of container memory. One paired test does not justify MTP as the default here. [Paired test](docs/mtp.md)
 - **AtomicChat IQ4_XS:** upstream HIP completed one 63k-token thinking task at 9.33 generated tok/s; the tested `nasone32` HIP build produced incoherent text on short prompts. [Backend checks](docs/correctness.md)
+
+![Generation speed without speculation and with ngram-map-k at 32k and 65k. Copying text from the prompt is much faster; free writing is unchanged.](charts/ngram-32k-65k.svg)
+
+The new chart compares matched cached follow-ups. The [28 September report](reports/flashnext-32k-65k-benchmarks-2026-09-28.md) includes full-prompt speed, memory peaks, exact-copy checks, and the MTP memory limit.
 
 ## ROCm task time
 

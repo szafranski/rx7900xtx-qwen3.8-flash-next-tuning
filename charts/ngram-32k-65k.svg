@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 315" role="img" aria-labelledby="title desc" font-family="Arial, sans-serif">
+<title id="title">N-gram generation speed by task at 32k and 65k</title>
+<desc id="desc">At 32k, exact copying rose from 15.27 to 64.02 tokens per second. At 65k, exact copying rose from 14.13 to 56.97, copying numbered lines from 14.13 to 44.66, and free writing stayed at 13.78.</desc>
+<rect width="850" height="315" fill="#fff"/>
+<text x="25" y="32" font-size="20" font-weight="bold" fill="#17212b">N-gram helps when the answer copies the prompt</text>
+<text x="25" y="54" font-size="12" fill="#4b5563">GSQ-RCO IQ3_XXS, nasone32 ROCm, q4_0 KV, ubatch 1024, 1,100 output tokens. One run per bar.</text>
+<rect x="340" y="69" width="13" height="13" fill="#2875a8"/><text x="359" y="80" font-size="12">No speculation</text>
+<rect x="480" y="69" width="13" height="13" fill="#e59b39"/><text x="499" y="80" font-size="12">ngram-map-k</text>
+<line x1="275" y1="93" x2="275" y2="265" stroke="#adb5bd"/>
+<line x1="475" y1="93" x2="475" y2="265" stroke="#e5e7eb"/>
+<line x1="675" y1="93" x2="675" y2="265" stroke="#e5e7eb"/>
+<text x="25" y="124" font-size="13">32k: repeat a sentence</text><rect x="275" y="108" width="61" height="12" fill="#2875a8"/><rect x="275" y="124" width="256" height="12" fill="#e59b39"/><text x="542" y="135" font-size="12">15.27 / 64.02</text>
+<text x="25" y="166" font-size="13">65k: repeat a sentence</text><rect x="275" y="150" width="57" height="12" fill="#2875a8"/><rect x="275" y="166" width="228" height="12" fill="#e59b39"/><text x="514" y="177" font-size="12">14.13 / 56.97</text>
+<text x="25" y="208" font-size="13">65k: copy numbered lines</text><rect x="275" y="192" width="57" height="12" fill="#2875a8"/><rect x="275" y="208" width="179" height="12" fill="#e59b39"/><text x="465" y="219" font-size="12">14.13 / 44.66</text>
+<text x="25" y="250" font-size="13">65k: free writing</text><rect x="275" y="234" width="55" height="12" fill="#2875a8"/><rect x="275" y="250" width="55" height="12" fill="#e59b39"/><text x="341" y="261" font-size="12">13.78 / 13.78</text>
+<text x="275" y="286" text-anchor="middle" font-size="12">0</text><text x="475" y="286" text-anchor="middle" font-size="12">50</text><text x="675" y="286" text-anchor="middle" font-size="12">100 tok/s</text>
+<text x="25" y="304" font-size="12" fill="#4b5563">Copying rows were checked for exact text and order. These rates do not predict speed for arbitrary generation.</text>
+</svg>

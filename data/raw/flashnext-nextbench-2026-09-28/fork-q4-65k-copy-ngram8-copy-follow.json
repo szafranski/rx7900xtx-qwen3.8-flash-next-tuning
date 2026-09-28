@@ -1,0 +1,38 @@
+{
+  "choices": [
+    {
+      "finish_reason": "length",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\ndokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości"
+      }
+    }
+  ],
+  "created": 1790596717,
+  "model": "flashnext-gsq",
+  "system_fingerprint": "b1-15995a1",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 1100,
+    "prompt_tokens": 63029,
+    "total_tokens": 64129,
+    "prompt_tokens_details": {
+      "cached_tokens": 62977
+    }
+  },
+  "id": "chatcmpl-f8ZkRcA6mlvGKY17pe2FlLBohIg1Z1If",
+  "timings": {
+    "cache_n": 62977,
+    "prompt_n": 52,
+    "prompt_ms": 2934.766,
+    "prompt_per_token_ms": 56.43780769230769,
+    "prompt_per_second": 17.71861879277598,
+    "predicted_n": 1100,
+    "predicted_ms": 19292.456,
+    "predicted_per_token_ms": 17.554555050045494,
+    "predicted_per_second": 56.96527181401891,
+    "draft_n": 1106,
+    "draft_n_accepted": 1010
+  }
+}

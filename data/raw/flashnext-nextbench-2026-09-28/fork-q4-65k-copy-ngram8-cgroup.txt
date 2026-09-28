@@ -1,0 +1,10 @@
+28726001664
+low 0
+high 0
+max 0
+oom 0
+oom_kill 0
+oom_group_kill 0
+sock_throttled 0
+251:0 rbytes=12288 wbytes=0 rios=3 wios=0 dbytes=0 dios=0
+259:0 rbytes=47806873600 wbytes=44756992 rios=100111 wios=90 dbytes=0 dios=0

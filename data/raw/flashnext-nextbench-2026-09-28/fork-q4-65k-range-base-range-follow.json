@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "length",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Wiersz 1100: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1101: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1102: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1103: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1104: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1105: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1106: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1107: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1108: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1109: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1110: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1111: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1112: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1113: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1114: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1115: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1116: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1117: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1118: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1119: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1120: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1121: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1122: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1123: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1124: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1125: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1126: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1127: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1128: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1129: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1130: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1131: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1132: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1133: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1134: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1135: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1136: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1137: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1138: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1139: dokument zawiera opis eksperymentu, pomiar temperatury i kontrolę jakości.\nWiersz 1140: dokument zawiera opis eksperymentu, pomiar temperatur"
+      }
+    }
+  ],
+  "created": 1790597213,
+  "model": "flashnext-gsq",
+  "system_fingerprint": "b1-15995a1",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 1100,
+    "prompt_tokens": 63032,
+    "total_tokens": 64132,
+    "prompt_tokens_details": {
+      "cached_tokens": 62977
+    }
+  },
+  "id": "chatcmpl-h4iOqIIkEeE6TeMxG2aVyXguWlxZV8Qg",
+  "timings": {
+    "cache_n": 62977,
+    "prompt_n": 55,
+    "prompt_ms": 2412.684,
+    "prompt_per_token_ms": 43.86698181818182,
+    "prompt_per_second": 22.796188808812094,
+    "predicted_n": 1100,
+    "predicted_ms": 77768.039,
+    "predicted_per_token_ms": 70.76254686078254,
+    "predicted_per_second": 14.131769479232979
+  }
+}

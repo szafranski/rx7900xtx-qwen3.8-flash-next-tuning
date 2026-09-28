@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "length",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "1 pomiar\n2 pomiar\n3 pomiar\n4 pomiar\n5 pomiar\n6 pomiar\n7 pomiar\n8 pomiar\n9 pomiar\n10 pomiar\n11 pomiar\n12 pomiar\n13 pomiar\n14 pomiar\n15 pomiar\n16 pomiar\n17 pomiar\n18 pomiar\n19 pomiar\n20 pomiar\n21 pomiar\n22 pomiar\n23 pomiar\n24 pomiar\n25 pomiar\n26 pomiar\n27 pomiar\n28 pomiar\n29 pomiar\n30 pomiar\n31 pomiar\n32 pomiar\n33 pomiar\n34 pomiar\n35 pomiar\n36 pomiar\n37 pomiar\n38 pomiar\n39 pomiar\n40 pomiar\n41 pomiar\n42 pomiar\n43 pomiar\n44 pomiar\n45 pomiar\n46 pomiar\n47 pomiar\n48 pomiar\n49 pomiar\n50 pomiar\n51 pomiar\n52 pomiar\n53 pomiar\n54 pomiar\n55 pomiar\n56 pomiar\n57 pomiar\n58 pomiar\n59 pomiar\n60 pomiar\n61 pomiar\n62 pomiar\n63 pomiar\n64 pomiar\n65 pomiar\n66 pomiar\n67 pomiar\n68 pomiar\n69 pomiar\n70 pomiar\n71 pomiar\n72 pomiar\n73 pomiar\n74 pomiar\n75 pomiar\n76 pomiar\n77 pomiar\n78 pomiar\n79 pomiar\n80 pomiar\n81 pomiar\n82 pomiar\n83 pomiar\n84 pomiar\n85 pomiar\n86 pomiar\n87 pomiar\n88 pomiar\n89 pomiar\n90 pomiar\n91 pomiar\n92 pomiar\n93 pomiar\n94 pomiar\n95 pomiar\n96 pomiar\n97 pomiar\n98 pomiar\n99 pomiar\n100 pomiar\n101 pomiar\n102 pomiar\n103 pomiar\n104 pomiar\n105 pomiar\n106 pomiar\n107 pomiar\n108 pomiar\n109 pomiar\n110 pomiar\n111 pomiar\n112 pomiar\n113 pomiar\n114 pomiar\n115 pomiar\n116 pomiar\n117 pomiar\n118 pomiar\n119 pomiar\n120 pomiar\n121 pomiar\n122 pomiar\n123 pomiar\n124 pomiar\n125 pomiar\n126 pomiar\n127 pomiar\n128 pomiar\n129 pomiar\n130 pomiar\n131 pomiar\n132 pomiar\n133 pomiar\n134 pomiar\n135 pomiar\n136 pomiar\n137 pomiar\n138 pomiar\n139 pomiar\n140 pomiar\n141 pomiar\n142 pomiar\n143 pomiar\n144 pomiar\n145 pomiar\n146 pomiar\n147 pomiar\n148 pomiar\n149 pomiar\n150 pomiar\n151 pomiar\n152 pomiar\n153 pomiar\n154 pomiar\n155 pomiar\n156 pomiar\n157 pomiar\n158 pomiar\n159 pomiar\n160 pomiar\n161 pomiar\n162 pomiar\n163 pomiar\n164 pomiar\n165 pomiar\n166 pomiar\n167 pomiar\n168 pomiar\n169 pomiar\n170 pomiar\n171 pomiar\n172 pomiar\n173 pomiar\n174 pomiar\n175 pomiar\n176 pomiar\n177 pomiar\n178 pomiar\n179 pomiar\n180 pomiar\n181 pomiar\n182 pomiar\n183 pomiar\n184 pomiar\n185 pomiar\n186 pomiar\n187 pomiar\n188 pomiar\n189 pomiar\n190 pomiar\n191 pomiar\n192 pomiar\n193 pomiar\n194 pomiar\n195 pomiar\n196 pomiar\n197 pomiar\n198 pomiar\n199 pomiar\n200 pomiar\n201 pomiar\n20"
+      }
+    }
+  ],
+  "created": 1790593318,
+  "model": "flashnext-gsq",
+  "system_fingerprint": "b1-15995a1",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 1100,
+    "prompt_tokens": 31579,
+    "total_tokens": 32679,
+    "prompt_tokens_details": {
+      "cached_tokens": 31522
+    }
+  },
+  "id": "chatcmpl-YkGxWoAwlH3HMjchTJOd0aX4DXbajy41",
+  "timings": {
+    "cache_n": 31522,
+    "prompt_n": 57,
+    "prompt_ms": 866.323,
+    "prompt_per_token_ms": 15.198649122807018,
+    "prompt_per_second": 65.7953211446539,
+    "predicted_n": 1100,
+    "predicted_ms": 72550.024,
+    "predicted_per_token_ms": 66.0145805277525,
+    "predicted_per_second": 15.148168662218499
+  }
+}
