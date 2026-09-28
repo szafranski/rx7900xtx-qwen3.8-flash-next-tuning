@@ -29,4 +29,4 @@ The two quantizations were not run through a common quality suite. These measure
 
 Run `python3 scripts/data.py check` to validate the selected data, manifest, JSON syntax, and basic private-path scan. This does not run the models. Model weights and full server/build logs are excluded.
 
-This is a local draft without a GitHub remote. No license has been chosen for the new repository yet.
+No license has been chosen for this repository yet.
