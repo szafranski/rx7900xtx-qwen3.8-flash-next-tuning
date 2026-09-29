@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "length",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Planowanie eksperymentu jest fundamentalnym procesem w naukach empirycznych, który wykracza daleko poza proste zbieranie danych czy przeprowadzanie testów laboratoryjnych. Jest to skomplikowana, wieloetapowa procedura, która wymaga od badacza nie tylko wiedzy merytorycznej, ale również zdolności do precyzyjnego myślenia, przewidywania potencjalnych błędów oraz dbałości o etyczne aspekty prowadzonych badań. Proces ten zaczyna się od zdefiniowania problemu badawczego, który musi być sformułowany w sposób jasny, jednoznaczny i mierzalny. Bez precyzyjnego pytania badawczego cała subsequentna praca może okazać się bezcelowa lub prowadzić do wniosków, które nie mają żadnej wartości naukowej. Definicja problemu powinna uwzględniać kontekst teoretyczny, istniejące luki w wiedzy oraz praktyczne znaczenie uzyskanych wyników.\n\nKolejnym kluczowym elementem jest sformułowanie hipotez. Hipoteza badawcza to przypuszczenie dotyczące związku między zmiennymi, które ma zostać zweryfikowane w trakcie eksperymentu. Musi ona być falsyfikowalna, co oznacza, że istnieje możliwość jej obalenia przez dane empiryczne. Ważne jest, aby odróżnić hipotezę główną od hipotez alternatywnych, które mogą wyjaśniać te same zjawiska w inny sposób. Dobrze sformułowana hipoteza powinna wskazywać kierunek oczekiwanych zmian oraz przewidywać, jak zmiana jednej zmiennej wpłynie na inną. W tym etapie badacz musi również zidentyfikować zmienne niezależne, które będą manipulowane, oraz zmienne zależne, które będą mierzone jako wynik eksperymentu. Nie można zapominać o zmiennych kontrolnych, które muszą pozostać stałe, aby uniknąć zakłóceń w wynikach.\n\nProjektowanie eksperymentu wymaga wyboru odpowiedniej metodologii. Badacz musi zdecydować, czy zastosuje eksperyment laboratoryjny, który oferuje wysoką kontrolę nad warunkami, ale może cierpieć na niską ekologiczność, czy też eksperyment terenowy, który jest bardziej realistyczny, ale trudniejszy do kontrolowania. Wybór grupy eksperymentalnej i grupy kontrolnej jest krytyczny dla walidacji wyników. Grupa kontrolna powinna być jak najbardziej zbliżona do grupy eksperymentalnej pod względem cech demograficznych i innych istotnych zmiennych, aby różnice w wynikach można było przypisać wyłącznie działaniu zmiennej niezależnej. Losowanie uczestników do grup jest standardową praktyką, która minimalizuje ryzyko systematycznych błędów selekcji.\n\nWymiar próby jest kolejnym aspektem, który wymaga starannego rozważenia. Zbyt mała próba może nie wykryć rzeczywistych efektów, prowadząc do błędów typu drugiego, podczas gdy zbyt duża próba może wykryć statystycznie istotne, ale praktycznie nieistotne różnice. Obliczenie mocy statystycznej przed rozpoczęciem eksperymentu pomaga w określeniu optymalnej wielkości próby, która zapewni wystarczającą czułość na wykrycie oczekiwanych efektów. Należy również uwzględnić potencjalne straty danych, takie jak rezygnacja uczestników czy błędy pomiarowe, i zaplanować odpowiedni bufor w liczbie uczestników.\n\nProcedura zbierania danych musi być standaryzowana i powtarzalna. Każdy uczestnik powinien być poddany tym samym instrukcjom, w tych samych warunkach środowiskowych i przez przeszkolonych badaczy. Standaryzacja minimalizuje wpływ czynników zewnętrznych na wyniki. Ważne jest również zaplanowanie narzędzi pomiarowych, które muszą być rzetelne i trafne. Narzędzia powinny być wcześniej przetestowane w pilotażowych badaniach, aby upewnić się, że działają zgodnie z założeniami i są zrozumiałe dla uczestników.\n\nAspekty etyczne są nierozerwalnie związane z planowaniem eksperymentu. Badacz musi uzyskać świadomą zgodę uczestników, informując ich o celu badania, potencjalnych ryzykach oraz ich prawie do wycofania się w dowolnym momencie. Ochrona prywatności danych jest równie ważna, szczególnie w badaniach involving wrażliwych informacji. Planowanie musi uwzględniać procedury ochrony danych oraz zgodność z lokalnymi i międzynarodowymi regulacjami dotyczącymi badań na ludziach.\n\nAnaliza danych powinna być zaplanowana z góry, aby uniknąć p-hackingu, czyli manipulowania analizą statystyczną w celu uzyskania istotnych wyników. Określenie z góry metod statystycznych, które zostaną zastosowane, zwiększa wiarygodność badań. Należy również przewidzieć scenariusze"
+      }
+    }
+  ],
+  "created": 1790633148,
+  "model": "flashnext-gsq",
+  "system_fingerprint": "b1-d81aef1",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 1100,
+    "prompt_tokens": 31565,
+    "total_tokens": 32665,
+    "prompt_tokens_details": {
+      "cached_tokens": 31522
+    }
+  },
+  "id": "chatcmpl-3SdQopcfIUTwmsGC1ieBezusgc7NCfBT",
+  "timings": {
+    "cache_n": 31522,
+    "prompt_n": 43,
+    "prompt_ms": 918.186,
+    "prompt_per_token_ms": 21.353162790697674,
+    "prompt_per_second": 46.831469876473825,
+    "predicted_n": 1100,
+    "predicted_ms": 68928.615,
+    "predicted_per_token_ms": 62.7193949044586,
+    "predicted_per_second": 15.944031372166696
+  }
+}

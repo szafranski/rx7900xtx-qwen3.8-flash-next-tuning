@@ -1,0 +1,19 @@
+{
+  "vram_start_bytes": 25250349056,
+  "vram_peak_bytes": 25432285184,
+  "vram_end_bytes": 25432285184,
+  "responses": [
+    {
+      "prompt": "Ile to 17 razy 23? Odpowiedz samą liczbą.",
+      "content": "391",
+      "output_tokens": 4,
+      "tg": 11.452436124037519
+    },
+    {
+      "prompt": "Napisz spójny akapit po polsku o planowaniu eksperymentu.",
+      "content": "Skuteczne planowanie eksperymentu wymaga precyzyjnego zdefiniowania hipotezy badawczej oraz jasnego ",
+      "output_tokens": 174,
+      "tg": 20.43648794347622
+    }
+  ]
+}

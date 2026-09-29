@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "length",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Planowanie eksperymentu jest fundamentalnym procesem w naukach empirycznych, który wykracza daleko poza proste zbieranie danych czy przeprowadzanie testów laboratoryjnych. Jest to skomplikowana, wieloetapowa procedura, która wymaga od badacza nie tylko wiedzy merytorycznej, ale również zdolności do precyzyjnego myślenia, przewidywania potencjalnych błędów oraz dbałości o etyczne aspekty prowadzonych badań. Cały proces zaczyna się od zdefiniowania problemu badawczego, który musi być sformułowany w sposób jasny, jednoznaczny i mierzalny. Bez precyzyjnego pytania badawczego, nawet najlepiej zaprojektowany eksperyment może prowadzić do niejednoznacznych wniosków lub całkowitego braku użytecznych danych. Definicja problemu powinna uwzględniać kontekst teoretyczny, istniejące luki w wiedzy oraz praktyczne znaczenie uzyskanych wyników dla danej dziedziny nauki lub przemysłu.\n\nKolejnym kluczowym elementem jest sformułowanie hipotez, które stanowią przewidywania dotyczące wyników eksperymentu. Hipoteza musi być falsyfikowalna, co oznacza, że musi istnieć możliwość jej obalenia przez dane empiryczne. Wyróżniamy hipotezę zerową, zakładającą brak zależności między badanymi zmiennymi, oraz hipotezę alternatywną, która przewiduje istnienie takiej zależności. Poprawne sformułowanie tych założeń jest krytyczne dla dalszych etapów planowania, ponieważ determinuje ono dobór metod statystycznych oraz sposób interpretacji wyników. Badacz musi również zidentyfikować zmienne niezależne, które będą manipulowane, oraz zmienne zależne, które będą mierzone jako efekt tych manipulacji. Niezbędne jest także wskazanie zmiennych kontrolnych, które muszą pozostać stałe, aby uniknąć zakłóceń w wynikach.\n\nProjektowanie eksperymentu wymaga starannego doboru próby badawczej. Reprezentatywność próby jest kluczowa dla generalizacji wyników na szerszą populację. Badacze stosują różne metody losowania, takie jak losowanie proste, warstwowe czy grupowe, aby zminimalizować błąd losowy i systematyczny. Wielkość próby powinna być obliczona z wyprzedzeniem, często z wykorzystaniem analizy mocy testu, aby zapewnić wystarczającą czułość statystyczną do wykrycia istotnych efektów. Zbyt mała próba może prowadzić do błędów typu drugiego, czyli nieodkrycia rzeczywistego efektu, podczas gdy zbyt duża próba może być nieefektywna kosztowo i czasowo, a także wykrywać statystycznie istotne, ale praktycznie nieistotne różnice.\n\nMetodologia zbierania danych musi być ściśle określona i powtarzalna. Oznacza to, że każdy uczestnik eksperymentu musi być poddany tym samym procedurom, w tych samych warunkach środowiskowych. Standaryzacja warunków jest niezbędna, aby upewnić się, że wszelkie różnice w wynikach wynikają wyłącznie z manipulacji zmienną niezależną, a nie z czynników zewnętrznych. W przypadku eksperymentów laboratoryjnych kontrola temperatury, wilgotności, oświetlenia czy hałasu jest często kluczowa. W badaniach społecznych standaryzacja dotyczy instrukcji dla uczestników, czasu trwania sesji oraz neutralności badacza. Ważnym aspektem jest również ślepa próba lub podwójnie ślepa próba, gdzie ani uczestnicy, ani badacze nie wiedzą, kto należy do grupy eksperymentalnej, a kto do kontrolnej, co minimalizuje efekt placebo oraz subiektywizm w ocenie wyników.\n\nAnaliza danych stanowi kolejny etap, który musi być zaplanowany przed rozpoczęciem zbierania danych, aby uniknąć tzw. p-hackingu, czyli manipulowania analizą statystyczną w celu uzyskania istotnych wyników. Badacz musi z góry określić, jakie testy statystyczne zostaną zastosowane, jakie poziomy istotności będą uznawane za znaczące oraz jak będą traktowane dane odstające. Wybór odpowiednich testów zależy od rozkładu danych, skali pomiarowej oraz liczby grup porównawczych. Często stosuje się analizy wariancji, testy t-Studenta, regresję liniową lub metody nieparametryczne, w zależności od specyfiki problemu.\n\nInterpretacja wyników wymaga ostrożności i krytycznego podejścia. Statystyczna istotność nie zawsze oznacza istotność praktyczną. Badacz musi rozważyć wielkość efektu, przedziały ufności oraz potencjalne ograniczenia badania. Ważne jest również uwzględnienie alternatywnych wyjaśnień wyników oraz"
+      }
+    }
+  ],
+  "created": 1790683494,
+  "model": "qwen3.8-flashnext-gsq-iq3xxs",
+  "system_fingerprint": "b1-d81aef1",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 1100,
+    "prompt_tokens": 63020,
+    "total_tokens": 64120,
+    "prompt_tokens_details": {
+      "cached_tokens": 62977
+    }
+  },
+  "id": "chatcmpl-OOID7CrFtYfl61R841kGWt8vNJ9IC3QC",
+  "timings": {
+    "cache_n": 62977,
+    "prompt_n": 43,
+    "prompt_ms": 948.115,
+    "prompt_per_token_ms": 22.04918604651163,
+    "prompt_per_second": 45.35314808857575,
+    "predicted_n": 1100,
+    "predicted_ms": 80409.439,
+    "predicted_per_token_ms": 73.16600454959054,
+    "predicted_per_second": 13.667549651726834
+  }
+}

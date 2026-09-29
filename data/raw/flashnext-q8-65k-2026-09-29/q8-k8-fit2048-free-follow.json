@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "length",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "Planowanie eksperymentu jest fundamentalnym procesem w naukach empirycznych, który wykracza daleko poza proste zbieranie danych czy przeprowadzanie testów laboratoryjnych. Jest to skomplikowana, wieloetapowa procedura, która wymaga precyzyjnego zdefiniowania problemu badawczego, sformułowania hipotez, doboru odpowiednich metod badawczych oraz zaplanowania analizy statystycznej wyników. Właściwe zaplanowanie eksperymentu jest kluczowe dla uzyskania wiarygodnych, powtarzalnych i obiektywnych rezultatów, które mogą stanowić podstawę do wyciągania wniosków naukowych lub podejmowania decyzji biznesowych. Proces ten zaczyna się od starannego zdefiniowania celu badania, co wymaga głębokiego zrozumienia literatury przedmiotu oraz identyfikacji luk w dotychczasowej wiedzy. Bez jasno określonego celu, eksperyment może stać się chaotycznym zbiorem danych, które nie odpowiadają na żadne istotne pytanie badawcze.\n\nKolejnym, niezwykle ważnym etapem jest sformułowanie hipotez badawczych. Hipoteza jest przewidywaniem dotyczącym związku między zmiennymi, które ma zostać zweryfikowane w trakcie eksperymentu. Dobra hipoteza musi być falsyfikowalna, co oznacza, że musi istnieć możliwość jej obalenia przez dane empiryczne. W planowaniu eksperymentu należy wyraźnie rozróżnić hipotezę zerową, zakładającą brak efektu lub związku, od hipotezy alternatywnej, która przewiduje istnienie takiego związku. Precyzyjne zdefiniowanie tych hipotez pozwala na dobór odpowiednich testów statystycznych oraz ustalenie kryteriów decyzyjnych, które będą stosowane przy interpretacji wyników.\n\nNastępnie badacz musi zidentyfikować i zdefiniować zmienne występujące w eksperymencie. Zmienne niezależne to te, które są manipulowane przez eksperymentatora, aby zaobserwować ich wpływ na inne czynniki. Zmienne zależne to te, które są mierzone jako wynik eksperymentu. Kluczowe jest również zidentyfikowanie zmiennych kontrolnych, które muszą pozostać stałe w trakcie badania, aby uniknąć zakłóceń w wynikach. Niezmiernie ważne jest także uwzględnienie zmiennych zakłócających, czyli czynników, które mogą wpływać na wynik, ale nie są bezpośrednio badane. Planowanie eksperymentu wymaga wprowadzenia mechanizmów kontroli, takich jak randomizacja, grupowanie czy stosowanie grup kontrolnych, aby zminimalizować wpływ tych niepożądanych czynników.\n\nProjektowanie eksperymentu obejmuje również decyzje dotyczące próby badawczej. Badacz musi określić, kto lub co będzie poddane eksperymentowi, oraz jak duża musi być próba, aby wyniki były statystycznie istotne. Obliczenie mocy testu statystycznego jest tu niezbędne, aby upewnić się, że eksperyment ma wystarczającą liczbę obserwacji do wykrycia rzeczywistego efektu, jeśli taki istnieje. Zbyt mała próba może prowadzić do błędów typu drugiego, czyli nieodkrycia istniejącego efektu, podczas gdy zbyt duża próba może być nieefektywna kosztowo i czasowo. Dobór próby musi być reprezentatywny dla populacji, do której wyniki mają być generalizowane, co wymaga starannego doboru uczestników lub obiektów badawczych.\n\nMetodologia zbierania danych jest kolejnym krytycznym elementem planowania. Należy wybrać narzędzia pomiarowe, które są rzetelne i trafne. Rzetelność oznacza, że pomiar jest powtarzalny, a trafność oznacza, że mierzy on to, co zamierza mierzyć. W przypadku eksperymentów laboratoryjnych często stosuje się standaryzowane procedury, aby zapewnić spójność pomiarów. W badaniach społecznych czy psychologicznych kluczowe jest zapewnienie, że kwestionariusze czy testy są wolne od błędów systematycznych i że uczestnicy rozumieją instrukcje. Planowanie musi również uwzględniać aspekty etyczne, takie jak uzyskanie świadomej zgody uczestników, ochrona ich prywatności oraz minimalizacja ryzyka krzywdy fizycznej lub psychicznej.\n\nAnaliza danych musi być zaplanowana jeszcze przed rozpoczęciem eksperymentu. Określenie z góry, jakie testy statystyczne będą zastosowane, pomaga uniknąć tzw. p-hackingu, czyli manipulowania danymi w celu uzyskania istotnych statystycznie wyników. Badacz powinien przewidzieć, jak będą traktowane dane brakujące, jak będą identyfikowane wartości odstające oraz jakie modele statystyczne będą użyte do"
+      }
+    }
+  ],
+  "created": 1790679939,
+  "model": "qwen3.8-flashnext-gsq-iq3xxs",
+  "system_fingerprint": "b1-d81aef1",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 1100,
+    "prompt_tokens": 63020,
+    "total_tokens": 64120,
+    "prompt_tokens_details": {
+      "cached_tokens": 62977
+    }
+  },
+  "id": "chatcmpl-G1GctaNs9wvPJGs2hrh9JFP19kwMl77R",
+  "timings": {
+    "cache_n": 62977,
+    "prompt_n": 43,
+    "prompt_ms": 931.634,
+    "prompt_per_token_ms": 21.665906976744186,
+    "prompt_per_second": 46.15546448498016,
+    "predicted_n": 1100,
+    "predicted_ms": 88481.987,
+    "predicted_per_token_ms": 80.51136214740673,
+    "predicted_per_second": 12.420607145723343
+  }
+}

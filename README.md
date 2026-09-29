@@ -1,9 +1,12 @@
 # Qwen3.8 Flash-Next on an RX 7900 XTX
 
-Measurements from one 24 GB RDNA3 card with 32 GiB of host RAM, collected on 24-28 September 2026. Two different GGUF quantizations were tested; their quality was not compared. Most configurations were run once.
+Measurements from one 24 GB RDNA3 card with 32 GiB of host RAM, collected on 24-29 September 2026. Two different GGUF quantizations were tested; their quality was not compared. Most configurations were run once.
 
 ## At a glance
 
+- **q8_0 KV at 65k, live OOM and recovery:** the ROCm profile with 32 expert-cache slots/layer and `fit-target=3072` passed one benchmark, then the 28 GiB container OOM-killed it during live use. A 12-slot profile with `fit-target=2048` completed one 65k run at 571 PP / 13.67 TG tok/s, peaking at 28.60 of 30.06 GB; multi-turn stability remains unproven. [Incident and recovery](reports/flashnext-q8-oom-recovery-2026-09-29.md)
+- **Vulkan now completes 32k and 65k:** `--no-host --load-mode none --lazy-mode on` avoids the previous RADV load failure and disk-heavy `mmap` path. At 65k it reached 113 PP / 14.30 TG tok/s, with no OOM or swap; the whole request took 635.9 s versus 181.8 s for the ROCm cache-32 profile. Experimental expert cache on Vulkan produced incorrect text in a short check. [Fix and evidence](reports/flashnext-vulkan-nohost-2026-09-29.md)
+- **Experimental expert cache on ROCm:** on a matched build, 65k free-text TG rose from 11.46 to 15.76 tok/s with 32 cache slots per layer; 48 slots reached 16.20 with less memory margin. The 20 tok/s goal remains unmet. At 32k, 32 slots reached 18.19 TG but touched the container RAM limit. [Measurements and caveats](reports/flashnext-expert-cache-rocm-vulkan-2026-09-29.md)
 - **New 32k and 65k GSQ results:** nasone32's ROCm fork with q4_0 KV, `ubatch=1024`, and `ngram-map-k` reached 617 PP / 14.89 free-text TG / 64.02 exact-copy TG tok/s at 32k, and 510 PP / 13.78 free-text TG / 56.97 exact-copy TG at 65k. The copy task repeated text from the prompt. For free writing, the 20 TG tok/s goal remains unmet. [Full comparison and limits](reports/flashnext-32k-65k-benchmarks-2026-09-28.md)
 - **32k fixed MTP:** n=1, 2, and 3 reached 14.82, 16.14, and 13.53 free-text TG tok/s. n=3 used 1.57 GB of swap and left only 0.13 GB beneath the RAM limit. None improved the full request over the preferred no-MTP profile. [Matched 32k results](reports/flashnext-32k-65k-benchmarks-2026-09-28.md)
 - **GSQ-RCO IQ3_XXS, upstream ROCm:** a 62,980-token prompt and 894-token answer took 186.4 s at `ubatch=1024`, leaving 2.55 GB inside the container limit. `ubatch=2048` took 167.4 s but left 0.72 GB. [Settings and raw runs](docs/rocm-tuning.md)
@@ -48,7 +51,7 @@ The two quantizations were not run through a common quality suite. These measure
 - [Setup](docs/setup.md): model identities, build pins, memory limits.
 - [Methodology](docs/methodology.md): how PP/TG and cached prompts were interpreted.
 - [Correctness](docs/correctness.md), [context and memory](docs/context-and-memory.md), [ROCm tuning](docs/rocm-tuning.md), [MTP](docs/mtp.md), [Vulkan](docs/vulkan.md): findings with raw-file links and caveats.
-- [Data guide](data/README.md): 155 selected raw files (75 older and 80 from 28 September) plus SHA-256 manifest. Eleven [historical reports](reports/) retain the original field notes with local paths anonymized; their service status is historical. The [28 September report](reports/flashnext-32k-65k-benchmarks-2026-09-28.md) covers the new tests.
+- [Data guide](data/README.md): 184 selected raw files (75 older, 80 from 28 September, 17 expert-cache records, 4 Vulkan repair records, and 8 q8_0 KV records) plus SHA-256 manifest. [Historical reports](reports/) retain the original field notes with local paths anonymized; their service status is historical. The [OOM and recovery report](reports/flashnext-q8-oom-recovery-2026-09-29.md) covers the later q8_0 profile changes.
 
 Run `python3 scripts/data.py check` to validate the selected data, manifest, JSON syntax, and basic private-path scan. This does not run the models. Model weights and full server/build logs are excluded.
 
