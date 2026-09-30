@@ -1,5 +1,7 @@
 # EXL3 2.50 bpw retest on ROCm
 
+Historical pre-fix results. See the [later native gate fix and checks](flashnext-exl3-native-fix-2026-09-30.md), including its shutdown erratum.
+
 30 September 2026. RX 7900 XTX, Ryzen 5 5600, 32 GiB RAM.
 
 **Verdict: this EXL3 build failed the tool-result quality check at 4k.**

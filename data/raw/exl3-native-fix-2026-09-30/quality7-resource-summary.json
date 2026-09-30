@@ -1,0 +1,5 @@
+{
+  "min_available_GiB": 3.0565643310546875,
+  "max_vram_GiB": 23.473369598388672,
+  "last_memory_events": "low 0\nhigh 0\nmax 17278\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 3"
+}

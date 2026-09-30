@@ -1,0 +1,16 @@
+{
+  "quality6-resources.jsonl": {
+    "min_available_GiB": 2.5500450134277344,
+    "max_vram_GiB": 22.75334930419922,
+    "last_events": "low 0\nhigh 0\nmax 1852\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0",
+    "swap_start": 1039081472,
+    "swap_end": 1067552768
+  },
+  "quality6-resources-smallrcs.jsonl": {
+    "min_available_GiB": 2.6754150390625,
+    "max_vram_GiB": 22.735828399658203,
+    "last_events": "low 0\nhigh 0\nmax 177\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 2",
+    "swap_start": 1067163648,
+    "swap_end": 1114632192
+  }
+}

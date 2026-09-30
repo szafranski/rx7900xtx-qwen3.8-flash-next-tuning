@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "tokenized_prompt_without_tools": 30014,
+  "actual_prompt_tokens": 30267,
+  "wall": 56.27895693299797,
+  "response": {
+    "id": "chatcmpl-8a98ab23c6224759b35268b6519f56aa",
+    "object": "chat.completion",
+    "created": 1790784432,
+    "model": "qwen38-flashnext",
+    "choices": [
+      {
+        "index": 0,
+        "message": {
+          "role": "assistant",
+          "content": "CIS-812|LUK-459",
+          "reasoning_content": "The user wants the values of CODE_A and CODE_B, formatted as CODE_A|CODE_B without labels. From the text: CODE_A: CIS-812, CODE_B: LUK-459. Short answer."
+        },
+        "finish_reason": "stop"
+      }
+    ],
+    "usage": {
+      "prompt_tokens": 30267,
+      "completion_tokens": 65,
+      "total_tokens": 30332
+    }
+  }
+}

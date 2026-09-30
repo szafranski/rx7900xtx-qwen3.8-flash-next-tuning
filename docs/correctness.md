@@ -18,10 +18,24 @@ There was no standardized quality suite, no quantization quality comparison, and
 
 ## EXL3 2.50 bpw (r0b0tlab)
 
-The 30 September retest of CarouselAether `dd7a670` with local patches gave
-correct arithmetic smokes but false differences, malformed output or loops on
-one captured YAML comparison after two tool results, with and without thinking.
-GGUF IQ3_XXS answered that task correctly using the same prompt token IDs.
-Different runtimes and quantizations prevent isolating the cause. EXL3 failed
-the quality gate, so 32k/65k, MTP and full Pi tests were not run.
-[Retest, selected evidence and limitations](../reports/flashnext-exl3-retest-2026-09-30.md)
+The initial CarouselAether `dd7a670` retest failed a YAML tool-result comparison.
+A later diagnosis isolated a shared-expert gate reduction race. A Python
+workaround made that task pass four trials; a one-line native lane-0 guard then
+passed 175 kernel assertions, reduced the tested MoE discrepancy from 11.02% to
+0.14356% and passed 24/24 short API checks with thinking OFF/ON. The exact YAML
+task was not rerun after the native fix.
+
+With an isolated test adapter, Pi completed six actual read-tool round trips
+at 8k, three OFF and three medium ON, plus one ON no-tool negative case.
+The original server output path does not normalize XML tool calls to OpenAI
+`tool_calls`; the adapter buffers responses and is not deployed.
+
+Correctly tokenized synthetic retrieval passed OFF/ON at 32k and 65k, about
+23 TG tok/s. One cold API 32k ON request also passed. This is limited correctness
+evidence, not quantization parity or broad agent quality. Pi at 32k/65k, API 65k,
+MTP and vision were not tested in this stage.
+
+Shutdown still crashes with exit 139; 65k leaves only about 0.527 GiB VRAM free.
+[Native fix, measurements, evidence and erratum](../reports/flashnext-exl3-native-fix-2026-09-30.md).
+The [initial report](../reports/flashnext-exl3-retest-2026-09-30.md) retains the
+pre-fix failures as history.

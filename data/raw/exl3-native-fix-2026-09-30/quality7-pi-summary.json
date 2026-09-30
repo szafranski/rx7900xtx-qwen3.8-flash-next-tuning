@@ -1,0 +1,80 @@
+[
+  {
+    "thinking": "off",
+    "repeat": 0,
+    "seconds": 11.1978872710024,
+    "exit": 0,
+    "tool_executions": 1,
+    "stops": [
+      "toolUse",
+      "stop"
+    ],
+    "text": "Kod projektu: **LIPA-742**. Liczba serwerów: **7**.",
+    "passed": true
+  },
+  {
+    "thinking": "off",
+    "repeat": 1,
+    "seconds": 8.18142538999382,
+    "exit": 0,
+    "tool_executions": 1,
+    "stops": [
+      "toolUse",
+      "stop"
+    ],
+    "text": "Kod projektu: LIPA-742, liczba serwerów: 7.",
+    "passed": true
+  },
+  {
+    "thinking": "off",
+    "repeat": 2,
+    "seconds": 8.181683143004193,
+    "exit": 0,
+    "tool_executions": 1,
+    "stops": [
+      "toolUse",
+      "stop"
+    ],
+    "text": "Kod projektu: LIPA-742, liczba serwerów: 7.",
+    "passed": true
+  },
+  {
+    "thinking": "medium",
+    "repeat": 0,
+    "seconds": 11.441215991995705,
+    "exit": 0,
+    "tool_executions": 1,
+    "stops": [
+      "toolUse",
+      "stop"
+    ],
+    "text": "Kod projektu: **LIPA-742**, liczba serwerów: **7**.",
+    "passed": true
+  },
+  {
+    "thinking": "medium",
+    "repeat": 1,
+    "seconds": 11.493170220994216,
+    "exit": 0,
+    "tool_executions": 1,
+    "stops": [
+      "toolUse",
+      "stop"
+    ],
+    "text": "- Kod projektu: **LIPA-742**\n- Liczba serwerów: **7**",
+    "passed": true
+  },
+  {
+    "thinking": "medium",
+    "repeat": 2,
+    "seconds": 10.690401617001044,
+    "exit": 0,
+    "tool_executions": 1,
+    "stops": [
+      "toolUse",
+      "stop"
+    ],
+    "text": "Kod projektu: **LIPA-742**, liczba serwerów: **7**.",
+    "passed": true
+  }
+]
