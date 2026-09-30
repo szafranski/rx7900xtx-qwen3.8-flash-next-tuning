@@ -1,0 +1,86 @@
+[
+  {
+    "label": "smoke-arithmetic-off",
+    "kind": "arithmetic",
+    "thinking": false,
+    "seconds": 6.17,
+    "usage": {
+      "prompt_tokens": 27,
+      "completion_tokens": 60,
+      "total_tokens": 87
+    },
+    "finish": "stop",
+    "error": null,
+    "output_sha256": "eb8f77a696bd8bee4106f778f8408b9d24860a37ad1c502662e85e097e196e80"
+  },
+  {
+    "label": "smoke-arithmetic-on",
+    "kind": "arithmetic",
+    "thinking": true,
+    "seconds": 6.89,
+    "usage": {
+      "prompt_tokens": 25,
+      "completion_tokens": 133,
+      "total_tokens": 158
+    },
+    "finish": "stop",
+    "error": null,
+    "output_sha256": "960db4830f082d777bbde31b40cc59f7188be30251508adb045888ebfc84edec"
+  },
+  {
+    "label": "replay-off-1",
+    "kind": "replay",
+    "thinking": false,
+    "seconds": 28.3,
+    "usage": {
+      "prompt_tokens": 1370,
+      "completion_tokens": 512,
+      "total_tokens": 1882
+    },
+    "finish": "length",
+    "error": null,
+    "output_sha256": "bf3fbd3540de6f712fa8f828f949c73dac03036111e0657385789d9396c310f5"
+  },
+  {
+    "label": "replay-on-cached-1",
+    "kind": "replay",
+    "thinking": true,
+    "seconds": 9.01,
+    "usage": {
+      "prompt_tokens": 1368,
+      "completion_tokens": 182,
+      "total_tokens": 1550
+    },
+    "finish": "stop",
+    "error": null,
+    "output_sha256": "812791fc7ed01d20c2867f7e6284e5ddc53cb0363b42b52468b820d74804998d"
+  },
+  {
+    "label": "replay-on-c1024-cold",
+    "kind": "replay",
+    "thinking": true,
+    "seconds": 27.45,
+    "usage": {
+      "prompt_tokens": 1368,
+      "completion_tokens": 512,
+      "total_tokens": 1880
+    },
+    "finish": "length",
+    "error": null,
+    "output_sha256": "f070d29d17e080733a9c84dc8eae96debbd40e28d54222ae045ebb057445fc0e"
+  },
+  {
+    "label": "replay-on-c2048-no-history",
+    "kind": "replay-drop",
+    "thinking": true,
+    "seconds": 28.85,
+    "usage": {
+      "prompt_tokens": 1361,
+      "completion_tokens": 512,
+      "total_tokens": 1873
+    },
+    "finish": "length",
+    "error": null,
+    "output_sha256": "84fdbc5199e23462df3e62cd521f825de2f9b963947823f94027bfe72520b813"
+  }
+]

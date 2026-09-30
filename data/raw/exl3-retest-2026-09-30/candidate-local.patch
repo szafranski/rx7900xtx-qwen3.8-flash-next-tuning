@@ -1,0 +1,107 @@
+diff --git a/exllamav3/exllamav3_ext/rocm/quant/exl3_gemm_rdna.hip b/exllamav3/exllamav3_ext/rocm/quant/exl3_gemm_rdna.hip
+index 4a965cf..df6c769 100644
+--- a/exllamav3/exllamav3_ext/rocm/quant/exl3_gemm_rdna.hip
++++ b/exllamav3/exllamav3_ext/rocm/quant/exl3_gemm_rdna.hip
+@@ -365,7 +365,7 @@ int exl3_gemm_gr
+         }
+     }
+ 
+-    bool autotune = force_shape_idx <= 0 && force_num_sms <= 0;
++    bool autotune = false;  // gfx1100: cooperative autotuning exceeds LDS/launch limits
+     if (autotune)
+     {
+         uint64_t autotune_key = gemm_autotune_hash(MAX(size_m, 2), size_k, size_n, K, c_fp32, device, cc, num_sms, cb);
+@@ -768,7 +768,7 @@ int exl3_mgemm_gr
+         }
+     };
+ 
+-    bool autotune = force_shape_idx <= 0 && force_num_sms <= 0;
++    bool autotune = false;  // gfx1100: cooperative autotuning exceeds LDS/launch limits
+     if (autotune)
+     {
+         uint64_t autotune_key = mgemm_autotune_hash
+diff --git a/exllamav3/exllamav3_ext/rocm/quant/exl3_moe_rdna.hip b/exllamav3/exllamav3_ext/rocm/quant/exl3_moe_rdna.hip
+index 3a4f9ed..4cdc331 100644
+--- a/exllamav3/exllamav3_ext/rocm/quant/exl3_moe_rdna.hip
++++ b/exllamav3/exllamav3_ext/rocm/quant/exl3_moe_rdna.hip
+@@ -388,7 +388,7 @@ void exl3_moe
+         grid_dim,
+         block_dim,
+         kernelArgs,
+-        SMEM_MAX,
++        exl3_rdna_smem_budget(device),
+         stream
+     );
+ 
+diff --git a/rocm_tools/exl3_server/server.py b/rocm_tools/exl3_server/server.py
+index 2dcd55b..68fc232 100644
+--- a/rocm_tools/exl3_server/server.py
++++ b/rocm_tools/exl3_server/server.py
+@@ -447,6 +447,30 @@ def flatten_content(content: Any) -> str:
+     return str(content)
+ 
+ 
++def normalize_messages(messages: list[dict]) -> list[dict]:
++    normalized = []
++    for original in messages:
++        m = {**original, "role": original.get("role", "user"),
++             "content": flatten_content(original.get("content"))}
++        # Qwen's template expects system and decoded argument mappings.
++        if m["role"] == "developer":
++            m["role"] = "system"
++        if m.get("tool_calls"):
++            m["tool_calls"] = []
++            for call in original["tool_calls"]:
++                function = dict(call["function"])
++                if isinstance(function.get("arguments"), str):
++                    try:
++                        function["arguments"] = json.loads(function["arguments"])
++                    except json.JSONDecodeError as e:
++                        raise HTTPException(400, f"Invalid tool arguments: {e}") from e
++                if not isinstance(function.get("arguments", {}), dict):
++                    raise HTTPException(400, "Tool arguments must be a JSON object")
++                m["tool_calls"].append({**call, "function": function})
++        normalized.append(m)
++    return normalized
++
++
+ def chat_prompt_ids(req: ChatCompletionRequest) -> torch.Tensor:
+     if not state.has_chat_template:
+         raise HTTPException(
+@@ -454,10 +478,7 @@ def chat_prompt_ids(req: ChatCompletionRequest) -> torch.Tensor:
+             "This model has no chat template in its tokenizer config. Use /v1/completions "
+             "with a client-side instruct template instead."
+         )
+-    messages = [
+-        {"role": m.get("role", "user"), "content": flatten_content(m.get("content"))}
+-        for m in req.messages
+-    ]
++    messages = normalize_messages(req.messages)
+     if not messages:
+         raise HTTPException(400, "messages must not be empty")
+ 
+@@ -797,10 +818,7 @@ async def apply_template(request: Request, body: ApplyTemplateRequest):
+     check_auth(request)
+     if not state.has_chat_template:
+         raise HTTPException(400, "Model has no chat template")
+-    messages = [
+-        {"role": m.get("role", "user"), "content": flatten_content(m.get("content"))}
+-        for m in body.messages
+-    ]
++    messages = normalize_messages(body.messages)
+     kwargs = dict(state.default_template_kwargs)
+     if body.chat_template_kwargs:
+         kwargs.update(body.chat_template_kwargs)
+diff --git a/setup.py b/setup.py
+index d93e66c..da8fabd 100644
+--- a/setup.py
++++ b/setup.py
+@@ -296,7 +296,7 @@ SUPPORTED_GPU_ARCHS = {
+ # clamped value -- but too high a figure costs a failed shape selection and too
+ # low costs the wider tiles.
+ GPU_ARCH_SMEM = {
+-    "gfx1100": 92160, "gfx1101": 92160, "gfx1102": 92160,
++    "gfx1100": 65536, "gfx1101": 92160, "gfx1102": 92160,
+     "gfx1150": 65536, "gfx1151": 65536,   # Strix / Strix Halo APUs
+     "gfx1200": 92160, "gfx1201": 92160,
+ }

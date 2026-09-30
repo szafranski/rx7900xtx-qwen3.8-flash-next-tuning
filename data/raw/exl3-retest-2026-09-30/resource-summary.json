@@ -1,0 +1,16 @@
+{
+  "resources.jsonl": {
+    "samples": 1106,
+    "min_available_GiB": 2.566,
+    "max_vram_GiB": 23.09,
+    "max_swap_GiB": 1.646,
+    "last_events": "low 0\nhigh 0\nmax 9207\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
+  },
+  "resources-gguf.jsonl": {
+    "samples": 240,
+    "min_available_GiB": 4.24,
+    "max_vram_GiB": 22.535,
+    "max_swap_GiB": 0.974,
+    "last_events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0"
+  }
+}

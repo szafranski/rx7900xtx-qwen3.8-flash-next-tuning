@@ -1,0 +1,12 @@
+  PASS fused vs ref (  256,  128) K=3 mcg=False mul1=False: rel 1.12e-03
+  PASS fused vs ref (  512,  384) K=2 mcg=False mul1=False: rel 1.44e-03
+  PASS slice n_offset=128: rel 1.08e-03
+  PASS fused vs ref ( 1024,  512) K=5 mcg=False mul1=False: rel 1.30e-03
+  PASS slice n_offset=128: rel 9.77e-04
+  PASS fused vs ref (  384,  256) K=4 mcg=True mul1=False: rel 1.12e-03
+  PASS fused vs ref (  256,  512) K=3 mcg=False mul1=True: rel 8.94e-04
+  PASS slice n_offset=128: rel 8.94e-04
+  PASS fused vs ref ( 4096, 1024) K=3 mcg=False mul1=False: rel 1.23e-03
+  PASS slice n_offset=128: rel 1.23e-03
+  PASS forward old-pipeline vs fused-W: rel 9.18e-04
+ALL PASS

@@ -1,0 +1,17 @@
+device: AMD Radeon RX 7900 XTX   torch 2.13.0+rocm7.2   hip 7.2.53211
+ROCBLAS_USE_HIPBLASLT=(unset)   EXL3_RDNA_HGEMM_NARROW_N=(default 256)   check=True
+
+ m     N  GEMM fp16 us  GEMV fp32 us  ratio  ext.hgemm us
+ 1    48          40.4          38.7   1.05          23.4
+ 1   256          33.5          70.8   0.47          40.5
+ 1   512          37.7         156.1   0.24          36.3
+
+ 8    48          35.0          57.8   0.61          31.5
+ 8   256          33.1         153.4   0.22          68.8
+ 8   512          35.0         257.2   0.14          32.2
+
+largest N where the fp32 GEMV still beats the fp16 GEMM by >10%:
+  m=1: N <= 0
+  m=8: N <= 0
+
+GEMV recipe still worth it on this stack: no

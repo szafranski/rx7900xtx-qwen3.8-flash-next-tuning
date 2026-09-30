@@ -1,0 +1,22 @@
+ -- loading /models
+ROCm patches:
+  - arch_list.maybe_set_arch_list_env -> no-op
+  - triton.compile: alias asm['hsaco'] -> asm['cubin']
+  - DSA split kernel retuned for RDNA (BLOCK_H=8, num_warps=8; spills 2050->438)
+  - MoE bsz<=MAX_BSZN decode -> per-token exl3_mgemm route (v1.4.4's; mgemv fast path; exl3_moe_coop not ported)
+  - sliced Q/K/V bundle (SlicedMultiLinear) off in 3 modules (mgemm sliced mode unvalidated on RDNA)
+  - batched expert reconstruct tier off (unvalidated on RDNA; EXL3_ROCM_BATCH_RECON=1)
+  - fused-MoE row-tile tiers off (only the 16-row instance exists on RDNA)
+
+ fused exl3_moe and per-expert torch, each vs an fp32 reference
+
+   bsz=1     model.language_model.layers.0.mlp       
+       fused vs fp32 : max=1.535e-06 mean=2.632e-07  relmean= 0.0185%
+       torch vs fp32 : max=1.769e-06 mean=2.489e-07  relmean= 0.0175%   -> fused OK
+
+   bsz=8     model.language_model.layers.0.mlp       
+       fused vs fp32 : max=2.422e-06 mean=2.671e-07  relmean= 0.0091%
+       torch vs fp32 : max=1.375e-06 mean=2.604e-07  relmean= 0.0089%   -> fused OK
+
+ If both relmean are the same order, exl3_moe is as accurate as the
+ per-expert path and moe_check.py was measuring fp16 ordering noise.

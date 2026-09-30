@@ -1,0 +1,16 @@
+{
+  "usage": {
+    "prompt_tokens": 1361,
+    "completion_tokens": 512,
+    "total_tokens": 1873
+  },
+  "finish_reason": "length",
+  "output_sha256": "84fdbc5199e23462df3e62cd521f825de2f9b963947823f94027bfe72520b813",
+  "omitted": [
+    "prompt",
+    "generated text",
+    "token IDs",
+    "decoded text",
+    "API identifiers"
+  ]
+}

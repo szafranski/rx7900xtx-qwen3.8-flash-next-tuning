@@ -1,8 +1,10 @@
 # Qwen3.8 Flash-Next on an RX 7900 XTX
 
-Measurements from one 24 GB RDNA3 card with 32 GiB of host RAM, collected on 24-29 September 2026. Two different GGUF quantizations were tested; their quality was not compared. Most configurations were run once.
+Measurements from one 24 GB RDNA3 card with 32 GiB of host RAM, collected on 24-30 September 2026. Two GGUF quantizations and one EXL3 quantization were tested; there was no common quality suite. Most configurations were run once.
 
 ## At a glance
+
+- **EXL3 2.50 bpw fails a tool-result quality check at 4k:** CarouselAether `dd7a670` with local patches gave false YAML differences or repetition loops with and without thinking, despite 23-24 TG tok/s. GGUF IQ3_XXS answered correctly on the same token IDs at 14.34/14.50 TG tok/s. EXL3 is not recommended under these settings; the cause is not isolated. [Retest and limits](reports/flashnext-exl3-retest-2026-09-30.md)
 
 - **q8_0 KV at 65k, live OOM and recovery:** the ROCm profile with 32 expert-cache slots/layer and `fit-target=3072` passed one benchmark, then the 28 GiB container OOM-killed it during live use. A 12-slot profile with `fit-target=2048` completed one 65k run at 571 PP / 13.67 TG tok/s, peaking at 28.60 of 30.06 GB; multi-turn stability remains unproven. [Incident and recovery](reports/flashnext-q8-oom-recovery-2026-09-29.md)
 - **Vulkan now completes 32k and 65k:** `--no-host --load-mode none --lazy-mode on` avoids the previous RADV load failure and disk-heavy `mmap` path. At 65k it reached 113 PP / 14.30 TG tok/s, with no OOM or swap; the whole request took 635.9 s versus 181.8 s for the ROCm cache-32 profile. Experimental expert cache on Vulkan produced incorrect text in a short check. [Fix and evidence](reports/flashnext-vulkan-nohost-2026-09-29.md)
@@ -44,14 +46,14 @@ This pair used the `nasone32` fork, q4_0 KV, and `ubatch=256`, unlike the ROCm c
 
 Text generation, a few arithmetic questions with and without thinking, retrieval of a marker near the end of a long synthetic prompt, one two-shape image, and one `multiply` tool call. The 65,536-token context window loaded; successful prompts reached roughly 63k tokens. No prompt longer than 65k was tested. See [correctness](docs/correctness.md) and [context and memory](docs/context-and-memory.md) for the exact cases.
 
-The two quantizations were not run through a common quality suite. These measurements cannot rank their quality or extrapolate the tested throughput to other cards, concurrent users, or arbitrary 65k conversations.
+The quantizations were not run through a common quality suite. The 30 September EXL3/GGUF comparison covered one short tool-result task. These measurements cannot rank their quality or extrapolate the tested throughput to other cards, concurrent users, or arbitrary 65k conversations.
 
 ## Read and verify
 
 - [Setup](docs/setup.md): model identities, build pins, memory limits.
 - [Methodology](docs/methodology.md): how PP/TG and cached prompts were interpreted.
 - [Correctness](docs/correctness.md), [context and memory](docs/context-and-memory.md), [ROCm tuning](docs/rocm-tuning.md), [MTP](docs/mtp.md), [Vulkan](docs/vulkan.md): findings with raw-file links and caveats.
-- [Data guide](data/README.md): 184 selected raw files (75 older, 80 from 28 September, 17 expert-cache records, 4 Vulkan repair records, and 8 q8_0 KV records) plus SHA-256 manifest. [Historical reports](reports/) retain the original field notes with local paths anonymized; their service status is historical. The [OOM and recovery report](reports/flashnext-q8-oom-recovery-2026-09-29.md) covers the later q8_0 profile changes.
+- [Data guide](data/README.md): 207 selected evidence files (75 older, 80 from 28 September, 17 expert-cache records, 4 Vulkan repair records, 8 q8_0 KV records, and 23 EXL3 retest records) plus SHA-256 manifest. [Historical reports](reports/) retain the original field notes with local paths anonymized; their service status is historical. The [OOM and recovery report](reports/flashnext-q8-oom-recovery-2026-09-29.md) covers the later q8_0 profile changes.
 
 Run `python3 scripts/data.py check` to validate the selected data, manifest, JSON syntax, and basic private-path scan. This does not run the models. Model weights and full server/build logs are excluded.
 

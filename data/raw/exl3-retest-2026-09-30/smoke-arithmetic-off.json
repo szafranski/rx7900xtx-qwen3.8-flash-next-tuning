@@ -1,0 +1,16 @@
+{
+  "usage": {
+    "prompt_tokens": 27,
+    "completion_tokens": 60,
+    "total_tokens": 87
+  },
+  "finish_reason": "stop",
+  "output_sha256": "eb8f77a696bd8bee4106f778f8408b9d24860a37ad1c502662e85e097e196e80",
+  "omitted": [
+    "prompt",
+    "generated text",
+    "token IDs",
+    "decoded text",
+    "API identifiers"
+  ]
+}

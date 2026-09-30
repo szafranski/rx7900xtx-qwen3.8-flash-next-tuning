@@ -15,3 +15,13 @@ With upstream ROCm `d81aef1`, the [host smoke-test report](../reports/qwen-gsq-i
 A 63,028-token prompt produced a correct answer and the numbers 1-200 in order when the answer limit was raised from 1024 to 2200 tokens. The first run stopped at the 1024-token limit before the final answer. Both [raw responses](../data/raw/qwen-gsq-test-2026-09-27/) are available. The successful second request reused nearly all of the prompt cache, so its PP figure is not a new 63k prefill result.
 
 There was no standardized quality suite, no quantization quality comparison, and no test of vision beyond this one simple image.
+
+## EXL3 2.50 bpw (r0b0tlab)
+
+The 30 September retest of CarouselAether `dd7a670` with local patches gave
+correct arithmetic smokes but false differences, malformed output or loops on
+one captured YAML comparison after two tool results, with and without thinking.
+GGUF IQ3_XXS answered that task correctly using the same prompt token IDs.
+Different runtimes and quantizations prevent isolating the cause. EXL3 failed
+the quality gate, so 32k/65k, MTP and full Pi tests were not run.
+[Retest, selected evidence and limitations](../reports/flashnext-exl3-retest-2026-09-30.md)

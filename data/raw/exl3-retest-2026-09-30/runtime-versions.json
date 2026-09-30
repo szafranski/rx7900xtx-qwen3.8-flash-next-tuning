@@ -1,0 +1,8 @@
+{
+  "source": "/candidate/exllamav3/__init__.py",
+  "extension": "/candidate/exllamav3_ext.cpython-312-x86_64-linux-gnu.so",
+  "torch": "2.13.0+rocm7.2",
+  "transformers": "4.57.6",
+  "hip": "7.2.53211",
+  "gpu": "AMD Radeon RX 7900 XTX"
+}

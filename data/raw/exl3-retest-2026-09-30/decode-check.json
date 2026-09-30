@@ -1,0 +1,44 @@
+[
+  {
+    "file": "native-on-c1024-cached.json",
+    "tokens": 512,
+    "hf_equals_stream": true,
+    "hf_equals_stream_without_eos": true,
+    "backend_equals_stream": true
+  },
+  {
+    "file": "native-on-c2048-cold.json",
+    "tokens": 512,
+    "hf_equals_stream": true,
+    "hf_equals_stream_without_eos": true,
+    "backend_equals_stream": true
+  },
+  {
+    "file": "native-on-c2048-mcs288-rcs05-cold.json",
+    "tokens": 512,
+    "hf_equals_stream": true,
+    "hf_equals_stream_without_eos": true,
+    "backend_equals_stream": true
+  },
+  {
+    "file": "native-on-c2048-mcs288-rcs05-splitfused0-cold.json",
+    "tokens": 512,
+    "hf_equals_stream": true,
+    "hf_equals_stream_without_eos": true,
+    "backend_equals_stream": true
+  },
+  {
+    "file": "native-gguf-on-cold.json",
+    "tokens": 340,
+    "hf_equals_stream": false,
+    "hf_equals_stream_without_eos": true,
+    "backend_equals_stream": false
+  },
+  {
+    "file": "native-gguf-off-no-cache.json",
+    "tokens": 243,
+    "hf_equals_stream": false,
+    "hf_equals_stream_without_eos": true,
+    "backend_equals_stream": false
+  }
+]

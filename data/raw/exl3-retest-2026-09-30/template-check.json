@@ -1,0 +1,62 @@
+[
+  {
+    "turn": 1,
+    "thinking": false,
+    "role": "developer",
+    "error": "Unexpected message role."
+  },
+  {
+    "turn": 1,
+    "thinking": false,
+    "role": "system",
+    "tokens": 912,
+    "sha256": "5481e4a5fb9d7c0249076fda8704758714ef1c7e261aea667b249cce13ba7337",
+    "instruction_present": true,
+    "tool_calls": 2
+  },
+  {
+    "turn": 1,
+    "thinking": true,
+    "role": "developer",
+    "error": "Unexpected message role."
+  },
+  {
+    "turn": 1,
+    "thinking": true,
+    "role": "system",
+    "tokens": 910,
+    "sha256": "be41bbc800221aaff00fdbeacda3745aa32326c3b9f8d9b0a4206e59e98e2a85",
+    "instruction_present": true,
+    "tool_calls": 2
+  },
+  {
+    "turn": 2,
+    "thinking": false,
+    "role": "developer",
+    "error": "Unexpected message role."
+  },
+  {
+    "turn": 2,
+    "thinking": false,
+    "role": "system",
+    "tokens": 1370,
+    "sha256": "c8401677b09d661b7000e18c4fc5de3e53fffc8edd4f9378165f2014d1a90e56",
+    "instruction_present": true,
+    "tool_calls": 4
+  },
+  {
+    "turn": 2,
+    "thinking": true,
+    "role": "developer",
+    "error": "Unexpected message role."
+  },
+  {
+    "turn": 2,
+    "thinking": true,
+    "role": "system",
+    "tokens": 1368,
+    "sha256": "ee512b53cc27ffbd4e030d403a31f28a0441a1f6f7070e6e70ce920fb0107514",
+    "instruction_present": true,
+    "tool_calls": 4
+  }
+]

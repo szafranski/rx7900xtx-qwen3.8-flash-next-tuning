@@ -1,0 +1,28 @@
+{
+  "stop": true,
+  "tokens_predicted": 340,
+  "tokens_evaluated": 1368,
+  "truncated": false,
+  "stop_type": "eos",
+  "tokens_cached": 1707,
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 1368,
+    "prompt_ms": 4797.526,
+    "prompt_per_token_ms": 3.5069634502923974,
+    "prompt_per_second": 285.1469695005301,
+    "predicted_n": 340,
+    "predicted_ms": 23643.016,
+    "predicted_per_token_ms": 69.74341002949852,
+    "predicted_per_second": 14.338272240732739
+  },
+  "elapsed": 28.45575146900228,
+  "output_sha256": "1d3282a639db1597c257a40a637ccec751a2ba9febf34cbfe55ea457b2faec29",
+  "omitted": [
+    "prompt",
+    "generated text",
+    "token IDs",
+    "decoded text",
+    "API identifiers"
+  ]
+}

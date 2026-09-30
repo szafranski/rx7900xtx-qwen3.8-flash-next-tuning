@@ -1,0 +1,19 @@
+gate: 2560->640, 512 experts, K=3
+  ok   gate/fp16C/no-idx: rows=2 max_rel_err=0.000e+00 (tol 2e-02)
+  ok   gate/fp16C/plain: rows=10 max_rel_err=0.000e+00 (tol 2e-02)
+  ok   gate/fp16C/pack-all: rows=10 max_rel_err=0.000e+00 (tol 2e-02)
+  ok   gate/fp16C/pack-half: rows=3 max_rel_err=0.000e+00 (tol 2e-02)
+  ok   gate/fp32C/plain: rows=10 max_rel_err=0.000e+00 (tol 2e-02)
+  ok   gate/fp32C/pack-all: rows=10 max_rel_err=0.000e+00 (tol 2e-02)
+  ok   gate/fp32C/pack-half: rows=3 max_rel_err=0.000e+00 (tol 2e-02)
+down: 640->2560, 512 experts, K=3
+  ok   down/fp16C/no-idx: rows=2 max_rel_err=0.000e+00 (tol 2e-02)
+  ok   down/fp16C/plain: rows=10 max_rel_err=2.441e-04 (tol 2e-02)
+  ok   down/fp16C/pack-all: rows=10 max_rel_err=2.441e-04 (tol 2e-02)
+  ok   down/fp16C/pack-half: rows=3 max_rel_err=1.831e-04 (tol 2e-02)
+  ok   down/fp32C/plain: rows=10 max_rel_err=2.384e-07 (tol 2e-02)
+  ok   down/fp32C/pack-all: rows=10 max_rel_err=2.384e-07 (tol 2e-02)
+  ok   down/fp32C/pack-half: rows=3 max_rel_err=2.533e-07 (tol 2e-02)
+  ok   down/fp16C/2tok: rows=20 max_rel_err=2.441e-04 (tol 2e-02)
+  ok   down/fp32C/2tok+pack-half: tokens=2 max_rel_err=0.000e+00 (tol 1e-05)
+PASS

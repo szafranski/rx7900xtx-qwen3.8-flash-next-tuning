@@ -1,6 +1,6 @@
 # Data and provenance
 
-`raw/` contains 75 selected files from the local consolidated September 2026 test archive, 80 files from 28 September, 17 expert-cache records, 4 Vulkan repair records, and 8 q8_0 KV records, for 184 total. They are grouped by experiment. `manifest.csv` records each repository path, source-relative path, original SHA-256, imported SHA-256, byte count, and whether the import changed the bytes. The older JSON was normalized and local home paths were replaced with `<HOME>`. Long-context response files whose names end in `-prompt.json` had their full request and prompt removed, leaving the response and wall time. This means an imported hash often differs from the source hash. The expert-cache and Vulkan response files are unmodified; the q8_0 KV records were sanitized before import. Source paths in the manifest identify each experiment.
+`raw/` contains 75 selected files from the local consolidated September 2026 test archive, 80 files from 28 September, 17 expert-cache records, 4 Vulkan repair records, 8 q8_0 KV records, and 23 EXL3 retest evidence files, for 207 total. They are grouped by experiment. `manifest.csv` records each repository path, source-relative path, original SHA-256, imported SHA-256, byte count, and whether the import changed the bytes. The older JSON was normalized and local home paths were replaced with `<HOME>`. Long-context response files whose names end in `-prompt.json` had their full request and prompt removed, leaving the response and wall time. This means an imported hash often differs from the source hash. The expert-cache and Vulkan response files are unmodified; the q8_0 KV records were sanitized before import. Source paths in the manifest identify each experiment.
 
 The raw set includes OpenAI-compatible response JSON with `usage` and `timings`, ROCm tuning records with launch arguments and `memory_stats`, memory-counter NDJSON, cgroup text readings, the 28-shard AtomicChat checksum list, and two PNGs of the synthetic vision test. Prompt strings, tokenizer dumps, unrelated production-model listings, Hugging Face directory snapshots, `.pyc`, and full server/build logs were left out. The original local archive remains untouched. Full logs for the Vulkan tests remain in `agents/scratch/flashnext-vulkan-nohost-2026-09-29/`; q8_0 observations and the request driver remain in `agents/scratch/flashnext-q8-65k-2026-09-29/`. Older diagnostics remain in `agents/scratch/flashnext-expert-cache-2026-09-28/` and `agents/scratch/flashnext-bench-2026-09-28/private/`.
 
@@ -15,3 +15,18 @@ The raw set includes OpenAI-compatible response JSON with `usage` and `timings`,
 - `.png`: the same simple red-square/blue-circle image in two encodings.
 
 Run `python3 scripts/data.py check` from the repository root. `python3 scripts/data.py import <archive/raw>` documents the one-shot, read-only-to-source import of the older archive and refuses to overwrite an existing `data/raw` directory.
+
+## EXL3 retest evidence, 30 September
+
+`raw/exl3-retest-2026-09-30/` contains 12 reduced response records,
+5 runtime/template/decode/resource/case-summary JSON records, 4 numerical-check
+transcripts, the local patch and its upstream MIT license. Full generated text,
+private prompts, token ID arrays and decoded text were omitted because the
+responses quote private configuration. Output SHA-256 hashes bind the reduced
+records to the locally retained text. They cannot validate its quality without
+that text. Chat response files have usage but no timing fields; their report
+rates come from local server logs. Native response files retain timings.
+
+The manifest records original and imported hashes, byte counts and source
+paths for these transformations. The patch documents the tested modifications,
+not a successful quality fix. Full logs and consultation notes remain local.
