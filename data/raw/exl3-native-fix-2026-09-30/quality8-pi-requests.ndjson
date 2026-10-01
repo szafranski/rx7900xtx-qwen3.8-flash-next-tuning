@@ -1,0 +1,18 @@
+{"max_tokens": null, "max_completion_tokens": 2048, "stream": true, "tools": ["read"], "kwargs": {"enable_thinking": false, "preserve_thinking": true}}
+{"max_tokens": null, "max_completion_tokens": 2048, "stream": true, "tools": ["read"], "kwargs": {"enable_thinking": false, "preserve_thinking": true}}
+{"max_tokens": null, "max_completion_tokens": 2048, "stream": true, "tools": ["read"], "kwargs": {"enable_thinking": false, "preserve_thinking": true}}
+{"max_tokens": null, "max_completion_tokens": 2048, "stream": true, "tools": ["read"], "kwargs": {"enable_thinking": false, "preserve_thinking": true}}
+{"max_tokens": null, "max_completion_tokens": 2048, "stream": true, "tools": ["read"], "kwargs": {"enable_thinking": false, "preserve_thinking": true}}
+{"max_tokens": null, "max_completion_tokens": 2048, "stream": true, "tools": ["read"], "kwargs": {"enable_thinking": false, "preserve_thinking": true}}
+{"max_tokens": null, "max_completion_tokens": 2048, "stream": true, "tools": ["read"], "kwargs": {"enable_thinking": false, "preserve_thinking": true}}
+{"max_tokens": null, "max_completion_tokens": 2048, "stream": true, "tools": ["read"], "kwargs": {"enable_thinking": false, "preserve_thinking": true}}
+{"max_tokens": null, "max_completion_tokens": 2048, "stream": true, "tools": ["read"], "kwargs": {"enable_thinking": false, "preserve_thinking": true}}
+{"max_tokens": null, "max_completion_tokens": 2048, "stream": true, "tools": ["read"], "kwargs": {"enable_thinking": true, "reasoning_effort": "medium", "preserve_thinking": true}}
+{"max_tokens": null, "max_completion_tokens": 2048, "stream": true, "tools": ["read"], "kwargs": {"enable_thinking": true, "reasoning_effort": "medium", "preserve_thinking": true}}
+{"max_tokens": null, "max_completion_tokens": 2048, "stream": true, "tools": ["read"], "kwargs": {"enable_thinking": true, "reasoning_effort": "medium", "preserve_thinking": true}}
+{"max_tokens": null, "max_completion_tokens": 2048, "stream": true, "tools": ["read"], "kwargs": {"enable_thinking": true, "reasoning_effort": "medium", "preserve_thinking": true}}
+{"max_tokens": null, "max_completion_tokens": 2048, "stream": true, "tools": ["read"], "kwargs": {"enable_thinking": true, "reasoning_effort": "medium", "preserve_thinking": true}}
+{"max_tokens": null, "max_completion_tokens": 2048, "stream": true, "tools": ["read"], "kwargs": {"enable_thinking": true, "reasoning_effort": "medium", "preserve_thinking": true}}
+{"max_tokens": null, "max_completion_tokens": 2048, "stream": true, "tools": ["read"], "kwargs": {"enable_thinking": true, "reasoning_effort": "medium", "preserve_thinking": true}}
+{"max_tokens": null, "max_completion_tokens": 2048, "stream": true, "tools": ["read"], "kwargs": {"enable_thinking": true, "reasoning_effort": "medium", "preserve_thinking": true}}
+{"max_tokens": null, "max_completion_tokens": 2048, "stream": true, "tools": ["read"], "kwargs": {"enable_thinking": true, "reasoning_effort": "medium", "preserve_thinking": true}}

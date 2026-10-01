@@ -4,7 +4,7 @@ Measurements from one 24 GB RDNA3 card with 32 GiB of host RAM, collected on 24-
 
 ## At a glance
 
-- **EXL3 2.50 bpw after a native gate fix:** a one-line lane-0 guard passes kernel and short API checks, Pi at 8k through a test adapter, and synthetic retrieval at 32k/65k with thinking OFF/ON. Direct generation reached about 23 tok/s; PP was 585-586 at 32k and 396 at 65k. One cold API 32k request measured 566 PP / 23.74 TG. Shutdown still crashes with exit 139, the adapter is not deployed, and 65k leaves only 0.527 GiB VRAM free. [Fix, evidence and limits](reports/flashnext-exl3-native-fix-2026-09-30.md)
+- **EXL3 2.50 bpw after a native gate fix:** a one-line lane-0 guard passes kernel and short API checks, Pi at 8k and at a 32k window through a test adapter, and synthetic retrieval at 32k/65k with thinking OFF/ON. Direct generation reached about 23 tok/s; PP was 585-586 at 32k and 396 at 65k. One cold API 32k request measured 566 PP / 23.74 TG. Shutdown still crashes with exit 139, the adapter is not deployed, and 65k leaves only 0.527 GiB VRAM free. [Fix, evidence and limits](reports/flashnext-exl3-native-fix-2026-09-30.md)
 
 | EXL3 post-fix check | PP tok/s | TG tok/s | Scope |
 | --- | ---: | ---: | --- |
@@ -12,7 +12,7 @@ Measurements from one 24 GB RDNA3 card with 32 GiB of host RAM, collected on 24-
 | Direct 65k, input 64512 | 395.6-396.4 | 22.88-23.21 | OFF/ON, chunk 1024 |
 | API 32k, input 30267 | 566.1 | 23.74 | one cold ON request |
 
-These are single synthetic retrieval runs, not medians or a general quality benchmark. Direct PP bypasses the API; chunk sizes and output lengths differ. Pi was tested only at 8k. The earlier failed YAML comparison passed with a Python workaround but was not rerun after the native fix.
+These are single synthetic retrieval runs, not medians or a general quality benchmark. Direct PP bypasses the API; chunk sizes and output lengths differ. Pi was tested at 8k and at a 32k window with prompts up to 721 tokens. The earlier failed YAML comparison passed with a Python workaround but was not rerun after the native fix.
 
 - **q8_0 KV at 65k, live OOM and recovery:** the ROCm profile with 32 expert-cache slots/layer and `fit-target=3072` passed one benchmark, then the 28 GiB container OOM-killed it during live use. A 12-slot profile with `fit-target=2048` completed one 65k run at 571 PP / 13.67 TG tok/s, peaking at 28.60 of 30.06 GB; multi-turn stability remains unproven. [Incident and recovery](reports/flashnext-q8-oom-recovery-2026-09-29.md)
 - **Vulkan now completes 32k and 65k:** `--no-host --load-mode none --lazy-mode on` avoids the previous RADV load failure and disk-heavy `mmap` path. At 65k it reached 113 PP / 14.30 TG tok/s, with no OOM or swap; the whole request took 635.9 s versus 181.8 s for the ROCm cache-32 profile. Experimental expert cache on Vulkan produced incorrect text in a short check. [Fix and evidence](reports/flashnext-vulkan-nohost-2026-09-29.md)

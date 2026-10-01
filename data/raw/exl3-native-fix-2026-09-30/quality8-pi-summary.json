@@ -1,0 +1,164 @@
+[
+  {
+    "thinking": "off",
+    "repeat": 0,
+    "expected": "LOS-B7B5EEC0FD6C",
+    "seconds": 10.66935658800503,
+    "exit": 0,
+    "first": {
+      "passed": true,
+      "text": "LOS-B7B5EEC0FD6C",
+      "tool_executions": 1,
+      "thinking_blocks": 0,
+      "stops": [
+        "toolUse",
+        "stop"
+      ]
+    },
+    "followup": {
+      "passed": true,
+      "text": "KOD=LOS-B7B5EEC0FD6C",
+      "tool_executions": 0,
+      "thinking_blocks": 0,
+      "stops": [
+        "stop"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "thinking": "off",
+    "repeat": 1,
+    "expected": "LOS-B2F6B0F885DB",
+    "seconds": 8.066651396002271,
+    "exit": 0,
+    "first": {
+      "passed": true,
+      "text": "LOS-B2F6B0F885DB",
+      "tool_executions": 1,
+      "thinking_blocks": 0,
+      "stops": [
+        "toolUse",
+        "stop"
+      ]
+    },
+    "followup": {
+      "passed": true,
+      "text": "KOD=LOS-B2F6B0F885DB",
+      "tool_executions": 0,
+      "thinking_blocks": 0,
+      "stops": [
+        "stop"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "thinking": "off",
+    "repeat": 2,
+    "expected": "LOS-F9AF9C4D0E7E",
+    "seconds": 8.140609914000379,
+    "exit": 0,
+    "first": {
+      "passed": true,
+      "text": "LOS-F9AF9C4D0E7E",
+      "tool_executions": 1,
+      "thinking_blocks": 0,
+      "stops": [
+        "toolUse",
+        "stop"
+      ]
+    },
+    "followup": {
+      "passed": true,
+      "text": "KOD=LOS-F9AF9C4D0E7E",
+      "tool_executions": 0,
+      "thinking_blocks": 0,
+      "stops": [
+        "stop"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "thinking": "medium",
+    "repeat": 0,
+    "expected": "LOS-74C7350F0A6B",
+    "seconds": 14.716297236001992,
+    "exit": 0,
+    "first": {
+      "passed": true,
+      "text": "LOS-74C7350F0A6B",
+      "tool_executions": 1,
+      "thinking_blocks": 2,
+      "stops": [
+        "toolUse",
+        "stop"
+      ]
+    },
+    "followup": {
+      "passed": true,
+      "text": "KOD=LOS-74C7350F0A6B",
+      "tool_executions": 0,
+      "thinking_blocks": 1,
+      "stops": [
+        "stop"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "thinking": "medium",
+    "repeat": 1,
+    "expected": "LOS-B073355CB60F",
+    "seconds": 13.671590169004048,
+    "exit": 0,
+    "first": {
+      "passed": true,
+      "text": "LOS-B073355CB60F",
+      "tool_executions": 1,
+      "thinking_blocks": 2,
+      "stops": [
+        "toolUse",
+        "stop"
+      ]
+    },
+    "followup": {
+      "passed": true,
+      "text": "KOD=LOS-B073355CB60F",
+      "tool_executions": 0,
+      "thinking_blocks": 1,
+      "stops": [
+        "stop"
+      ]
+    },
+    "passed": true
+  },
+  {
+    "thinking": "medium",
+    "repeat": 2,
+    "expected": "LOS-26CE4B965E4E",
+    "seconds": 13.934427029002109,
+    "exit": 0,
+    "first": {
+      "passed": true,
+      "text": "LOS-26CE4B965E4E",
+      "tool_executions": 1,
+      "thinking_blocks": 2,
+      "stops": [
+        "toolUse",
+        "stop"
+      ]
+    },
+    "followup": {
+      "passed": true,
+      "text": "KOD=LOS-26CE4B965E4E",
+      "tool_executions": 0,
+      "thinking_blocks": 1,
+      "stops": [
+        "stop"
+      ]
+    },
+    "passed": true
+  }
+]

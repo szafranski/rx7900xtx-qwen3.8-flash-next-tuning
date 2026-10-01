@@ -7,7 +7,7 @@ Ryzen 5 5600, 32 GiB RAM.
 
 The patched runtime passes limited correctness checks with thinking OFF and ON
 and generates about 23 tokens/s. Pi completed six real read-tool round trips
-at 8k through a test adapter. Synthetic retrieval passed at 32k and 65k.
+at 8k through a test adapter, and six two-turn sessions at a 32k window. Synthetic retrieval passed at 32k and 65k.
 This is an experimental candidate, not a production deployment or a general
 quality benchmark. Natural process shutdown still crashes with SIGSEGV, exit 139.
 The 65k configuration leaves only about 0.527 GiB of VRAM free.
@@ -90,7 +90,30 @@ All six passed. One medium ON negative case answered 391 without a tool call.
 Only `read` was enabled, with no extensions, skills or inherited context files.
 [Pi results](../data/raw/exl3-native-fix-2026-09-30/quality7-pi-summary.json),
 [negative case](../data/raw/exl3-native-fix-2026-09-30/quality7-negative-summary.json).
-Pi was not tested at 32k or 65k.
+
+## Pi at a 32k window
+
+The same test was repeated with a 32768-token model window in both the server
+and the Pi profile, still with a 2048-token output limit. Three OFF and three
+medium ON sessions each ran two turns in one Pi RPC process. The first turn
+did an actual `read` of a file with a random code generated per session, not
+present in the prompt, and returned it exactly. The second turn asked for the
+code again; the model answered from history without another `read`. All 6
+sessions and 12 turns passed, with 18 API requests, all with
+`max_completion_tokens=2048` and 9 per thinking mode. ON thinking stayed in
+thinking blocks; OFF produced none. The parser was unchanged and the adapter
+still buffers tool-enabled responses.
+[Session results](../data/raw/exl3-native-fix-2026-09-30/quality8-pi-summary.json),
+[request settings](../data/raw/exl3-native-fix-2026-09-30/quality8-pi-requests.ndjson),
+[server timings](../data/raw/exl3-native-fix-2026-09-30/quality8-pi-timings.ndjson).
+
+This checks integration at a 32k allocation, not a filled context: the largest
+prompt was 721 tokens. Minimum host MemAvailable was 2.916 GiB, 0.166 GiB
+above the guard, and peak VRAM 22.811 GiB; cgroup max, OOM and OOM-kill
+counters stayed zero.
+[Resource summary](../data/raw/exl3-native-fix-2026-09-30/quality8-resource-summary.json).
+The server again exited 139 when stopped after the series. Pi was not tested
+at 65k.
 
 ## Direct runtime at long context
 
