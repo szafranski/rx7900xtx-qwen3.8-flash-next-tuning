@@ -1,0 +1,20 @@
+{
+  "source": "pi-adapter/evidence/20261001-gpu-fault-repro/results.md",
+  "record_type": "English summary transcribed from source report",
+  "date": "2026-10-01",
+  "cache_tokens": 16384,
+  "sequence": "A1-A4 with growing shared prefix, expected over-window HTTP 400, unrelated shorter prefix B",
+  "runnable_variants_crashed": 4,
+  "runnable_variants": 4,
+  "container_exit": 139,
+  "serialized_location": "bc_attn.py:586, ext.BC_Attention.run",
+  "serialized_env": {
+    "AMD_SERIALIZE_KERNEL": 3,
+    "AMD_SERIALIZE_COPY": 3
+  },
+  "no_gpu_reset_or_oom": true,
+  "limits": [
+    "asynchronous stacks do not identify the internal faulty kernel",
+    "historical graph-replay interpretation superseded by 2 October main verification"
+  ]
+}

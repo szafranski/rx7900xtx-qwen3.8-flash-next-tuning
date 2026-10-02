@@ -1,0 +1,17 @@
+{
+  "source": "shutdown-sigsegv/HANDOFF.md",
+  "record_type": "English summary transcribed from source report",
+  "mechanism": "GWS queue use-after-free during ROCr shutdown, with concurrent first CLR xferQueue creation leaking cooperative queue references",
+  "backport": "e5a0f920d",
+  "minimal_reproducer": "Eight threads with separate streams and parallel first cooperative launch, without model",
+  "alternating_ab": {
+    "stock_segfaults": "3/3",
+    "vanilla_segfaults_with_uaf_probe": "3/3",
+    "patched_exit_zero": "3/3"
+  },
+  "limits": [
+    "Earlier wrapper-only stock/vanilla/patched comparison did not isolate patch efficacy because vanilla also exited cleanly.",
+    "Why local vanilla wrapper runs avoided the race remains unverified."
+  ],
+  "pi32k_natural_exit_evidence": "See pi32k-summary.json: both runs used patched libhsa and had container exit 0 and NATURAL_EXIT 0, without os._exit masking."
+}

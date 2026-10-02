@@ -1,0 +1,34 @@
+{
+  "source": "pi-adapter/evidence/20261002-upstream-main-verify/results.md",
+  "record_type": "English summary transcribed from source report",
+  "fork_main": "871dce3",
+  "runtime": "ROCm 7.2.4",
+  "local_patches_applied": false,
+  "main_load": {
+    "result": "API ready without local patch 2994bf7",
+    "container_exit": 0,
+    "natural_exit": 0,
+    "effective_lds_bytes": 65536
+  },
+  "main_base": {
+    "result": "GPU memory access fault on B",
+    "reproductions": 1,
+    "runs": 1,
+    "container_exit": 139,
+    "request_driver_exit": 0,
+    "automatic_kernel_gpu_reset": true,
+    "oom_events": 0,
+    "oom_kill_events": 0,
+    "max_events": 0
+  },
+  "not_run_after_reset": [
+    "main-base2",
+    "main-bcoff",
+    "ram-main-rcs125",
+    "ram-main-rcs125-malloc"
+  ],
+  "bc_execution": "Eager on ROCm 7.2.4 with HIP graph override unset, not hipGraph replay",
+  "exact_fault_cause": "Not established; reused slot/buffer geometry is a hypothesis",
+  "rcs_zero": "KeyError: dictionary is empty for zero or below-checkpoint capacity in CPU reproduction of main RecurrentCache; upstream d3739fd class is byte-identical",
+  "malloc_trim": "Calls present in code; no GPU/model instrumentation measurements on main after reset"
+}

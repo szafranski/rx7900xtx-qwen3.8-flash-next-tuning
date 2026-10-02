@@ -1,6 +1,6 @@
 # Data and provenance
 
-`raw/` contains 75 selected files from the local consolidated September 2026 test archive, 80 files from 28 September, 17 expert-cache records, 4 Vulkan repair records, 8 q8_0 KV records, and 23 initial EXL3 retest evidence files and 20 native-fix/check files, for 227 total. They are grouped by experiment. `manifest.csv` records each repository path, source-relative path, original SHA-256, imported SHA-256, byte count, and whether the import changed the bytes. The older JSON was normalized and local home paths were replaced with `<HOME>`. Long-context response files whose names end in `-prompt.json` had their full request and prompt removed, leaving the response and wall time. This means an imported hash often differs from the source hash. The expert-cache and Vulkan response files are unmodified; the q8_0 KV records were sanitized before import. Source paths in the manifest identify each experiment.
+`raw/` contains 75 selected files from the local consolidated September 2026 test archive, 80 files from 28 September, 17 expert-cache records, 4 Vulkan repair records, 8 q8_0 KV records, and 23 initial EXL3 retest evidence files and 20 native-fix/check files, plus 6 EXL3 stability summaries from 2 October, for 233 total. They are grouped by experiment. `manifest.csv` records each repository path, source-relative path, original SHA-256, imported SHA-256, byte count, and whether the import changed the bytes. The older JSON was normalized and local home paths were replaced with `<HOME>`. Long-context response files whose names end in `-prompt.json` had their full request and prompt removed, leaving the response and wall time. This means an imported hash often differs from the source hash. The expert-cache and Vulkan response files are unmodified; the q8_0 KV records were sanitized before import. Source paths in the manifest identify each experiment.
 
 The raw set includes OpenAI-compatible response JSON with `usage` and `timings`, ROCm tuning records with launch arguments and `memory_stats`, memory-counter NDJSON, cgroup text readings, the 28-shard AtomicChat checksum list, and two PNGs of the synthetic vision test. Prompt strings, tokenizer dumps, unrelated production-model listings, Hugging Face directory snapshots, `.pyc`, and full server/build logs were left out. The original local archive remains untouched. Full logs for the Vulkan tests remain in `agents/scratch/flashnext-vulkan-nohost-2026-09-29/`; q8_0 observations and the request driver remain in `agents/scratch/flashnext-q8-65k-2026-09-29/`. Older diagnostics remain in `agents/scratch/flashnext-expert-cache-2026-09-28/` and `agents/scratch/flashnext-bench-2026-09-28/private/`.
 
@@ -50,3 +50,22 @@ imported hashes. Full request prompts, invalid preliminary long-context trials,
 private YAML, complete Pi events, full server logs, consultations, adapter source,
 model weights and tensors remain local. These selected records support the
 reported observations; they do not independently reproduce the full runtime.
+
+## EXL3 Pi 32k stability evidence, 2 October
+
+`raw/exl3-pi32k-stability-2026-10-02/` adds six reduced English JSON summaries:
+Pi turns/resources/timings, the allocator comparison, the GPU fault reproducer,
+the BC-off workaround, clean fork-main verification and the shutdown handoff.
+These are transcriptions from source reports, not raw API responses or full
+logs. The manifest records the source-relative report or handoff path, original
+SHA-256, imported SHA-256 and byte count. All six imports change the bytes.
+The Pi summary also records hashes and selected arguments from the two runtime
+verification text files to support KV and CPU MoE settings. Full command lines,
+private paths and configuration are omitted.
+
+The summaries distinguish 36 normal Pi turns from four expected HTTP 400 checks,
+the older BC-off results from the main run that reset the GPU, and the short
+allocator plateau from unmeasured main `malloc_trim` behavior. Shutdown A/B
+results refer to the minimal reproducer; the Pi runs separately confirm natural
+exit 0 with patched libhsa. Full logs, prompts, preflight/authentication files,
+model weights and binaries remain outside the imported set.

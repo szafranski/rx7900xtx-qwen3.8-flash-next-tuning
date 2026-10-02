@@ -1,0 +1,115 @@
+{
+  "source": "pi-adapter/evidence/20261002-32k-rcs125-malloc/results.md",
+  "record_type": "English summary transcribed from source report",
+  "profile": {
+    "EXL3_BC_ATTN": 0,
+    "rcs_gib": 0.125,
+    "MALLOC_MMAP_THRESHOLD_": 1048576,
+    "MALLOC_TRIM_THRESHOLD_": 131072,
+    "MALLOC_ARENA_MAX": 2,
+    "cache_tokens": 32768,
+    "chunk_tokens": 1024,
+    "moe_threads": 6,
+    "memory_limit_gib": 27,
+    "MemorySwap": "Memory",
+    "kv_quantization": "8,8",
+    "mcs": 288
+  },
+  "normal_turns_pass": 36,
+  "expected_http_400": 4,
+  "harness_pass": 40,
+  "conversations_per_mode": 2,
+  "guard": "MemAvailable < 2.0 GiB for two consecutive samples, every 2 s; did not trigger",
+  "modes": {
+    "medium": {
+      "max_prompt_tokens": 28009,
+      "over_window_prompt_tokens": [
+        41468,
+        41511
+      ],
+      "min_mem_available_gib": 3.779,
+      "cgroup_peak_gib": 26.182,
+      "max_memory_current_gib": 26.095,
+      "peak_vram_gib": 23.971596,
+      "min_free_vram_gib": 0.012779,
+      "min_free_vram_mib": 13.1,
+      "heap_growth_mib": 132.8,
+      "pp_median_tps": 442.15,
+      "pp_n": 10,
+      "tg_median_tps": 23.9,
+      "tg_n": 30,
+      "conversation_seconds": [
+        151.3,
+        143.6
+      ]
+    },
+    "off": {
+      "max_prompt_tokens": 28462,
+      "over_window_prompt_tokens": [
+        41866,
+        41927
+      ],
+      "min_mem_available_gib": 3.856,
+      "cgroup_peak_gib": 26.123,
+      "max_memory_current_gib": 25.991,
+      "peak_vram_gib": 23.971474,
+      "min_free_vram_gib": 0.012901,
+      "min_free_vram_mib": 13.2,
+      "heap_growth_mib": 123.8,
+      "pp_median_tps": 465.32,
+      "pp_n": 10,
+      "tg_median_tps": 23.83,
+      "tg_n": 22,
+      "conversation_seconds": [
+        116.1,
+        106.4
+      ]
+    }
+  },
+  "rate_selection": {
+    "pp": "uncached prompt tokens > 500",
+    "tg": "new tokens >= 20"
+  },
+  "rate_definition": {
+    "pp": "(prompt_tokens - cached_tokens) / time_prefill",
+    "tg": "new_tokens / time_generate"
+  },
+  "both_runs": {
+    "max_events_delta": 0,
+    "oom_events_delta": 0,
+    "oom_kill_events_delta": 0,
+    "container_exit": 0,
+    "natural_exit": 0,
+    "gpu_reset": false,
+    "new_coredump": false,
+    "vram_after_teardown_gib": 0.672
+  },
+  "vram_sampling_seconds": 2,
+  "vram_includes_desktop": true,
+  "checks": [
+    "real read/tool-result/final",
+    "history answers",
+    "thinking medium/off",
+    "prefix cache",
+    "new conversation with a different prefix",
+    "expected over-window HTTP 400"
+  ],
+  "limits": [
+    "not all 32768 tokens filled",
+    "no multi-hour soak",
+    "65k profile not validated",
+    "not deployed to production"
+  ],
+  "runtime_argument_sources": [
+    {
+      "source": "pi-adapter/evidence/20261002-32k-rcs125-malloc/p/runtime-verified-med.txt",
+      "source_sha256": "1061876054394cc1c0a69aa7b973ff55b886722bbedb296004e09c99bb90d833",
+      "selected_arguments": "-cs 32768 -cq 8,8 -mcs 288 -mct 6 -chunk_size 1024 -rcs 0.125"
+    },
+    {
+      "source": "pi-adapter/evidence/20261002-32k-rcs125-malloc/p/runtime-verified-off.txt",
+      "source_sha256": "0fef6c7341533c7e776769f2b717b0278d3f5eb782f7a7a98e178377858633ec",
+      "selected_arguments": "-cs 32768 -cq 8,8 -mcs 288 -mct 6 -chunk_size 1024 -rcs 0.125"
+    }
+  ]
+}

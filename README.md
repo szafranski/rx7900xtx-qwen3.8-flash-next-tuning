@@ -1,18 +1,20 @@
 # Qwen3.8 Flash-Next on an RX 7900 XTX
 
-Measurements from one 24 GB RDNA3 card with 32 GiB of host RAM, collected on 24-30 September 2026. Two GGUF quantizations and one EXL3 quantization were tested; there was no common quality suite. Most configurations were run once.
+Measurements from one 24 GB RDNA3 card with 32 GiB of host RAM, collected from 24 September to 2 October 2026. Two GGUF quantizations and one EXL3 quantization were tested; there was no common quality suite. Most configurations were run once.
 
 ## At a glance
 
-- **EXL3 2.50 bpw after a native gate fix:** a one-line lane-0 guard passes kernel and short API checks, Pi at 8k and at a 32k window through a test adapter, and synthetic retrieval at 32k/65k with thinking OFF/ON. Direct generation reached about 23 tok/s; PP was 585-586 at 32k and 396 at 65k. One cold API 32k request measured 566 PP / 23.74 TG. Shutdown still crashes with exit 139, the adapter is not deployed, and 65k leaves only 0.527 GiB VRAM free. [Fix, evidence and limits](reports/flashnext-exl3-native-fix-2026-09-30.md)
+- **EXL3 2.50 bpw, Pi 32k validated with workarounds:** on 2 October, thinking medium and OFF completed 36/36 normal turns plus four expected HTTP 400 checks, with history, real read-tool round trips and a change of prefix. Prompts reached 28,462 tokens. `EXL3_BC_ATTN=0`, `-rcs 0.125` and three glibc allocator settings avoided the observed GPU fault and produced a short-run RAM plateau. Both exited naturally with code 0 using patched libhsa. Minimum MemAvailable was 3.779 GiB, but sampled free VRAM fell to 13.1 MiB. The fault still reproduces on clean fork main; the exact BC cause remains unknown. The profile is not deployed and has no multi-hour soak. [2 October measurements and limits](reports/flashnext-exl3-pi32k-stability-2026-10-02.md). [Earlier native fix and synthetic 32k/65k checks](reports/flashnext-exl3-native-fix-2026-09-30.md)
 
 | EXL3 post-fix check | PP tok/s | TG tok/s | Scope |
 | --- | ---: | ---: | --- |
 | Direct 32k, input 31744 | 584.5-585.8 | 22.94-23.30 | OFF/ON, chunk 2048 |
 | Direct 65k, input 64512 | 395.6-396.4 | 22.88-23.21 | OFF/ON, chunk 1024 |
 | API 32k, input 30267 | 566.1 | 23.74 | one cold ON request |
+| Pi 32k, medium, 2 October | 442.15 | 23.90 | request medians, PP n=10 / TG n=30; max prompt 28009 |
+| Pi 32k, OFF, 2 October | 465.32 | 23.83 | request medians, PP n=10 / TG n=22; max prompt 28462 |
 
-These are single synthetic retrieval runs, not medians or a general quality benchmark. Direct PP bypasses the API; chunk sizes and output lengths differ. Pi was tested at 8k and at a 32k window with prompts up to 721 tokens. The earlier failed YAML comparison passed with a Python workaround but was not rerun after the native fix.
+The direct and API rows are single synthetic retrieval runs. Direct PP bypasses the API; chunk sizes and output lengths differ. The 2 October Pi rows use chunk 1024, PP on requests with more than 500 uncached tokens and TG on outputs of at least 20 tokens. Their medians are not a matched comparison with the earlier rows or a general quality benchmark. Pi now reached about 28.5k prompt tokens within a 32k window; the earlier 721-token smoke was only an allocation check. The earlier failed YAML comparison passed with a Python workaround but was not rerun after the native fix.
 
 - **q8_0 KV at 65k, live OOM and recovery:** the ROCm profile with 32 expert-cache slots/layer and `fit-target=3072` passed one benchmark, then the 28 GiB container OOM-killed it during live use. A 12-slot profile with `fit-target=2048` completed one 65k run at 571 PP / 13.67 TG tok/s, peaking at 28.60 of 30.06 GB; multi-turn stability remains unproven. [Incident and recovery](reports/flashnext-q8-oom-recovery-2026-09-29.md)
 - **Vulkan now completes 32k and 65k:** `--no-host --load-mode none --lazy-mode on` avoids the previous RADV load failure and disk-heavy `mmap` path. At 65k it reached 113 PP / 14.30 TG tok/s, with no OOM or swap; the whole request took 635.9 s versus 181.8 s for the ROCm cache-32 profile. Experimental expert cache on Vulkan produced incorrect text in a short check. [Fix and evidence](reports/flashnext-vulkan-nohost-2026-09-29.md)
@@ -61,7 +63,7 @@ The quantizations were not run through a common quality suite. The initial 30 Se
 - [Setup](docs/setup.md): model identities, build pins, memory limits.
 - [Methodology](docs/methodology.md): how PP/TG and cached prompts were interpreted.
 - [Correctness](docs/correctness.md), [context and memory](docs/context-and-memory.md), [ROCm tuning](docs/rocm-tuning.md), [MTP](docs/mtp.md), [Vulkan](docs/vulkan.md): findings with raw-file links and caveats.
-- [Data guide](data/README.md): 223 selected evidence files (75 older, 80 from 28 September, 17 expert-cache records, 4 Vulkan repair records, 8 q8_0 KV records, 23 initial EXL3 records and 16 EXL3 fix/check records) plus SHA-256 manifest. [Historical reports](reports/) retain the original field notes with local paths anonymized; their service status is historical. The [OOM and recovery report](reports/flashnext-q8-oom-recovery-2026-09-29.md) covers the later q8_0 profile changes.
+- [Data guide](data/README.md): 233 selected evidence files (75 older, 80 from 28 September, 17 expert-cache records, 4 Vulkan repair records, 8 q8_0 KV records, 23 initial EXL3 records, 20 EXL3 fix/check records and 6 EXL3 stability summaries) plus SHA-256 manifest. [Historical reports](reports/) retain the original field notes with local paths anonymized; their service status is historical. The [OOM and recovery report](reports/flashnext-q8-oom-recovery-2026-09-29.md) covers the later q8_0 profile changes.
 
 Run `python3 scripts/data.py check` to validate the selected data, manifest, JSON syntax, and basic private-path scan. This does not run the models. Model weights and full server/build logs are excluded.
 
