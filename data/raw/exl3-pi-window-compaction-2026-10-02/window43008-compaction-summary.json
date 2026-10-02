@@ -1,0 +1,15 @@
+{
+  "source": "pi-adapter/evidence/20261002-window43008-compaction/results.md",
+  "record_type": "English summary transcribed from source report",
+  "n": 2,
+  "pi_version": "0.99.1",
+  "profile": {"cache_tokens": 43008, "server_max_response": 4096, "pi_context_window": 43008, "maxTokens": 4096, "reserveTokens": 10240, "compaction_trigger_tokens": 32768, "chunk_tokens": 1024, "mcs": 296, "rcs_gib": 0.125, "memory_limit_gib": 28.5, "MemorySwap": "Memory", "EXL3_BC_ATTN": 0, "thinking": "medium", "corpus": "Polish markdown, same as c40b", "launcher_default": true, "production_llama_cpp_launcher": false},
+  "runs": {
+    "c43a": {"successful_compactions": 3, "failed_compactions": 2, "recall_facts": "5/5 in 2/2 recalls", "max_real_prompt_tokens_normal_reply": 31553, "min_free_vram_mib": 267, "peak_minus_desktop_gib": 23.08, "min_mem_available_gib": 2.67, "cgroup_peak_gib": 26.62, "pp_median_tps": 406.8, "pp_n": 18, "tg_median_tps": 23.91, "tg_n": 31, "over_window_8_files": "both summary requests (7002-token prompt) generated 4096 tokens without finishing; Pi sent 56899 tokens with max_tokens=1, HTTP 400; session stuck at about 110% of the window by Pi's estimate (132% in real tokens)"},
+    "c43b": {"successful_compactions": 4, "failed_compactions": 0, "recall_facts": "5/5 in 2/2 recalls", "max_real_prompt_tokens_normal_reply": 32051, "min_free_vram_mib": 270, "min_mem_available_gib": 3.05, "cgroup_peak_gib": 27.01, "pp_median_tps": 413.0, "tg_median_tps": 23.74, "over_window_8_files": "compaction succeeded (summary 2392 + 404 tokens); reply OK at 32051-token prompt, 8/8 ids"}
+  },
+  "totals": {"successful_threshold_compactions": 7, "of_which_in_normal_flow": 6, "of_which_in_over_window_step": 1, "failed_compactions": 2, "recall_facts_correct": "5/5 after every recall", "one_token_clamps_or_http_400_outside_over_window": 0, "max_real_prompt_tokens": 32051, "min_free_vram_mib": 267, "peak_minus_desktop_gib": 23.08, "tg_median_tps_range": "23.74-23.91", "oom_events": 0, "gpu_fault_or_reset": false, "exit": 0},
+  "estimate_error": {"chars_per_4_max_undercount_pct": 33.7, "first_request_after_compaction_max_undercount_pct": 34.4, "note": "Polish markdown only; real tokens about 1.5x the estimate on the first request after a compaction"},
+  "known_risk": "A single very large input (about 28k tokens read at once) left the session stuck in 1 of 2 runs because summaries hit the 4096-token cap. The earlier 40960/2048 profile failed 1/1 on the Polish corpus (1 of 2 overall). The cause of the long summary (loop or long enumeration) is unconfirmed; content was not saved.",
+  "limits": "Two runs, one session each, synthetic Polish corpus, no multi-hour soak. Not deployed to production."
+}

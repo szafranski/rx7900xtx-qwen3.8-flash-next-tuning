@@ -1,0 +1,12 @@
+{
+  "source": "pi-adapter/evidence/20261002-window39168/results.md",
+  "record_type": "English summary transcribed from source report",
+  "n": 1,
+  "pi_version": "0.99.1",
+  "pi_output_clamp": "max_tokens = min(maxTokens, max(1, contextWindow - estimated_context - 4096)); the 4096 reserve is on top of the output",
+  "consequence": "With a 32768 window the output shrinks above about 26.6k prompt tokens and reaches 1 token near 28.7k, which explains the earlier ~28.5k ceiling.",
+  "profile": {"cache_tokens": 39168, "pi_context_window": 39168, "maxTokens": 2048, "chunk_tokens": 1024, "mcs": 296, "memory_limit_gib": 28.5, "EXL3_BC_ATTN": 0, "rcs_gib": 0.125, "thinking": "medium", "pi_compaction": "disabled", "conversations": 2},
+  "result_main_run": {"max_real_prompt_tokens": 33200, "turns_over_28_6k_with_normal_reply": 6, "one_token_clamps_outside_over_window": 0, "normal_turns_pass": "22/22 including over-window checks", "over_window_http_400": "both conversations, prompt about 45.6k tokens", "peak_minus_desktop_gib": 22.99, "peak_minus_desktop_baseline_gib": 22.90, "min_free_vram_mib": 418, "min_mem_available_gib": 3.44, "cgroup_peak_gib": 26.50, "pp_median_tps": 435.5, "pp_n": 12, "tg_median_tps": 23.44, "tg_n": 34, "tg_prompt_over_30k_median_tps": 23.19, "tg_prompt_over_30k_n": 6, "exit": 0, "gpu_fault_or_reset": false},
+  "window_rule": "A usable prompt P needs a window of at least P + 4096 + expected output; a 36864 window leaves a 1-token output (clamp floor) for a 32768 prompt.",
+  "limits": "One run per configuration, short, no soak. Pi default reserveTokens 16384 would trigger compaction near 22.8k with this window."
+}

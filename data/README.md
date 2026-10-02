@@ -1,6 +1,6 @@
 # Data and provenance
 
-`raw/` contains 75 selected files from the local consolidated September 2026 test archive, 80 files from 28 September, 17 expert-cache records, 4 Vulkan repair records, 8 q8_0 KV records, and 23 initial EXL3 retest evidence files and 20 native-fix/check files, plus 6 EXL3 stability summaries from 2 October, for 233 total. They are grouped by experiment. `manifest.csv` records each repository path, source-relative path, original SHA-256, imported SHA-256, byte count, and whether the import changed the bytes. The older JSON was normalized and local home paths were replaced with `<HOME>`. Long-context response files whose names end in `-prompt.json` had their full request and prompt removed, leaving the response and wall time. This means an imported hash often differs from the source hash. The expert-cache and Vulkan response files are unmodified; the q8_0 KV records were sanitized before import. Source paths in the manifest identify each experiment.
+`raw/` contains 75 selected files from the local consolidated September 2026 test archive, 80 files from 28 September, 17 expert-cache records, 4 Vulkan repair records, 8 q8_0 KV records, and 23 initial EXL3 retest evidence files and 20 native-fix/check files, plus 6 EXL3 stability summaries from 2 October and 4 EXL3 window/compaction summaries from the evening, for 237 total. They are grouped by experiment. `manifest.csv` records each repository path, source-relative path, original SHA-256, imported SHA-256, byte count, and whether the import changed the bytes. The older JSON was normalized and local home paths were replaced with `<HOME>`. Long-context response files whose names end in `-prompt.json` had their full request and prompt removed, leaving the response and wall time. This means an imported hash often differs from the source hash. The expert-cache and Vulkan response files are unmodified; the q8_0 KV records were sanitized before import. Source paths in the manifest identify each experiment.
 
 The raw set includes OpenAI-compatible response JSON with `usage` and `timings`, ROCm tuning records with launch arguments and `memory_stats`, memory-counter NDJSON, cgroup text readings, the 28-shard AtomicChat checksum list, and two PNGs of the synthetic vision test. Prompt strings, tokenizer dumps, unrelated production-model listings, Hugging Face directory snapshots, `.pyc`, and full server/build logs were left out. The original local archive remains untouched. Full logs for the Vulkan tests remain in `agents/scratch/flashnext-vulkan-nohost-2026-09-29/`; q8_0 observations and the request driver remain in `agents/scratch/flashnext-q8-65k-2026-09-29/`. Older diagnostics remain in `agents/scratch/flashnext-expert-cache-2026-09-28/` and `agents/scratch/flashnext-bench-2026-09-28/private/`.
 
@@ -69,3 +69,18 @@ allocator plateau from unmeasured main `malloc_trim` behavior. Shutdown A/B
 results refer to the minimal reproducer; the Pi runs separately confirm natural
 exit 0 with patched libhsa. Full logs, prompts, preflight/authentication files,
 model weights and binaries remain outside the imported set.
+
+## EXL3 Pi window and compaction evidence, 2 October evening
+
+`raw/exl3-pi-window-compaction-2026-10-02/` adds four reduced English JSON
+summaries: chunk 512 versus 1024, window 39168 without compaction, window 40960
+with compaction and window 43008 with compaction. They are transcriptions from
+the source `results.md` reports, not raw API responses, Pi session logs or prompts. The manifest records the
+source-relative report path, original SHA-256, imported SHA-256 and byte count;
+all four imports change the bytes. Test corpora, session transcripts, summary
+texts, the consult note, preflight files and server logs are not included.
+
+The summaries state n per test (1 or 2), separate the successful compactions in
+normal flow from the over-window step, and keep the known stuck-session failure
+(1 of 1 Polish run, 1 of 2 overall, at 40960; 1 of 2 at 43008). Token-estimate errors apply to the synthetic
+Polish markdown and Python corpora only.

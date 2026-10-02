@@ -1,0 +1,10 @@
+{
+  "source": "pi-adapter/evidence/20261002-32k-chunk512/results.md",
+  "record_type": "English summary transcribed from source report",
+  "n": 1,
+  "profile": {"EXL3_BC_ATTN": 0, "rcs_gib": 0.125, "cache_tokens": 32768, "kv_quantization": "8,8", "moe_threads": 6, "mcs": 296, "memory_limit_gib": 28.5, "MemorySwap": "Memory", "thinking": "medium", "changed_vs_baseline": "chunk_size 512 instead of 1024"},
+  "baseline_chunk_1024": {"normal_turns_pass": "19/19", "desktop_vram_before_load_gib": 0.78, "peak_vram_gib": 23.68, "peak_minus_desktop_gib": 22.90, "min_free_vram_mib": 313, "min_mem_available_gib": 2.62, "cgroup_peak_gib": 26.43, "pp_median_tps": 431.33, "pp_n": 10, "tg_median_tps": 23.48, "tg_n": 29, "exit": 0},
+  "chunk_512": {"normal_turns_pass": "20/20", "desktop_vram_before_load_gib": 0.58, "peak_vram_gib": 23.46, "peak_minus_desktop_gib": 22.88, "min_free_vram_mib": 532, "min_mem_available_gib": 3.35, "cgroup_peak_gib": 25.82, "pp_median_tps": 438.64, "pp_n": 10, "tg_median_tps": 23.61, "tg_n": 30, "oom_events": 0, "gpu_fault_or_reset": false, "exit": 0},
+  "reading": "Model VRAM is unchanged within about 12 MiB after subtracting the desktop baseline; the 313 -> 532 MiB spread in free VRAM mostly reflects a 0.20 GiB lower desktop baseline. PP and TG differences (+1.7%, +0.6%) are within single-run noise. Lower RAM peaks are one run and not attributed to the chunk size.",
+  "limits": "One run per variant, short test, no soak."
+}
