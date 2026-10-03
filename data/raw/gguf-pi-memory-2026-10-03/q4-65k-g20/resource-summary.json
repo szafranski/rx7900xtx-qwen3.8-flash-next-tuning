@@ -1,0 +1,51 @@
+{
+  "samples": 111,
+  "sample_interval_min": 0.9993143081665039,
+  "sample_interval_max": 1.0008189678192139,
+  "min_avail": 1899286528,
+  "min_avail_before_guard": 1973723136,
+  "peak_cgroup": 28707201024,
+  "events_last": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0,
+    "sock_throttled": 0
+  },
+  "min_vram_free": 891428864,
+  "max_rss_kib": 27834756,
+  "guard": "MemAvailable<2.0GiB x2, 2s apart",
+  "max_prompt": 832,
+  "output_tokens": 161,
+  "turns": 2,
+  "compactions": [],
+  "page_size": 4096,
+  "vm_delta_full": {
+    "pswpin": 18131,
+    "pswpout": 15388,
+    "pgmajfault": 18651,
+    "workingset_refault_file": 735104
+  },
+  "vm_delta_guard": {
+    "pswpin": 17742,
+    "pswpout": 9561,
+    "pgmajfault": 18082,
+    "workingset_refault_file": 671408
+  },
+  "swapfree_first": 15572344832,
+  "swapfree_min": 15551422464,
+  "cg_swap_max_observed": 0,
+  "cg_refault_last": 450316,
+  "io_read_max": 51343753216,
+  "io_read_ready": 51072999424,
+  "io_read_end": 51343687680,
+  "process_read_max": 51343753216,
+  "nvme_streaming_tasks": [],
+  "max_completed_decode_s": 4.71851,
+  "pp_median": 218.6,
+  "tg_median": 14.149999999999999,
+  "max_psi_some_avg10": 0.7,
+  "max_psi_full_avg10": 0.7
+}

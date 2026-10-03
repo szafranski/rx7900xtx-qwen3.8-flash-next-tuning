@@ -1,0 +1,26 @@
+{
+  "counts_from_complete_source_excerpt": {
+    "created": 134,
+    "erasing": 110,
+    "invalidated": 18,
+    "superseding": 2,
+    "restored": 3
+  },
+  "removed_total": 130,
+  "selected_lines": [
+    "1.05.699.743 I srv    load_model: context checkpoints enabled, max = 4, min spacing = 8192",
+    "1.09.535.450 I slot create_check: id  0 | task 0 | created context checkpoint 1 of 4 (pos_min = 502, pos_max = 502, n_tokens = 503, size = 112.571 MiB)",
+    "1.10.026.313 I slot create_check: id  0 | task 0 | created context checkpoint 2 of 4 (pos_min = 561, pos_max = 561, n_tokens = 562, size = 112.571 MiB)",
+    "1.12.766.133 I slot create_check: id  0 | task 39 | created context checkpoint 3 of 4 (pos_min = 600, pos_max = 600, n_tokens = 601, size = 112.571 MiB)",
+    "1.12.876.063 I slot create_check: id  0 | task 39 | erasing context checkpoint too close to an earlier one (pos_min = 561, pos_max = 561, n_tokens = 562, size = 112.571 MiB)",
+    "1.12.936.929 I slot create_check: id  0 | task 39 | created context checkpoint 3 of 4 (pos_min = 602, pos_max = 602, n_tokens = 603, size = 112.571 MiB)",
+    "1.13.331.575 I slot create_check: id  0 | task 39 | created context checkpoint 4 of 4 (pos_min = 638, pos_max = 638, n_tokens = 639, size = 112.571 MiB)",
+    "1.16.521.659 I slot create_check: id  0 | task 86 | erasing context checkpoint too close to an earlier one (pos_min = 600, pos_max = 600, n_tokens = 601, size = 112.571 MiB)",
+    "1.16.532.080 I slot create_check: id  0 | task 86 | erasing context checkpoint too close to an earlier one (pos_min = 602, pos_max = 602, n_tokens = 603, size = 112.571 MiB)",
+    "5.47.792.445 I slot   operator(): id  0 | task 2523 | restored context checkpoint (pos_min = 61, pos_max = 61, n_tokens = 62, n_past = 62, size = 112.571 MiB)",
+    "11.00.412.869 I slot   operator(): id  0 | task 5589 | restored context checkpoint (pos_min = 61, pos_max = 61, n_tokens = 62, n_past = 62, size = 112.571 MiB)",
+    "17.39.868.428 I slot   operator(): id  0 | task 10441 | restored context checkpoint (pos_min = 23924, pos_max = 23924, n_tokens = 23925, n_past = 23925, size = 112.571 MiB)",
+    "18.27.502.771 I slot create_check: id  0 | task 10932 | created context checkpoint 3 of 4 (pos_min = 28730, pos_max = 28730, n_tokens = 28731, size = 112.571 MiB)",
+    "18.28.010.033 I slot create_check: id  0 | task 10932 | created context checkpoint 4 of 4 (pos_min = 28775, pos_max = 28775, n_tokens = 28776, size = 112.571 MiB)"
+  ]
+}

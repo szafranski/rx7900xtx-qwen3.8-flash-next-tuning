@@ -1,0 +1,102 @@
+{
+  "samples": 1117,
+  "sample_interval_min": 0.995521068572998,
+  "sample_interval_max": 1.0042309761047363,
+  "min_avail": 3144445952,
+  "min_avail_before_guard": 3144445952,
+  "peak_cgroup": 29382717440,
+  "events_last": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0,
+    "sock_throttled": 1
+  },
+  "min_vram_free": 842530816,
+  "max_rss_kib": 27148812,
+  "guard": null,
+  "max_prompt": 45468,
+  "output_tokens": 10694,
+  "turns": 28,
+  "compactions": [
+    {
+      "type": "compaction_end",
+      "reason": "threshold",
+      "result": {
+        "tokensBefore": 52446,
+        "estimatedTokensAfter": 20552,
+        "usage": {
+          "input": 6673,
+          "output": 1699,
+          "cacheRead": 62,
+          "cacheWrite": 0,
+          "reasoning": 0,
+          "totalTokens": 8434,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "total": 0
+          }
+        }
+      },
+      "aborted": false,
+      "willRetry": false
+    },
+    {
+      "type": "compaction_end",
+      "reason": "threshold",
+      "result": {
+        "tokensBefore": 51204,
+        "estimatedTokensAfter": 17250,
+        "usage": {
+          "input": 7545,
+          "output": 2353,
+          "cacheRead": 62,
+          "cacheWrite": 0,
+          "reasoning": 0,
+          "totalTokens": 9960,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "total": 0
+          }
+        }
+      },
+      "aborted": false,
+      "willRetry": false
+    }
+  ],
+  "page_size": 4096,
+  "vm_delta_full": {
+    "pswpin": 4416,
+    "pswpout": 6278,
+    "pgmajfault": 11548,
+    "workingset_refault_file": 552474
+  },
+  "vm_delta_guard": {
+    "pswpin": 4338,
+    "pswpout": 6203,
+    "pgmajfault": 11356,
+    "workingset_refault_file": 541283
+  },
+  "swapfree_first": 15467347968,
+  "swapfree_min": 15452282880,
+  "cg_swap_max_observed": 0,
+  "cg_refault_last": 432185,
+  "io_read_max": 53911781376,
+  "io_read_ready": 49961046016,
+  "io_read_end": 53911781376,
+  "process_read_max": 53911781376,
+  "nvme_streaming_tasks": [],
+  "max_completed_decode_s": 295.43940999999995,
+  "pp_median": 489.81,
+  "tg_median": 13.6,
+  "max_psi_some_avg10": 0.81,
+  "max_psi_full_avg10": 0.81
+}

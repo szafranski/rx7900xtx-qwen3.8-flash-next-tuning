@@ -1,0 +1,35 @@
+{
+  "min_avail": 1928077312,
+  "peak_cgroup": 29347844096,
+  "max_cgroup_current": 29347577856,
+  "events_first": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0,
+    "sock_throttled": 0
+  },
+  "events_last": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0,
+    "sock_throttled": 1
+  },
+  "min_vram_free": 980361216,
+  "peak_vram": 24772665344,
+  "max_rss_kib": 28404848,
+  "disk_read_bytes": 52034170880,
+  "process_read_bytes_max": 52526981120,
+  "max_psi_some_avg10": 3.41,
+  "max_psi_full_avg10": 3.38,
+  "samples": 39,
+  "guard": "MemAvailable<2GiB x2",
+  "max_prompt": 4172,
+  "output_tokens": 179,
+  "compactions": 0
+}

@@ -15,3 +15,16 @@ The important loading change was `--load-mode none --lazy-mode on`, with `--fit 
 In contrast, an `mmap` run at 4k took about 78 GB of disk reads for a 35-token prompt and measured 0.43 PP / 0.75 TG tok/s. This is an observed loading-path failure on this host, not evidence about quantization quality. The same [report](../reports/qwen-gsq-iq3xxs-test-2026-09-27.md) describes the condition.
 
 The tuned 65k q8_0 profile later reached 575.2 PP and 11.62 TG tok/s on 62,980 input and 894 output tokens. It used 27.51/30.06 GB container memory after the answer. [Tuning data](../data/raw/qwen-gsq-rocm-tuning-2026-09-27/fit2048-65k.json) and [methodology](methodology.md) give the exact settings. A separate `nasone32` MTP experiment used q4_0 KV and `ubatch=256`; do not combine those rates into one A/B result.
+
+## Fixed-build GGUF Pi context checkpoints, 3 October
+
+On the 32 GiB host, default server context checkpoints drove anon from
+0.415 to 3.573 GiB before cgroup OOM while shmem stayed about 24.250 GiB.
+With `--ctx-checkpoints 4 --cache-ram 0`, anon stayed within 1.080 GiB and
+minimum MemAvailable was 2.928 GiB. The session completed 28 turns and two
+compactions with 5/5 recall after each. Omit unsupported `--cache-reuse` for
+this hybrid context. Fewer checkpoints can require full prompt re-processing
+after compaction or prefix changes. One empty final and a wrong long-thinking
+arithmetic answer prevent a full quality PASS; maximum prompt was 45468,
+with one roughly 18.5-minute session and no soak or production deployment.
+[Before/after counters, failed runs, flags and evidence](../reports/flashnext-gguf-pi-memory-2026-10-03.md).
