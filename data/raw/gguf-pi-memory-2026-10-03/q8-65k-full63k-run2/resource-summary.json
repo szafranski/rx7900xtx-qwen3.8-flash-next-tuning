@@ -1,0 +1,97 @@
+{
+  "samples": 1036,
+  "sample_interval_min": 0.9985921382904053,
+  "sample_interval_max": 1.0016191005706787,
+  "min_avail": 1625944064,
+  "min_avail_before_guard": 1625944064,
+  "peak_cgroup": 28827701248,
+  "events_last": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0,
+    "sock_throttled": 2
+  },
+  "min_vram_free": 502771712,
+  "max_rss_kib": 28142636,
+  "guard": null,
+  "max_prompt": 63020,
+  "output_tokens": 9253,
+  "turns": 14,
+  "compactions": [
+    {
+      "type": "compaction_end",
+      "reason": "threshold",
+      "result": {
+        "firstKeptEntryId": "431bcfa9",
+        "tokensBefore": 63428,
+        "estimatedTokensAfter": 17554,
+        "usage": {
+          "input": 9218,
+          "output": 1713,
+          "cacheRead": 62,
+          "cacheWrite": 0,
+          "reasoning": 0,
+          "totalTokens": 10993,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "total": 0
+          }
+        },
+        "details": {
+          "readFiles": [
+            "c40a_f01.txt",
+            "c40a_f02.txt",
+            "c40a_f03.txt",
+            "c40a_f04.txt",
+            "c40a_f05.txt",
+            "c40a_f06.txt",
+            "c40a_f07.txt",
+            "c40a_f08.txt",
+            "c40a_f09.txt",
+            "c40a_f10.txt",
+            "c40a_f11.txt",
+            "c40a_f12.txt",
+            "c40a_f13.txt",
+            "notes_a.txt"
+          ],
+          "modifiedFiles": []
+        }
+      },
+      "aborted": false,
+      "willRetry": false
+    }
+  ],
+  "page_size": 4096,
+  "vm_delta_full": {
+    "pswpin": 26372,
+    "pswpout": 76029,
+    "pgmajfault": 33512,
+    "workingset_refault_file": 881593
+  },
+  "vm_delta_guard": {
+    "pswpin": 25046,
+    "pswpout": 60771,
+    "pgmajfault": 31118,
+    "workingset_refault_file": 750373
+  },
+  "swapfree_first": 15461613568,
+  "swapfree_min": 15249289216,
+  "cg_swap_max_observed": 0,
+  "cg_refault_last": 448290,
+  "io_read_max": 52528881664,
+  "io_read_ready": 50286641152,
+  "io_read_end": 52497813504,
+  "process_read_max": 52526731264,
+  "nvme_streaming_tasks": [],
+  "max_completed_decode_s": 299.74743,
+  "pp_median": 484.19,
+  "tg_median": 13.72,
+  "max_psi_some_avg10": 0.95,
+  "max_psi_full_avg10": 0.95
+}

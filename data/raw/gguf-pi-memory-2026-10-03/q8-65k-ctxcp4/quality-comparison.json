@@ -1,0 +1,34 @@
+{
+  "q4": {
+    "turns": 28,
+    "empty": 1,
+    "harness_pass": 27,
+    "math_correct": false,
+    "final_text_chars": 3182,
+    "final_text_sha256": "43a993122fdf80941f77dd1eb5c956ce3a54eceedee777be60a46133b242094c",
+    "final_text_empty": false,
+    "recall_pass": 8,
+    "recall_total": 9,
+    "tool_ok": 23,
+    "tool_failed": 0,
+    "errors": 0,
+    "compactions": 2
+  },
+  "q8": {
+    "turns": 28,
+    "empty": 4,
+    "harness_pass": 25,
+    "math_correct": false,
+    "final_text_chars": 0,
+    "final_text_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "final_text_empty": true,
+    "recall_pass": 6,
+    "recall_total": 9,
+    "tool_ok": 24,
+    "tool_failed": 0,
+    "errors": 0,
+    "compactions": 2
+  },
+  "choice": "q4_0",
+  "fit_q8": true
+}

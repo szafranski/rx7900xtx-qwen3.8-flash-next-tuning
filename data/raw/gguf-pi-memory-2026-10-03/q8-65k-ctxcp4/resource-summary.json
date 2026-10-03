@@ -1,0 +1,142 @@
+{
+  "samples": 1703,
+  "sample_interval_min": 0.9937155246734619,
+  "sample_interval_max": 1.0056006908416748,
+  "min_avail": 2003501056,
+  "min_avail_before_guard": 2003501056,
+  "peak_cgroup": 28635009024,
+  "events_last": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0,
+    "sock_throttled": 0
+  },
+  "min_vram_free": 653414400,
+  "max_rss_kib": 27933292,
+  "guard": null,
+  "max_prompt": 45365,
+  "output_tokens": 18810,
+  "turns": 28,
+  "compactions": [
+    {
+      "type": "compaction_end",
+      "reason": "threshold",
+      "result": {
+        "firstKeptEntryId": "5496b838",
+        "tokensBefore": 52336,
+        "estimatedTokensAfter": 20454,
+        "usage": {
+          "input": 6564,
+          "output": 1565,
+          "cacheRead": 62,
+          "cacheWrite": 0,
+          "reasoning": 0,
+          "totalTokens": 8191,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "total": 0
+          }
+        },
+        "details": {
+          "readFiles": [
+            "c40a_f01.txt",
+            "c40a_f02.txt",
+            "c40a_f03.txt",
+            "c40a_f04.txt",
+            "c40a_f05.txt",
+            "c40a_f06.txt",
+            "c40a_f07.txt",
+            "c40a_f08.txt",
+            "c40a_f09.txt",
+            "notes_a.txt"
+          ],
+          "modifiedFiles": []
+        }
+      },
+      "aborted": false,
+      "willRetry": false
+    },
+    {
+      "type": "compaction_end",
+      "reason": "threshold",
+      "result": {
+        "firstKeptEntryId": "f2c6ef2c",
+        "tokensBefore": 51153,
+        "estimatedTokensAfter": 17242,
+        "usage": {
+          "input": 7451,
+          "output": 2362,
+          "cacheRead": 62,
+          "cacheWrite": 0,
+          "reasoning": 0,
+          "totalTokens": 9875,
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0,
+            "total": 0
+          }
+        },
+        "details": {
+          "readFiles": [
+            "c40a_big1.txt",
+            "c40a_f01.txt",
+            "c40a_f02.txt",
+            "c40a_f03.txt",
+            "c40a_f04.txt",
+            "c40a_f05.txt",
+            "c40a_f06.txt",
+            "c40a_f07.txt",
+            "c40a_f08.txt",
+            "c40a_f09.txt",
+            "c40a_f10.txt",
+            "c40a_f11.txt",
+            "c40a_f12.txt",
+            "c40a_f13.txt",
+            "c40a_f14.txt",
+            "c40a_f15.txt",
+            "c40a_f16.txt",
+            "notes_a.txt"
+          ],
+          "modifiedFiles": []
+        }
+      },
+      "aborted": false,
+      "willRetry": false
+    }
+  ],
+  "page_size": 4096,
+  "vm_delta_full": {
+    "pswpin": 10893,
+    "pswpout": 57537,
+    "pgmajfault": 14010,
+    "workingset_refault_file": 963861
+  },
+  "vm_delta_guard": {
+    "pswpin": 10865,
+    "pswpout": 42411,
+    "pgmajfault": 13538,
+    "workingset_refault_file": 917737
+  },
+  "swapfree_first": 15851421696,
+  "swapfree_min": 15654981632,
+  "cg_swap_max_observed": 0,
+  "cg_refault_last": 557051,
+  "io_read_max": 54141915136,
+  "io_read_ready": 50848583680,
+  "io_read_end": 54123941888,
+  "process_read_max": 54141915136,
+  "nvme_streaming_tasks": [],
+  "max_completed_decode_s": 300.35269,
+  "pp_median": 481.92,
+  "tg_median": 13.74,
+  "max_psi_some_avg10": 1.02,
+  "max_psi_full_avg10": 1.02
+}

@@ -28,3 +28,21 @@ after compaction or prefix changes. One empty final and a wrong long-thinking
 arithmetic answer prevent a full quality PASS; maximum prompt was 45468,
 with one roughly 18.5-minute session and no soak or production deployment.
 [Before/after counters, failed runs, flags and evidence](../reports/flashnext-gguf-pi-memory-2026-10-03.md).
+
+Later q8_0 with the same checkpoint limit completed 28 turns and two
+compactions with minimum MemAvailable 1.866 GiB, versus q4_0's 2.928 GiB.
+Full63k run2 used Pi reserveTokens=4096 and a user-selected 1.5 GiB x2
+guard: Pi reached 60163 in the near-60k turn, then 60313 before successful
+compaction, recall 5/5 and a tool PASS. Direct 62975/63020-token requests
+completed, but minimum free RAM was only 1.514 GiB. Follow-up cgroup peak
+was 26.081 GiB; at the exact host minimum it was 25.842 GiB with anon
+1.082 GiB. Host swap-out accompanied the drop while cgroup memory stayed
+bounded, consistent with outside pressure without proving its cause.
+The first 60190-token attempt stopped on harness bookkeeping; its RAM
+data is partial and excluded from session validation. Empty finals and
+long-thinking failures persist with both KV types; n=1 runs do not rank
+KV quality. Offline triage finds short benchmarks retained only 4-5
+checkpoints, so limit 4 saves at most about 0.11 GiB of their payload;
+it does not fix the static roughly 2.14 GiB pinned-MTP deficit. The older
+29 September session OOM is worth a separate retest, not a proven
+checkpoint diagnosis. No soak or production deployment followed.

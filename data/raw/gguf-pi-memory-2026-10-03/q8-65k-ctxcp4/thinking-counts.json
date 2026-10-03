@@ -1,0 +1,142 @@
+[
+  {
+    "turn": "t1-plant",
+    "thinking_tokens": 31,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "t2-markerA",
+    "thinking_tokens": 19,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "t3-first",
+    "thinking_tokens": 65,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "read-c40a_f02+c40a_f03-ctx4249",
+    "thinking_tokens": 59,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "read-c40a_f04+c40a_f05-ctx11126",
+    "thinking_tokens": 47,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "read-c40a_f06+c40a_f07-ctx17959",
+    "thinking_tokens": 47,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "read-c40a_f08+c40a_f09-ctx24803",
+    "thinking_tokens": 47,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "read-c40a_f10+c40a_f11-ctx31594",
+    "thinking_tokens": 46,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "read-c40a_f12-ctx38392",
+    "thinking_tokens": 27,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "read-c40a_f13-ctx41864",
+    "thinking_tokens": 26,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "BIG-c40a_big1-ctx45308",
+    "thinking_tokens": 26,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "recall-after-comp1",
+    "thinking_tokens": 10,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "task-after-comp1",
+    "thinking_tokens": 27,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "read-c40a_f15+c40a_f16-ctx26384",
+    "thinking_tokens": 46,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "read-c40a_f17+c40a_f18-ctx33191",
+    "thinking_tokens": 45,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "read-c40a_f19-ctx40010",
+    "thinking_tokens": 26,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "BIG-c40a_big2-ctx43481",
+    "thinking_tokens": 26,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "recall-after-comp2",
+    "thinking_tokens": 8,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "task-after-comp2",
+    "thinking_tokens": 26,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "return-earlier-prefix",
+    "thinking_tokens": 23,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "long-thinking",
+    "thinking_tokens": 4096,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "followup-22",
+    "thinking_tokens": 4096,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "followup-23",
+    "thinking_tokens": 4096,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "followup-24",
+    "thinking_tokens": 242,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "followup-25",
+    "thinking_tokens": 18,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "followup-26",
+    "thinking_tokens": 9,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "followup-27",
+    "thinking_tokens": 9,
+    "method": "retokenized separated Pi thinking"
+  },
+  {
+    "turn": "followup-28",
+    "thinking_tokens": 6,
+    "method": "retokenized separated Pi thinking"
+  }
+]

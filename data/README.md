@@ -1,6 +1,6 @@
 # Data and provenance
 
-`raw/` contains 75 selected files from the local consolidated September 2026 test archive, 80 files from 28 September, 17 expert-cache records, 4 Vulkan repair records, 8 q8_0 KV records, and 23 initial EXL3 retest evidence files and 20 native-fix/check files, plus 6 EXL3 stability summaries from 2 October and 4 EXL3 window/compaction summaries from the evening, plus 25 GGUF fix/MTP/q8_0 records from 2-3 October, plus 30 GGUF Pi memory records from 3 October, for 292 total. They are grouped by experiment. `manifest.csv` records each repository path, source-relative path, original SHA-256, imported SHA-256, byte count, and whether the import changed the bytes. The older JSON was normalized and local home paths were replaced with `<HOME>`. Long-context response files whose names end in `-prompt.json` had their full request and prompt removed, leaving the response and wall time. This means an imported hash often differs from the source hash. The expert-cache and Vulkan response files are unmodified; the q8_0 KV records were sanitized before import. Source paths in the manifest identify each experiment.
+`raw/` contains 75 selected files from the local consolidated September 2026 test archive, 80 files from 28 September, 17 expert-cache records, 4 Vulkan repair records, 8 q8_0 KV records, and 23 initial EXL3 retest evidence files and 20 native-fix/check files, plus 6 EXL3 stability summaries from 2 October and 4 EXL3 window/compaction summaries from the evening, plus 25 GGUF fix/MTP/q8_0 records from 2-3 October, plus 54 GGUF Pi memory records from 3 October, for 316 total. They are grouped by experiment. `manifest.csv` records each repository path, source-relative path, original SHA-256, imported SHA-256, byte count, and whether the import changed the bytes. The older JSON was normalized and local home paths were replaced with `<HOME>`. Long-context response files whose names end in `-prompt.json` had their full request and prompt removed, leaving the response and wall time. This means an imported hash often differs from the source hash. The expert-cache and Vulkan response files are unmodified; the q8_0 KV records were sanitized before import. Source paths in the manifest identify each experiment.
 
 The raw set includes OpenAI-compatible response JSON with `usage` and `timings`, ROCm tuning records with launch arguments and `memory_stats`, memory-counter NDJSON, cgroup text readings, the 28-shard AtomicChat checksum list, and two PNGs of the synthetic vision test. Prompt strings, tokenizer dumps, unrelated production-model listings, Hugging Face directory snapshots, `.pyc`, and full server/build logs were left out. The original local archive remains untouched. Full logs for the Vulkan tests remain in `agents/scratch/flashnext-vulkan-nohost-2026-09-29/`; q8_0 observations and the request driver remain in `agents/scratch/flashnext-q8-65k-2026-09-29/`. Older diagnostics remain in `agents/scratch/flashnext-expert-cache-2026-09-28/` and `agents/scratch/flashnext-bench-2026-09-28/private/`.
 
@@ -108,7 +108,7 @@ explains the historical 65k baseline and single-run limits.
 
 ## GGUF Pi memory evidence, 3 October
 
-`raw/gguf-pi-memory-2026-10-03/` adds 30 small files: five English selected
+`raw/gguf-pi-memory-2026-10-03/` contains 54 small files. The original 30 are: five English selected
 results transcriptions, six resource summaries, six sanitized command arrays,
 six reduced enriched-turn records, four request records, two growth curves
 and one checkpoint excerpt/count JSON. The manifest records original/imported
@@ -125,3 +125,18 @@ without a full log import. Full prompts, private configuration, preflight/auth
 files, full logs, model weights and binaries remain outside this repository.
 The [report](../reports/flashnext-gguf-pi-memory-2026-10-03.md) separates
 memory success from empty finals, the arithmetic error and untested soak.
+
+The later update adds 24 small files from the q8_0 four-checkpoint archive,
+the full63k first attempt and run2, and offline checkpoint triage: three
+English results reductions, three resource summaries, three sanitized
+commands, three reduced turn records, three request/counter records,
+three growth curves, two thinking-count records, two minimum-sample
+windows, one quality comparison and one English triage reduction. All
+have source-relative paths and source/imported SHA-256 in the manifest.
+The first full63k attempt's RAM evidence through 60190 tokens is retained
+as incomplete and excluded from session validation. Run2 reaches 63020
+with minimum MemAvailable 1.514 GiB; the matched q4/q8 minima are
+2.928/1.866 GiB. Empty finals and long-thinking failures remain across
+both KV types. Triage is analysis, not a new measurement or executed
+retest. Full finals, prompts and unrelated process attribution are omitted.
+Nothing was deployed to production.

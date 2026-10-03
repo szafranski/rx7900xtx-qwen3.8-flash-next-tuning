@@ -1,0 +1,195 @@
+{
+  "selection": "Seven one-second samples around the minimum host MemAvailable; process attribution omitted.",
+  "samples_below_2_gib_full_run": 32,
+  "samples": [
+    {
+      "t": 1791032206.8208208,
+      "avail": 2254245888,
+      "swapfree": 15420375040,
+      "vm": {
+        "pswpin": 1248452,
+        "pswpout": 1995882,
+        "pgmajfault": 43070268,
+        "workingset_refault_file": 55235214
+      },
+      "cgroup_current": 27753947136,
+      "cgroup_peak": 28827701248,
+      "cgroup_swap": 0,
+      "memory_events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0,
+        "sock_throttled": 2
+      },
+      "anon": 1161510912,
+      "shmem": 26399494144,
+      "file": 26416484352,
+      "cgroup_pswpout": 0
+    },
+    {
+      "t": 1791032207.8211093,
+      "avail": 2267357184,
+      "swapfree": 15412695040,
+      "vm": {
+        "pswpin": 1249604,
+        "pswpout": 1998692,
+        "pgmajfault": 43071921,
+        "workingset_refault_file": 55245782
+      },
+      "cgroup_current": 27751645184,
+      "cgroup_peak": 28827701248,
+      "cgroup_swap": 0,
+      "memory_events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0,
+        "sock_throttled": 2
+      },
+      "anon": 1161510912,
+      "shmem": 26399494144,
+      "file": 26414669824,
+      "cgroup_pswpout": 0
+    },
+    {
+      "t": 1791032208.820935,
+      "avail": 1971650560,
+      "swapfree": 15377817600,
+      "vm": {
+        "pswpin": 1251083,
+        "pswpout": 2008645,
+        "pgmajfault": 43073577,
+        "workingset_refault_file": 55254687
+      },
+      "cgroup_current": 27749085184,
+      "cgroup_peak": 28827701248,
+      "cgroup_swap": 0,
+      "memory_events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0,
+        "sock_throttled": 2
+      },
+      "anon": 1161510912,
+      "shmem": 26399494144,
+      "file": 26411323392,
+      "cgroup_pswpout": 0
+    },
+    {
+      "t": 1791032209.8210661,
+      "avail": 1625944064,
+      "swapfree": 15346282496,
+      "vm": {
+        "pswpin": 1252014,
+        "pswpout": 2017250,
+        "pgmajfault": 43074780,
+        "workingset_refault_file": 55258802
+      },
+      "cgroup_current": 27747188736,
+      "cgroup_peak": 28827701248,
+      "cgroup_swap": 0,
+      "memory_events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0,
+        "sock_throttled": 2
+      },
+      "anon": 1161510912,
+      "shmem": 26399494144,
+      "file": 26409914368,
+      "cgroup_pswpout": 0
+    },
+    {
+      "t": 1791032210.8207276,
+      "avail": 1699479552,
+      "swapfree": 15346257920,
+      "vm": {
+        "pswpin": 1252098,
+        "pswpout": 2017327,
+        "pgmajfault": 43075018,
+        "workingset_refault_file": 55263535
+      },
+      "cgroup_current": 27748704256,
+      "cgroup_peak": 28827701248,
+      "cgroup_swap": 0,
+      "memory_events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0,
+        "sock_throttled": 2
+      },
+      "anon": 1161510912,
+      "shmem": 26399494144,
+      "file": 26410131456,
+      "cgroup_pswpout": 0
+    },
+    {
+      "t": 1791032211.821002,
+      "avail": 1695178752,
+      "swapfree": 15346274304,
+      "vm": {
+        "pswpin": 1252102,
+        "pswpout": 2017327,
+        "pgmajfault": 43075046,
+        "workingset_refault_file": 55267422
+      },
+      "cgroup_current": 27749670912,
+      "cgroup_peak": 28827701248,
+      "cgroup_swap": 0,
+      "memory_events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0,
+        "sock_throttled": 2
+      },
+      "anon": 1161510912,
+      "shmem": 26399494144,
+      "file": 26411106304,
+      "cgroup_pswpout": 0
+    },
+    {
+      "t": 1791032212.8211026,
+      "avail": 1693229056,
+      "swapfree": 15346274304,
+      "vm": {
+        "pswpin": 1252102,
+        "pswpout": 2017327,
+        "pgmajfault": 43075078,
+        "workingset_refault_file": 55269155
+      },
+      "cgroup_current": 27750047744,
+      "cgroup_peak": 28827701248,
+      "cgroup_swap": 0,
+      "memory_events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0,
+        "sock_throttled": 2
+      },
+      "anon": 1161510912,
+      "shmem": 26399494144,
+      "file": 26412146688,
+      "cgroup_pswpout": 0
+    }
+  ]
+}
