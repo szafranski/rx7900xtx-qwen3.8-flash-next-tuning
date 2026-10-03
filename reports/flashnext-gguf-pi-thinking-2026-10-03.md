@@ -20,6 +20,16 @@ C1 jest kandydatem do dalszego kontrolowanego uzycia z medium i budzetem
 4096. Jedna sesja na ramie nie dowodzi naprawy ani niezawodnosci;
 ten test nie zawieral trudnych rachunkow ani compaction.
 
+Profil roboczy przyjety po tych testach i konsultacji z drugim modelem
+(decyzja, nie osobny pomiar): serwer jak C0-C3 (`--reasoning-budget 4096`,
+q8_0 KV, `--ctx-checkpoints 4`), Pi medium, `maxTokens=16384`,
+`reserveTokens=16384`, `preserve_thinking=true`, bez kar. Wieksze
+`maxTokens` daje miejsce na dlugie zapisy plikow, bo thinking i tak ucina
+budzet. `true` zostaje dla pracy agentowej zgodnie z karta Qwen (ciaglosc
+decyzji); `false` wygralo tylko w jednej sesji krotkich tur, do 33k
+promptu. Oficjalne liczby Qwen (262144 reasoning, 131072 final) dotycza
+kontekstu 1M i nie przenosza sie na 65k.
+
 Typ a to pusty final z `length`, gdy thinking zuzywa limit generacji.
 Typ b to pusty final z `stop` przed limitem, zgodny z hipoteza early EOS.
 Bez surowych tokenow konczacych nie rozstrzygamy EOS versus stop sequence
