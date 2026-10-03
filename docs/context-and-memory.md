@@ -1,5 +1,9 @@
 # Long context, loading, and memory
 
+The AtomicChat and initial GSQ sections describe September experiments.
+The 27-29 September GGUF results predate the qwen4exp correctness fix;
+the 3 October Pi section uses the fixed build.
+
 ## AtomicChat with upstream HIP
 
 At `--ctx-size 65536`, the early `mmap`/lazy run processed 58,102 prompt tokens at 231.1 PP tok/s, then produced only three tokens in 89.7 s. The [report](../reports/qwen-flashnext-hip-long-context-2026-09-25.md) records this failure; the three-token TG rate is not a usable throughput benchmark.
@@ -15,6 +19,20 @@ The important loading change was `--load-mode none --lazy-mode on`, with `--fit 
 In contrast, an `mmap` run at 4k took about 78 GB of disk reads for a 35-token prompt and measured 0.43 PP / 0.75 TG tok/s. This is an observed loading-path failure on this host, not evidence about quantization quality. The same [report](../reports/qwen-gsq-iq3xxs-test-2026-09-27.md) describes the condition.
 
 The tuned 65k q8_0 profile later reached 575.2 PP and 11.62 TG tok/s on 62,980 input and 894 output tokens. It used 27.51/30.06 GB container memory after the answer. [Tuning data](../data/raw/qwen-gsq-rocm-tuning-2026-09-27/fit2048-65k.json) and [methodology](methodology.md) give the exact settings. A separate `nasone32` MTP experiment used q4_0 KV and `ubatch=256`; do not combine those rates into one A/B result.
+
+## EXL3 Pi window and memory, 2 October
+
+The initial 32k Pi allocation smoke reached only 721 prompt tokens. Later
+medium/OFF sessions reached 28,462 tokens with BC attention off, a smaller
+recurrent cache and allocator settings; minimum MemAvailable was 3.779 GiB,
+but sampled free VRAM was only 13.1 MiB. With a 43008-token window, Pi then
+reached 32,051 real prompt tokens with compaction and 267 MiB minimum free VRAM.
+A large input left the session stuck in one of two runs. These workarounds and
+short sessions do not validate Pi at 65k; the earlier successful direct 65k
+retrieval used another profile and left about 0.527 GiB VRAM.
+[Stability](../reports/flashnext-exl3-pi32k-stability-2026-10-02.md),
+[window and compaction](../reports/flashnext-exl3-pi-window-compaction-2026-10-02.md)
+and [direct tests](../reports/flashnext-exl3-native-fix-2026-09-30.md).
 
 ## Fixed-build GGUF Pi context checkpoints, 3 October
 

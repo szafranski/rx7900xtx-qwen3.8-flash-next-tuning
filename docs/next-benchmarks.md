@@ -1,12 +1,20 @@
-# Next benchmarks: 32k and 65k
+# Historical benchmark plan, 28 September 2026
+
+This records intended comparisons before the 28 September tests, not current
+operating instructions. See the [completed tests and skipped cases](../reports/flashnext-32k-65k-benchmarks-2026-09-28.md)
+and [2-3 October fixed-build results and MTP limits](../reports/flashnext-gguf-qwen4exp-fix-2026-10-03.md).
+Most completed comparisons ran once rather than the three repeats proposed
+below. Later Pi tests are linked from the [repository summary](../README.md).
 
 Goal: find the fastest stable Qwen3.8 Flash-Next GSQ-RCO IQ3_XXS profile on this RX 7900 XTX at both 32,768 and 65,536 context. About 20 generated tokens/s at 65k is a target to measure, not an assumed outcome. Keep prompt processing, generation, and whole-request time separate. Do not test a context above 65,536.
 
-The plan was reviewed with Claude Opus. The production Qwen 27B launcher was stopped on 28 September 2026 with the user's permission. Check its live state again before using the GPU; leave it stopped after the tests unless the user asks to restart it. Preserve existing models, builds, logs, and raw results. Work locally in this repository; do not push results without a new request.
+The original scope was local testing at 32k/65k while preserving existing
+models and evidence. Historical service state and permissions do not authorize
+new service changes, downloads or publication.
 
 ## Preparation
 
-1. Verify the local GSQ shards, Q4_K_M MTP head, ROCm builds, available disk/RAM/VRAM, service state, and actual container limits. Keep the host responsive. Reuse the existing model and head; download only if a required asset is missing.
+1. Verify the local GSQ shards, Q4_K_M MTP head, ROCm builds, available disk/RAM/VRAM, service state, and actual container limits. Keep the host responsive and record missing assets rather than silently changing the setup.
 2. Prepare two workloads at each context: free-form writing and rewriting/repeating material from the prompt. Aim for about 29k-31k input tokens at 32k and 59k-63k at 65k, leaving space for output. Use identical prompts and sampling across paired profiles. Keep total prompt plus output inside the configured window; reset follow-ups to the same cached prefix rather than endlessly appending turns.
 3. Use one fresh full-prompt request to measure PP, then cached follow-ups with at least 500 generated tokens when the task naturally allows it. Use deterministic sampling for the primary comparison; record actual output length and check correctness. Repeat close comparisons three times and report medians. Keep the two workloads separate.
 

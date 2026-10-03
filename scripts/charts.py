@@ -24,8 +24,8 @@ def rocm_chart():
     names = ["base", "ub1024", "fit2560", "fit2048", "ub2048",
              "fit2048-65k", "ub2048-65k"]
     lines = [
-        '<text x="30" y="34" font-size="20" font-weight="bold" fill="#17212b">Time to finish the same task</text>',
-        '<text x="30" y="57" font-size="13" fill="#4b5563">GSQ-RCO IQ3_XXS, upstream ROCm, q8_0 KV, 894 output tokens. One run per bar.</text>',
+        '<text x="30" y="34" font-size="20" font-weight="bold" fill="#17212b">Historical ROCm task time, 27 September 2026</text>',
+        '<text x="30" y="57" font-size="13" fill="#4b5563">Pre-fix GGUF: GSQ-RCO IQ3_XXS, upstream ROCm, q8_0 KV, 894 output tokens; one run per bar.</text>',
         '<rect x="253" y="72" width="15" height="13" fill="#2875a8"/><text x="274" y="83" font-size="13">Prompt</text>',
         '<rect x="340" y="72" width="15" height="13" fill="#e59b39"/><text x="361" y="83" font-size="13">Generation</text>',
         '<text x="30" y="117" font-size="13" font-weight="bold">32k context (31,525 prompt tokens)</text>',
@@ -55,7 +55,7 @@ def rocm_chart():
             f'<text x="810" y="{y + 17}" font-size="13" fill="#{"a93632" if free < 1 else "17212b"}">{d["wall_s"]:.1f}s, {free:.2f} GB free</text>',
         ]
     lines.append('<text x="30" y="620" font-size="12" fill="#4b5563">32k rows also vary fit target. At 65k, both rows use fit 2048.</text>')
-    return svg("ROCm task time by configuration", "Seven stacked bars show prompt and generation seconds, plus remaining container memory. At 65k, ubatch 1024 took 186.4 seconds with 2.55 GB free; ubatch 2048 took 167.4 seconds with 0.72 GB free.", 1050, 638, lines)
+    return svg("Historical ROCm task time by configuration", "Before the qwen4exp correctness fix. Seven stacked bars show prompt and generation seconds, plus remaining container memory. At 65k, ubatch 1024 took 186.4 seconds with 2.55 GB free; ubatch 2048 took 167.4 seconds with 0.72 GB free.", 1050, 638, lines)
 
 
 def mtp_chart():
@@ -71,8 +71,8 @@ def mtp_chart():
     pp = 100 * (mtp_prompt["prompt_per_second"] / no_prompt["prompt_per_second"] - 1)
     tg = 100 * (mtp_follow["predicted_per_second"] / no_follow["predicted_per_second"] - 1)
     lines = [
-        '<text x="30" y="35" font-size="20" font-weight="bold" fill="#17212b">MTP n=1: mixed result, little memory headroom</text>',
-        '<text x="30" y="59" font-size="13" fill="#4b5563">Change versus no MTP. Separate nasone32 fork, q4_0 KV, ubatch 256; one pair.</text>',
+        '<text x="30" y="35" font-size="20" font-weight="bold" fill="#17212b">Historical MTP test, 27 September 2026</text>',
+        '<text x="30" y="59" font-size="13" fill="#4b5563">Pre-fix GGUF; change versus no MTP. nasone32 fork, q4_0 KV, ubatch 256; one pair.</text>',
         '<line x1="394" y1="83" x2="394" y2="183" stroke="#6b7280"/>',
         '<text x="394" y="202" text-anchor="middle" font-size="12" fill="#4b5563">0%</text>',
         '<text x="30" y="111" font-size="14">Full prefill, 59,734 tokens</text>',
@@ -83,7 +83,7 @@ def mtp_chart():
         f'<text x="{394 + tg * 10 + 8:.1f}" y="164" font-size="14" fill="#2875a8">{tg:+.1f}%</text>',
         '<text x="30" y="231" font-size="12" fill="#4b5563">Follow-up lengths differ: 169 vs 160 tokens. About 0.12 GB container memory remained with MTP.</text>',
     ]
-    return svg("MTP effect at 65k context", "One matched setup: MTP reduced full prompt throughput by 12.4 percent and raised cached follow-up generation speed by 8.7 percent. The follow-up lengths differ and MTP left about 0.12 GB of container memory.", 900, 250, lines)
+    return svg("Historical MTP effect at 65k context", "Before the qwen4exp correctness fix. One matched setup: MTP reduced full prompt throughput by 12.4 percent and raised cached follow-up generation speed by 8.7 percent. The follow-up lengths differ and MTP left about 0.12 GB of container memory.", 900, 250, lines)
 
 
 def main():

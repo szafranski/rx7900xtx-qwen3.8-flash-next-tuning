@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 250" role="img" aria-labelledby="title desc" font-family="Arial, sans-serif">
-<title id="title">MTP effect at 65k context</title><desc id="desc">One matched setup: MTP reduced full prompt throughput by 12.4 percent and raised cached follow-up generation speed by 8.7 percent. The follow-up lengths differ and MTP left about 0.12 GB of container memory.</desc>
+<title id="title">Historical MTP effect at 65k context</title><desc id="desc">Before the qwen4exp correctness fix. One matched setup: MTP reduced full prompt throughput by 12.4 percent and raised cached follow-up generation speed by 8.7 percent. The follow-up lengths differ and MTP left about 0.12 GB of container memory.</desc>
 <rect width="900" height="250" fill="#fff"/>
-<text x="30" y="35" font-size="20" font-weight="bold" fill="#17212b">MTP n=1: mixed result, little memory headroom</text>
-<text x="30" y="59" font-size="13" fill="#4b5563">Change versus no MTP. Separate nasone32 fork, q4_0 KV, ubatch 256; one pair.</text>
+<text x="30" y="35" font-size="20" font-weight="bold" fill="#17212b">Historical MTP test, 27 September 2026</text>
+<text x="30" y="59" font-size="13" fill="#4b5563">Pre-fix GGUF; change versus no MTP. nasone32 fork, q4_0 KV, ubatch 256; one pair.</text>
 <line x1="394" y1="83" x2="394" y2="183" stroke="#6b7280"/>
 <text x="394" y="202" text-anchor="middle" font-size="12" fill="#4b5563">0%</text>
 <text x="30" y="111" font-size="14">Full prefill, 59,734 tokens</text>

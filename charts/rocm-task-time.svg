@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 638" role="img" aria-labelledby="title desc" font-family="Arial, sans-serif">
-<title id="title">ROCm task time by configuration</title><desc id="desc">Seven stacked bars show prompt and generation seconds, plus remaining container memory. At 65k, ubatch 1024 took 186.4 seconds with 2.55 GB free; ubatch 2048 took 167.4 seconds with 0.72 GB free.</desc>
+<title id="title">Historical ROCm task time by configuration</title><desc id="desc">Before the qwen4exp correctness fix. Seven stacked bars show prompt and generation seconds, plus remaining container memory. At 65k, ubatch 1024 took 186.4 seconds with 2.55 GB free; ubatch 2048 took 167.4 seconds with 0.72 GB free.</desc>
 <rect width="1050" height="638" fill="#fff"/>
-<text x="30" y="34" font-size="20" font-weight="bold" fill="#17212b">Time to finish the same task</text>
-<text x="30" y="57" font-size="13" fill="#4b5563">GSQ-RCO IQ3_XXS, upstream ROCm, q8_0 KV, 894 output tokens. One run per bar.</text>
+<text x="30" y="34" font-size="20" font-weight="bold" fill="#17212b">Historical ROCm task time, 27 September 2026</text>
+<text x="30" y="57" font-size="13" fill="#4b5563">Pre-fix GGUF: GSQ-RCO IQ3_XXS, upstream ROCm, q8_0 KV, 894 output tokens; one run per bar.</text>
 <rect x="253" y="72" width="15" height="13" fill="#2875a8"/><text x="274" y="83" font-size="13">Prompt</text>
 <rect x="340" y="72" width="15" height="13" fill="#e59b39"/><text x="361" y="83" font-size="13">Generation</text>
 <text x="30" y="117" font-size="13" font-weight="bold">32k context (31,525 prompt tokens)</text>

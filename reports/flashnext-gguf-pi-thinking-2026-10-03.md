@@ -192,7 +192,8 @@ i [C3](../data/raw/gguf-pi-thinking-2026-10-03/shortturns/C3-resource-summary.js
 
 ## Pochodzenie i ograniczenia
 
-Dwadziescia malych plikow tekstowych/JSON ma wpisy source/imported SHA-256
+Łącznie dwadzieścia małych plików tekstowych/JSON, trzynaście początkowych
+i siedem z późniejszego testu C0-C3, ma wpisy source/imported SHA-256
 w manifest.csv. Zrodla to wskazane archiwa max8192, medium/low, researchu
 i audytu oraz osobny zapis odczytu upstream. Siedem pozniejszych plikow
 pochodzi z zakonczonego testu krotkich tur: wybrane wyniki, summary.json,
@@ -213,4 +214,4 @@ ustalenia o checkpointach i RAM.
 
 Kontrole offline: `python3 scripts/data.py check`,
 `python3 scripts/charts.py --check` i `git diff --check`.
-Zmiany lokalne, bez commit/push.
+Aktualizacja danych nie uruchamiała modeli ani nie wdrażała zmian.

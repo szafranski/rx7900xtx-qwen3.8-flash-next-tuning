@@ -1,83 +1,71 @@
 # Qwen3.8 Flash-Next on an RX 7900 XTX
 
-Measurements from one 24 GB RDNA3 card with 32 GiB of host RAM, collected from 24 September to 3 October 2026. Two GGUF quantizations and one EXL3 quantization were tested; there was no common quality suite. Most configurations were run once.
+A tuning log for one 24 GB RDNA3 card with 32 GiB of host RAM. Measurements cover 24 September to 3 October 2026, two GGUF quantizations and one EXL3 quantization.
 
-## At a glance
+The practical goal is useful Pi coding-agent sessions with thinking OFF/ON, tools and history, at 32k and eventually 65k, targeting about 20 generated tokens/s at 65k. That full goal is not demonstrated: EXL3 reached about 23 TG tok/s in synthetic 65k checks, but its later Pi sessions reached about 32k real prompt tokens. Fixed-build GGUF reached about 63k, with lower throughput and unresolved answer failures.
 
-**Historical GGUF caveat:** all GGUF results dated 27-29 September predate the upstream qwen4exp correctness fix #29751. They remain historical results and do not validate the fixed implementation. [2-3 October retest, MTP limits and q8_0 KV](reports/flashnext-gguf-qwen4exp-fix-2026-10-03.md).
+This repository stores selected evidence, reports and charts. Runtime repairs and launchers belong to the separate local `qwen-3.8-flash-next-tweaks` repository. It is not a turn-key launcher or a common model-quality benchmark.
 
-- **GGUF Pi thinking, 3 October:** maxTokens=8192 still produced 3/18 empty finals. Medium with server reasoning budget 4096 produced 2/18 empty early stops and 0/3 correct arithmetic finals; low without a budget produced 4/18 empties and 1/3 correct arithmetic finals. CPU replay matched 50/50 prompts byte for byte, but Pi drops thinking-only assistant messages. Later short-turn C1 with preserve_thinking=false had 0/25 empty finals and 19/19 correct recall; C0 had 2/25 and 18/19, frequency .3 had 3/25 and 8/19, presence .3 had 5/25 and 16/19. One session per arm, no proof of a fix or reliability estimate. [Thinking report, C0-C3, research and history audit](reports/flashnext-gguf-pi-thinking-2026-10-03.md).
-- **Pi memory with the fixed GGUF build:** default context checkpoints drove anon growth to cgroup OOM while shmem stayed about 24.25 GiB. With `--ctx-checkpoints 4 --cache-ram 0`, q4_0 and q8_0 each completed 28 turns and two compactions, with minimum MemAvailable 2.928/1.866 GiB. Later q8_0 completed Pi growth to 60k, compaction, 5/5 recall and a tool turn, then direct 62,975/63,020-token requests, with minimum free RAM 1.514 GiB. The first 60,190-token attempt stopped on harness bookkeeping and is excluded from session validation. q4_0 leaves about 1 GiB more RAM in the matched sessions. Empty finals and wrong/empty long-thinking occur with both KV types; n=1 runs do not compare KV quality. No soak or production deployment. [Memory comparison, failed runs and both flag variants](reports/flashnext-gguf-pi-memory-2026-10-03.md)
-- **GGUF after the qwen4exp fix:** upstream `bed0a856606e` with GSQ-RCO IQ3_XXS and the matched no-MTP profile reached 13.82 vs 12.83 TG tok/s at 32k and 12.41 vs 11.34 at 65k (n=1 each). The old build contained the qwen4exp correctness defect fixed by #29751; these differences compare upstream revisions and do not establish a speedup attributable to #29751. q8_0 KV completed 65k at 12.97 / 13.15 TG versus q4_0 12.41 / 12.58, with different fitted weight placements, so it does not isolate the effect of KV quantization. The tested pinned MTP configuration could not fit within the host-RAM safety budget: its forecast was about 2 GiB short of the required 3 GiB free-RAM floor. Acceptance was not measured. [New report and raw evidence](reports/flashnext-gguf-qwen4exp-fix-2026-10-03.md).
+## Latest recorded conclusions
 
-- **EXL3 2.50 bpw, Pi 32k validated with workarounds:** on 2 October, thinking medium and OFF completed 36/36 normal turns plus four expected HTTP 400 checks, with history, real read-tool round trips and a change of prefix. Prompts reached 28,462 tokens. `EXL3_BC_ATTN=0`, `-rcs 0.125` and three glibc allocator settings avoided the observed GPU fault and produced a short-run RAM plateau. Both exited naturally with code 0 using patched libhsa. Minimum MemAvailable was 3.779 GiB, but sampled free VRAM fell to 13.1 MiB. The fault still reproduces on clean fork main; the exact BC cause remains unknown. The profile is not deployed and has no multi-hour soak. [2 October measurements and limits](reports/flashnext-exl3-pi32k-stability-2026-10-02.md). Later that evening, with server cache = Pi window 43008, `-maxr 4096` and Pi `reserveTokens` 10240 (trigger 32768), Pi reached real prompts of 32,051 tokens with compaction: in two runs all 6 compactions in the normal flow succeeded (plus 1 of 2 in the over-window step), 5/5 facts were recalled at every check, minimum free VRAM was 267 MiB and TG was about 23.8 tok/s. One very large input (about 28k tokens at once) still left the session stuck in 1 of 2 runs because summaries hit the token cap. This profile is used only via the EXL3 wrapper, not the production llama.cpp launcher; it is not deployed and has no multi-hour soak. [Window and compaction results](reports/flashnext-exl3-pi-window-compaction-2026-10-02.md). [Earlier native fix and synthetic 32k/65k checks](reports/flashnext-exl3-native-fix-2026-09-30.md)
+- **GGUF throughput, 2-3 October:** upstream `bed0a856606e` after the qwen4exp fix completed no-MTP 32k/65k runs at 13.82 / 12.41 free-text TG tok/s with q4_0 KV, and 12.97 at 65k with q8_0. Each configuration ran once; fitted weight placements differ between KV profiles. Resident MTP missed the host-RAM safety budget, and streaming alternatives never reached useful generation. [Builds, measurements and failed attempts](reports/flashnext-gguf-qwen4exp-fix-2026-10-03.md).
+- **GGUF Pi memory, 3 October:** `--ctx-checkpoints 4 --cache-ram 0` avoided the observed checkpoint-driven OOM. Matched q4_0/q8_0 sessions completed 28 turns and two compactions, with minimum MemAvailable 2.928/1.866 GiB. Later q8_0 reached about 60k in Pi, compacted with recall and a tool turn, then completed direct 62,975/63,020-token requests; minimum free RAM was only 1.514 GiB. Empty finals and long-thinking errors occurred with both KV types. This is not a quality PASS or a soak test. [Memory report and incomplete attempts](reports/flashnext-gguf-pi-memory-2026-10-03.md).
+- **GGUF Pi answers, 3 October:** maxTokens=8192 and a reasoning budget did not eliminate empty finals or establish correct arithmetic. In one short-turn session per arm, C1 `preserve_thinking=false` had 0/25 empty finals and 19/19 correct recall, versus C0's 2/25 and 18/19; penalties 0.3 performed worse. C1 used maxTokens=8192, without compaction or difficult arithmetic. Pi drops thinking-only assistant messages, which C1 does not repair. A later working-profile decision retained medium, budget=4096, maxTokens=reserveTokens=16384 and `preserve_thinking=true`; that complete configuration was not measured. [Thinking tests, history audit and profile decision](reports/flashnext-gguf-pi-thinking-2026-10-03.md).
+- **EXL3 Pi, 2 October:** later medium/OFF runs completed 36 normal turns plus four expected HTTP 400 checks, using BC attention off, a smaller recurrent cache, allocator settings and patched libhsa. The 32k allocation left only 13.1 MiB sampled free VRAM. With a 43008-token window and compaction, two later runs reached 32,051 real prompt tokens at about 23.8 TG tok/s, with 267 MiB minimum free VRAM. All six normal-flow compactions succeeded, but a very large input left Pi stuck in one of two runs. BC has a workaround, not an established root-cause fix; patched libhsa allowed natural exit 0. No multi-hour soak or production deployment was established by these tests. [Stability and shutdown](reports/flashnext-exl3-pi32k-stability-2026-10-02.md), [window and compaction](reports/flashnext-exl3-pi-window-compaction-2026-10-02.md), [native gate fix](reports/flashnext-exl3-native-fix-2026-09-30.md).
 
-| EXL3 post-fix check | PP tok/s | TG tok/s | Scope |
+## Selected throughput
+
+These rows describe different workloads and do not form a matched EXL3/GGUF comparison. PP is prompt processing; TG is generation, both in tokens/s.
+
+| Test | PP | TG | Actual prompt and measurement scope |
 | --- | ---: | ---: | --- |
-| Direct 32k, input 31744 | 584.5-585.8 | 22.94-23.30 | OFF/ON, chunk 2048 |
-| Direct 65k, input 64512 | 395.6-396.4 | 22.88-23.21 | OFF/ON, chunk 1024 |
-| API 32k, input 30267 | 566.1 | 23.74 | one cold ON request |
-| Pi 32k, medium, 2 October | 442.15 | 23.90 | request medians, PP n=10 / TG n=30; max prompt 28009 |
-| Pi 32k, OFF, 2 October | 465.32 | 23.83 | request medians, PP n=10 / TG n=22; max prompt 28462 |
-| Pi window 43008 + compaction, 2 October evening | 406.8-413.0 | 23.74-23.91 | two runs, Polish corpus; PP includes short prefills after compaction, not comparable; max real prompt 32051 |
+| [Fixed GGUF q4_0, 32k](reports/flashnext-gguf-qwen4exp-fix-2026-10-03.md#old-versus-new-upstream) | 628.32 | 13.82 | 31,520-token fresh prefill; TG on capped 1,100-token cached free-text follow-up; one run |
+| [Fixed GGUF q4_0, 65k](reports/flashnext-gguf-qwen4exp-fix-2026-10-03.md#old-versus-new-upstream) | 576.52 | 12.41 | 62,975-token fresh prefill; TG on capped 1,100-token cached free-text follow-up; one run |
+| [Fixed GGUF q8_0, 65k](reports/flashnext-gguf-qwen4exp-fix-2026-10-03.md#q8_0-versus-q4_0-kv-at-65k) | 555.03 | 12.97 | 62,975-token fresh prefill; TG on capped 1,100-token cached free-text follow-up; one run, different fitted layout |
+| [EXL3 direct 32k](reports/flashnext-exl3-native-fix-2026-09-30.md#direct-runtime-at-long-context) | 584.5-585.8 | 22.94-23.30 | 31,744 input tokens, OFF/ON; chunk 2048; one synthetic retrieval per mode |
+| [EXL3 direct 65k](reports/flashnext-exl3-native-fix-2026-09-30.md#direct-runtime-at-long-context) | 395.6-396.4 | 22.88-23.21 | 64,512 input tokens, OFF/ON; chunk 1024; one synthetic retrieval per mode |
+| [EXL3 API 32k](reports/flashnext-exl3-native-fix-2026-09-30.md#real-api-32k-control) | 566.1 | 23.74 | 30,267 input tokens; one cold ON retrieval request |
+| [EXL3 Pi medium, 2 October](reports/flashnext-exl3-pi32k-stability-2026-10-02.md#pi-measurements) | 442.15 | 23.90 | Max prompt 28,009; request medians, PP n=10 / TG n=30 |
+| [EXL3 Pi OFF, 2 October](reports/flashnext-exl3-pi32k-stability-2026-10-02.md#pi-measurements) | 465.32 | 23.83 | Max prompt 28,462; request medians, PP n=10 / TG n=22 |
+| [EXL3 Pi window 43008](reports/flashnext-exl3-pi-window-compaction-2026-10-02.md#compaction-at-40960-and-43008) | 406.8-413.0 | 23.74-23.91 | Max prompt 32,051; two sessions, medians include prefills after compaction |
 
-The direct and API rows are single synthetic retrieval runs. Direct PP bypasses the API; chunk sizes and output lengths differ. The 2 October Pi rows use chunk 1024, PP on requests with more than 500 uncached tokens and TG on outputs of at least 20 tokens. Their medians are not a matched comparison with the earlier rows or a general quality benchmark. Pi now reached about 28.5k prompt tokens within a 32k window; the earlier 721-token smoke was only an allocation check. The earlier failed YAML comparison passed with a Python workaround but was not rerun after the native fix.
+Direct EXL3 PP bypasses the API, and OFF retrieval answers had only 13-15 tokens. Pi 32k medians select PP requests with more than 500 uncached tokens and TG outputs of at least 20 tokens. Window-43008 PP includes short prefills after compaction. The earlier failed YAML task passed with a Python workaround but was not rerun after the native fix.
 
-- **Historical q8_0 KV at 65k, 29 September OOM and recovery:** the ROCm profile with 32 expert-cache slots/layer and `fit-target=3072` passed one benchmark, then the 28 GiB container OOM-killed it during live use. A 12-slot profile with `fit-target=2048` completed one 65k run at 571 PP / 13.67 TG tok/s, peaking at 28.60 of 30.06 GB; multi-turn stability remains unproven. [Incident and recovery](reports/flashnext-q8-oom-recovery-2026-09-29.md). The [3 October completed q8_0 run](reports/flashnext-gguf-qwen4exp-fix-2026-10-03.md#q8_0-versus-q4_0-kv-at-65k) uses the fixed upstream build with no expert cache and a different profile.
-- **Vulkan now completes 32k and 65k:** `--no-host --load-mode none --lazy-mode on` avoids the previous RADV load failure and disk-heavy `mmap` path. At 65k it reached 113 PP / 14.30 TG tok/s, with no OOM or swap; the whole request took 635.9 s versus 181.8 s for the ROCm cache-32 profile. Experimental expert cache on Vulkan produced incorrect text in a short check. [Fix and evidence](reports/flashnext-vulkan-nohost-2026-09-29.md)
-- **Experimental expert cache on ROCm:** on a matched build, 65k free-text TG rose from 11.46 to 15.76 tok/s with 32 cache slots per layer; 48 slots reached 16.20 with less memory margin. The 20 tok/s goal remains unmet. At 32k, 32 slots reached 18.19 TG but touched the container RAM limit. [Measurements and caveats](reports/flashnext-expert-cache-rocm-vulkan-2026-09-29.md)
-- **New 32k and 65k GSQ results:** nasone32's ROCm fork with q4_0 KV, `ubatch=1024`, and `ngram-map-k` reached 617 PP / 14.89 free-text TG / 64.02 exact-copy TG tok/s at 32k, and 510 PP / 13.78 free-text TG / 56.97 exact-copy TG at 65k. The copy task repeated text from the prompt. For free writing, the 20 TG tok/s goal remains unmet. [Full comparison and limits](reports/flashnext-32k-65k-benchmarks-2026-09-28.md)
-- **Historical 32k fixed MTP, before the correctness fix:** n=1, 2, and 3 reached 14.82, 16.14, and 13.53 free-text TG tok/s. n=3 used 1.57 GB of swap and left only 0.13 GB beneath the RAM limit. None improved the full request over the preferred no-MTP profile. These older numbers do not establish a usable MTP option on `bed0a856606e`; the [new-build attempts and budget](reports/flashnext-gguf-qwen4exp-fix-2026-10-03.md#mtp-memory-budget-and-failed-alternatives) failed the resident-memory requirement. [Matched 32k results](reports/flashnext-32k-65k-benchmarks-2026-09-28.md)
-- **GSQ-RCO IQ3_XXS, upstream ROCm:** a 62,980-token prompt and 894-token answer took 186.4 s at `ubatch=1024`, leaving 2.55 GB inside the container limit. `ubatch=2048` took 167.4 s but left 0.72 GB. [Settings and raw runs](docs/rocm-tuning.md)
-- **Earlier 65k MTP, different fork and settings:** cached generation gained 8.7%, while full prefill lost 12.4%. The MTP run left about 0.12 GB of container memory. These are historical numbers, not a usable MTP option on the new build; [resident-memory limits and the rejected streaming path](reports/flashnext-gguf-qwen4exp-fix-2026-10-03.md#mtp-memory-budget-and-failed-alternatives) prevented an acceptance measurement. [Paired test](docs/mtp.md)
-- **AtomicChat IQ4_XS:** upstream HIP completed one 63k-token thinking task at 9.33 generated tok/s; the tested `nasone32` HIP build produced incoherent text on short prompts. [Backend checks](docs/correctness.md)
+## Historical GGUF results and charts
 
-![Generation speed without speculation and with ngram-map-k at 32k and 65k. Copying text from the prompt is much faster; free writing is unchanged.](charts/ngram-32k-65k.svg)
+All GGUF results dated 27-29 September predate the qwen4exp correctness fix. They document the tested builds and failures, and do not validate the fixed implementation. The charts below also use those older builds.
 
-The new chart compares cached follow-ups; the 32k pair also differs in fit target. The [28 September report](reports/flashnext-32k-65k-benchmarks-2026-09-28.md) includes full-prompt speed, memory peaks, exact-copy checks, and the MTP memory limit.
+- [28 September n-gram and MTP tests](reports/flashnext-32k-65k-benchmarks-2026-09-28.md): n-gram accelerated exact copying, not free writing; the 32k pair also changes fit target. Fixed MTP did not improve whole-request time over the preferred no-MTP profile.
+- [29 September expert-cache tests](reports/flashnext-expert-cache-rocm-vulkan-2026-09-29.md): cached free-text generation reached 15.76 tok/s at 65k with 32 slots/layer, below the target.
+- [29 September Vulkan repair](reports/flashnext-vulkan-nohost-2026-09-29.md): pageable CPU weights completed 32k/65k. The 65k pair took 635.9 s versus 181.8 s for the ROCm cache-32 profile; settings differ, so this is not an isolated backend comparison.
+- [29 September q8_0 OOM and recovery](reports/flashnext-q8-oom-recovery-2026-09-29.md): a successful benchmark preceded a live-session OOM. Recovery used another profile; later fixed-build results do not establish that the old profile is safe.
+- [Earlier AtomicChat checks](docs/correctness.md#atomicchat-ad-384bpw-iq4_xs-m64): upstream HIP completed one 63k thinking task at 9.33 TG tok/s; the tested fork failed short correctness checks.
 
-## ROCm task time
+![Historical n-gram tests: cached exact copying accelerates; free writing does not. The 32k pair also differs in fit target.](charts/ngram-32k-65k.svg)
 
-![Stacked bars of prompt and generation time for seven GSQ ROCm configurations. At 65k, ubatch 1024 took 186.4 s with 2.55 GB free; ubatch 2048 took 167.4 s with 0.72 GB free.](charts/rocm-task-time.svg)
+![Historical ROCm tuning: prompt and generation time for one 894-token answer per setting. At 32k, fit target also varies.](charts/rocm-task-time.svg)
 
-The bars show elapsed time for one 894-token answer, split into prompt processing and generation. At 32k, `fit-target` also varies, so those rows do not isolate `ubatch`. The two 65k rows both use `fit-target=2048`. Each bar is one run, with no error range. [All rates, memory readings, and raw records](docs/rocm-tuning.md)
+![Historical 65k MTP pair: full prefill fell 12.4 percent and cached follow-up TG rose 8.7 percent; follow-up lengths differ and only about 0.12 GB container headroom remained.](charts/mtp-change.svg)
 
-## Historical MTP at 65k, separate setup
-
-The chart and pair below predate the qwen4exp correctness fix. On `bed0a856606e`, the tested pinned MTP configuration could not fit within the host-RAM safety budget (forecast about 2 GiB short of the required 3 GiB free-RAM floor); `--no-host` streamed weights from NVMe and never reached useful generation. Acceptance was not measured. [New-build evidence](reports/flashnext-gguf-qwen4exp-fix-2026-10-03.md#mtp-memory-budget-and-failed-alternatives).
-
-![Change with MTP in one GSQ paired test: full prefill speed fell 12.4 percent and cached follow-up generation speed rose 8.7 percent.](charts/mtp-change.svg)
-
-| Measure | No MTP | MTP n=1 |
-| --- | ---: | ---: |
-| Full prefill of 59,734 tokens | 278.10 PP tok/s | 243.54 PP tok/s |
-| Cached follow-up | 14.52 TG tok/s, 169 tokens | 15.78 TG tok/s, 160 tokens |
-| Container memory free after follow-up | about 4.19 GB | about 0.12 GB |
-
-This pair used the `nasone32` fork, q4_0 KV, and `ubatch=256`, unlike the ROCm chart. The memory values come from the [historical report](reports/qwen-gsq-nasone32-mtp-2026-09-27.md); the speed values come from [four response records](docs/mtp.md#controlled-65k-pair). Different follow-up lengths and a single pair limit the speed claim.
-
-## Other findings
-
-- AtomicChat IQ4_XS answered four short prompts correctly under upstream HIP and Vulkan; one upstream HIP 63,081-token arithmetic thinking request completed at 9.33 TG tok/s after a 365.8 s cold prefill. The tested `nasone32` HIP build gave incoherent short answers. This does not identify a faulty commit. [Correctness](docs/correctness.md) and [context](docs/context-and-memory.md)
-- GSQ Vulkan `mmap` loaded a 65k window but did not finish a fresh 31.5k-token prompt in a useful time. ROCm used a different loading mode, so this is not a clean GPU API comparison. [Vulkan details](docs/vulkan.md)
-
-## What was checked
-
-Text generation, a few arithmetic questions with and without thinking, retrieval of a marker near the end of a long synthetic prompt, one two-shape image, and one `multiply` tool call. The 65,536-token context window loaded; successful prompts reached roughly 63k tokens. No prompt longer than 65k was tested. See [correctness](docs/correctness.md) and [context and memory](docs/context-and-memory.md) for the exact cases.
-
-The quantizations were not run through a common quality suite. The initial 30 September EXL3/GGUF comparison covered one short tool-result task; later EXL3 checks added a gate-kernel oracle, 24 short API cases, six Pi read round trips at 8k and synthetic retrieval at 32k/65k after a native fix. These measurements cannot rank their quality or extrapolate the tested throughput to other cards, concurrent users, or arbitrary 65k conversations.
+See [ROCm tuning](docs/rocm-tuning.md) and [MTP](docs/mtp.md) for each chart's settings and raw records.
 
 ## Read and verify
 
-- [Setup](docs/setup.md): model identities, build pins, memory limits.
-- [Methodology](docs/methodology.md): how PP/TG and cached prompts were interpreted.
-- [Correctness](docs/correctness.md), [context and memory](docs/context-and-memory.md), [ROCm tuning](docs/rocm-tuning.md), [MTP](docs/mtp.md), [Vulkan](docs/vulkan.md): findings with raw-file links and caveats.
-- [Data guide](data/README.md): 336 selected evidence files (75 older, 80 from 28 September, 17 expert-cache records, 4 Vulkan repair records, 8 q8_0 KV records, 23 initial EXL3 records, 20 EXL3 fix/check records, 6 EXL3 stability summaries, 4 EXL3 window/compaction summaries, 25 GGUF fix/MTP/q8_0 records and 54 GGUF Pi memory records and 20 GGUF Pi thinking records) plus SHA-256 manifest. [Historical reports](reports/) retain the original field notes with local paths anonymized; their service status is historical. The [OOM and recovery report](reports/flashnext-q8-oom-recovery-2026-09-29.md) covers the later q8_0 profile changes.
+- [Setup](docs/setup.md): model identities, build pins and memory limits.
+- [Methodology](docs/methodology.md): rates, cached prompts and evidence limits.
+- [Correctness](docs/correctness.md), [context and memory](docs/context-and-memory.md), [Vulkan](docs/vulkan.md): topic summaries with dated findings.
+- [Data guide](data/README.md): 336 selected evidence files and a SHA-256 manifest. Some are reduced responses or report-derived summaries; full prompts, logs, model weights and build binaries are excluded.
+- [Reports](reports/): dated field notes with local paths anonymized. Service status and follow-up instructions describe their test period, not current authorization. The [28 September benchmark plan](docs/next-benchmarks.md) is historical.
 
-Run `python3 scripts/data.py check` to validate the selected data, manifest, JSON syntax, and basic private-path scan. This does not run the models. Model weights and full server/build logs are excluded.
+Most configurations ran once. Small arithmetic, retrieval, vision and tool checks do not rank quantization quality or establish reliable arbitrary 65k agent conversations. There is no common quality suite or multi-user test. Memory readings distinguish host, container and VRAM; use the report's units and sampling scope.
 
-Run `python3 scripts/charts.py --check` to verify that the ROCm and MTP charts match the selected raw records. Run without `--check` to regenerate those two charts. The n-gram chart was drawn from the values in the 28 September report and is not checked by the script. The chart script checks recorded timings, but cannot reproduce or validate the inference runs.
+Run from the repository root:
 
-The neighboring [Qwen3.8-27B tuning repository](https://github.com/szafranski/rx7900xtx-llm-tuning) inspired the evidence-first format. Its numbers are for a different model and workload.
+```bash
+rtk python3 scripts/data.py check
+rtk python3 scripts/charts.py --check
+```
 
-No license has been chosen for this repository yet.
+The first command checks imported hashes, byte counts, manifest coverage, JSON syntax and basic private-path/credential patterns. The second checks the ROCm and MTP charts against selected records; run without `--check` to regenerate them. The n-gram chart is not checked or regenerated by that script. Neither command reruns inference or validates model quality.
+
+The neighboring [Qwen3.8-27B tuning repository](https://github.com/szafranski/rx7900xtx-llm-tuning) uses a different model and workload. No license has been chosen for this repository yet.

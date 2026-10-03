@@ -1,5 +1,9 @@
 # Backend and feature checks
 
+The September GGUF checks below describe their original builds. In particular,
+27-29 September results predate the qwen4exp correctness fix and do not validate
+the fixed implementation. See the [2-3 October fixed-build tests](../reports/flashnext-gguf-qwen4exp-fix-2026-10-03.md).
+
 ## AtomicChat AD-3.84bpw-IQ4_XS-M64
 
 The first `nasone32` HIP build at commit `15995a1` returned incoherent text even after disabling HIP graphs, using `ubatch=1`, switching KV to f16, and calling `/completion` without the chat template. The [test verdict](../reports/qwen-rdna3-test-verdict-2026-09-25.md) records these failures; selected [raw responses](../data/raw/qwen-rdna3-2026-09-24/) are attached. A failed `batch-size=1` startup assertion was not a generation test.
@@ -27,18 +31,33 @@ task was not rerun after the native fix.
 
 With an isolated test adapter, Pi completed six actual read-tool round trips
 at 8k, three OFF and three medium ON, plus one ON no-tool negative case.
+The later 32k-allocation smoke in the same report reached only a 721-token prompt;
+it was not a full-window Pi test.
 The original server output path does not normalize XML tool calls to OpenAI
 `tool_calls`; the adapter buffers responses and is not deployed.
 
 Correctly tokenized synthetic retrieval passed OFF/ON at 32k and 65k, about
 23 TG tok/s. One cold API 32k ON request also passed. This is limited correctness
-evidence, not quantization parity or broad agent quality. Pi at 32k/65k, API 65k,
+evidence, not quantization parity or broad agent quality. Full-prompt Pi at 32k/65k, API 65k,
 MTP and vision were not tested in this stage.
 
-Shutdown still crashes with exit 139; 65k leaves only about 0.527 GiB VRAM free.
+In that 30 September series, shutdown crashed with exit 139 and direct 65k
+left only about 0.527 GiB VRAM free.
 [Native fix, measurements, evidence and erratum](../reports/flashnext-exl3-native-fix-2026-09-30.md).
 The [initial report](../reports/flashnext-exl3-retest-2026-09-30.md) retains the
 pre-fix failures as history.
+
+On 2 October, Pi medium/OFF completed 36 normal turns and four expected
+HTTP 400 checks with real reads, history and a prefix change. BC attention off
+and allocator settings avoided the observed inference fault/RAM growth in those
+runs; patched libhsa allowed natural exit 0. The inference fault remains separate
+from the shutdown race. [Stability and shutdown evidence](../reports/flashnext-exl3-pi32k-stability-2026-10-02.md).
+
+Later two Pi sessions with a 43008-token window reached 32,051 real prompt tokens.
+All six normal-flow compactions succeeded with five facts recalled at every
+check, but a large input left Pi stuck in one of two runs. This extends the
+earlier allocation smoke without validating Pi at 65k or general agent quality.
+[Window and compaction results](../reports/flashnext-exl3-pi-window-compaction-2026-10-02.md).
 
 ## GGUF Pi thinking and empty finals, 3 October
 
