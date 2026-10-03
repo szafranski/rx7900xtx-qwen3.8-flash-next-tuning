@@ -1,0 +1,204 @@
+{
+  "draft": 0,
+  "command": [
+    "rtk",
+    "proxy",
+    "podman",
+    "run",
+    "-d",
+    "--name",
+    "qwen4exp-16k-baseline-20261003-nohost",
+    "--network",
+    "host",
+    "--device",
+    "/dev/kfd",
+    "--device",
+    "/dev/dri",
+    "--group-add",
+    "keep-groups",
+    "--security-opt",
+    "label=disable",
+    "--memory",
+    "28g",
+    "--memory-swap",
+    "28g",
+    "--cpus",
+    "12",
+    "-e",
+    "LD_LIBRARY_PATH=/opt/rocm/lib:/src/build-rocm-gfx1100-test/bin",
+    "-v",
+    "<HOME>/llm/llama.cpp-upstream-qwen4exp-fix-2026-10-02:/src:ro",
+    "-v",
+    "<HOME>/llm/models/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF:/models:ro",
+    "localhost/qwen-rdna3-rocm-build:7.14.1",
+    "/src/build-rocm-gfx1100-test/bin/llama-server",
+    "--model",
+    "/models/IQ3_XXS/Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-00001-of-00002.gguf",
+    "--alias",
+    "flashnext-gsq",
+    "--host",
+    "127.0.0.1",
+    "--port",
+    "8094",
+    "--ctx-size",
+    "16384",
+    "--parallel",
+    "1",
+    "--threads",
+    "10",
+    "--batch-size",
+    "1024",
+    "--ubatch-size",
+    "1024",
+    "--n-gpu-layers",
+    "auto",
+    "--fit",
+    "on",
+    "--fit-target",
+    "2048",
+    "--cache-type-k",
+    "q4_0",
+    "--cache-type-v",
+    "q4_0",
+    "--flash-attn",
+    "on",
+    "--reasoning",
+    "on",
+    "--load-mode",
+    "mmap",
+    "--no-host",
+    "--lazy-mode",
+    "on",
+    "--cache-ram",
+    "0",
+    "--jinja",
+    "--verbosity",
+    "4"
+  ],
+  "phases": {
+    "load_start": {
+      "time": 1790980678.041042,
+      "monotonic": 921.054032156,
+      "host": {
+        "MemAvailable": 29871636480,
+        "Mlocked": 0,
+        "Shmem": 18931712
+      },
+      "vram_used": 841289728,
+      "vram_free": 24911736832,
+      "disk_free": 43040292864,
+      "disk_read_bytes": {
+        "nvme0n1": 8061251584,
+        "nvme0n1p3": 8033062912
+      }
+    },
+    "ready": {
+      "time": 1790980855.6977992,
+      "monotonic": 1098.7107891,
+      "host": {
+        "MemAvailable": 23395540992,
+        "Mlocked": 0,
+        "Shmem": 218451968
+      },
+      "vram_used": 24381472768,
+      "vram_free": 1371553792,
+      "disk_free": 43036123136,
+      "disk_read_bytes": {
+        "nvme0n1": 143118548992,
+        "nvme0n1p3": 143090360320
+      },
+      "memory.current": "8896978944",
+      "memory.peak": "30064771072",
+      "memory.swap.current": "0",
+      "memory.events": "low 0\nhigh 0\nmax 30540\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 25",
+      "memory.stat": {
+        "anon": 7511969792,
+        "file": 1260298240,
+        "shmem": 216616960,
+        "pgmajfault": 4967456
+      }
+    },
+    "prefill_start": {
+      "time": 1790980855.7924554,
+      "monotonic": 1098.805445775,
+      "host": {
+        "MemAvailable": 23389827072,
+        "Mlocked": 0,
+        "Shmem": 218451968
+      },
+      "vram_used": 24381472768,
+      "vram_free": 1371553792,
+      "disk_free": 43036123136,
+      "disk_read_bytes": {
+        "nvme0n1": 143186280448,
+        "nvme0n1p3": 143158091776
+      },
+      "memory.current": "8882434048",
+      "memory.peak": "30064771072",
+      "memory.swap.current": "0",
+      "memory.events": "low 0\nhigh 0\nmax 30540\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 25",
+      "memory.stat": {
+        "anon": 7511969792,
+        "file": 1246203904,
+        "shmem": 216616960,
+        "pgmajfault": 4968455
+      }
+    },
+    "prefill_end": {
+      "time": 1790981755.8943665,
+      "monotonic": 1998.907356805,
+      "host": {
+        "MemAvailable": 23134441472,
+        "Mlocked": 118784,
+        "Shmem": 256434176
+      },
+      "vram_used": 24801181696,
+      "vram_free": 951844864,
+      "disk_free": 42720931840,
+      "disk_read_bytes": {
+        "nvme0n1": 265211985920,
+        "nvme0n1p3": 265183760384
+      },
+      "memory.current": "8135045120",
+      "memory.peak": "30064771072",
+      "memory.swap.current": "0",
+      "memory.events": "low 0\nhigh 0\nmax 30540\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 25",
+      "memory.stat": {
+        "anon": 7684321280,
+        "file": 320880640,
+        "shmem": 254754816,
+        "pgmajfault": 31343120
+      }
+    }
+  },
+  "limits": {
+    "memory.max": "30064771072",
+    "memory.swap.max": "0"
+  },
+  "model_buffers": [
+    [
+      "CPU_Mapped",
+      "44391.67"
+    ],
+    [
+      "CPU_REPACK",
+      "6750.88"
+    ],
+    [
+      "ROCm0",
+      "21241.75"
+    ],
+    [
+      "CPU_Mapped",
+      "27465.95"
+    ]
+  ],
+  "mapped_confirmed": true,
+  "host_model_mib": 0,
+  "error": "TimeoutError('timed out')",
+  "guard_triggered": false,
+  "min_available": 21609869312,
+  "min_free_vram": 926285824,
+  "peak_cgroup": 30064771072,
+  "released": true
+}

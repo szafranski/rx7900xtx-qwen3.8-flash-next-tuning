@@ -1,5 +1,7 @@
 # GSQ-RCO ROCm tuning
 
+These September measurements predate the qwen4exp correctness fix #29751. See the [2-3 October fixed-upstream results](../reports/flashnext-gguf-qwen4exp-fix-2026-10-03.md) for the new build, matched no-MTP throughput and q8_0 KV.
+
 All completed rows below use the same synthetic task: 31,525 or 62,980 prompt tokens and a correct 894-token answer containing a city and the numbers 1-200. The upstream `d81aef1` ROCm server restarted for each configuration. Constant flags included `--load-mode none --lazy-mode on --fit on`, q8_0 KV, flash attention, one slot, and no prompt cache. Each row is one run. See the [field report](../reports/qwen-gsq-rocm-tuning-2026-09-27.md) and [raw run files](../data/raw/qwen-gsq-rocm-tuning-2026-09-27/).
 
 | Context | Ubatch | Op offload | Fit target | PP tok/s | TG tok/s | Wall time | Container memory after reply | Raw record |

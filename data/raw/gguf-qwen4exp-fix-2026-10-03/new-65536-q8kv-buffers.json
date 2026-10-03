@@ -1,0 +1,18 @@
+{
+  "record_type": "Selected server log lines; full fit iterations and logs omitted",
+  "lines": [
+    "0.02.002.029 I common_params_fit_impl: set ngl_per_device[0].n_layer=49",
+    "0.02.745.010 I common_params_fit_impl: set ngl_per_device[0].(n_layer, n_part)=(49, 30), id_dense_start=0",
+    "0.03.152.481 I common_params_fit_impl: set ngl_per_device[0].(n_layer, n_part)=(49, 28), id_dense_start=0",
+    "0.03.548.183 I common_params_fit_impl: set ngl_per_device[0].(n_layer, n_part)=(49, 27), id_dense_start=0",
+    "0.03.948.546 I common_params_fit_impl: set ngl_per_device_high[0].(n_layer, n_part)=(49, 26), id_dense_start_high=0",
+    "0.04.766.434 I common_params_fit_impl: set ngl_per_device[0].(n_layer, n_part, overflow_type)=(49, 27, ATTN), id_dense_start=0",
+    "0.21.317.505 I load_tensors:        ROCm0 model buffer size = 19984.22 MiB",
+    "0.21.318.752 I load_tensors:    ROCm_Host model buffer size = 24865.99 MiB",
+    "0.21.318.760 I load_tensors:   CPU_Mapped model buffer size = 27465.95 MiB",
+    "1.32.927.292 I llama_kv_cache:      ROCm0 KV buffer size =   816.00 MiB",
+    "1.32.944.731 I llama_kv_cache:      ROCm0 KV buffer size =   204.00 MiB",
+    "1.33.072.228 I sched_reserve:      ROCm0 compute buffer size =   882.37 MiB",
+    "1.33.072.232 I sched_reserve:  ROCm_Host compute buffer size =   223.57 MiB"
+  ]
+}

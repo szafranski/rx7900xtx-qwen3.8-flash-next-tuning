@@ -1,0 +1,10 @@
+{
+  "baseline_ready_available_gib": 3.989,
+  "live_idle_delta_gib": 0.858154296875,
+  "head_payload_mib": 2650.64,
+  "optimistic_gpu_compute_replacement_saved_mib": 382.3,
+  "optimistic_all_cpu_head_available_gib": 2.631978515625,
+  "required_available_gib": 3,
+  "start_C": false,
+  "reason": "Even optimistic placement-only forecast is below 3 GiB; no supported external-head vocabulary deduplication or smaller independent draft context"
+}

@@ -1,0 +1,6 @@
+{
+  "sha": "bed0a856606ee4a24a164066f73d2379447033f5",
+  "fix": "66e0c17ee1741fef493312e17fe60a5d2cf5f7d5 llama: fix qwen4exp (#29751)",
+  "mask": "4e2713c1620f1fadb2c3afcc0a8f01500d68ac17 qwen4exp : optimize mask constructions (#29824)",
+  "eog": "d280808f5d82fcc3142b53f94ea5f594250cd765 common : stop accepting draft tokens at EOG (#29638)"
+}

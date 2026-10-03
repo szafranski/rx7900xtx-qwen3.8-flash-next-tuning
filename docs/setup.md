@@ -15,6 +15,7 @@ The large second GSQ shard is the model's n-gram table, not an MTP or DFlash dra
 | --- | --- | --- |
 | [ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp) | `d81aef19941e145d04f88fb180ea89a67d052ab5` | Upstream HIP/ROCm and Vulkan reference; successful AtomicChat and GSQ runs. |
 | [nasone32/llama.cpp-RDNA3-7900xtx-opt](https://github.com/nasone32/llama.cpp-RDNA3-7900xtx-opt) | `15995a12d1d530645a4f34c72afdaa30fa680149` | Early AtomicChat HIP failure; later GSQ separate-head MTP tests. Outcomes differ by model and configuration. |
+| [ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp) | `bed0a856606ee4a24a164066f73d2379447033f5` | 2-3 October GSQ retest after #29751 and #29824; no usable resident MTP demonstrated. [Results](../reports/flashnext-gguf-qwen4exp-fix-2026-10-03.md). |
 | Separate-head MTP fork tested earlier | `ba5354d` | The older MTP attempt, including Vulkan assertion and ROCm disk-heavy `mmap` run. [Original report](../reports/qwen-gsq-mtp-2026-09-27.md) records its limits. |
 
 The test-period ROCm container started from `rocm/dev-ubuntu-24.04:7.14.1-full` and a derived build image. Sources here record the measured flags; they are not a turn-key launcher. No GGUF, projector, image layer, or build binary is stored in this repository.

@@ -1,0 +1,40 @@
+{
+  "load": {
+    "seconds": 105.79932535699982,
+    "bytes": 69811675136,
+    "faults": 634125
+  },
+  "prefill_until_stop_decision": {
+    "seconds": 300.3906291159997,
+    "bytes": 44477898752,
+    "faults": 9215349
+  },
+  "request_through_teardown_eof": {
+    "seconds": 307.51164100200003,
+    "bytes": 45394464768,
+    "faults": 9412871
+  },
+  "TG": null,
+  "raw_prompt_tokens": 382,
+  "formatted_prompt_tokens": 394,
+  "max_output": 128,
+  "acceptance": null,
+  "effective_completed": false,
+  "classification": "NVMe-streaming; acceptance only; TG not reached",
+  "sample_count": 816,
+  "sample_interval_min": 0.4944991970000956,
+  "sample_interval_max": 0.505481791999955,
+  "max_host_shmem": 398192640,
+  "min_available": 22680027136,
+  "min_free_vram": 1015603200,
+  "C_forecast": {
+    "baseline_ready_available_gib": 3.989,
+    "live_idle_delta_gib": 0.858154296875,
+    "head_payload_mib": 2650.64,
+    "optimistic_gpu_compute_replacement_saved_mib": 382.3,
+    "optimistic_all_cpu_head_available_gib": 2.631978515625,
+    "required_available_gib": 3,
+    "start_C": false,
+    "reason": "Even optimistic placement-only forecast is below 3 GiB; no supported external-head vocabulary deduplication or smaller independent draft context"
+  }
+}

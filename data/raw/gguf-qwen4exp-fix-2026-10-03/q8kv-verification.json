@@ -1,0 +1,62 @@
+{
+  "input_hashes_unchanged": true,
+  "prompt_copy_identical": true,
+  "server_command_only_requested_changes": true,
+  "quality": {
+    "free-prefill": {
+      "first_200_equal": true,
+      "full_text_equal": true,
+      "q4_text_sha256": "a322b2705f82edd4012e6dd829be33707e8c805d23714cb76ec544c4d010f0df",
+      "q8_text_sha256": "a322b2705f82edd4012e6dd829be33707e8c805d23714cb76ec544c4d010f0df"
+    },
+    "free-follow": {
+      "first_200_equal": true,
+      "full_text_equal": false,
+      "q4_text_sha256": "0379ce8eb5642973f2f1b0cbe4f464797bf992b27953dceb8ead58ad69e09132",
+      "q8_text_sha256": "797662f13b5be8a3f7828e2ca06f8c0179f3cb438a1b6e0baecc8b212179110a"
+    },
+    "repeat-prefill": {
+      "first_200_equal": true,
+      "full_text_equal": true,
+      "q4_text_sha256": "a322b2705f82edd4012e6dd829be33707e8c805d23714cb76ec544c4d010f0df",
+      "q8_text_sha256": "a322b2705f82edd4012e6dd829be33707e8c805d23714cb76ec544c4d010f0df"
+    },
+    "repeat-follow": {
+      "first_200_equal": true,
+      "full_text_equal": true,
+      "q4_text_sha256": "5a0a2bc747cf1b7ac84d87baf697a7c27adb88c3d4db04195a8ed85c5b02d9ae",
+      "q8_text_sha256": "5a0a2bc747cf1b7ac84d87baf697a7c27adb88c3d4db04195a8ed85c5b02d9ae"
+    }
+  },
+  "io": {
+    "free-prefill": {
+      "read_bytes": 290209792,
+      "seconds": 113.69345470700137,
+      "average_read_mib_s": 2.4343144969360884,
+      "gpu_busy_mean": 93.85964912280701,
+      "sample_count": 57
+    },
+    "free-follow": {
+      "read_bytes": 79511552,
+      "seconds": 85.7274851109978,
+      "average_read_mib_s": 0.8845252476707982,
+      "gpu_busy_mean": 58,
+      "sample_count": 43
+    },
+    "repeat-prefill": {
+      "read_bytes": 47259648,
+      "seconds": 109.03433893900001,
+      "average_read_mib_s": 0.41335888251878966,
+      "gpu_busy_mean": 98.38888888888889,
+      "sample_count": 54
+    },
+    "repeat-follow": {
+      "read_bytes": 12861440,
+      "seconds": 84.63886554299825,
+      "average_read_mib_s": 0.14491717157726808,
+      "gpu_busy_mean": 57.906976744186046,
+      "sample_count": 43
+    }
+  },
+  "controller_exit_code": 0
+}

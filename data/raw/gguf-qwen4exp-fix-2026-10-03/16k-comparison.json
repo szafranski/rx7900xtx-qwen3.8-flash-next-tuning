@@ -1,0 +1,35 @@
+{
+  "baseline": {
+    "pp": 665.9049141283052,
+    "tg": 14.33940157932525,
+    "retrieval": true,
+    "prompt_tokens": 15185,
+    "output_tokens": 1100,
+    "wall_retrieval_seconds": 23.02,
+    "wall_follow_seconds": 77.46
+  },
+  "mtp_n1": {
+    "status": "RAM guard during target model load",
+    "load_attempt_seconds": 23.132041,
+    "acceptance_rate": null,
+    "pp": null,
+    "tg": null,
+    "retrieval": null,
+    "low_samples": [
+      {
+        "time": 1790978160.7761455,
+        "mem_available_bytes": 2004443136
+      },
+      {
+        "time": 1790978162.7789419,
+        "mem_available_bytes": 1850085376
+      }
+    ]
+  },
+  "mtp_n2": {
+    "status": "not run, stop-on-guard condition"
+  },
+  "mtp_n3": {
+    "status": "not run, stop-on-guard condition"
+  }
+}

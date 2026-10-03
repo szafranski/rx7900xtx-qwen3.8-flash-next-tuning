@@ -1,0 +1,16 @@
+{
+  "record_type": "English transcription of tensor inventory and host-memory forecast, not a measured ready state",
+  "head_payload_mib": 2650.64,
+  "experts_mib": 1750.0,
+  "own_token_embd_and_output_mib": 838.33,
+  "other_tensors_mib": 62.31,
+  "extra_target_host_weights_mib": 2782.9,
+  "draft_host_embeddings_mib": 341.02,
+  "draft_host_compute_mib": 82.3,
+  "extra_host_demand_mib": 3206.22,
+  "extra_host_demand_gib_rounded": 3.13,
+  "baseline_ready_available_gib_rounded": 3.99,
+  "forecast_ready_available_gib_rounded": 0.86,
+  "required_available_gib": 3,
+  "shortfall_gib_approx": 2
+}

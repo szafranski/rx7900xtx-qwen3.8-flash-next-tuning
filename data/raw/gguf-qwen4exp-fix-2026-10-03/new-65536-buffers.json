@@ -1,0 +1,17 @@
+{
+  "record_type": "Selected server log lines; full fit iterations and logs omitted",
+  "lines": [
+    "0.01.845.833 I common_params_fit_impl: set ngl_per_device[0].n_layer=49",
+    "0.02.574.445 I common_params_fit_impl: set ngl_per_device[0].(n_layer, n_part)=(49, 29), id_dense_start=0",
+    "0.02.974.464 I common_params_fit_impl: set ngl_per_device[0].(n_layer, n_part)=(49, 27), id_dense_start=0",
+    "0.03.372.824 I common_params_fit_impl: set ngl_per_device_high[0].(n_layer, n_part)=(49, 26), id_dense_start_high=0",
+    "0.03.772.492 I common_params_fit_impl: set ngl_per_device[0].(n_layer, n_part, overflow_type)=(49, 27, UP), id_dense_start=0",
+    "0.15.150.425 I load_tensors:        ROCm0 model buffer size = 20329.25 MiB",
+    "0.15.150.426 I load_tensors:    ROCm_Host model buffer size = 24520.96 MiB",
+    "0.15.150.426 I load_tensors:   CPU_Mapped model buffer size = 27465.95 MiB",
+    "1.07.398.465 I llama_kv_cache:      ROCm0 KV buffer size =   432.00 MiB",
+    "1.07.408.365 I llama_kv_cache:      ROCm0 KV buffer size =   108.00 MiB",
+    "1.07.532.494 I sched_reserve:      ROCm0 compute buffer size =   882.37 MiB",
+    "1.07.532.498 I sched_reserve:  ROCm_Host compute buffer size =   223.57 MiB"
+  ]
+}

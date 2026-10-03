@@ -1,0 +1,86 @@
+{
+  "metrics": {
+    "old-32768": {
+      "pp": 637.440079469687,
+      "tg": 12.832315520927322,
+      "peak_ram_bytes": 27256385536,
+      "retrieval": true
+    },
+    "new-32768": {
+      "pp": 628.319182795951,
+      "tg": 13.817158856956613,
+      "peak_ram_bytes": 27200405504,
+      "retrieval": true
+    },
+    "old-65536": {
+      "pp": 573.333564457241,
+      "tg": 11.337086139232063,
+      "peak_ram_bytes": 28231352320,
+      "retrieval": true
+    },
+    "new-65536": {
+      "pp": 576.5152346908611,
+      "tg": 12.412298471256596,
+      "peak_ram_bytes": 28221542400,
+      "retrieval": true
+    }
+  },
+  "quality": [
+    {
+      "label": "old-32768",
+      "retrieval_pass": true,
+      "free_word_count": 519,
+      "repeat_complete_lines": 201,
+      "repeat_sequential": true,
+      "repeat_last_line": "20",
+      "free_output_tokens": 1100,
+      "repeat_output_tokens": 1100,
+      "free_total_tokens": 32665,
+      "repeat_total_tokens": 32679,
+      "free_cache_n": 31522,
+      "free_prompt_n": 43
+    },
+    {
+      "label": "new-32768",
+      "retrieval_pass": true,
+      "free_word_count": 525,
+      "repeat_complete_lines": 201,
+      "repeat_sequential": true,
+      "repeat_last_line": "20",
+      "free_output_tokens": 1100,
+      "repeat_output_tokens": 1100,
+      "free_total_tokens": 32665,
+      "repeat_total_tokens": 32679,
+      "free_cache_n": 31522,
+      "free_prompt_n": 43
+    },
+    {
+      "label": "old-65536",
+      "retrieval_pass": true,
+      "free_word_count": 533,
+      "repeat_complete_lines": 201,
+      "repeat_sequential": true,
+      "repeat_last_line": "20",
+      "free_output_tokens": 1100,
+      "repeat_output_tokens": 1100,
+      "free_total_tokens": 64120,
+      "repeat_total_tokens": 64134,
+      "free_cache_n": 62977,
+      "free_prompt_n": 43
+    },
+    {
+      "label": "new-65536",
+      "retrieval_pass": true,
+      "free_word_count": 534,
+      "repeat_complete_lines": 201,
+      "repeat_sequential": true,
+      "repeat_last_line": "20",
+      "free_output_tokens": 1100,
+      "repeat_output_tokens": 1100,
+      "free_total_tokens": 64120,
+      "repeat_total_tokens": 64134,
+      "free_cache_n": 62977,
+      "free_prompt_n": 43
+    }
+  ]
+}

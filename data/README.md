@@ -1,6 +1,6 @@
 # Data and provenance
 
-`raw/` contains 75 selected files from the local consolidated September 2026 test archive, 80 files from 28 September, 17 expert-cache records, 4 Vulkan repair records, 8 q8_0 KV records, and 23 initial EXL3 retest evidence files and 20 native-fix/check files, plus 6 EXL3 stability summaries from 2 October and 4 EXL3 window/compaction summaries from the evening, for 237 total. They are grouped by experiment. `manifest.csv` records each repository path, source-relative path, original SHA-256, imported SHA-256, byte count, and whether the import changed the bytes. The older JSON was normalized and local home paths were replaced with `<HOME>`. Long-context response files whose names end in `-prompt.json` had their full request and prompt removed, leaving the response and wall time. This means an imported hash often differs from the source hash. The expert-cache and Vulkan response files are unmodified; the q8_0 KV records were sanitized before import. Source paths in the manifest identify each experiment.
+`raw/` contains 75 selected files from the local consolidated September 2026 test archive, 80 files from 28 September, 17 expert-cache records, 4 Vulkan repair records, 8 q8_0 KV records, and 23 initial EXL3 retest evidence files and 20 native-fix/check files, plus 6 EXL3 stability summaries from 2 October and 4 EXL3 window/compaction summaries from the evening, plus 25 GGUF fix/MTP/q8_0 records from 2-3 October, for 262 total. They are grouped by experiment. `manifest.csv` records each repository path, source-relative path, original SHA-256, imported SHA-256, byte count, and whether the import changed the bytes. The older JSON was normalized and local home paths were replaced with `<HOME>`. Long-context response files whose names end in `-prompt.json` had their full request and prompt removed, leaving the response and wall time. This means an imported hash often differs from the source hash. The expert-cache and Vulkan response files are unmodified; the q8_0 KV records were sanitized before import. Source paths in the manifest identify each experiment.
 
 The raw set includes OpenAI-compatible response JSON with `usage` and `timings`, ROCm tuning records with launch arguments and `memory_stats`, memory-counter NDJSON, cgroup text readings, the 28-shard AtomicChat checksum list, and two PNGs of the synthetic vision test. Prompt strings, tokenizer dumps, unrelated production-model listings, Hugging Face directory snapshots, `.pyc`, and full server/build logs were left out. The original local archive remains untouched. Full logs for the Vulkan tests remain in `agents/scratch/flashnext-vulkan-nohost-2026-09-29/`; q8_0 observations and the request driver remain in `agents/scratch/flashnext-q8-65k-2026-09-29/`. Older diagnostics remain in `agents/scratch/flashnext-expert-cache-2026-09-28/` and `agents/scratch/flashnext-bench-2026-09-28/private/`.
 
@@ -84,3 +84,24 @@ The summaries state n per test (1 or 2), separate the successful compactions in
 normal flow from the over-window step, and keep the known stuck-session failure
 (1 of 1 Polish run, 1 of 2 overall, at 40960; 1 of 2 at 43008). Token-estimate errors apply to the synthetic
 Polish markdown and Python corpora only.
+
+## GGUF correctness-fix, MTP and q8_0 evidence, 2-3 October
+
+`raw/gguf-qwen4exp-fix-2026-10-03/` adds 25 selected files from
+`agents/scratch/llamacpp-qwen4exp-fix-20261002zd/` and
+`agents/scratch/llamacpp-q8kv-65k-20261003/`: seven source/comparison/verification
+summaries, one English report-derived MTP budget summary, three reduced completed
+run records, two reduced initial safety records, one reduced failed no-host run,
+eight synthetic response JSON files and three fit/buffer log excerpts stored
+as JSON. The manifest binds each to its original source file and sanitized
+import using SHA-256 and byte counts.
+
+Reduced runs retain launch arguments, effective limits and outcome counters;
+unrelated host inventory, process lists and container identifiers are omitted.
+Safety records retain only timestamp, available RAM, used VRAM and disk space.
+The failed no-host record retains phase counters so the final prefill timeout
+and partition-read delta can be checked. Home paths are anonymized. No full
+prompts, monitor timelines, full logs, preflight/authentication files, models
+or binaries are imported. The budget is a forecast, not measured ready RAM;
+acceptance remains null. The [report](../reports/flashnext-gguf-qwen4exp-fix-2026-10-03.md)
+explains the historical 65k baseline and single-run limits.

@@ -1,0 +1,78 @@
+[
+  {
+    "draft": 1,
+    "status": "RAM guard during model load",
+    "guard_low_samples": [
+      {
+        "time": 1790977194.0938532,
+        "mem_available_bytes": 2123759616
+      },
+      {
+        "time": 1790977196.0945425,
+        "mem_available_bytes": 1533272064
+      }
+    ],
+    "peak_ram_bytes": 29277478912,
+    "error_lines": [],
+    "final_state": {
+      "OciVersion": "1.2.1",
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 137,
+      "Error": "",
+      "StartedAt": "2026-10-02T23:39:38.176438988+02:00",
+      "FinishedAt": "2026-10-02T23:40:01.186269218+02:00",
+      "CheckpointedAt": "0001-01-01T00:00:00Z",
+      "RestoredAt": "0001-01-01T00:00:00Z",
+      "StoppedByUser": true
+    },
+    "measured_pp": null,
+    "measured_tg": null,
+    "acceptance_rate": null,
+    "retrieval": null,
+    "load_attempt_wall_seconds": 23.009831
+  },
+  {
+    "draft": 2,
+    "status": "RAM guard during model load",
+    "guard_low_samples": [
+      {
+        "time": 1790977259.556785,
+        "mem_available_bytes": 1504247808
+      },
+      {
+        "time": 1790977261.5577216,
+        "mem_available_bytes": 1537966080
+      }
+    ],
+    "peak_ram_bytes": 29566615552,
+    "error_lines": [],
+    "final_state": {
+      "OciVersion": "1.2.1",
+      "Status": "exited",
+      "Running": false,
+      "Paused": false,
+      "Restarting": false,
+      "OOMKilled": false,
+      "Dead": false,
+      "Pid": 0,
+      "ExitCode": 137,
+      "Error": "",
+      "StartedAt": "2026-10-02T23:40:41.639488686+02:00",
+      "FinishedAt": "2026-10-02T23:41:06.641289287+02:00",
+      "CheckpointedAt": "0001-01-01T00:00:00Z",
+      "RestoredAt": "0001-01-01T00:00:00Z",
+      "StoppedByUser": true
+    },
+    "measured_pp": null,
+    "measured_tg": null,
+    "acceptance_rate": null,
+    "retrieval": null,
+    "load_attempt_wall_seconds": 25.001801
+  }
+]
