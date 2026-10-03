@@ -39,3 +39,29 @@ Shutdown still crashes with exit 139; 65k leaves only about 0.527 GiB VRAM free.
 [Native fix, measurements, evidence and erratum](../reports/flashnext-exl3-native-fix-2026-09-30.md).
 The [initial report](../reports/flashnext-exl3-retest-2026-09-30.md) retains the
 pre-fix failures as history.
+
+## GGUF Pi thinking and empty finals, 3 October
+
+At maxTokens=8192, medium without a server budget had 3/18 empty finals
+and 1/3 correct arithmetic answers. Medium with `--reasoning-budget 4096`
+had 2/18 empty early stops and 0/3 correct arithmetic answers; low without
+a budget had 4/18 empties and 1/3 correct arithmetic answers. All final
+recall checks passed. A nonempty final is not a quality PASS. These are
+single runs with random sampling, not an isolated causal comparison.
+
+CPU replay matched 50/50 captured prompts byte for byte. Pi omits
+thinking-only assistant messages from later requests; empty content was
+already present in server SSE. The converter filter remains in Pi 1.0.1
+source; no new runtime test of that release was performed. Early EOS versus
+output-parser failure remains unresolved without raw ending tokens.
+[Thinking report, research links and selected evidence](../reports/flashnext-gguf-pi-thinking-2026-10-03.md).
+
+In the later [C0-C3 short-turn test](../reports/flashnext-gguf-pi-thinking-2026-10-03.md#krotkie-tury-c0-c3),
+C1 preserve_thinking=false had 0/25 empty finals and 19/19 correct recall
+without tools. C0 had 2/25 empties and 18/19 recall, C2 frequency .3 had
+3/25 and 8/19, C3 presence .3 had 5/25 and 16/19. All empties were type b.
+C2 had shorter preparation and one recall tool violation. One session per
+arm, dependent turns, random sampling, fixed order and shared server cache
+prevent a reliability estimate or proof of a fix. No arithmetic or compaction
+was tested in this stage. [Summary](../data/raw/gguf-pi-thinking-2026-10-03/shortturns/summary.json)
+and [validation](../data/raw/gguf-pi-thinking-2026-10-03/shortturns/validation.json).

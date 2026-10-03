@@ -1,0 +1,18 @@
+{
+  "min_mem_available": 2.3382225036621094,
+  "min_vram_free": 612.2421875,
+  "peak_anon": 1.0721435546875,
+  "peak_shmem": 24.586444854736328,
+  "peak_cgroup": 26.932918548583984,
+  "events": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0,
+    "sock_throttled": 2
+  },
+  "swap_max": 0,
+  "sample_gap_max": 1.0021085739135742
+}

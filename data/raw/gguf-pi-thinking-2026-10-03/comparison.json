@@ -1,0 +1,56 @@
+{
+  "A": {
+    "turns": 18,
+    "empty": 2,
+    "type_a": 0,
+    "type_b": 2,
+    "thinking_median": 45.0,
+    "thinking_max": 4096,
+    "math": [
+      false,
+      false,
+      false
+    ],
+    "latency_median": 16.2,
+    "latency_max": 620.2,
+    "session_seconds": 1687.1000000000001,
+    "math_latency_median": 402.5,
+    "recall": true
+  },
+  "B": {
+    "turns": 18,
+    "empty": 4,
+    "type_a": 3,
+    "type_b": 1,
+    "thinking_median": 41.0,
+    "thinking_max": 8192,
+    "math": [
+      false,
+      false,
+      true
+    ],
+    "latency_median": 36.1,
+    "latency_max": 738.8,
+    "session_seconds": 4054.2999999999997,
+    "math_latency_median": 374.3,
+    "recall": true
+  },
+  "medium8192": {
+    "turns": 18,
+    "empty": 3,
+    "type_a": 1,
+    "type_b": 2,
+    "thinking_median": 29.0,
+    "thinking_max": 8192,
+    "math": [
+      false,
+      false,
+      true
+    ],
+    "latency_median": 32.55,
+    "latency_max": 610.5,
+    "session_seconds": 2082.8,
+    "math_latency_median": 439.9,
+    "recall": true
+  }
+}

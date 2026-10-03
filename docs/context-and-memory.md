@@ -46,3 +46,17 @@ checkpoints, so limit 4 saves at most about 0.11 GiB of their payload;
 it does not fix the static roughly 2.14 GiB pinned-MTP deficit. The older
 29 September session OOM is worth a separate retest, not a proven
 checkpoint diagnosis. No soak or production deployment followed.
+
+The [later thinking and history report](../reports/flashnext-gguf-pi-thinking-2026-10-03.md)
+separates output-limit exhaustion from early empty stops. A server thinking
+budget left space for arithmetic finals but did not establish correct answers.
+Pi drops thinking-only assistant turns despite a byte-exact replay of the
+remaining captured history. Increasing maxTokens or changing preserve_thinking
+is not a validated repair for that loss or early EOS.
+
+The later [C0-C3 test](../reports/flashnext-gguf-pi-thinking-2026-10-03.md#krotkie-tury-c0-c3)
+kept medium, server reasoning budget 4096 and the q8_0 checkpoint profile.
+C1 preserve_thinking=false completed 25 short turns with no empty finals
+and 19/19 correct recall. Each arm completed 31 turns with no compaction;
+this does not validate compaction or restore thinking-only messages dropped
+by Pi. One session per arm supports further controlled use, not a proven fix.

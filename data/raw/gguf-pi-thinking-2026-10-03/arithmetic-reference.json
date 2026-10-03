@@ -1,0 +1,5 @@
+{
+  "expected": 220608,
+  "method": "exhaustive stdlib itertools 10! permutations; nonzero leading digit, nonadjacent 1/2, divisibility by 11",
+  "seconds": 1.100247431997559
+}

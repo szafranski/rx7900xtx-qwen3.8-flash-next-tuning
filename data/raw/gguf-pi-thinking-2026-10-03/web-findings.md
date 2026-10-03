@@ -1,0 +1,86 @@
+# Qwen3.8 Flash-Next: kontrola thinking
+
+Stan researchu: 2026-10-03. Wyłącznie źródła internetowe. Pomiary lokalne poniżej pochodzą z opisu zadania, nie zostały powtórzone. Nie sprawdzałem konfiguracji hosta, GPU ani działającego Pi.
+
+## TLDR: hipoteza budżetu 8k
+
+**Medium + reasoning budget 8192 + maxTokens 16384 to sensowny następny test, ale nie potwierdzona naprawa pustych odpowiedzi.**
+
+- Typ (a), thinking zużywa cały limit odpowiedzi: budżet 4096 już usunął go w Waszych próbach. Budżet 8192 zachowuje ten mechanizm i daje więcej czasu na rozwiązanie. MaxTokens=12288 pozostawia około 4k na finał, 16384 około 8k, pomniejszone o wymuszone zamknięcie i ewentualną wiadomość budżetową. To rezerwa w limicie całej generacji, nie gwarancja jej wykorzystania.
+- Typ (b), EOS po 3-60 tokenach thinking: większy budżet sam go nie blokuje. W obecnym kodzie upstream sampler budżetu przepuszcza logity aż do wymuszania końca. EOS może zakończyć turę znacznie wcześniej. To wniosek z [kodu llama.cpp](https://github.com/ggml-org/llama.cpp/blob/master/common/reasoning-budget.cpp), odczyt 2026-10-03.
+- Jakość: 0/3 poprawnych z budżetem 4k wobec 1/3 bez budżetu nie wystarcza do wykazania regresji ani do przewidzenia wyniku przy 8k. Nie znalazłem kontrolowanego badania dokładnie GSQ-RCO IQ3_XXS + upstream llama.cpp + Pi z budżetami 4k/8k.
+- Należy osobno mierzyć skuteczność odpowiedzi i odsetek pustych finałów. Więcej tokenów może poprawić rozwiązanie, ale także wydłużyć pętlę.
+
+## Co zaleca Qwen, a co wynika z implementacji
+
+Oficjalna [karta Flash-Next](https://huggingface.co/Qwen/Qwen3.8-Flash-Next/blob/main/README.md), odczyt 2026-10-03:
+
+- Thinking: temperature=1.0, top_p=0.95, top_k=20, min_p=0, presence_penalty=0, repetition_penalty=1. Wasz sampling odpowiada zaleceniom; trzeba jeszcze znać efektywne kary.
+- Non-thinking: temperature=0.7, top_p=0.8, top_k=20, min_p=0, presence_penalty=1.5, repetition_penalty=1.
+- Presence penalty 0-2 może ograniczać niekończące się powtórzenia, kosztem możliwego mieszania języków i pogorszenia jakości.
+- Obsługiwane effort: low/medium/xhigh, domyślnie xhigh. Qwen ostrzega, że niższy effort w zadaniach agentowych może zwiększać liczbę błędów i ponownych prób.
+- Preserve thinking domyślnie zachowuje historię rozumowania. Qwen wiąże to ze spójnością decyzji, mniejszym ponownym rozumowaniem i wykorzystaniem cache. False zachowuje thinking tylko po ostatniej wiadomości użytkownika.
+- Dla agentów w kontekście 1M karta sugeruje osobne maksima 262144 tokenów reasoning i 131072 finału. To pojemność dla złożonych zadań, nie praktyczny budżet dla lokalnego Pi ani rekomendacja 8k. Nie znalazłem oficjalnego optymalnego budżetu 8k.
+
+W [oficjalnym template Flash-Next](https://huggingface.co/Qwen/Qwen3.8-Flash-Next/blob/de4b8e4d43b917e7706784d8bb445c9af86a3540/chat_template.jinja), rewizja de4b8e4d, odczyt 2026-10-03, xhigh i low dodają różne instrukcje systemowe, medium pozostawia instrukcję effort pustą. To warunkowanie modelu, nie twarda liczba tokenów. Template historii czyta `message.reasoning_content`, po czym składa blok think. Samo `preserve_thinking=true` nie odzyska rozumowania, którego Pi nie odsyła. Gdy reasoning jest wyłącznie w `content` albo innym polu, ten template nie wyodrębnia go w tym fragmencie; możliwe są puste lub zduplikowane bloki. To potencjalny problem integracji, nie ustalona przyczyna Waszego EOS.
+
+Aktualny [README llama-server](https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md), odczyt 2026-10-03, mówi, że top-level `reasoning_effort` poza `none` trafia do Jinja. [Unsloth dla Flash-Next](https://unsloth.ai/docs/models/qwen3.8-next) pokazuje jawne `chat_template_kwargs.reasoning_effort`. Nie należy utożsamiać effort z budżetem ani przenosić dawnych opisów obsługi API na każdy nowy build.
+
+## Błędy i relacje użytkowników
+
+| Źródło i data | Co faktycznie pokazuje | Zastosowanie tutaj |
+| --- | --- | --- |
+| [Qwen3.8 #216](https://github.com/QwenLM/Qwen3.8/issues/216), 2026-08-19, korekta 2026-08-27 | Qwen3.8-27B, llama.cpp/vLLM: pusty content + stop mimo dużej rezerwy max_tokens. Autor opisuje frequency_penalty=0.3: 0 błędów/12 prób; repeat penalty 1.05-1.10 jako wąski korzystny zakres. Sekcje raportu mają różne odsetki i wielkości prób. | Najbliższa relacja o karach i pustych finałach. Anegdota/pomiary zgłaszającego, nie oficjalne zalecenie Qwen i nie Flash-Next. Nie traktować tytułowych 17% jako stałej modelu. |
+| [llama.cpp #28805](https://github.com/ggml-org/llama.cpp/issues/28805), 2026-09-12, otwarte w odczycie | Dokładnie Flash-Next/qwen4exp na Metal: 1 token, EOS, HTTP 200 i puste wyjście przy dłuższym kontekście. Progi zależą od konfiguracji; wolniejsza ścieżka attention CPU przechodziła próby. | Podobny objaw, lecz inny backend i długości kontekstu. Nie dowodzi tego samego błędu u Was. |
+| [Qwen3.8 #214](https://github.com/QwenLM/Qwen3.8/issues/214), 2026-08-19, zamknięte jako not planned | 27B BF16, SGLang/EAGLE, medium: EOS wewnątrz thinking, 4 puste finały w serii 6 incydentów przy 152k-154k wejścia. Kontrolowane replaye nie odtworzyły błędu. | Early EOS występuje również bez niskobitowej kwantyzacji. Podejrzenie wpływu speculative decoding pozostaje hipotezą. |
+| [SGLang #24839](https://github.com/sgl-project/sglang/issues/24839), 2026-05-09, zamknięte | Qwen3.6-27B FP8/MTP: EOS przed think_end i tylko reasoning_content. Autor proponuje ignorowanie EOS w fazie reasoning. | Krewny, inny runtime. Zamknięcie issue nie jest dowodem wdrożenia proponowanej poprawki do llama.cpp. |
+| [llama.cpp #19513](https://github.com/ggml-org/llama.cpp/issues/19513), 2026-02-11; [PR #19773](https://github.com/ggml-org/llama.cpp/pull/19773), merged 2026-02-22 | Coder-Next przedwcześnie kończył zamiast tool call. Poprawka scala sąsiednie elementy assistant z Responses API przed templatingiem. | Konkretny przykład wpływu serializacji historii. Coder-Next i Responses API, nie dowód naprawy Flash-Next w Chat Completions/Pi. |
+| [llama.cpp PR #22740](https://github.com/ggml-org/llama.cpp/pull/22740), merged 2026-05-08 | Naprawia regresję reasoning-budget z #22717 przez wycofanie zmiany biasu +inf. | Historyczna poprawka. Wasze skuteczne wymuszenie zamknięcia przy 4k wskazuje, że sam mechanizm budżetu działa w zmierzonych próbach. |
+| [Reddit: budżet 8192](https://www.reddit.com/r/LocalLLaMA/comments/1vqmiu3/how_to_stop_qwen3827b_from_overthinking/), odczyt 2026-10-03, dokładna data publikacji niepotwierdzona | Użytkownik 27B/OpenCode zgłasza poprawę po budget=8192 i komunikacie kończącym reasoning; wcześniej myślenie trwało ponad 90 minut. | Bezpośrednia anegdota za testem 8k, brak kontrolowanego pomiaru jakości i pustych finałów. |
+| [Reddit: Pi i budżet](https://www.reddit.com/r/LocalLLaMA/comments/1vwjme7/reasoningbudget_for_qwen3827b/), odczyt 2026-10-03, data publikacji niepotwierdzona | Autor 27B trafiał w limit Pi 128k. Relacje w komentarzach sprzeczne: medium pomaga, nadal nie kończy albo zależy od próby. | Potwierdza, że sam effort nie gwarantuje długości w agencie. |
+| [HF Unsloth Flash-Next #24](https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF/discussions/24), wpisy 2026-08-28/31 | Użytkownik IQ3_XXS zgłasza około 26% więcej tokenów niż 27B; publikuje temp=0.8, top_p=0.90, min_p=0.01 i medium. | Inny quant niż GSQ-RCO. Nie mierzy naprawy EOS. Jego `preserve-thinking` z hyphenem nie jest oficjalnym `preserve_thinking`; nie kopiować tej nazwy. |
+| [Reddit: porównanie effort](https://www.reddit.com/r/LocalLLaMA/comments/1vpuh7m/qwen38_27b_reasoning_effort_lowmediumxhigh/), odczyt 2026-10-03, data publikacji niepotwierdzona | 27B UD-IQ3_XXS, Q8 KV, trzy seedy i jeden prompt SVG: xhigh około 7x wolniej, autor ocenia lepszy obraz. | Pokazuje zależność od zadania. Nie benchmark agentowy ani Flash-Next. |
+
+## Template, historia i kwantyzacja
+
+- [Unsloth](https://unsloth.ai/docs/models/qwen3.8) deklaruje poprawki zagnieżdżonych argumentów tool calls i obsługę developer role dla rodziny 3.8. [Zgłoszenie oficjalnego template 3.5](https://huggingface.co/Qwen/Qwen3.5-35B-A3B/discussions/4), odczyt 2026-10-03, opisuje błędy tool calling. To nie dowód, że podmiana na dowolny template Unsloth naprawi Flash-Next EOS.
+- [Froggeric Qwen-Fixed-Chat-Templates](https://huggingface.co/froggeric/Qwen-Fixed-Chat-Templates): changelog 2026-08-16/20/24 opisuje naprawy pustych/zdublowanych think blocks, obsługę `reasoning`, `reasoning_content` i `thinking`; 2026-09-03 deklaruje Flash-Next compatibility. To społecznościowy template z dodatkowymi zmianami promptu. Twierdzenie autora o ponad 80% abortów dotyczy jego konfiguracji, nie populacji modeli. Nadaje się do osobnego A/B, po przypięciu rewizji, nie do jednoczesnej podmiany z samplingiem.
+- [Reddit 3.5 verbosity](https://www.reddit.com/r/unsloth/comments/1rdtqdm/qwen_35_35b_a3b_verbosity_issue/), 2026-02-24/25: autor zgłasza poprawę pętli po zwiększeniu precyzji KV do co najmniej Q8. Inny komentarz opisuje pętle nawet z presence_penalty=1.5. To dowód anegdotyczny o KV, nie o wagach GSQ-RCO.
+- [Autorzy GSQ-RCO Flash-Next](https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF), odczyt 2026-10-03, raportują mocne benchmarki IQ3_XXS względem BF16 i rekomendują IQ3_S. Nie raportują odsetka early EOS w Pi. Karta ma niespójność liczb LiveCodeBench w prose i tabeli; nie wyprowadzam z niej precyzyjnej oceny Waszej stabilności. Sam napis IQ3_XXS nie identyfikuje precyzji każdego tensora ani równości z Unsloth IQ3_XXS.
+- Nie ma mocnego dowodu, że Wasz GSQ-RCO powoduje overthinking. Test wyższego quanta ma sens dopiero po oddzieleniu problemów limitu i historii, przy tym samym backendzie, KV, promptach i seedach.
+- [Swift1.5 Flash-Next](https://huggingface.co/ukisai/Swift1.5-Qwen3.8-Flash-Next), odczyt 2026-10-03: autorzy raportują mniej reasoning dla pochodnego checkpointu BF16. W GPQA średnia base przy medium to 4157 tokenów, przy xhigh 17683. To wspiera możliwość wystarczalności 8k dla części zadań, ale średnia nie określa ogona rozkładu. Reklamowane -63.4% oznacza medianę GPQA, nie uniwersalną redukcję każdego zadania. Swift to inny checkpoint, nie ustawienie ani sama kwantyzacja modelu bazowego.
+
+## Ustawienia do następnych testów, według siły dowodów
+
+| Priorytet | Konkretna próba | Uzasadnienie i ograniczenia |
+| --- | --- | --- |
+| 1, mocne dla limitu; jakość nieustalona | medium, thinking on, budget=8192, Pi maxTokens=16384; temp=1.0, top_p=0.95, top_k=20, min_p=0, presence_penalty=0, repeat_penalty=1 | Jedna zmiana względem próby 4k. Oficjalny sampling potwierdza także [Unsloth Flash-Next](https://unsloth.ai/docs/models/qwen3.8-next). Przy tym samym maxTokens=16384 porównać budget 4096/8192 i brak budżetu. |
+| 2, mocne dla zgodności formatu; wpływ na EOS nieustalony | Jinja; jawne `reasoning_effort=medium`, `preserve_thinking=true`; sprawdzić round-trip `reasoning_content` i tool calls w historii Pi | Porównać efektywny template GGUF z oficjalną rewizją. Unikać wstawiania pustego think przed istniejącym reasoning. Następnie osobne A/B przypiętego template Froggeric z identycznym samplingiem i budżetem. |
+| 3, oficjalny kierunek, wartości eksperymentalne | presence_penalty=0.3, potem 0.6; pozostałe ustawienia jak próba 1 | Qwen dopuszcza karę na powtórzenia, nie obiecuje naprawy EOS. Te dwa progi to moja propozycja testu. Nie zaczynać od 1.5 w thinking dla kodu. |
+| 4, konkretna lecz słaba anegdota 27B | frequency_penalty=0.3 przy presence=0, repeat=1; osobna próba repeat_penalty=1.05, ewentualnie 1.10 | #216: frequency 0/12 awarii, repeat 1.1 0/23 w jednej serii. Nie łączyć kar w pierwszej próbie. Niepewna przenoszalność na Flash-Next; duże kary w tym zgłoszeniu pogarszały zachowanie. |
+| 5, izolacja backendu/kwanta | Te same requesty bez speculative decoding, jeśli było aktywne; osobno wyższa precyzja KV, jeśli KV jest niskobitowe; później IQ3_S lub Q4 | #214 i relacje KV uzasadniają izolację zmiennych. Zadanie nie podaje bieżącego KV ani MTP, więc nie zakładam ich konfiguracji. |
+| 6, rutynowe kroki agenta | Osobny tryb `enable_thinking=false`, temp=0.7, top_p=0.8, top_k=20, min_p=0, presence=1.5, repeat=1, maxTokens=4096 | Oficjalny non-thinking jako kontrola dla prostych recall/tool steps. Nie substytut próby trudnej kombinatoryki z thinking. |
+
+Warto utrzymać prosty komunikat budżetowy bez zmiany między ramionami testu, np. `Time to stop thinking. Give the final answer or make the tool call now.` To komunikat z relacji Reddit, nie oficjalna rekomendacja Qwen. W [issue #20632](https://github.com/ggml-org/llama.cpp/issues/20632), 2026-03-16, autor wyjaśnia, że komunikat podany dopiero na granicy nie zostawia modelowi dodatkowej fazy thinking na podsumowanie. Większy budżet może ograniczyć koszt przedwczesnego cięcia, lecz go nie usuwa.
+
+[Oficjalny przykład Qwen3 thinking budget](https://github.com/QwenLM/Qwen3/blob/main/docs/source/getting_started/thinking_budget.md), odczyt 2026-10-03, wymusza przejście w drugim wywołaniu i wymaga max_tokens większego od thinking budget. To starsza rodzina i inna implementacja niż sampler llama.cpp. Nie przenosić tego przykładu jako gotowej naprawy early EOS w Flash-Next.
+
+[Discussion llama.cpp #21445](https://github.com/ggml-org/llama.cpp/discussions/21445), odpowiedź maintenera 2026-04-09, wskazuje request `thinking_budget_tokens`, działający przy braku budżetu narzuconego przez CLI. Przed użyciem przez Pi trzeba zweryfikować obsługę pola w danym buildzie i jego rzeczywiste wysyłanie. Nie mylić z `thinking_budget` API chmurowego. Na pierwszy test najprościej zachować już sprawdzoną ścieżkę CLI `--reasoning-budget 8192`.
+
+Uwaga na semantykę obecnego upstream: [sampler](https://github.com/ggml-org/llama.cpp/blob/master/common/reasoning-budget.cpp) odnawia budżet po kolejnym otwarciu think. 8192 jest więc limitem bloku, nie bezwarunkowym globalnym maksimum wszystkich bloków w odpowiedzi. Globalną ochroną nadal jest maxTokens. Suma wejścia i faktycznego wyjścia musi zmieścić się w efektywnym kontekście; nie zwiększać output limit bez sprawdzenia tej rezerwy.
+
+Do oceny proponuję te same prompty i co najmniej 20 prób na konfigurację, jeśli celem jest odróżnienie awarii rzędu 12-17%. Zapisywać reasoning tokens, final tokens, finish_reason, obecność zamknięcia think, liczbę tool calls, poprawność i czas całego zadania. Pusty content z poprawnym tool call nie jest pustym finałem. Dla typu (b) sprawdzić surowy token kończący: `stop` może oznaczać EOS lub stop sequence, a sam JSON API nie rozstrzyga przyczyny. Trudną łamigłówkę oceniać osobno, ze sprawdzalnym wynikiem, bez uznawania niepustej odpowiedzi za sukces.
+
+## Czego nie uznałbym za sprawdzoną naprawę
+
+Nie znalazłem upstream fixu dokładnie krótkiego EOS Flash-Next/GSQ-RCO/Pi. [Propozycja #28932](https://github.com/ggml-org/llama.cpp/issues/28932) i [zewnętrzny patch soft budget](https://github.com/NightPoetry/llama.cpp-soft-reasoning-budget), odczyt 2026-10-03, opisują stopniowy bias końca thinking i blokowanie EOS przez 64 tokeny po zamknięciu. To proposal, nie merged PR, mimo opisu repo sugerującego PR. Pomiary autora dotyczą Spark-X2.5-4B, nie Qwen. Blokada po zamknięciu nie dowodzi naprawy EOS wewnątrz pierwszych 3-60 tokenów thinking. Nie rekomenduję tego jako pierwszego kroku.
+
+Dowody dla dokładnego Flash-Next są wystarczające, by uzasadnić test 8k i osobny audyt historii. Są za słabe, by obiecać, że 8k usunie oba rodzaje pustych odpowiedzi albo zachowa jakość każdej trudnej łamigłówki. Wszystkie użyte źródła są podlinkowane przy ustaleniach; daty bez potwierdzonej publikacji oznaczają datę odczytu.
+
+## Lista głównych źródeł
+
+- Qwen: [karta Flash-Next](https://huggingface.co/Qwen/Qwen3.8-Flash-Next/blob/main/README.md), [template de4b8e4d](https://huggingface.co/Qwen/Qwen3.8-Flash-Next/blob/de4b8e4d43b917e7706784d8bb445c9af86a3540/chat_template.jinja), [starszy przykład budżetu Qwen3](https://github.com/QwenLM/Qwen3/blob/main/docs/source/getting_started/thinking_budget.md).
+- Implementacja: [sampler upstream](https://github.com/ggml-org/llama.cpp/blob/master/common/reasoning-budget.cpp), [API llama-server](https://github.com/ggml-org/llama.cpp/blob/master/tools/server/README.md), [budżet per request #21445](https://github.com/ggml-org/llama.cpp/discussions/21445).
+- Najbliższe zgłoszenia: [Flash-Next/Metal #28805](https://github.com/ggml-org/llama.cpp/issues/28805), [27B i kary #216](https://github.com/QwenLM/Qwen3.8/issues/216), [27B BF16 early EOS #214](https://github.com/QwenLM/Qwen3.8/issues/214). Pozostałe issues/PRs są w tabeli powyżej.
+- Ustawienia i template: [Unsloth Flash-Next](https://unsloth.ai/docs/models/qwen3.8-next), [Froggeric](https://huggingface.co/froggeric/Qwen-Fixed-Chat-Templates). Kwantyzacja: [ISTA GSQ-RCO](https://huggingface.co/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF). Pochodny model: [UkisAI Swift1.5](https://huggingface.co/ukisai/Swift1.5-Qwen3.8-Flash-Next).
+- Relacje użytkowników: [8k/OpenCode](https://www.reddit.com/r/LocalLLaMA/comments/1vqmiu3/how_to_stop_qwen3827b_from_overthinking/), [Pi/27B](https://www.reddit.com/r/LocalLLaMA/comments/1vwjme7/reasoningbudget_for_qwen3827b/), [HF Flash-Next #24](https://huggingface.co/unsloth/Qwen3.8-Flash-Next-GGUF/discussions/24). Szczegóły dat i ograniczeń w tabeli.

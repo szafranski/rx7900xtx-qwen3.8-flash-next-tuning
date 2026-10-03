@@ -1,6 +1,6 @@
 # Data and provenance
 
-`raw/` contains 75 selected files from the local consolidated September 2026 test archive, 80 files from 28 September, 17 expert-cache records, 4 Vulkan repair records, 8 q8_0 KV records, and 23 initial EXL3 retest evidence files and 20 native-fix/check files, plus 6 EXL3 stability summaries from 2 October and 4 EXL3 window/compaction summaries from the evening, plus 25 GGUF fix/MTP/q8_0 records from 2-3 October, plus 54 GGUF Pi memory records from 3 October, for 316 total. They are grouped by experiment. `manifest.csv` records each repository path, source-relative path, original SHA-256, imported SHA-256, byte count, and whether the import changed the bytes. The older JSON was normalized and local home paths were replaced with `<HOME>`. Long-context response files whose names end in `-prompt.json` had their full request and prompt removed, leaving the response and wall time. This means an imported hash often differs from the source hash. The expert-cache and Vulkan response files are unmodified; the q8_0 KV records were sanitized before import. Source paths in the manifest identify each experiment.
+`raw/` contains 75 selected files from the local consolidated September 2026 test archive, 80 files from 28 September, 17 expert-cache records, 4 Vulkan repair records, 8 q8_0 KV records, and 23 initial EXL3 retest evidence files and 20 native-fix/check files, plus 6 EXL3 stability summaries from 2 October and 4 EXL3 window/compaction summaries from the evening, plus 25 GGUF fix/MTP/q8_0 records from 2-3 October, plus 54 GGUF Pi memory records from 3 October, plus 20 GGUF Pi thinking records from 3 October, for 336 total. They are grouped by experiment. `manifest.csv` records each repository path, source-relative path, original SHA-256, imported SHA-256, byte count, and whether the import changed the bytes. The older JSON was normalized and local home paths were replaced with `<HOME>`. Long-context response files whose names end in `-prompt.json` had their full request and prompt removed, leaving the response and wall time. This means an imported hash often differs from the source hash. The expert-cache and Vulkan response files are unmodified; the q8_0 KV records were sanitized before import. Source paths in the manifest identify each experiment.
 
 The raw set includes OpenAI-compatible response JSON with `usage` and `timings`, ROCm tuning records with launch arguments and `memory_stats`, memory-counter NDJSON, cgroup text readings, the 28-shard AtomicChat checksum list, and two PNGs of the synthetic vision test. Prompt strings, tokenizer dumps, unrelated production-model listings, Hugging Face directory snapshots, `.pyc`, and full server/build logs were left out. The original local archive remains untouched. Full logs for the Vulkan tests remain in `agents/scratch/flashnext-vulkan-nohost-2026-09-29/`; q8_0 observations and the request driver remain in `agents/scratch/flashnext-q8-65k-2026-09-29/`. Older diagnostics remain in `agents/scratch/flashnext-expert-cache-2026-09-28/` and `agents/scratch/flashnext-bench-2026-09-28/private/`.
 
@@ -140,3 +140,29 @@ with minimum MemAvailable 1.514 GiB; the matched q4/q8 minima are
 both KV types. Triage is analysis, not a new measurement or executed
 retest. Full finals, prompts and unrelated process attribution are omitted.
 Nothing was deployed to production.
+
+## GGUF Pi thinking evidence, 3 October
+
+`raw/gguf-pi-thinking-2026-10-03/` contains 20 small text/JSON files. The original 13 are:
+selected max8192 and medium/low results, reduced turn and empty-final
+classification records, an arithmetic reference, the variant comparison,
+two resource summaries, a selected round-trip audit, reduced replay metrics,
+the Pi converter check, web findings with links, and a Pi 1.0.1 upstream
+filter excerpt. The manifest preserves source-relative paths, original/imported
+SHA-256, byte counts and changed flags. The last excerpt was captured separately
+from the upstream tag; it is a source check, not a runtime test.
+
+Full final text and replay reasoning text are omitted; paths are anonymized.
+No auth/preflight files, private home configuration, full prompts/logs, models
+or binaries are imported. Results/audit selections are analysis records, not
+complete API captures. Web recommendations remain untested proposals. A means
+`armA/run1`, excluding the first rejected start. The
+[Polish report](../reports/flashnext-gguf-pi-thinking-2026-10-03.md) separates
+budget exhaustion, early stops and Pi history loss. The later C0-C3 import adds seven files under `shortturns/`: selected results,
+summary.json, validation.json and four small per-arm resource summaries from
+`gguf-pi-shortturns-pt-fp-20261003/run-20261003-195022`. The manifest records
+source/imported hashes and transformations. No large wire/prompt captures or
+full per-turn records were read or copied for this update. C1 preserve=false
+had 0/25 empty finals and 19/19 correct recall, with one session per arm.
+Frequency .3 and presence .3 performed worse than control; C2 also had shorter
+preparation and a recall tool violation. This is not proof of a fix.

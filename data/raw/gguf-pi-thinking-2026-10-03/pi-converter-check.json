@@ -1,0 +1,466 @@
+{
+  "version": "1.0.0",
+  "method": "Exact installed convertMessages + transformMessages; wrappers stubbed only for isolated same-model text probes",
+  "results": [
+    {
+      "arm": "A",
+      "request": 1,
+      "stop": "stop",
+      "thinking_chars": 70,
+      "final_chars": 2,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 2,
+      "stop": "toolUse",
+      "thinking_chars": 82,
+      "final_chars": 0,
+      "tool_calls": true,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 3,
+      "stop": "stop",
+      "thinking_chars": 31,
+      "final_chars": 13,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 4,
+      "stop": "toolUse",
+      "thinking_chars": 129,
+      "final_chars": 0,
+      "tool_calls": true,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 5,
+      "stop": "stop",
+      "thinking_chars": 70,
+      "final_chars": 24,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 6,
+      "stop": "toolUse",
+      "thinking_chars": 86,
+      "final_chars": 0,
+      "tool_calls": true,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 7,
+      "stop": "stop",
+      "thinking_chars": 171,
+      "final_chars": 74,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 8,
+      "stop": "toolUse",
+      "thinking_chars": 86,
+      "final_chars": 0,
+      "tool_calls": true,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 9,
+      "stop": "stop",
+      "thinking_chars": 139,
+      "final_chars": 74,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 10,
+      "stop": "toolUse",
+      "thinking_chars": 86,
+      "final_chars": 0,
+      "tool_calls": true,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 11,
+      "stop": "stop",
+      "thinking_chars": 75,
+      "final_chars": 74,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 12,
+      "stop": "stop",
+      "thinking_chars": 8215,
+      "final_chars": 2399,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 13,
+      "stop": "stop",
+      "thinking_chars": 205,
+      "final_chars": 144,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 14,
+      "stop": "stop",
+      "thinking_chars": 340,
+      "final_chars": 144,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 15,
+      "stop": "stop",
+      "thinking_chars": 137,
+      "final_chars": 144,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 16,
+      "stop": "stop",
+      "thinking_chars": 8974,
+      "final_chars": 2264,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 17,
+      "stop": "stop",
+      "thinking_chars": 79,
+      "final_chars": 144,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 18,
+      "stop": "stop",
+      "thinking_chars": 138,
+      "final_chars": 0,
+      "tool_calls": false,
+      "preserved": false,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 19,
+      "stop": "stop",
+      "thinking_chars": 247,
+      "final_chars": 144,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 20,
+      "stop": "stop",
+      "thinking_chars": 9940,
+      "final_chars": 5373,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 23,
+      "stop": "stop",
+      "thinking_chars": 79,
+      "final_chars": 144,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 24,
+      "stop": "stop",
+      "thinking_chars": 136,
+      "final_chars": 0,
+      "tool_calls": false,
+      "preserved": false,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "A",
+      "request": 25,
+      "stop": "stop",
+      "thinking_chars": 67,
+      "final_chars": 100,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 1,
+      "stop": "stop",
+      "thinking_chars": 79,
+      "final_chars": 2,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 2,
+      "stop": "toolUse",
+      "thinking_chars": 82,
+      "final_chars": 0,
+      "tool_calls": true,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 3,
+      "stop": "stop",
+      "thinking_chars": 43,
+      "final_chars": 13,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 4,
+      "stop": "toolUse",
+      "thinking_chars": 153,
+      "final_chars": 0,
+      "tool_calls": true,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 5,
+      "stop": "stop",
+      "thinking_chars": 130,
+      "final_chars": 24,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 6,
+      "stop": "toolUse",
+      "thinking_chars": 86,
+      "final_chars": 0,
+      "tool_calls": true,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 7,
+      "stop": "stop",
+      "thinking_chars": 205,
+      "final_chars": 74,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 8,
+      "stop": "toolUse",
+      "thinking_chars": 86,
+      "final_chars": 0,
+      "tool_calls": true,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 9,
+      "stop": "stop",
+      "thinking_chars": 56,
+      "final_chars": 74,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 10,
+      "stop": "toolUse",
+      "thinking_chars": 86,
+      "final_chars": 0,
+      "tool_calls": true,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 11,
+      "stop": "stop",
+      "thinking_chars": 56,
+      "final_chars": 74,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 12,
+      "stop": "length",
+      "thinking_chars": 15947,
+      "final_chars": 0,
+      "tool_calls": false,
+      "preserved": false,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 13,
+      "stop": "length",
+      "thinking_chars": 17782,
+      "final_chars": 0,
+      "tool_calls": false,
+      "preserved": false,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 14,
+      "stop": "length",
+      "thinking_chars": 16512,
+      "final_chars": 0,
+      "tool_calls": false,
+      "preserved": false,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 15,
+      "stop": "length",
+      "thinking_chars": 16369,
+      "final_chars": 810,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 16,
+      "stop": "stop",
+      "thinking_chars": 10009,
+      "final_chars": 0,
+      "tool_calls": false,
+      "preserved": false,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 17,
+      "stop": "stop",
+      "thinking_chars": 14634,
+      "final_chars": 1829,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 20,
+      "stop": "stop",
+      "thinking_chars": 174,
+      "final_chars": 119,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 21,
+      "stop": "stop",
+      "thinking_chars": 155,
+      "final_chars": 91,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 22,
+      "stop": "stop",
+      "thinking_chars": 7355,
+      "final_chars": 2053,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 23,
+      "stop": "stop",
+      "thinking_chars": 88,
+      "final_chars": 119,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 24,
+      "stop": "stop",
+      "thinking_chars": 120,
+      "final_chars": 26,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    },
+    {
+      "arm": "B",
+      "request": 25,
+      "stop": "stop",
+      "thinking_chars": 89,
+      "final_chars": 100,
+      "tool_calls": false,
+      "preserved": true,
+      "signature": "reasoning_content"
+    }
+  ]
+}

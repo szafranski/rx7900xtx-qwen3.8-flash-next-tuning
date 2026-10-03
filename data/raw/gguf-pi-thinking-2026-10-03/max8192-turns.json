@@ -1,0 +1,605 @@
+[
+  {
+    "index": 1,
+    "name": "t1-plant",
+    "stop": "stop",
+    "output": 39,
+    "output_total": 39,
+    "thinking_chars": 163,
+    "thinking_tokens": 35,
+    "final_chars": 2,
+    "empty": false,
+    "requests": [
+      {
+        "prompt": 564,
+        "cached": 0,
+        "output": 39,
+        "pp": 217.18,
+        "tg": 14.33,
+        "task": 0,
+        "phase": "Pi"
+      }
+    ],
+    "mem_available_end": 2.8988418579101562,
+    "min_mem_available": 2.8988418579101562,
+    "anon": 0.8043251037597656,
+    "shmem": 24.586421966552734,
+    "tool_ok": 0,
+    "tool_failed": 0,
+    "correct": null,
+    "duration": 5.6
+  },
+  {
+    "index": 2,
+    "name": "t2-markerA",
+    "stop": "stop",
+    "output": 22,
+    "output_total": 71,
+    "thinking_chars": 31,
+    "thinking_tokens": 8,
+    "final_chars": 13,
+    "empty": false,
+    "requests": [
+      {
+        "prompt": 644,
+        "cached": 602,
+        "output": 49,
+        "pp": 54.11,
+        "tg": 14.48,
+        "task": 42,
+        "phase": "Pi"
+      },
+      {
+        "prompt": 739,
+        "cached": 692,
+        "output": 22,
+        "pp": 66.26,
+        "tg": 13.96,
+        "task": 94,
+        "phase": "Pi"
+      }
+    ],
+    "mem_available_end": 2.697925567626953,
+    "min_mem_available": 2.661945343017578,
+    "anon": 0.916046142578125,
+    "shmem": 24.586421966552734,
+    "tool_ok": 1,
+    "tool_failed": 0,
+    "correct": true,
+    "duration": 6.3
+  },
+  {
+    "index": 3,
+    "name": "t3-first",
+    "stop": "stop",
+    "output": 142,
+    "output_total": 210,
+    "thinking_chars": 444,
+    "thinking_tokens": 120,
+    "final_chars": 24,
+    "empty": false,
+    "requests": [
+      {
+        "prompt": 849,
+        "cached": 760,
+        "output": 68,
+        "pp": 92.35,
+        "tg": 14.23,
+        "task": 118,
+        "phase": "Pi"
+      },
+      {
+        "prompt": 4209,
+        "cached": 916,
+        "output": 142,
+        "pp": 539.43,
+        "tg": 14.29,
+        "task": 189,
+        "phase": "Pi"
+      }
+    ],
+    "mem_available_end": 2.6670761108398438,
+    "min_mem_available": 2.5792388916015625,
+    "anon": 0.9200172424316406,
+    "shmem": 24.586444854736328,
+    "tool_ok": 1,
+    "tool_failed": 0,
+    "correct": true,
+    "duration": 21.7
+  },
+  {
+    "index": 4,
+    "name": "read-c40a_f02+c40a_f03+c40a_f04",
+    "stop": "stop",
+    "output": 82,
+    "output_total": 205,
+    "thinking_chars": 88,
+    "thinking_tokens": 23,
+    "final_chars": 74,
+    "empty": false,
+    "requests": [
+      {
+        "prompt": 4457,
+        "cached": 4350,
+        "output": 123,
+        "pp": 102.84,
+        "tg": 14.08,
+        "task": 336,
+        "phase": "Pi"
+      },
+      {
+        "prompt": 14482,
+        "cached": 4579,
+        "output": 82,
+        "pp": 572.54,
+        "tg": 14.05,
+        "task": 462,
+        "phase": "Pi"
+      }
+    ],
+    "mem_available_end": 2.692089080810547,
+    "min_mem_available": 2.4413299560546875,
+    "anon": 0.9224052429199219,
+    "shmem": 24.586444854736328,
+    "tool_ok": 3,
+    "tool_failed": 0,
+    "correct": true,
+    "duration": 32.8
+  },
+  {
+    "index": 5,
+    "name": "read-c40a_f05+c40a_f06+c40a_f07",
+    "stop": "stop",
+    "output": 81,
+    "output_total": 192,
+    "thinking_chars": 100,
+    "thinking_tokens": 22,
+    "final_chars": 74,
+    "empty": false,
+    "requests": [
+      {
+        "prompt": 14670,
+        "cached": 14563,
+        "output": 111,
+        "pp": 93.69,
+        "tg": 14.08,
+        "task": 555,
+        "phase": "Pi"
+      },
+      {
+        "prompt": 24667,
+        "cached": 14780,
+        "output": 81,
+        "pp": 541.87,
+        "tg": 13.85,
+        "task": 669,
+        "phase": "Pi"
+      }
+    ],
+    "mem_available_end": 2.704833984375,
+    "min_mem_available": 2.4869651794433594,
+    "anon": 0.9282264709472656,
+    "shmem": 24.586444854736328,
+    "tool_ok": 3,
+    "tool_failed": 0,
+    "correct": true,
+    "duration": 33.1
+  },
+  {
+    "index": 6,
+    "name": "read-c40a_f08+c40a_f09+c40a_f10",
+    "stop": "stop",
+    "output": 75,
+    "output_total": 195,
+    "thinking_chars": 78,
+    "thinking_tokens": 16,
+    "final_chars": 74,
+    "empty": false,
+    "requests": [
+      {
+        "prompt": 24854,
+        "cached": 24747,
+        "output": 120,
+        "pp": 92.74,
+        "tg": 13.84,
+        "task": 761,
+        "phase": "Pi"
+      },
+      {
+        "prompt": 34778,
+        "cached": 24973,
+        "output": 75,
+        "pp": 506.13,
+        "tg": 13.5,
+        "task": 884,
+        "phase": "Pi"
+      }
+    ],
+    "mem_available_end": 2.748065948486328,
+    "min_mem_available": 2.6001853942871094,
+    "anon": 0.9316673278808594,
+    "shmem": 24.586444854736328,
+    "tool_ok": 3,
+    "tool_failed": 0,
+    "correct": true,
+    "duration": 34.7
+  },
+  {
+    "index": 7,
+    "name": "long-thinking-1",
+    "stop": "length",
+    "output": 8192,
+    "output_total": 8192,
+    "thinking_chars": 19722,
+    "thinking_tokens": 8192,
+    "final_chars": 0,
+    "empty": true,
+    "requests": [
+      {
+        "prompt": 34993,
+        "cached": 34852,
+        "output": 8192,
+        "pp": 119.26,
+        "tg": 13.47,
+        "task": 970,
+        "phase": "Pi"
+      }
+    ],
+    "mem_available_end": 2.5565834045410156,
+    "min_mem_available": 2.522075653076172,
+    "anon": 1.0452384948730469,
+    "shmem": 24.586444854736328,
+    "tool_ok": 0,
+    "tool_failed": 0,
+    "correct": false,
+    "duration": 609.5
+  },
+  {
+    "index": 8,
+    "name": "followup-8",
+    "stop": "length",
+    "output": 8192,
+    "output_total": 8192,
+    "thinking_chars": 15710,
+    "thinking_tokens": 6937,
+    "final_chars": 2201,
+    "empty": false,
+    "requests": [
+      {
+        "prompt": 35037,
+        "cached": 34989,
+        "output": 8192,
+        "pp": 62.27,
+        "tg": 13.44,
+        "task": 9165,
+        "phase": "Pi"
+      }
+    ],
+    "mem_available_end": 2.6118507385253906,
+    "min_mem_available": 2.5195159912109375,
+    "anon": 0.9380531311035156,
+    "shmem": 24.586444854736328,
+    "tool_ok": 0,
+    "tool_failed": 0,
+    "correct": false,
+    "duration": 610.5
+  },
+  {
+    "index": 9,
+    "name": "followup-9",
+    "stop": "stop",
+    "output": 223,
+    "output_total": 223,
+    "thinking_chars": 468,
+    "thinking_tokens": 151,
+    "final_chars": 114,
+    "empty": false,
+    "requests": [
+      {
+        "prompt": 43278,
+        "cached": 35033,
+        "output": 223,
+        "pp": 522.74,
+        "tg": 13.47,
+        "task": 17359,
+        "phase": "Pi"
+      }
+    ],
+    "mem_available_end": 2.514354705810547,
+    "min_mem_available": 2.483417510986328,
+    "anon": 1.0547218322753906,
+    "shmem": 24.586444854736328,
+    "tool_ok": 0,
+    "tool_failed": 0,
+    "correct": true,
+    "duration": 32.3
+  },
+  {
+    "index": 10,
+    "name": "followup-10",
+    "stop": "stop",
+    "output": 13,
+    "output_total": 13,
+    "thinking_chars": 49,
+    "thinking_tokens": 12,
+    "final_chars": 0,
+    "empty": true,
+    "requests": [
+      {
+        "prompt": 43551,
+        "cached": 43500,
+        "output": 13,
+        "pp": 53.16,
+        "tg": 12.86,
+        "task": 17593,
+        "phase": "Pi"
+      }
+    ],
+    "mem_available_end": 2.5141563415527344,
+    "min_mem_available": 2.5141563415527344,
+    "anon": 1.0567893981933594,
+    "shmem": 24.586444854736328,
+    "tool_ok": 0,
+    "tool_failed": 0,
+    "correct": false,
+    "duration": 2.0
+  },
+  {
+    "index": 11,
+    "name": "long-thinking-2",
+    "stop": "stop",
+    "output": 2008,
+    "output_total": 2008,
+    "thinking_chars": 3158,
+    "thinking_tokens": 1396,
+    "final_chars": 1068,
+    "empty": false,
+    "requests": [
+      {
+        "prompt": 43685,
+        "cached": 43547,
+        "output": 2008,
+        "pp": 124.89,
+        "tg": 13.14,
+        "task": 17609,
+        "phase": "Pi"
+      }
+    ],
+    "mem_available_end": 2.4136505126953125,
+    "min_mem_available": 2.3752708435058594,
+    "anon": 0.9502220153808594,
+    "shmem": 24.586444854736328,
+    "tool_ok": 0,
+    "tool_failed": 0,
+    "correct": false,
+    "duration": 153.9
+  },
+  {
+    "index": 12,
+    "name": "followup-12",
+    "stop": "stop",
+    "output": 390,
+    "output_total": 390,
+    "thinking_chars": 1298,
+    "thinking_tokens": 301,
+    "final_chars": 152,
+    "empty": false,
+    "requests": [
+      {
+        "prompt": 45742,
+        "cached": 43681,
+        "output": 390,
+        "pp": 399.8,
+        "tg": 10.72,
+        "task": 19619,
+        "phase": "Pi"
+      }
+    ],
+    "mem_available_end": 2.5663528442382812,
+    "min_mem_available": 2.3023452758789062,
+    "anon": 1.0636711120605469,
+    "shmem": 24.586444854736328,
+    "tool_ok": 0,
+    "tool_failed": 0,
+    "correct": true,
+    "duration": 41.6
+  },
+  {
+    "index": 13,
+    "name": "followup-13",
+    "stop": "stop",
+    "output": 18,
+    "output_total": 18,
+    "thinking_chars": 79,
+    "thinking_tokens": 17,
+    "final_chars": 0,
+    "empty": true,
+    "requests": [
+      {
+        "prompt": 46182,
+        "cached": 46131,
+        "output": 18,
+        "pp": 49.55,
+        "tg": 12.8,
+        "task": 20014,
+        "phase": "Pi"
+      }
+    ],
+    "mem_available_end": 2.4893722534179688,
+    "min_mem_available": 2.4893722534179688,
+    "anon": 1.0661811828613281,
+    "shmem": 24.586444854736328,
+    "tool_ok": 0,
+    "tool_failed": 0,
+    "correct": false,
+    "duration": 2.4
+  },
+  {
+    "index": 14,
+    "name": "followup-14",
+    "stop": "stop",
+    "output": 84,
+    "output_total": 84,
+    "thinking_chars": 50,
+    "thinking_tokens": 12,
+    "final_chars": 114,
+    "empty": false,
+    "requests": [
+      {
+        "prompt": 46226,
+        "cached": 46178,
+        "output": 84,
+        "pp": 60.21,
+        "tg": 13.36,
+        "task": 20035,
+        "phase": "Pi"
+      }
+    ],
+    "mem_available_end": 2.644969940185547,
+    "min_mem_available": 2.63427734375,
+    "anon": 0.9579811096191406,
+    "shmem": 24.586444854736328,
+    "tool_ok": 0,
+    "tool_failed": 0,
+    "correct": true,
+    "duration": 7.1
+  },
+  {
+    "index": 15,
+    "name": "long-thinking-3",
+    "stop": "stop",
+    "output": 3797,
+    "output_total": 5463,
+    "thinking_chars": 3959,
+    "thinking_tokens": 2026,
+    "final_chars": 3153,
+    "empty": false,
+    "requests": [
+      {
+        "prompt": 46450,
+        "cached": 46309,
+        "output": 3797,
+        "pp": 110.33,
+        "tg": 12.53,
+        "task": 20121,
+        "phase": "Pi"
+      },
+      {
+        "prompt": 5249,
+        "cached": 0,
+        "output": 1086,
+        "pp": 431.69,
+        "tg": 13.63,
+        "task": 23921,
+        "phase": "compaction"
+      },
+      {
+        "prompt": 1818,
+        "cached": 62,
+        "output": 580,
+        "pp": 517.0,
+        "tg": 14.36,
+        "task": 25015,
+        "phase": "compaction"
+      }
+    ],
+    "mem_available_end": 2.779071807861328,
+    "min_mem_available": 2.3521347045898438,
+    "anon": 0.9626846313476562,
+    "shmem": 24.586444854736328,
+    "tool_ok": 0,
+    "tool_failed": 0,
+    "correct": true,
+    "duration": 439.9
+  },
+  {
+    "index": 16,
+    "name": "followup-16",
+    "stop": "stop",
+    "output": 107,
+    "output_total": 107,
+    "thinking_chars": 152,
+    "thinking_tokens": 35,
+    "final_chars": 114,
+    "empty": false,
+    "requests": [
+      {
+        "prompt": 17411,
+        "cached": 0,
+        "output": 107,
+        "pp": 601.7,
+        "tg": 14.01,
+        "task": 25598,
+        "phase": "Pi"
+      }
+    ],
+    "mem_available_end": 2.671894073486328,
+    "min_mem_available": 2.660472869873047,
+    "anon": 1.0726280212402344,
+    "shmem": 24.586444854736328,
+    "tool_ok": 0,
+    "tool_failed": 0,
+    "correct": true,
+    "duration": 36.5
+  },
+  {
+    "index": 17,
+    "name": "followup-17",
+    "stop": "stop",
+    "output": 79,
+    "output_total": 79,
+    "thinking_chars": 29,
+    "thinking_tokens": 7,
+    "final_chars": 114,
+    "empty": false,
+    "requests": [
+      {
+        "prompt": 17568,
+        "cached": 17517,
+        "output": 79,
+        "pp": 54.71,
+        "tg": 13.98,
+        "task": 25726,
+        "phase": "Pi"
+      }
+    ],
+    "mem_available_end": 2.6859970092773438,
+    "min_mem_available": 2.6675567626953125,
+    "anon": 1.0726394653320312,
+    "shmem": 24.586444854736328,
+    "tool_ok": 0,
+    "tool_failed": 0,
+    "correct": true,
+    "duration": 6.5
+  },
+  {
+    "index": 18,
+    "name": "recall-final",
+    "stop": "stop",
+    "output": 75,
+    "output_total": 75,
+    "thinking_chars": 46,
+    "thinking_tokens": 11,
+    "final_chars": 100,
+    "empty": false,
+    "requests": [
+      {
+        "prompt": 17743,
+        "cached": 17646,
+        "output": 75,
+        "pp": 89.8,
+        "tg": 13.94,
+        "task": 25808,
+        "phase": "Pi"
+      }
+    ],
+    "mem_available_end": 2.658580780029297,
+    "min_mem_available": 2.6420860290527344,
+    "anon": 1.0727806091308594,
+    "shmem": 24.586444854736328,
+    "tool_ok": 0,
+    "tool_failed": 0,
+    "correct": true,
+    "duration": 6.4
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "source_url": "https://raw.githubusercontent.com/earendil-works/pi/v1.0.1/packages/ai/src/api/openai-completions.ts",
+  "version": "1.0.1",
+  "checked_on": "2026-10-03",
+  "filter_present": true,
+  "excerpt": "\t\t\t\tassistantMsg.reasoning_content = \"\";\n\t\t\t}\n\t\t\t// Skip assistant messages that have no content and no tool calls.\n\t\t\t// Some providers require \"either content or tool_calls, but not none\".\n\t\t\t// Other providers also don't accept empty assistant messages.\n\t\t\t// This handles aborted assistant responses that got no content.\n\t\t\tconst content = assistantMsg.content;\n\t\t\tconst hasContent =\n\t\t\t\tcontent !== null &&\n\t\t\t\tcontent !== undefined &&\n\t\t\t\t(typeof content === \"string\" ? content.length > 0 : content.length > 0);\n\t\t\tif (!hasContent && !assistantMsg.tool_calls) {\n\t\t\t\tcontinue;\n\t\t\t}\n\t\t\tparams.push(assistantMsg);",
+  "issue_url": "https://github.com/earendil-works/pi/issues/10262",
+  "issue_state": "closed as not planned",
+  "issue_label": "untriaged; auto closed, not triaged"
+}
