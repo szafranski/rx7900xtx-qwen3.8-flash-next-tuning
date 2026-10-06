@@ -8,7 +8,7 @@ Terms: Pi is the pi coding agent CLI. Placeholders: `~/models`, `~/src`, `~/out`
 
 **Model.** ISTA-DASLab `Qwen3.8-Flash-Next-GSQ-RCO-GGUF`, `IQ3_XXS`, two shards (`...-00001-of-00002.gguf` is the entry point). Shard SHA-256 values were not recorded, so verify against the Hugging Face repository instead.
 
-**Build.** Upstream [llama.cpp](https://github.com/ggml-org/llama.cpp) at `f0c41e0168dfd4b5ef72b21d1a311b24cc7a894a` (the 3 October results used `bed0a856606ee4a24a164066f73d2379447033f5`). Standard HIP build for gfx1100 (ROCm, `-DGGML_HIP=ON`, `-DAMDGPU_TARGETS=gfx1100`; see the llama.cpp build docs). The exact cmake line of the test builds was not recorded in this repository. The test container was derived from `rocm/dev-ubuntu-24.04:7.14.1-full` with CMake, Ninja, Git, pkg-config, libcurl and libssl.
+**Build.** Upstream [llama.cpp](https://github.com/ggml-org/llama.cpp) at `f0c41e0168dfd4b5ef72b21d1a311b24cc7a894a` (the 3 October results used `bed0a856606ee4a24a164066f73d2379447033f5`). HIP build for gfx1100. The test build cache records `-DGGML_HIP=ON -DAMDGPU_TARGETS=gfx1100 -DCMAKE_BUILD_TYPE=Release -DGGML_NATIVE=ON -DLLAMA_CURL=OFF`; see the llama.cpp build docs for the rest. The test container was derived from `rocm/dev-ubuntu-24.04:7.14.1-full` with CMake, Ninja, Git, pkg-config, libcurl and libssl.
 
 **Server** (same flags as the 3 and 6 October tests; `KV=q4_0` leaves about 1 GiB more RAM):
 
@@ -103,4 +103,4 @@ Chat responses carry token usage but not timings. The adapter appends per-reques
 - The published fork commits behind `79ce80b` and the HostPool integration `fe545ecc`, and the built extension (its hash is recorded, no binary is included).
 - The benchmark harness, resource monitors and guards, and the Pi session controllers.
 - Pi session fixtures and full prompts (they quote private configuration), full server logs, and model weights.
-- The exact cmake line and image layers of the GGUF test builds, and GGUF shard checksums.
+- The image layers of the GGUF test builds, and GGUF shard checksums.
