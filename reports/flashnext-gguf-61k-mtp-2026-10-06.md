@@ -12,7 +12,8 @@ deployed to production, and every configuration ran once.
   this host and profile. No large speed or memory gain was measured against the
   old build.
 - Pi thinking-OFF sessions reached about 54k prompt tokens on both builds, but
-  Pi did not auto-compact there. The cause is unresolved and deferred.
+  Pi did not auto-compact there. An offline replay later traced this to the
+  fixture, not the backend (see [Why Pi did not compact](#why-pi-did-not-compact)).
 - A medium session on the new build passed turns t1-t5, then failed t6 on a
   recall string check, again without compaction.
 - MTP did not help on this build, profile and host. After a small local
@@ -61,16 +62,42 @@ Both controllers were marked PARTIAL because Pi did not auto-compact at the
 required threshold. The new driver was moved to validate after turn 7 and still
 saw no event at about 54k. The real provider input plus cache read and
 total tokens were verified in the raw Pi data, and a CPU-only state query showed
-auto-compaction enabled with a 65536 window and 16384 reserve. The cause is
-unresolved and deferred; do not read the next turn as a fix. Medium, change-prefix
+auto-compaction enabled with a 65536 window and 16384 reserve. The cause was
+found later offline (next section); do not read the next turn as a fix. Medium, change-prefix
 and direct 61k were not run on either build in that step.
+
+## Why Pi did not compact
+
+Diagnosed after the runs, CPU only, by replaying a recorded new-build medium
+session through Pi 1.0.4's own `prepareCompaction`. The threshold check worked:
+Pi uses the last assistant `usage.totalTokens` and compares it with
+`contextWindow - reserveTokens` (65536 - 16384 = 49152). llama.cpp returned
+usable usage (for example 54,481 total tokens), and the threshold was crossed
+at t5 (49,153) and later turns.
+
+Compaction was then skipped silently. Pi keeps the most recent
+`keepRecentTokens` (default 20000) unsummarized and cuts only at message
+boundaries. This fixture is one system message, one 47.6k-token padding
+message and about 5k tokens of small turns, so the only valid cut point is the
+padding message itself. Nothing is left before it to summarize,
+`prepareCompaction` returns `undefined`, and no compaction event is emitted.
+The replay with `keepRecentTokens` 20000 returned nothing; with 1000 it
+prepared a summary of 18 messages from 54,481 tokens.
+
+This is the same fixture-granularity effect seen in the
+[EXL3 variants report](flashnext-exl3-variants-2026-10-06.md), where large
+chunks were kept whole. Ordinary sessions with many smaller messages should
+have a cut point; a session dominated by one message larger than about 20k
+tokens would not. A future fixture should split the padding into several
+messages, which would also test recall after a real summary. The fix was not
+run on the GPU.
 
 ## Medium session and the guard change
 
 | Attempt | Guard | Result |
 | --- | --- | --- |
 | First | MemAvailable below 2.0 GiB twice | t1 passed (actual prompt 48,419 tokens, recall correct, 175 output tokens, 91.5 s). Stopped during t2 (read) by the RAM guard, minimum 1.879 GiB. Container peak 28.77 GB. Change-prefix, direct 61k and compaction not run. |
-| Second | New rule below | t1-t5 passed: t1 actual prompt 48,422 tokens, PP 623, TG about 13.4 tok/s, recall correct; reads and edit ok. t6 crossed the threshold with an actual prompt of 54,341 tokens, no compaction fired (deferred), and the recall reply gave `status edit-check.txt=NEW` where the required `status=NEW` check failed, so the driver aborted. No guard tripped; minimum MemAvailable 1.606 GiB, cgroup peak 29.16 GB. |
+| Second | New rule below | t1-t5 passed: t1 actual prompt 48,422 tokens, PP 623, TG about 13.4 tok/s, recall correct; reads and edit ok. t6 crossed the threshold with an actual prompt of 54,341 tokens, no compaction fired (explained below), and the recall reply gave `status edit-check.txt=NEW` where the required `status=NEW` check failed, so the driver aborted. No guard tripped; minimum MemAvailable 1.606 GiB, cgroup peak 29.16 GB. |
 
 The second attempt's minimum of 1.606 GiB would also have tripped the old 2.0 GiB
 guard, so that floor was the limiter. The container behaved the same in both:
@@ -171,5 +198,5 @@ request is closer to parity. Minimum MemAvailable was 1.35 GiB with MTP and
 Within this build, profile and host, MTP was not beneficial: the head needed
 workarounds to load, and the one working measurement was slower. This does not
 cover other builds, hosts, heads, or a shared-embedding head that this loader
-does not support. Single runs, no soak, no repeated A/B, the thinking-OFF
-compaction question is open, and the medium t6 failure remains unexplained.
+does not support. Single runs, no soak, no repeated A/B, compaction with a
+split fixture was not run, and the medium t6 failure remains unexplained.
