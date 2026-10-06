@@ -1,0 +1,162 @@
+{
+  "stage": "SHORT_GO",
+  "repro": [
+    {
+      "name": "flashnext-rocm10-coop-short-20261006-1",
+      "status": "PASS",
+      "launcher_exit": 0,
+      "container_exit": 0,
+      "oom_killed": false,
+      "vram_after": 626085888,
+      "port3953_after": false,
+      "kernel_faults": []
+    },
+    {
+      "name": "flashnext-rocm10-coop-short-20261006-2",
+      "status": "PASS",
+      "launcher_exit": 0,
+      "container_exit": 0,
+      "oom_killed": false,
+      "vram_after": 626085888,
+      "port3953_after": false,
+      "kernel_faults": []
+    },
+    {
+      "name": "flashnext-rocm10-coop-short-20261006-3",
+      "status": "PASS",
+      "launcher_exit": 0,
+      "container_exit": 0,
+      "oom_killed": false,
+      "vram_after": 626085888,
+      "port3953_after": false,
+      "kernel_faults": []
+    }
+  ],
+  "servers": [
+    {
+      "status": "PASS",
+      "name": "flashnext-rocm10-short-20261006-1",
+      "kind": "smoke",
+      "started": "2026-10-06 16:51:48",
+      "drivers": {
+        "off": "PASS",
+        "medium": "PASS"
+      },
+      "cgroup_event_delta": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0,
+        "sock_throttled": 0
+      },
+      "primary_status": "PASS",
+      "container_exit": 0,
+      "oom_killed": false,
+      "clean_container_exit": true,
+      "vram_after": 626085888,
+      "port3953_after": false,
+      "vram_released": true,
+      "kernel_faults": [],
+      "min_available_gib": 2.9758071899414062,
+      "peak_vram_gib": 23.188339233398438,
+      "peak_cgroup_gib": 26.310089111328125,
+      "monitor_samples": 95,
+      "guards": [],
+      "cgroup_final_before_stop": {
+        "memory.current": "28051324928\n",
+        "memory.peak": "28250243072\n",
+        "memory.max": "30601641984\n",
+        "memory.swap.max": "0\n",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+        "memory.pressure": "some avg10=0.00 avg60=0.20 avg300=0.12 total=625934\nfull avg10=0.00 avg60=0.19 avg300=0.12 total=585898\n"
+      }
+    },
+    {
+      "status": "PASS",
+      "name": "flashnext-rocm10-short-20261006-2",
+      "kind": "shutdown",
+      "started": "2026-10-06 16:56:04",
+      "drivers": {
+        "minimal-request": "PASS"
+      },
+      "cgroup_event_delta": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0,
+        "sock_throttled": 0
+      },
+      "primary_status": "PASS",
+      "container_exit": 0,
+      "oom_killed": false,
+      "clean_container_exit": true,
+      "vram_after": 626085888,
+      "port3953_after": false,
+      "vram_released": true,
+      "kernel_faults": [],
+      "min_available_gib": 3.318653106689453,
+      "peak_vram_gib": 22.920597076416016,
+      "peak_cgroup_gib": 26.603057861328125,
+      "monitor_samples": 61,
+      "guards": [],
+      "cgroup_final_before_stop": {
+        "memory.current": "28403814400\n",
+        "memory.peak": "28564815872\n",
+        "memory.max": "30601641984\n",
+        "memory.swap.max": "0\n",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+        "memory.pressure": "some avg10=0.74 avg60=0.41 avg300=0.10 total=409234\nfull avg10=0.62 avg60=0.33 avg300=0.08 total=376457\n"
+      }
+    },
+    {
+      "status": "PASS",
+      "name": "flashnext-rocm10-short-20261006-3",
+      "kind": "shutdown",
+      "started": "2026-10-06 16:58:25",
+      "drivers": {
+        "minimal-request": "PASS"
+      },
+      "cgroup_event_delta": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0,
+        "sock_throttled": 0
+      },
+      "primary_status": "PASS",
+      "container_exit": 0,
+      "oom_killed": false,
+      "clean_container_exit": true,
+      "vram_after": 626085888,
+      "port3953_after": false,
+      "vram_released": true,
+      "kernel_faults": [],
+      "min_available_gib": 3.2748260498046875,
+      "peak_vram_gib": 22.92059326171875,
+      "peak_cgroup_gib": 26.19766616821289,
+      "monitor_samples": 60,
+      "guards": [],
+      "cgroup_final_before_stop": {
+        "memory.current": "27230117888\n",
+        "memory.peak": "28129529856\n",
+        "memory.max": "30601641984\n",
+        "memory.swap.max": "0\n",
+        "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+        "memory.pressure": "some avg10=1.04 avg60=0.48 avg300=0.11 total=429213\nfull avg10=1.01 avg60=0.45 avg300=0.11 total=395439\n"
+      }
+    }
+  ],
+  "released": {
+    "checked": "2026-10-06 17:01:00",
+    "running_containers": [],
+    "vram_used": 626085888,
+    "port3953": false,
+    "mem_available_gib": 28.024646759033203
+  }
+}

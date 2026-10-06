@@ -1,0 +1,80 @@
+[
+  {
+    "i": 0,
+    "usage": {
+      "completion_tokens": 512,
+      "prompt_tokens": 2960,
+      "total_tokens": 3472,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "spec_delta": {
+      "llamacpp:spec_decode_num_draft_tokens_total": 596.0,
+      "llamacpp:spec_decode_num_accepted_tokens_total": 312.0,
+      "llamacpp:spec_decode_num_drafts_total": 199.0
+    },
+    "seconds": 50.483335971832275,
+    "read_GiB": 0.058917999267578125,
+    "majfault": 0,
+    "cg_file_GiB": 26.109867095947266,
+    "max_events_delta": 0,
+    "cg_peak": 29582995456,
+    "tg": 12.901623304462227,
+    "pp": 273.1801930701015,
+    "prompt_n": 2960,
+    "predicted_n": 512
+  },
+  {
+    "i": 1,
+    "usage": {
+      "completion_tokens": 512,
+      "prompt_tokens": 2960,
+      "total_tokens": 3472,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "spec_delta": {
+      "llamacpp:spec_decode_num_draft_tokens_total": 591.0,
+      "llamacpp:spec_decode_num_accepted_tokens_total": 313.0,
+      "llamacpp:spec_decode_num_drafts_total": 197.0
+    },
+    "seconds": 49.42110252380371,
+    "read_GiB": 0.007434844970703125,
+    "majfault": 0,
+    "cg_file_GiB": 26.08108901977539,
+    "max_events_delta": 0,
+    "cg_peak": 29582995456,
+    "tg": 13.125498049720516,
+    "pp": 283.2618288608587,
+    "prompt_n": 2960,
+    "predicted_n": 512
+  },
+  {
+    "i": "short",
+    "usage": {
+      "completion_tokens": 512,
+      "prompt_tokens": 164,
+      "total_tokens": 676,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "spec_delta": {
+      "llamacpp:spec_decode_num_draft_tokens_total": 528.0,
+      "llamacpp:spec_decode_num_accepted_tokens_total": 334.0,
+      "llamacpp:spec_decode_num_drafts_total": 176.0
+    },
+    "seconds": 35.91101336479187,
+    "read_GiB": 0.035739898681640625,
+    "majfault": 0,
+    "cg_file_GiB": 26.116050720214844,
+    "max_events_delta": 0,
+    "cg_peak": 29582995456,
+    "tg": 14.685745452175253,
+    "pp": 151.99314918683663,
+    "prompt_n": 164,
+    "predicted_n": 512
+  }
+]

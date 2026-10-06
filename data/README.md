@@ -1,6 +1,6 @@
 # Data and provenance
 
-`raw/` contains 336 selected evidence files grouped by experiment. The experiment-specific sections below describe their counts, reductions and limitations. `manifest.csv` records each repository path, source-relative path, original SHA-256, imported SHA-256, byte count, and whether the import changed the bytes. The older JSON was normalized and local home paths were replaced with `<HOME>`. Long-context response files whose names end in `-prompt.json` had their full request and prompt removed, leaving the response and wall time. This means an imported hash often differs from the source hash. The expert-cache and Vulkan response files are unmodified; the q8_0 KV records were sanitized before import. Source paths in the manifest identify each experiment.
+`raw/` contains 362 selected evidence files grouped by experiment. The experiment-specific sections below describe their counts, reductions and limitations. `manifest.csv` records each repository path, source-relative path, original SHA-256, imported SHA-256, byte count, and whether the import changed the bytes. The older JSON was normalized and local home paths were replaced with `<HOME>`. Long-context response files whose names end in `-prompt.json` had their full request and prompt removed, leaving the response and wall time. This means an imported hash often differs from the source hash. The expert-cache and Vulkan response files are unmodified; the q8_0 KV records were sanitized before import. Source paths in the manifest identify each experiment.
 
 The raw set includes OpenAI-compatible response JSON with `usage` and `timings`, ROCm tuning records with launch arguments and `memory_stats`, memory-counter NDJSON, cgroup text readings, the 28-shard AtomicChat checksum list, and two PNGs of the synthetic vision test. Prompt strings, tokenizer dumps, unrelated production-model listings, Hugging Face directory snapshots, `.pyc`, and full server/build logs were left out. The original local archive remains untouched. Full logs for the Vulkan tests remain in `agents/scratch/flashnext-vulkan-nohost-2026-09-29/`; q8_0 observations and the request driver remain in `agents/scratch/flashnext-q8-65k-2026-09-29/`. Older diagnostics remain in `agents/scratch/flashnext-expert-cache-2026-09-28/` and `agents/scratch/flashnext-bench-2026-09-28/private/`.
 
@@ -166,3 +166,30 @@ full per-turn records were read or copied for this update. C1 preserve=false
 had 0/25 empty finals and 19/19 correct recall, with one session per arm.
 Frequency .3 and presence .3 performed worse than control; C2 also had shorter
 preparation and a recall tool violation. This is not proof of a fix.
+
+## EXL3 variants evidence, 6 October
+
+`raw/exl3-variants-2026-10-06/` contains 7 small files: the results summary
+for the three EXL3 variants and two GGUF builds, per-request speeds extracted from
+logs, the short Go/No-Go table, the baseline offline verdict, the HostPool
+corrected verdict, the SDK10 short summary and the baseline 38k capacity note.
+The summary, verdicts and SDK10 file are re-serialized JSON with home paths
+replaced by `<HOME>`; the manifest marks every changed import. Raw baseline
+status `DRIVER_FAILURE` is kept beside the separate offline verdict. Full logs,
+prompts, Pi sessions, monitor timelines, preflight and authentication files,
+pins with local paths, models and binaries are not imported. HostPool and SDK10
+capacity is SKIP under an earlier guard, so the 38k baseline PASS is not a
+like-for-like comparison. See the [report](../reports/flashnext-exl3-variants-2026-10-06.md).
+
+## GGUF 61k and MTP evidence, 6 October
+
+`raw/gguf-61k-mtp-2026-10-06/` contains 19 small files: the results summary,
+12 per-run `RESULT.md` notes (direct 61k, two medium attempts, nine MTP runs
+including the 16k A/B), the 61k direct-probe record, two 16k speed records, the
+local `kpool-fix.patch`, a smaller-head research note and a host-memory
+diagnosis. The patch is a local experimental workaround pinned to `f0c41e016`,
+not an upstream fix. One run directory marked INVALID was excluded. Prompts,
+responses with prompt text, server and monitor logs, Pi sessions, preflight and
+authentication files are not imported. The 61k TG comes from 38 generated tokens
+and the 0.87x MTP ratio from two samples. See the
+[report](../reports/flashnext-gguf-61k-mtp-2026-10-06.md).

@@ -1,0 +1,175 @@
+{
+  "baseline": {
+    "raw_status": "DRIVER_FAILURE",
+    "core_status": "PASS_OFFLINE_VERIFIED",
+    "observed_turns": 22,
+    "all_turns_ok": true,
+    "auto_compactions": 2,
+    "capacity": "NOTRUN_HARNESS_ERROR",
+    "actual_exit": 0,
+    "elapsed_s": 551.4046320570014,
+    "task_s": 428.641812984999,
+    "min_RAM_GiB": 2.8888931274414062,
+    "peak_VRAM_GiB": 23.65442657470703,
+    "generated_tokens": 1946,
+    "weighted_TG": 23.34723192121528,
+    "heap_after_prefix_MiB": [
+      902.96484375,
+      926.33984375,
+      924.62109375
+    ],
+    "events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "kernel_faults": [],
+    "raw_core_status": "INCOMPLETE"
+  },
+  "hostpool": {
+    "raw_status": "INCOMPLETE_HEADROOM",
+    "core_status": "PASS",
+    "observed_turns": 22,
+    "all_turns_ok": true,
+    "auto_compactions": 2,
+    "capacity": "SKIP_HEADROOM",
+    "actual_exit": 0,
+    "elapsed_s": 537.1972556500004,
+    "task_s": 416.17739580800117,
+    "min_RAM_GiB": 2.9795761108398438,
+    "peak_VRAM_GiB": 23.65821075439453,
+    "generated_tokens": 1760,
+    "weighted_TG": 23.230359732022198,
+    "heap_after_prefix_MiB": [
+      902.48828125,
+      922.921875,
+      922.57421875
+    ],
+    "events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "kernel_faults": []
+  },
+  "rocm10": {
+    "raw_status": "INCOMPLETE_HEADROOM",
+    "core_status": "PASS",
+    "observed_turns": 22,
+    "all_turns_ok": true,
+    "auto_compactions": 2,
+    "capacity": "SKIP_HEADROOM",
+    "actual_exit": 0,
+    "elapsed_s": 560.8578407080022,
+    "task_s": 437.5990573859999,
+    "min_RAM_GiB": 2.6037063598632812,
+    "peak_VRAM_GiB": 23.603736877441406,
+    "generated_tokens": 1942,
+    "weighted_TG": 22.283875672476245,
+    "heap_after_prefix_MiB": [
+      993.8203125,
+      1005.27734375,
+      1005.6953125
+    ],
+    "events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "kernel_faults": []
+  },
+  "gguf_old": {
+    "observed_turns": 6,
+    "all_turns_ok": true,
+    "max_actual_prompt": 53937,
+    "first6_task_s": 118.3,
+    "compaction_events": 0,
+    "actual_exit": 0,
+    "oom_killed": false,
+    "fault_evidence": {
+      "kernel_faults": [],
+      "kernel_oom_lines": [],
+      "cgroup_event_deltas": {
+        "oom": 0,
+        "oom_kill": 0,
+        "max": 0
+      },
+      "first_events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0,
+        "sock_throttled": 0
+      },
+      "last_events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0,
+        "sock_throttled": 1
+      },
+      "peak": 30003937280,
+      "last_pressure": "some avg10=0.00 avg60=0.03 avg300=0.06 total=454015\nfull avg10=0.00 avg60=0.03 avg300=0.06 total=454015"
+    },
+    "medium": "NOTRUN",
+    "capacity": "NOTRUN",
+    "status": "PARTIAL_COMPACTION_NOT_TRIGGERED"
+  },
+  "gguf_new": {
+    "observed_turns": 7,
+    "all_turns_ok": true,
+    "max_actual_prompt": 54013,
+    "first6_task_s": 117.39999999999999,
+    "compaction_events": 0,
+    "actual_exit": 0,
+    "oom_killed": false,
+    "fault_evidence": {
+      "kernel_faults": [],
+      "kernel_oom_lines": [],
+      "cgroup_event_deltas": {
+        "oom": 0,
+        "oom_kill": 0,
+        "max": 0
+      },
+      "first_events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0,
+        "sock_throttled": 0
+      },
+      "last_events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0,
+        "sock_throttled": 1
+      },
+      "peak": 28907827200,
+      "last_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=24704\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=24704"
+    },
+    "medium": "NOTRUN",
+    "capacity": "NOTRUN",
+    "status": "PARTIAL_COMPACTION_NOT_TRIGGERED"
+  }
+}

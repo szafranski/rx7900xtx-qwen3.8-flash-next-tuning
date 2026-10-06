@@ -1,0 +1,330 @@
+{
+  "raw_status": "DRIVER_FAILURE",
+  "core_status": "PASS",
+  "capacity_status": "NOTRUN_HARNESS_ERROR",
+  "turns": [
+    {
+      "text": "KEY_BEGIN=E20ECD170E",
+      "missing": [],
+      "calls": [
+        "read"
+      ],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "0-begin"
+    },
+    {
+      "text": "DONE",
+      "missing": [],
+      "calls": [
+        "edit"
+      ],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "0-edit"
+    },
+    {
+      "text": "OK",
+      "missing": [],
+      "calls": [],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "0-halfA"
+    },
+    {
+      "text": "KEY_MIDDLE=17EF76CBAB",
+      "missing": [],
+      "calls": [
+        "read"
+      ],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "0-middle"
+    },
+    {
+      "text": "OK",
+      "missing": [],
+      "calls": [],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "0-halfB"
+    },
+    {
+      "text": "KEY_END=58BBF89D39",
+      "missing": [],
+      "calls": [
+        "read"
+      ],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "0-end"
+    },
+    {
+      "text": "KEY_BEGIN=E20ECD170E\nKEY_MIDDLE=17EF76CBAB\nKEY_END=58BBF89D39\nstate=READY",
+      "missing": [],
+      "calls": [],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "0-recall32k"
+    },
+    {
+      "text": "OK",
+      "missing": [],
+      "calls": [],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "0-trigger"
+    },
+    {
+      "text": "KEY_BEGIN=E20ECD170E\nKEY_MIDDLE=17EF76CBAB\nKEY_END=58BBF89D39\nstate=READY",
+      "missing": [],
+      "calls": [],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "0-after-compaction"
+    },
+    {
+      "text": "KEY_BEGIN=693ECBC94A",
+      "missing": [],
+      "calls": [
+        "read"
+      ],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "1-begin"
+    },
+    {
+      "text": "DONE",
+      "missing": [],
+      "calls": [
+        "read",
+        "edit"
+      ],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "1-edit"
+    },
+    {
+      "text": "OK",
+      "missing": [],
+      "calls": [],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "1-halfA"
+    },
+    {
+      "text": "KEY_MIDDLE=8AB71AB7FC",
+      "missing": [],
+      "calls": [
+        "read"
+      ],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "1-middle"
+    },
+    {
+      "text": "OK",
+      "missing": [],
+      "calls": [],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "1-halfB"
+    },
+    {
+      "text": "KEY_END=AB4975928A",
+      "missing": [],
+      "calls": [
+        "read"
+      ],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "1-end"
+    },
+    {
+      "text": "KEY_BEGIN=693ECBC94A\nKEY_MIDDLE=8AB71AB7FC\nKEY_END=AB4975928A\nstate=READY",
+      "missing": [],
+      "calls": [],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "1-recall32k"
+    },
+    {
+      "text": "OK",
+      "missing": [],
+      "calls": [],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "1-trigger"
+    },
+    {
+      "text": "KEY_BEGIN=693ECBC94A\nKEY_MIDDLE=8AB71AB7FC\nKEY_END=AB4975928A\nstate=READY",
+      "missing": [],
+      "calls": [],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "1-after-compaction"
+    },
+    {
+      "text": "KEY_BEGIN=EB902B4EDE",
+      "missing": [],
+      "calls": [
+        "read"
+      ],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "2-begin"
+    },
+    {
+      "text": "DONE",
+      "missing": [],
+      "calls": [
+        "edit"
+      ],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "2-edit"
+    },
+    {
+      "text": "OK",
+      "missing": [],
+      "calls": [],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "2-cold8k"
+    },
+    {
+      "text": "KEY_BEGIN=EB902B4EDE\nstate=READY",
+      "missing": [],
+      "calls": [],
+      "errors": [],
+      "final_stop": "stop",
+      "ok": true,
+      "name": "2-recall"
+    }
+  ],
+  "payload_verified": true,
+  "actual32k": {
+    "0": [
+      30493,
+      30521,
+      30575,
+      30616
+    ],
+    "1": [
+      30996,
+      31046,
+      31115,
+      31168
+    ]
+  },
+  "pi_exits": [
+    {
+      "exit": 0,
+      "forced_kill": false
+    },
+    {
+      "exit": 0,
+      "forced_kill": false
+    },
+    {
+      "exit": 0,
+      "forced_kill": false
+    }
+  ],
+  "compaction": [
+    {
+      "mode": "off",
+      "tokensBefore": 34879,
+      "estimatedTokensAfter": 27367,
+      "actual_trigger": 34877,
+      "actual_next": 34989,
+      "actual_delta": 112,
+      "keepRecentTokens": 20000,
+      "coverage": "event_and_recall_PASS; meaningful_reduction_NOT_PROVEN"
+    },
+    {
+      "mode": "medium",
+      "tokensBefore": 35537,
+      "estimatedTokensAfter": 27784,
+      "actual_trigger": 35520,
+      "actual_next": 35410,
+      "actual_delta": -110,
+      "keepRecentTokens": 20000,
+      "coverage": "event_and_recall_PASS; meaningful_reduction_NOT_PROVEN"
+    }
+  ],
+  "resources": {
+    "min_mem_available": 3101925376,
+    "max_vram_used": 25398747136,
+    "guards": [],
+    "cgroup_event_delta": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "final_cgroup": {
+      "memory.current": "28579807232\n",
+      "memory.peak": "29331197952\n",
+      "memory.max": "30601641984\n",
+      "memory.swap.max": "0\n",
+      "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0\noom_group_kill 0\nsock_throttled 0\n",
+      "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=505927\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=479939\n"
+    },
+    "heap_after_prefixes": [
+      {
+        "Size": 970960896,
+        "Rss": 946827264,
+        "Pss": 946827264,
+        "Private_Dirty": 946827264,
+        "VmSize": 74024878080,
+        "VmRSS": 4756721664
+      },
+      {
+        "Size": 996278272,
+        "Rss": 971337728,
+        "Pss": 971337728,
+        "Private_Dirty": 971337728,
+        "VmSize": 74053963776,
+        "VmRSS": 4785176576
+      },
+      {
+        "Size": 995864576,
+        "Rss": 969535488,
+        "Pss": 969535488,
+        "Private_Dirty": 969535488,
+        "VmSize": 74053820416,
+        "VmRSS": 4783644672
+      }
+    ],
+    "container_exit": 0,
+    "vram_after": 626003968,
+    "port_after": false,
+    "kernel_faults": []
+  },
+  "note": "Offline core verification. Raw harness failure retained; optional capacity never attempted if VRAM_PATH missing. Large recent user messages prevent meaningful measured compaction shrink."
+}

@@ -1,0 +1,22 @@
+diff --git a/src/models/qwen4exp.cpp b/src/models/qwen4exp.cpp
+index aca8f6065..710ca2dfe 100644
+--- a/src/models/qwen4exp.cpp
++++ b/src/models/qwen4exp.cpp
+@@ -716,6 +716,7 @@ llama_model_qwen4exp::llm_graph_input_kpool * llama_model_qwen4exp::graph::build
+     ggml_build_forward_expand(gf, inp->pool_idxs);
+     ggml_build_forward_expand(gf, inp->pool_mask);
+     ggml_build_forward_expand(gf, inp->tail_idxs);
++    ggml_build_forward_expand(gf, inp->k_idxs);
+ 
+     inp->n_kv  = mctx_idx->get_n_kv();
+     inp->n_new = mctx_hyb->get_n_kpool_new();
+@@ -729,6 +730,9 @@ llama_model_qwen4exp::llm_graph_input_kpool * llama_model_qwen4exp::graph::build
+     ggml_set_input(inp->new_pool_rep);
+     inp->new_pool_pos = ggml_new_tensor_1d(ctx0, GGML_TYPE_I32, 4*inp->n_new);
+     ggml_set_input(inp->new_pool_pos);
++    ggml_build_forward_expand(gf, inp->new_pool_idxs);
++    ggml_build_forward_expand(gf, inp->new_pool_rep);
++    ggml_build_forward_expand(gf, inp->new_pool_pos);
+ 
+     return (llm_graph_input_kpool *) res->add_input(std::move(inp));
+ }

@@ -1,0 +1,116 @@
+{
+  "method": "offline reanalysis of original RPC with tool_execution_end compatibility",
+  "modes": {
+    "off": {
+      "status": "PASS",
+      "checks": [
+        {
+          "text": "FACT=E5D4CAE4A026",
+          "missing": [],
+          "calls": [
+            "read"
+          ],
+          "errors": [],
+          "final_stop": "stop",
+          "ok": true
+        },
+        {
+          "text": "DONE",
+          "missing": [],
+          "calls": [
+            "read",
+            "edit"
+          ],
+          "errors": [],
+          "final_stop": "stop",
+          "ok": true
+        },
+        {
+          "text": "state=EDITED_1",
+          "missing": [],
+          "calls": [
+            "read"
+          ],
+          "errors": [],
+          "final_stop": "stop",
+          "ok": true
+        },
+        {
+          "text": "FACT=E5D4CAE4A026\nstate=EDITED_1",
+          "missing": [],
+          "calls": [],
+          "errors": [],
+          "final_stop": "stop",
+          "ok": true
+        }
+      ],
+      "disk_ok": true,
+      "payload_verified": true,
+      "pi_exit": 0,
+      "elapsed_seconds": 31.095597650000855,
+      "max_actual_prompt": 1136,
+      "pp_median": 75.55466878069944,
+      "tg_median": 23.961960454911765,
+      "raw_sha256": {
+        "progress.json": "0e72cd981c3eb9ce84aa812ee62bd82825bfd4343351da3f357defa63049bc69",
+        "pi-events.jsonl": "ebcaf58924bf94316fa18e75cc094e0c0642bf36a0662061f0d67a28f674f8e9"
+      }
+    },
+    "medium": {
+      "status": "PASS",
+      "checks": [
+        {
+          "text": "FACT=894F4CEDC17D",
+          "missing": [],
+          "calls": [
+            "read"
+          ],
+          "errors": [],
+          "final_stop": "stop",
+          "ok": true
+        },
+        {
+          "text": "DONE",
+          "missing": [],
+          "calls": [
+            "read",
+            "edit"
+          ],
+          "errors": [],
+          "final_stop": "stop",
+          "ok": true
+        },
+        {
+          "text": "state=EDITED_1",
+          "missing": [],
+          "calls": [
+            "read"
+          ],
+          "errors": [],
+          "final_stop": "stop",
+          "ok": true
+        },
+        {
+          "text": "FACT=894F4CEDC17D, state=EDITED_1",
+          "missing": [],
+          "calls": [],
+          "errors": [],
+          "final_stop": "stop",
+          "ok": true
+        }
+      ],
+      "disk_ok": true,
+      "payload_verified": true,
+      "pi_exit": 0,
+      "elapsed_seconds": 41.52332605099946,
+      "max_actual_prompt": 1321,
+      "pp_median": 106.23862101786187,
+      "tg_median": 24.031153245798777,
+      "raw_sha256": {
+        "progress.json": "e79195665c6150f693bb60274c3066b11aedd36e7bb5a8ff7c4804193681bd2c",
+        "pi-events.jsonl": "f048e48f80ad1dc019b3ff0d7f0e6813caeefa2a90383fde01e8935b45e58add"
+      }
+    }
+  },
+  "status": "PASS"
+}

@@ -1,0 +1,10 @@
+# MTP + mmap 30g/30g, warm-up rerun with corrected abort criteria: NO-GO (warm-up did not complete in 600 s)
+
+- Only change vs mtp-mmap-30g-20261006-202011: abort logic (cumulative reads > 78.6 GB model+MTP files, or memory.max events +200 with reads >50 MiB/s, or no completion by 600 s, plus guards), controller deadline 900 -> 2700 s, residency threshold 0.5 GiB, 2 speed requests.
+- Warm-up (212 tok prompt, 64 out, temp 0): aborted by the 600 s timeout, no completion. Container read 15.2 GB (14.2 GiB; 19 percent of the 73.2 GiB files), mostly in the first ~60 s (peak 1206 MiB/s), then ~0 MiB/s (sporadic 30-130 MiB/s bursts). memory.max events 0. Slot log stops at "cached n_tokens = 0, memory_seq_rm", no prompt progress; gpu_busy 0-6 percent.
+- During the stall: pgmajfault ~25k/s (host and cgroup) with ~0 disk reads, cgroup file cache falling from 16.4 to 6.0 GiB (cg memory.current ~7.7 GiB, far below the 30 GiB limit), host MemAvailable ~26-28 GiB. So not the thrash pattern of reads at the memory limit, but a fault storm on already-cached pages with the page cache being reclaimed; no forward progress.
+- Residency check and speed steps not reached. Baseline TG without MTP 13.4 (short ctx, earlier runs) not comparable.
+- Min MemAvailable 26.5 GiB, min VRAM free 1.25 GiB, max swap 197 MiB/s per 1 s sample (slow 2 s guard metric max 116 MiB/s, guard did not trip as it needs 3 consecutive), cgroup peak 27.4 GiB (29376823296 B). Events delta: max 0, oom 0, oom_kill 0. No kernel GPU faults.
+- Exit codes: controller 1 (ABORT warm timeout), podman stop rc 125 (SIGTERM ignored 30 s, SIGKILL, PID did not die within timeout), container 137 OOMKilled false, monitor 0. postflight asserted GPU not released 3 s after stop (VRAM 24.4 GB); live check afterwards: VRAM 0.88 GB, no containers, no kfd holders.
+- Teardown: launcher inactive (not started), inhibitor active.
+- Note: an earlier dir mtp-mmap-30g-warm-20261006-202543 was launched by mistake with an unpatched script and stopped after ~1 min (INVALID.txt); ignore it.
