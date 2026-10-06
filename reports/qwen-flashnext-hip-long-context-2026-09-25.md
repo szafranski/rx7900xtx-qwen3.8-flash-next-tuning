@@ -2,6 +2,8 @@
 
 # Qwen3.8 Flash-Next: dalsze testy upstream HIP
 
+> **Warning:** the builds tested here predate the qwen4exp correctness fix, so correctness and MTP claims in this report do not validate the fixed implementation. For fixed-build results see [the 3 October qwen4exp-fix report](flashnext-gguf-qwen4exp-fix-2026-10-03.md) and [the 6 October 61k and MTP report](flashnext-gguf-61k-mtp-2026-10-06.md).
+
 Data: 2026-09-25. RX 7900 XTX, GGUF `Qwen3.8-Flash-Next-AD-3.84bpw-IQ4_XS-M64`, upstream llama.cpp `d81aef1`, ROCm 7.14.1. Model i build pozostaja w `~/llm`.
 
 ## Wynik

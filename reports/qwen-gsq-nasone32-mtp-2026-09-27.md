@@ -2,6 +2,8 @@
 
 # Qwen3.8 Flash-Next GSQ-RCO IQ3_XXS: MTP na RX 7900 XTX, 2026-09-27
 
+> **Warning:** the builds tested here predate the qwen4exp correctness fix, so correctness and MTP claims in this report do not validate the fixed implementation. For fixed-build results see [the 3 October qwen4exp-fix report](flashnext-gguf-qwen4exp-fix-2026-10-03.md) and [the 6 October 61k and MTP report](flashnext-gguf-61k-mtp-2026-10-06.md).
+
 ## Werdykt
 
 Stale MTP z osobna, pelnoslownikowa glowa dziala poprawnie na forku `nasone32/llama.cpp-RDNA3-7900xtx-opt` (commit `15995a1`) przy 4k, 32k i 65k. Przy 65k zysk generacji jest niewielki w stosunku do kosztu PP i RAM. Dla obecnego profilu 65k lepszy jest serwer bez MTP. Tryb adaptacyjny `draft-mtp-adaptive` wysypal sie podczas ladowania modelu (exit 139); nie jest potrzebny do dzialania stalego MTP.

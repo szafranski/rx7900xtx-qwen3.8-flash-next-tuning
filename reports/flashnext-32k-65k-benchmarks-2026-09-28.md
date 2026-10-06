@@ -1,5 +1,7 @@
 # GSQ-RCO IQ3_XXS: 32k and 65k ROCm benchmarks, 28 September 2026
 
+> **Warning:** the builds tested here predate the qwen4exp correctness fix, so correctness and MTP claims in this report do not validate the fixed implementation. For fixed-build results see [the 3 October qwen4exp-fix report](flashnext-gguf-qwen4exp-fix-2026-10-03.md) and [the 6 October 61k and MTP report](flashnext-gguf-61k-mtp-2026-10-06.md).
+
 The target was about 20 generated tokens/s at 65k on an RX 7900 XTX with 32 GiB host RAM. The model was Qwen3.8 Flash-Next GSQ-RCO IQ3_XXS. Unless noted, the runtime was nasone32's `15995a1` fork, ROCm, q4_0 KV, one slot, `--load-mode none --lazy-mode on-direct`, flash attention, and deterministic sampling with thinking disabled. The container had a 28 GiB RAM limit and 12 CPU cores. Most later tests disabled container swap; the full MTP n=2 and n=3 runs allowed up to 2 GiB. Each row below is one run, not a median.
 
 The workload used a 31,520-token prompt at 32k or a 62,975-token prompt at 65k. A short first reply verified retrieval of the final city's name, Wrocław. A follow-up then generated about 1,100 tokens with the prefix cached. PP is the rate for the **full** first prompt; TG is the rate for the long cached follow-up. The follow-up's reported PP covers only its newly added tokens. No request exceeded its context window.

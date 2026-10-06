@@ -1,5 +1,7 @@
 # Flash-Next q8_0 KV at 65k, 29 September 2026
 
+> **Warning:** the builds tested here predate the qwen4exp correctness fix, so correctness and MTP claims in this report do not validate the fixed implementation. For fixed-build results see [the 3 October qwen4exp-fix report](flashnext-gguf-qwen4exp-fix-2026-10-03.md) and [the 6 October 61k and MTP report](flashnext-gguf-61k-mtp-2026-10-06.md).
+
 Later the same day, this 32-slot profile was OOM-killed during live use and replaced with a 12-slot profile; see the [OOM and recovery report](flashnext-q8-oom-recovery-2026-09-29.md). The fit result and service status below describe the earlier benchmark.
 
 The GSQ-RCO IQ3_XXS model loaded and completed a 62,975-token prompt plus a 1,100-token follow-up on the RX 7900 XTX. This shows the q8_0 KV profile completed one benchmark under the tested limits; it does not establish live stability or a quality improvement over q4_0.

@@ -1,5 +1,7 @@
 # Expert cache on RX 7900 XTX, 29 September 2026
 
+> **Warning:** the builds tested here predate the qwen4exp correctness fix, so correctness and MTP claims in this report do not validate the fixed implementation. For fixed-build results see [the 3 October qwen4exp-fix report](flashnext-gguf-qwen4exp-fix-2026-10-03.md) and [the 6 October 61k and MTP report](flashnext-gguf-61k-mtp-2026-10-06.md).
+
 Subsequent testing found that Vulkan completes 32k and 65k with `--no-host`; see the [Vulkan repair report](flashnext-vulkan-nohost-2026-09-29.md). The Vulkan section below describes the earlier attempts without this option.
 
 The experimental [llama.cpp PR #27861](https://github.com/ggml-org/llama.cpp/pull/27861) was tested with the GSQ-RCO IQ3_XXS model. Its commit `bccbacd` was applied locally, without committing, to upstream `d81aef1` because the original August branch lacks `--lazy-mode` and exceeded the 28 GiB container limit while loading. The rebased ROCm and Vulkan builds and original models were retained. The original branch's failed load is recorded in the local scratch logs.

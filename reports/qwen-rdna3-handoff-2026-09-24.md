@@ -2,6 +2,8 @@
 
 # Qwen3.8 Flash-Next GGUF na RX 7900 XTX - stan testu
 
+> **Warning:** the builds tested here predate the qwen4exp correctness fix, so correctness and MTP claims in this report do not validate the fixed implementation. For fixed-build results see [the 3 October qwen4exp-fix report](flashnext-gguf-qwen4exp-fix-2026-10-03.md) and [the 6 October 61k and MTP report](flashnext-gguf-61k-mtp-2026-10-06.md).
+
 Data: 2026-09-24. Host: Bazzite, RX 7900 XTX 24 GiB VRAM, 32 GiB RAM.
 
 ## Trwaly stan

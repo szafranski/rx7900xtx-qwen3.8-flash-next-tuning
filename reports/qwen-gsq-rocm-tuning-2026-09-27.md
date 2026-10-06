@@ -2,6 +2,8 @@
 
 # Qwen3.8 Flash-Next GSQ-RCO IQ3_XXS - strojenie ROCm, 2026-09-27
 
+> **Warning:** the builds tested here predate the qwen4exp correctness fix, so correctness and MTP claims in this report do not validate the fixed implementation. For fixed-build results see [the 3 October qwen4exp-fix report](flashnext-gguf-qwen4exp-fix-2026-10-03.md) and [the 6 October 61k and MTP report](flashnext-gguf-61k-mtp-2026-10-06.md).
+
 Sprzęt: RX 7900 XTX 24 GB VRAM, 32 GiB RAM. Backend: llama.cpp `d81aef1` w ROCm 7.14.1. Model i build pozostały na dysku. Kontener miał limit 28 GiB RAM i 30 GiB RAM+swap, 12 CPU. Każdy przebieg uruchamiał serwer od nowa. Stałe ustawienia: `--load-mode none --lazy-mode on --fit on --cache-type-k q8_0 --cache-type-v q8_0 --flash-attn on`, jeden slot, batch co najmniej równy ubatch, bez thinking, `cache_prompt=false`.
 
 Prompt 32k miał 31 525 tokenów po zmianie polecenia na odpowiedź `Wrocław` oraz liczby 1-200. Odpowiedź miała 894 tokeny i w każdym ukończonym przebiegu zawierała dokładnie te liczby. Pomiar 65k miał 62 980 tokenów promptu oraz tę samą 894-tokenową odpowiedź. Mierzono jeden przebieg na wariant, więc małe różnice mogą być szumem.

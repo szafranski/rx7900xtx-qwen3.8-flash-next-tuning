@@ -2,6 +2,8 @@
 
 # Flash-Next: porownanie HIP forka, HIP upstream i Vulkan
 
+> **Warning:** the builds tested here predate the qwen4exp correctness fix, so correctness and MTP claims in this report do not validate the fixed implementation. For fixed-build results see [the 3 October qwen4exp-fix report](flashnext-gguf-qwen4exp-fix-2026-10-03.md) and [the 6 October 61k and MTP report](flashnext-gguf-61k-mtp-2026-10-06.md).
+
 Data: 2026-09-25. Fork `nasone32/llama.cpp-RDNA3-7900xtx-opt`, commit `15995a1`. Model AtomicChat `Qwen3.8-Flash-Next-AD-3.84bpw-IQ4_XS-M64` (28 shardow). RX 7900 XTX. Testy: kontekst 4096, 1 slot, Jinja, reasoning off, bez MTP, KV q8_0/q8_0, Flash Attention on, temperatura 0, seed 42. Surowe wyniki i logi sa w `scratch/qwen-rdna3-2026-09-25/`.
 
 ## Wynik

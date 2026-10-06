@@ -1,5 +1,7 @@
 # Flash-Next q8_0 65k: OOM and recovery, 29 September 2026
 
+> **Warning:** the builds tested here predate the qwen4exp correctness fix, so correctness and MTP claims in this report do not validate the fixed implementation. For fixed-build results see [the 3 October qwen4exp-fix report](flashnext-gguf-qwen4exp-fix-2026-10-03.md) and [the 6 October 61k and MTP report](flashnext-gguf-61k-mtp-2026-10-06.md).
+
 At 12:53:43 CEST the kernel killed `llama-server` inside the 28 GiB Podman memory cgroup. Podman removed the container because it had been started with `--rm`, leaving port 8084 closed. The client's later `504 backend ... not reachable after WoL` described that unavailable backend. The host had not rebooted; this incident was a container OOM. Earlier suspend attempts at 11:47 and 12:07 do not establish a sleep cause for the 12:53 failure.
 
 All rows use the same IQ3_XXS GGUF and ROCm build, 65,536 context, one slot, K/V q8_0, batch/ubatch 1024, flash attention, 2 expert-cache inserts per step, `--load-mode none --lazy-mode on --cache-ram 0`, 28 GiB container memory limit and no container swap. The benchmark retrieves `Wrocław` from 62,975 prompt tokens, then generates 1,100 free-text tokens after a cached 63,020-token prompt. Each row is one run.

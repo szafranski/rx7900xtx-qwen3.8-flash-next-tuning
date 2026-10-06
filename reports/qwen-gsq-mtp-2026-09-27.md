@@ -2,6 +2,8 @@
 
 # Qwen3.8 Flash-Next GSQ-RCO IQ3_XXS: proba MTP, 2026-09-27
 
+> **Warning:** the builds tested here predate the qwen4exp correctness fix, so correctness and MTP claims in this report do not validate the fixed implementation. For fixed-build results see [the 3 October qwen4exp-fix report](flashnext-gguf-qwen4exp-fix-2026-10-03.md) and [the 6 October 61k and MTP report](flashnext-gguf-61k-mtp-2026-10-06.md).
+
 ## Werdykt
 
 Obecny GGUF nie zawiera glowicy MTP. Build llama.cpp `d81aef1` odrzuca `--spec-type draft-mtp` przy starcie: `context type MTP requested but model doesn't contain MTP layers`. To nie jest DFlash. Oryginalny Qwen3.8-Flash-Next ma jedna warstwe MTP, lecz kwant GSQ-RCO jej nie zawiera. Drugi shard tego GGUF to tabela n-gram modelu, nadal zapisana jako czesc podzielonego GGUF; nie jest glowica MTP ani modelem draftowym DFlash.

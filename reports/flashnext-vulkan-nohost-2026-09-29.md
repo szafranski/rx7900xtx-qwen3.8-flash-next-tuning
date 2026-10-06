@@ -1,5 +1,7 @@
 # Vulkan with pageable CPU weights, 29 September 2026
 
+> **Warning:** the builds tested here predate the qwen4exp correctness fix, so correctness and MTP claims in this report do not validate the fixed implementation. For fixed-build results see [the 3 October qwen4exp-fix report](flashnext-gguf-qwen4exp-fix-2026-10-03.md) and [the 6 October 61k and MTP report](flashnext-gguf-61k-mtp-2026-10-06.md).
+
 The earlier Vulkan test failed with `--load-mode none` and read heavily from disk with `mmap`. The failed load allocated a 26,170 MiB `Vulkan_Host` model buffer. On this host, the reported GTT total is 16,778,629,120 bytes. The Vulkan backend's host buffer uses Vulkan host-visible, pinned memory; this is a plausible cause of the RADV `Not enough memory for command submission` error, though the test does not isolate the driver's exact failure point. The built-in `--no-host` option removes the pinned host buffer from the CPU buffer choices.
 
 With `--no-host --load-mode none --lazy-mode on`, the same IQ3_XXS GGUF loaded and answered correctly. A fresh short question returned `Warszawa` in 1.15 s with about 0.003 GB of disk reads, versus 6.3 s and 2.13 GB in the earlier Vulkan `mmap` smoke. The questions and cache state differed, so these timings are diagnostic, not a paired speed benchmark. GTT use stayed around 0.09-0.17 GB during the successful tests.

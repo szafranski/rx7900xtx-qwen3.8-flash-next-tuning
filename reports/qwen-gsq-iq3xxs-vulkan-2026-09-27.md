@@ -2,6 +2,8 @@
 
 # Qwen3.8 Flash-Next GSQ-RCO IQ3_XXS: test Vulkan, 2026-09-27
 
+> **Warning:** the builds tested here predate the qwen4exp correctness fix, so correctness and MTP claims in this report do not validate the fixed implementation. For fixed-build results see [the 3 October qwen4exp-fix report](flashnext-gguf-qwen4exp-fix-2026-10-03.md) and [the 6 October 61k and MTP report](flashnext-gguf-61k-mtp-2026-10-06.md).
+
 Ten sam GGUF i mmproj co w tescie ROCm. Llama.cpp upstream `d81aef1`, zbudowany lokalnie z `GGML_VULKAN=ON`, RX 7900 XTX przez RADV. Build: `<HOME>/llm/llama.cpp-upstream-flashnext-test-2026-09-25/build-vulkan-gfx1100-compare-20260927/`. Testy: jeden slot, KV q8_0/q8_0, flash attention, batch 1024, ubatch 512, `--lazy-mode on`, limit uslugi 28 GiB RAM + 2 GiB swap.
 
 ## Wyniki

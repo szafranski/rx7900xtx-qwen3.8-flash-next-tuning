@@ -2,9 +2,19 @@
 
 A tuning log for one 24 GB RDNA3 card with 32 GiB of host RAM. Measurements cover 24 September to 6 October 2026, two GGUF quantizations and one EXL3 quantization.
 
-The practical goal is useful Pi coding-agent sessions with thinking OFF/ON, tools and history, at 32k and eventually 65k, targeting about 20 generated tokens/s at 65k. That full goal is not demonstrated: EXL3 reached about 23 TG tok/s in synthetic 65k checks, but its later Pi sessions reached about 32k real prompt tokens. Fixed-build GGUF reached about 63k, with lower throughput and unresolved answer failures.
+The practical goal is useful sessions of Pi (the pi coding agent CLI) with thinking OFF/ON, tools and history, at 32k and eventually 65k, targeting about 20 generated tokens/s at 65k. That full goal is not demonstrated: EXL3 reached about 23 TG tok/s in synthetic 65k checks, but its Pi sessions stayed at about 35k real prompt tokens (bounded 22-turn sessions on 6 October; earlier ones about 32k). Separately, one direct 37,626-token request passed, and that is a capacity check, not a Pi session. Fixed-build GGUF reached about 63k, with lower throughput and unresolved answer failures.
 
 This repository stores selected evidence, reports and charts. Runtime repairs and launchers belong to the separate local `qwen-3.8-flash-next-tweaks` repository. It is not a turn-key launcher or a common model-quality benchmark.
+
+## Start here
+
+| Configuration | Real context reached | Typical TG tok/s | Required workarounds | Unresolved issues | Report |
+| --- | --- | ---: | --- | --- | --- |
+| EXL3 2.50 bpw, Pi adapter profile (43008-token window, compaction) | About 35k in Pi sessions; one direct 37,626-token request | 22.9-23.9 | BC attention off (`EXL3_BC_ATTN=0`), smaller recurrent cache (`-rcs 0.125`, the server's recurrent-state cache size), allocator settings, patched libhsa for exit 0 on ROCm 7.2, Pi adapter for tool calls | BC defect not root-caused; large input once left Pi stuck; no soak test; 65k not reached in Pi | [6 Oct variants](reports/flashnext-exl3-variants-2026-10-06.md), [2 Oct stability](reports/flashnext-exl3-pi32k-stability-2026-10-02.md) |
+| GGUF IQ3_XXS, 65k, q8_0 KV, `--ctx-checkpoints 4 --cache-ram 0` | About 60k in Pi; direct 60,815-62,975-token requests | 12.4-13.0 (single runs) | `--ctx-checkpoints 4 --cache-ram 0` against checkpoint OOM; llama.cpp after the qwen4exp fix | Empty finals and long-thinking errors; one medium session failed a recall check; minimum free RAM 1.5 GiB; no Pi auto-compaction in 54k OFF sessions | [3 Oct memory](reports/flashnext-gguf-pi-memory-2026-10-03.md), [6 Oct 61k](reports/flashnext-gguf-61k-mtp-2026-10-06.md) |
+| GGUF with MTP (speculative draft head) | Short context-16384 test only | 0.87x of no-MTP (two samples); 0.98x on a short request | Local experimental k-pool patch for the #29811 draft-context crash | Not beneficial on this build, profile and host; resident MTP missed the host-RAM safety budget (3 Oct) | [6 Oct MTP](reports/flashnext-gguf-61k-mtp-2026-10-06.md), [3 Oct fix](reports/flashnext-gguf-qwen4exp-fix-2026-10-03.md) |
+
+HostPool is the fork's host-memory pool integration; it showed no large memory gain. Numbers come from the linked reports; most were single runs.
 
 ## Latest recorded conclusions
 

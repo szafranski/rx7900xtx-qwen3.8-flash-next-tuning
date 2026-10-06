@@ -1,5 +1,14 @@
 # GGUF Pi: thinking, puste finale i historia
 
+## English summary
+
+The rest of this report is in Polish. It records finished 3 October 2026 attempts with the GSQ-RCO IQ3_XXS model (q8_0 KV, upstream llama.cpp `bed0a856606e`), plus research and a CPU-only audit; no inference or GPU was run for the update and nothing was deployed.
+
+- `maxTokens=8192` alone did not remove empty final answers. With `--reasoning-budget 4096` there was room for a final answer on three arithmetic tasks, but all three were wrong; two empty early stops still occurred.
+- Low thinking without a budget also exhausted the token limit. A non-empty final is not a correct or complete answer.
+- In a later short-turn test, C1 (`preserve_thinking=false`) was best: 0/25 empty finals and 19/19 correct recall. C2 (frequency penalty 0.3) and C3 (presence penalty 0.3) did worse than C0. One session per arm does not prove a fix; the test had no hard arithmetic and no compaction.
+- A working profile was chosen afterwards with a second-model consultation (a decision, not a measurement): `--reasoning-budget 4096`, q8_0 KV, `--ctx-checkpoints 4`, Pi medium, `maxTokens=16384`, `reserveTokens=16384`, `preserve_thinking=true`, no penalties. That complete profile was not measured.
+
 3 X 2026. Qwen3.8 Flash-Next GSQ-RCO IQ3_XXS, KV q8_0,
 upstream `bed0a856606e`, RX 7900 XTX. To zapis zakonczonych prob,
 researchu i audytu CPU. Aktualizacja repo nie uruchamiala inference

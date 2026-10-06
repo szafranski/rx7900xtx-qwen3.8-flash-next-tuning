@@ -2,6 +2,8 @@
 
 # Qwen3.8 Flash-Next: thinking przy dlugim kontekscie
 
+> **Warning:** the builds tested here predate the qwen4exp correctness fix, so correctness and MTP claims in this report do not validate the fixed implementation. For fixed-build results see [the 3 October qwen4exp-fix report](flashnext-gguf-qwen4exp-fix-2026-10-03.md) and [the 6 October 61k and MTP report](flashnext-gguf-61k-mtp-2026-10-06.md).
+
 Data: 2026-09-26. Ten sam model GGUF i upstream build HIP `d81aef1` co we wczesniejszych probach. RX 7900 XTX. Serwer: `--ctx-size 65536`, `--reasoning on`, `--cache-ram 0`, KV q8_0/q8_0, Flash Attention, `mmap`, `lazy-mode on`, 28 GiB limitu RAM i 30 GiB RAM+swap kontenera.
 
 ## Wynik
