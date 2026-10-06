@@ -1,0 +1,59 @@
+diff --git a/rocm_tools/exl3_server/server.py b/rocm_tools/exl3_server/server.py
+index 2dcd55b..68fc232 100644
+--- a/rocm_tools/exl3_server/server.py
++++ b/rocm_tools/exl3_server/server.py
+@@ -447,6 +447,30 @@ def flatten_content(content: Any) -> str:
+     return str(content)
+ 
+ 
++def normalize_messages(messages: list[dict]) -> list[dict]:
++    normalized = []
++    for original in messages:
++        m = {**original, "role": original.get("role", "user"),
++             "content": flatten_content(original.get("content"))}
++        # Qwen's template expects system and decoded argument mappings.
++        if m["role"] == "developer":
++            m["role"] = "system"
++        if m.get("tool_calls"):
++            m["tool_calls"] = []
++            for call in original["tool_calls"]:
++                function = dict(call["function"])
++                if isinstance(function.get("arguments"), str):
++                    try:
++                        function["arguments"] = json.loads(function["arguments"])
++                    except json.JSONDecodeError as e:
++                        raise HTTPException(400, f"Invalid tool arguments: {e}") from e
++                if not isinstance(function.get("arguments", {}), dict):
++                    raise HTTPException(400, "Tool arguments must be a JSON object")
++                m["tool_calls"].append({**call, "function": function})
++        normalized.append(m)
++    return normalized
++
++
+ def chat_prompt_ids(req: ChatCompletionRequest) -> torch.Tensor:
+     if not state.has_chat_template:
+         raise HTTPException(
+@@ -454,10 +478,7 @@ def chat_prompt_ids(req: ChatCompletionRequest) -> torch.Tensor:
+             "This model has no chat template in its tokenizer config. Use /v1/completions "
+             "with a client-side instruct template instead."
+         )
+-    messages = [
+-        {"role": m.get("role", "user"), "content": flatten_content(m.get("content"))}
+-        for m in req.messages
+-    ]
++    messages = normalize_messages(req.messages)
+     if not messages:
+         raise HTTPException(400, "messages must not be empty")
+ 
+@@ -797,10 +818,7 @@ async def apply_template(request: Request, body: ApplyTemplateRequest):
+     check_auth(request)
+     if not state.has_chat_template:
+         raise HTTPException(400, "Model has no chat template")
+-    messages = [
+-        {"role": m.get("role", "user"), "content": flatten_content(m.get("content"))}
+-        for m in body.messages
+-    ]
++    messages = normalize_messages(body.messages)
+     kwargs = dict(state.default_template_kwargs)
+     if body.chat_template_kwargs:
+         kwargs.update(body.chat_template_kwargs)
