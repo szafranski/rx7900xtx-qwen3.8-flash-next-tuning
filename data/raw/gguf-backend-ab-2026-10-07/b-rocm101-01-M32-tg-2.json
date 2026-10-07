@@ -1,0 +1,24 @@
+{
+  "tag": "M32-tg-2",
+  "wall_s": 87.18902397155762,
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 32043,
+    "prompt_ms": 47367.458,
+    "prompt_per_token_ms": 1.4782466685391504,
+    "prompt_per_second": 676.4770868641505,
+    "predicted_n": 512,
+    "predicted_ms": 39755.799,
+    "predicted_per_token_ms": 77.79999804305284,
+    "predicted_per_second": 12.853470760328577
+  },
+  "usage": {
+    "completion_tokens": 512,
+    "prompt_tokens": 32043,
+    "total_tokens": 32555,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "finish_reason": "length"
+}

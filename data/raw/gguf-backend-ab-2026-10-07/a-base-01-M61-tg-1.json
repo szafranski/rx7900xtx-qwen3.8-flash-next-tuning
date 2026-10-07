@@ -1,0 +1,24 @@
+{
+  "tag": "M61-tg-1",
+  "wall_s": 138.53783226013184,
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 60843,
+    "prompt_ms": 99809.817,
+    "prompt_per_token_ms": 1.6404486465164438,
+    "prompt_per_second": 609.5893352855261,
+    "predicted_n": 512,
+    "predicted_ms": 38626.357,
+    "predicted_per_token_ms": 75.5897397260274,
+    "predicted_per_second": 13.229308681634148
+  },
+  "usage": {
+    "completion_tokens": 512,
+    "prompt_tokens": 60843,
+    "total_tokens": 61355,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "finish_reason": "length"
+}

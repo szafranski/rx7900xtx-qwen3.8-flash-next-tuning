@@ -1,0 +1,24 @@
+{
+  "tag": "M61-recall-2",
+  "wall_s": 102.21976733207703,
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 60815,
+    "prompt_ms": 99737.69,
+    "prompt_per_token_ms": 1.6400179232097345,
+    "prompt_per_second": 609.7494337396425,
+    "predicted_n": 32,
+    "predicted_ms": 2388.303,
+    "predicted_per_token_ms": 77.04203225806451,
+    "predicted_per_second": 12.97992758875235
+  },
+  "usage": {
+    "completion_tokens": 32,
+    "prompt_tokens": 60815,
+    "total_tokens": 60847,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "finish_reason": "stop"
+}

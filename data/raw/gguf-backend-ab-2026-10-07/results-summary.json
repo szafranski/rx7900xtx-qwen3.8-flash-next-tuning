@@ -1,0 +1,1133 @@
+{
+  "commit": "bed0a856606ee4a24a164066f73d2379447033f5",
+  "runs": [
+    {
+      "variant": "base",
+      "fit_target": 2048,
+      "status": "PASS",
+      "gates": {
+        "off": "PASS 6/6",
+        "medium": "PASS 6/6"
+      },
+      "benchmarks": [
+        {
+          "tag": "M32-tg-1",
+          "wall_s": 85.43264245986938,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 32043,
+            "prompt_ms": 48167.493,
+            "prompt_per_token_ms": 1.5032142121524203,
+            "prompt_per_second": 665.2411824713402,
+            "predicted_n": 512,
+            "predicted_ms": 37199.165,
+            "predicted_per_token_ms": 72.79680039138944,
+            "predicted_per_second": 13.736867480762001
+          },
+          "usage": {
+            "completion_tokens": 512,
+            "prompt_tokens": 32043,
+            "total_tokens": 32555,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "length",
+          "rendered_tokens": 32043
+        },
+        {
+          "tag": "M61-recall-1",
+          "wall_s": 102.22409725189209,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 60815,
+            "prompt_ms": 99734.617,
+            "prompt_per_token_ms": 1.6399673929129326,
+            "prompt_per_second": 609.7682211984632,
+            "predicted_n": 32,
+            "predicted_ms": 2393.565,
+            "predicted_per_token_ms": 77.2117741935484,
+            "predicted_per_second": 12.951392588043358
+          },
+          "usage": {
+            "completion_tokens": 32,
+            "prompt_tokens": 60815,
+            "total_tokens": 60847,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "stop",
+          "recall": true
+        },
+        {
+          "tag": "M61-tg-1",
+          "wall_s": 138.53783226013184,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 60843,
+            "prompt_ms": 99809.817,
+            "prompt_per_token_ms": 1.6404486465164438,
+            "prompt_per_second": 609.5893352855261,
+            "predicted_n": 512,
+            "predicted_ms": 38626.357,
+            "predicted_per_token_ms": 75.5897397260274,
+            "predicted_per_second": 13.229308681634148
+          },
+          "usage": {
+            "completion_tokens": 512,
+            "prompt_tokens": 60843,
+            "total_tokens": 61355,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "length",
+          "rendered_tokens": 60843
+        },
+        {
+          "tag": "M32-tg-2",
+          "wall_s": 85.07719874382019,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 32043,
+            "prompt_ms": 48052.072,
+            "prompt_per_token_ms": 1.4996121461785725,
+            "prompt_per_second": 666.8390907264103,
+            "predicted_n": 512,
+            "predicted_ms": 36960.792,
+            "predicted_per_token_ms": 72.33031702544032,
+            "predicted_per_second": 13.825461315872236
+          },
+          "usage": {
+            "completion_tokens": 512,
+            "prompt_tokens": 32043,
+            "total_tokens": 32555,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "length",
+          "rendered_tokens": 32043
+        },
+        {
+          "tag": "M61-recall-2",
+          "wall_s": 102.21976733207703,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 60815,
+            "prompt_ms": 99737.69,
+            "prompt_per_token_ms": 1.6400179232097345,
+            "prompt_per_second": 609.7494337396425,
+            "predicted_n": 32,
+            "predicted_ms": 2388.303,
+            "predicted_per_token_ms": 77.04203225806451,
+            "predicted_per_second": 12.97992758875235
+          },
+          "usage": {
+            "completion_tokens": 32,
+            "prompt_tokens": 60815,
+            "total_tokens": 60847,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "stop",
+          "recall": true
+        },
+        {
+          "tag": "M61-tg-2",
+          "wall_s": 138.64345383644104,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 60843,
+            "prompt_ms": 99907.734,
+            "prompt_per_token_ms": 1.6420579853064443,
+            "prompt_per_second": 608.9918924594967,
+            "predicted_n": 512,
+            "predicted_ms": 38642.18,
+            "predicted_per_token_ms": 75.62070450097848,
+            "predicted_per_second": 13.223891612740276
+          },
+          "usage": {
+            "completion_tokens": 512,
+            "prompt_tokens": 60843,
+            "total_tokens": 61355,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "length",
+          "rendered_tokens": 60843
+        }
+      ],
+      "load_s": 46.02164816856384,
+      "exit_code": 0,
+      "oom_killed": false,
+      "resources": {
+        "peak_vram": 24778919936,
+        "peak_gtt": 443871232,
+        "min_avail": 1676587008,
+        "peak_container_memory": 28461821952,
+        "swap_in_bytes": 4730880,
+        "swap_out_bytes": 19927040,
+        "faults": {
+          "kernel_faults": [],
+          "kernel_oom_lines": [],
+          "cgroup_event_deltas": {
+            "oom": 0,
+            "oom_kill": 0,
+            "max": 0
+          },
+          "first_events": {
+            "low": 0,
+            "high": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0,
+            "sock_throttled": 0
+          },
+          "last_events": {
+            "low": 0,
+            "high": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0,
+            "sock_throttled": 1
+          },
+          "peak": 28461821952,
+          "last_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=33189\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=33189"
+        },
+        "host_oom_kill_delta": 0
+      },
+      "run": "a-base-01",
+      "elapsed_s": 778.7141370773315,
+      "verdict": "CONTROL"
+    },
+    {
+      "variant": "rocm101",
+      "fit_target": 2048,
+      "status": "PASS",
+      "gates": {
+        "off": "PASS 6/6",
+        "medium": "PASS 6/6"
+      },
+      "benchmarks": [
+        {
+          "tag": "M32-tg-1",
+          "wall_s": 87.17606449127197,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 32043,
+            "prompt_ms": 47314.376,
+            "prompt_per_token_ms": 1.4765900820772087,
+            "prompt_per_second": 677.2360265302875,
+            "predicted_n": 512,
+            "predicted_ms": 39797.481,
+            "predicted_per_token_ms": 77.8815675146771,
+            "predicted_per_second": 12.840008642758068
+          },
+          "usage": {
+            "completion_tokens": 512,
+            "prompt_tokens": 32043,
+            "total_tokens": 32555,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "length",
+          "rendered_tokens": 32043
+        },
+        {
+          "tag": "M61-recall-1",
+          "wall_s": 100.44178128242493,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 60815,
+            "prompt_ms": 97596.158,
+            "prompt_per_token_ms": 1.6048040450546739,
+            "prompt_per_second": 623.1290375180547,
+            "predicted_n": 32,
+            "predicted_ms": 2745.925,
+            "predicted_per_token_ms": 88.57822580645161,
+            "predicted_per_second": 11.289456194178646
+          },
+          "usage": {
+            "completion_tokens": 32,
+            "prompt_tokens": 60815,
+            "total_tokens": 60847,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "stop",
+          "recall": true
+        },
+        {
+          "tag": "M61-tg-1",
+          "wall_s": 141.68735575675964,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 60843,
+            "prompt_ms": 97672.176,
+            "prompt_per_token_ms": 1.6053149252995416,
+            "prompt_per_second": 622.9307310610137,
+            "predicted_n": 512,
+            "predicted_ms": 43922.751,
+            "predicted_per_token_ms": 85.95450293542073,
+            "predicted_per_second": 11.63406181001732
+          },
+          "usage": {
+            "completion_tokens": 512,
+            "prompt_tokens": 60843,
+            "total_tokens": 61355,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "length",
+          "rendered_tokens": 60843
+        },
+        {
+          "tag": "M32-tg-2",
+          "wall_s": 87.18902397155762,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 32043,
+            "prompt_ms": 47367.458,
+            "prompt_per_token_ms": 1.4782466685391504,
+            "prompt_per_second": 676.4770868641505,
+            "predicted_n": 512,
+            "predicted_ms": 39755.799,
+            "predicted_per_token_ms": 77.79999804305284,
+            "predicted_per_second": 12.853470760328577
+          },
+          "usage": {
+            "completion_tokens": 512,
+            "prompt_tokens": 32043,
+            "total_tokens": 32555,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "length",
+          "rendered_tokens": 32043
+        },
+        {
+          "tag": "M61-recall-2",
+          "wall_s": 100.4921383857727,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 60815,
+            "prompt_ms": 97663.892,
+            "prompt_per_token_ms": 1.6059178163282086,
+            "prompt_per_second": 622.6968714292074,
+            "predicted_n": 32,
+            "predicted_ms": 2736.351,
+            "predicted_per_token_ms": 88.2693870967742,
+            "predicted_per_second": 11.328955970926245
+          },
+          "usage": {
+            "completion_tokens": 32,
+            "prompt_tokens": 60815,
+            "total_tokens": 60847,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "stop",
+          "recall": true
+        },
+        {
+          "tag": "M61-tg-2",
+          "wall_s": 141.8568024635315,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 60843,
+            "prompt_ms": 97765.725,
+            "prompt_per_token_ms": 1.6068524727577536,
+            "prompt_per_second": 622.3346679012507,
+            "predicted_n": 512,
+            "predicted_ms": 43989.88,
+            "predicted_per_token_ms": 86.08587084148728,
+            "predicted_per_second": 11.6163081145027
+          },
+          "usage": {
+            "completion_tokens": 512,
+            "prompt_tokens": 60843,
+            "total_tokens": 61355,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "length",
+          "rendered_tokens": 60843
+        }
+      ],
+      "load_s": 63.28221082687378,
+      "exit_code": 0,
+      "oom_killed": false,
+      "resources": {
+        "peak_vram": 24816541696,
+        "peak_gtt": 443871232,
+        "min_avail": 2107723776,
+        "peak_container_memory": 29275295744,
+        "swap_in_bytes": 25305088,
+        "swap_out_bytes": 495411200,
+        "faults": {
+          "kernel_faults": [],
+          "kernel_oom_lines": [],
+          "cgroup_event_deltas": {
+            "oom": 0,
+            "oom_kill": 0,
+            "max": 0
+          },
+          "first_events": {
+            "low": 0,
+            "high": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0,
+            "sock_throttled": 0
+          },
+          "last_events": {
+            "low": 0,
+            "high": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0,
+            "sock_throttled": 1
+          },
+          "peak": 29275295744,
+          "last_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=682894\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=682894"
+        },
+        "host_oom_kill_delta": 0
+      },
+      "run": "b-rocm101-01",
+      "elapsed_s": 800.9082536697388,
+      "verdict": "no meaningful gain",
+      "ram_criterion_pass": true,
+      "passing_metrics": [],
+      "ram_delta_vs_control_GiB": 0.2485504150390625
+    },
+    {
+      "variant": "vulkan",
+      "fit_target": 2048,
+      "status": "PASS",
+      "gates": {
+        "off": "PASS 6/6",
+        "medium": "PASS 6/6"
+      },
+      "benchmarks": [
+        {
+          "tag": "M32-tg-1",
+          "wall_s": 163.60747003555298,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 32043,
+            "prompt_ms": 132276.705,
+            "prompt_per_token_ms": 4.128099897013388,
+            "prompt_per_second": 242.24219978869297,
+            "predicted_n": 512,
+            "predicted_ms": 31264.508,
+            "predicted_per_token_ms": 61.18299021526419,
+            "predicted_per_second": 16.34441200865851
+          },
+          "usage": {
+            "completion_tokens": 512,
+            "prompt_tokens": 32043,
+            "total_tokens": 32555,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "length",
+          "rendered_tokens": 32043
+        },
+        {
+          "tag": "M61-recall-1",
+          "wall_s": 261.1254680156708,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 60815,
+            "prompt_ms": 259077.707,
+            "prompt_per_token_ms": 4.260095486310943,
+            "prompt_per_second": 234.73652250596768,
+            "predicted_n": 32,
+            "predicted_ms": 1956.828,
+            "predicted_per_token_ms": 63.12348387096774,
+            "predicted_per_second": 15.841964648911402
+          },
+          "usage": {
+            "completion_tokens": 32,
+            "prompt_tokens": 60815,
+            "total_tokens": 60847,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "stop",
+          "recall": true
+        },
+        {
+          "tag": "M61-tg-1",
+          "wall_s": 291.02888917922974,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 60843,
+            "prompt_ms": 259066.951,
+            "prompt_per_token_ms": 4.257958203901846,
+            "prompt_per_second": 234.85434851935244,
+            "predicted_n": 512,
+            "predicted_ms": 31870.07,
+            "predicted_per_token_ms": 62.36804305283757,
+            "predicted_per_second": 16.033852451532113
+          },
+          "usage": {
+            "completion_tokens": 512,
+            "prompt_tokens": 60843,
+            "total_tokens": 61355,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "length",
+          "rendered_tokens": 60843
+        },
+        {
+          "tag": "M32-tg-2",
+          "wall_s": 163.6263825893402,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 32043,
+            "prompt_ms": 132260.253,
+            "prompt_per_token_ms": 4.127586461941766,
+            "prompt_per_second": 242.27233256540043,
+            "predicted_n": 512,
+            "predicted_ms": 31299.469,
+            "predicted_per_token_ms": 61.251407045009785,
+            "predicted_per_second": 16.326155565131153
+          },
+          "usage": {
+            "completion_tokens": 512,
+            "prompt_tokens": 32043,
+            "total_tokens": 32555,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "length",
+          "rendered_tokens": 32043
+        },
+        {
+          "tag": "M61-recall-2",
+          "wall_s": 261.3177535533905,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 60815,
+            "prompt_ms": 259282.804,
+            "prompt_per_token_ms": 4.263467960207186,
+            "prompt_per_second": 234.55084202190284,
+            "predicted_n": 32,
+            "predicted_ms": 1944.1,
+            "predicted_per_token_ms": 62.71290322580645,
+            "predicted_per_second": 15.945681806491436
+          },
+          "usage": {
+            "completion_tokens": 32,
+            "prompt_tokens": 60815,
+            "total_tokens": 60847,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "stop",
+          "recall": true
+        },
+        {
+          "tag": "M61-tg-2",
+          "wall_s": 291.35737776756287,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 60843,
+            "prompt_ms": 259153.134,
+            "prompt_per_token_ms": 4.259374685666387,
+            "prompt_per_second": 234.77624623285476,
+            "predicted_n": 512,
+            "predicted_ms": 32112.657,
+            "predicted_per_token_ms": 62.842772994129156,
+            "predicted_per_second": 15.912728741193854
+          },
+          "usage": {
+            "completion_tokens": 512,
+            "prompt_tokens": 60843,
+            "total_tokens": 61355,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "length",
+          "rendered_tokens": 60843
+        }
+      ],
+      "load_s": 32.76651668548584,
+      "exit_code": 0,
+      "oom_killed": false,
+      "resources": {
+        "peak_vram": 23700475904,
+        "peak_gtt": 747175936,
+        "min_avail": 1715847168,
+        "peak_container_memory": 28886339584,
+        "swap_in_bytes": 33722368,
+        "swap_out_bytes": 11411456,
+        "faults": {
+          "kernel_faults": [],
+          "kernel_oom_lines": [],
+          "cgroup_event_deltas": {
+            "oom": 0,
+            "oom_kill": 0,
+            "max": 0
+          },
+          "first_events": {
+            "low": 0,
+            "high": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0,
+            "sock_throttled": 0
+          },
+          "last_events": {
+            "low": 0,
+            "high": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0,
+            "sock_throttled": 0
+          },
+          "peak": 28886339584,
+          "last_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=296930\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=296930"
+        },
+        "host_oom_kill_delta": 0
+      },
+      "run": "c-vulkan-01",
+      "elapsed_s": 1549.7690885066986,
+      "verdict": "WORTH SWITCHING",
+      "ram_criterion_pass": true,
+      "passing_metrics": [
+        "M32 predicted_per_second",
+        "M61 predicted_per_second"
+      ],
+      "ram_delta_vs_control_GiB": -0.11641311645507812
+    },
+    {
+      "variant": "base",
+      "fit_target": 2048,
+      "status": "PASS",
+      "gates": {
+        "off": "PASS 6/6",
+        "medium": "PASS 6/6"
+      },
+      "benchmarks": [
+        {
+          "tag": "M32-tg-1",
+          "wall_s": 85.29212307929993,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 32043,
+            "prompt_ms": 48089.751,
+            "prompt_per_token_ms": 1.5007880348281994,
+            "prompt_per_second": 666.3166128683013,
+            "predicted_n": 512,
+            "predicted_ms": 37135.708,
+            "predicted_per_token_ms": 72.67261839530333,
+            "predicted_per_second": 13.760340855760715
+          },
+          "usage": {
+            "completion_tokens": 512,
+            "prompt_tokens": 32043,
+            "total_tokens": 32555,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "length",
+          "rendered_tokens": 32043
+        },
+        {
+          "tag": "M61-recall-1",
+          "wall_s": 102.19888353347778,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 60815,
+            "prompt_ms": 99726.021,
+            "prompt_per_token_ms": 1.6398260462057057,
+            "prompt_per_second": 609.8207808772397,
+            "predicted_n": 32,
+            "predicted_ms": 2378.211,
+            "predicted_per_token_ms": 76.71648387096774,
+            "predicted_per_second": 13.035008247796348
+          },
+          "usage": {
+            "completion_tokens": 32,
+            "prompt_tokens": 60815,
+            "total_tokens": 60847,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "stop",
+          "recall": true
+        },
+        {
+          "tag": "M61-tg-1",
+          "wall_s": 138.49435830116272,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 60843,
+            "prompt_ms": 99795.202,
+            "prompt_per_token_ms": 1.6402084381112043,
+            "prompt_per_second": 609.6786095988863,
+            "predicted_n": 512,
+            "predicted_ms": 38606.268,
+            "predicted_per_token_ms": 75.5504266144814,
+            "predicted_per_second": 13.236192630688883
+          },
+          "usage": {
+            "completion_tokens": 512,
+            "prompt_tokens": 60843,
+            "total_tokens": 61355,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "length",
+          "rendered_tokens": 60843
+        },
+        {
+          "tag": "M32-tg-2",
+          "wall_s": 85.13643169403076,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 32043,
+            "prompt_ms": 48045.191,
+            "prompt_per_token_ms": 1.4993974034890616,
+            "prompt_per_second": 666.9345949733033,
+            "predicted_n": 512,
+            "predicted_ms": 37023.769,
+            "predicted_per_token_ms": 72.45355968688845,
+            "predicted_per_second": 13.801944367144252
+          },
+          "usage": {
+            "completion_tokens": 512,
+            "prompt_tokens": 32043,
+            "total_tokens": 32555,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "length",
+          "rendered_tokens": 32043
+        },
+        {
+          "tag": "M61-recall-2",
+          "wall_s": 102.35529923439026,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 60815,
+            "prompt_ms": 99877.264,
+            "prompt_per_token_ms": 1.6423129819945737,
+            "prompt_per_second": 608.897336234601,
+            "predicted_n": 32,
+            "predicted_ms": 2385.427,
+            "predicted_per_token_ms": 76.94925806451613,
+            "predicted_per_second": 12.995576892522804
+          },
+          "usage": {
+            "completion_tokens": 32,
+            "prompt_tokens": 60815,
+            "total_tokens": 60847,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "stop",
+          "recall": true
+        },
+        {
+          "tag": "M61-tg-2",
+          "wall_s": 138.60485792160034,
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 60843,
+            "prompt_ms": 99906.421,
+            "prompt_per_token_ms": 1.6420364051739724,
+            "prompt_per_second": 608.9998960126896,
+            "predicted_n": 512,
+            "predicted_ms": 38603.82,
+            "predicted_per_token_ms": 75.54563600782778,
+            "predicted_per_second": 13.23703198284522
+          },
+          "usage": {
+            "completion_tokens": 512,
+            "prompt_tokens": 60843,
+            "total_tokens": 61355,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "finish_reason": "length",
+          "rendered_tokens": 60843
+        }
+      ],
+      "load_s": 47.90593099594116,
+      "exit_code": 0,
+      "oom_killed": false,
+      "resources": {
+        "peak_vram": 24783732736,
+        "peak_gtt": 443871232,
+        "min_avail": 2005102592,
+        "peak_container_memory": 30029832192,
+        "swap_in_bytes": 3567616,
+        "swap_out_bytes": 4657152,
+        "faults": {
+          "kernel_faults": [],
+          "kernel_oom_lines": [],
+          "cgroup_event_deltas": {
+            "oom": 0,
+            "oom_kill": 0,
+            "max": 0
+          },
+          "first_events": {
+            "low": 0,
+            "high": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0,
+            "sock_throttled": 0
+          },
+          "last_events": {
+            "low": 0,
+            "high": 0,
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0,
+            "oom_group_kill": 0,
+            "sock_throttled": 0
+          },
+          "peak": 30029832192,
+          "last_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=46201\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=46201"
+        },
+        "host_oom_kill_delta": 0
+      },
+      "run": "a-base-02",
+      "elapsed_s": 819.8633811473846,
+      "verdict": "CONTROL"
+    }
+  ],
+  "control_comparison": {
+    "M32": {
+      "prompt_per_second": {
+        "mean": 666.3328702598387,
+        "control_means": [
+          666.0401365988753,
+          666.6256039208023
+        ],
+        "control_spread_pct": 0.087902708824239
+      },
+      "predicted_per_second": {
+        "mean": 13.7811535048848,
+        "control_means": [
+          13.781164398317118,
+          13.781142611452484
+        ],
+        "control_spread_pct": 0.00015809185964776873
+      }
+    },
+    "M61": {
+      "prompt_per_second": {
+        "mean": 609.5589430124866,
+        "control_means": [
+          609.7588274690529,
+          609.3590585559203
+        ],
+        "control_spread_pct": 0.06560481993653777
+      },
+      "predicted_per_second": {
+        "mean": 13.231606226977132,
+        "control_means": [
+          13.226600147187213,
+          13.236612306767052
+        ],
+        "control_spread_pct": 0.07569715171262814
+      }
+    }
+  },
+  "builds": {
+    "rocm101": {
+      "exitcode": 0,
+      "options": {
+        "GGML_ACCELERATE": "ON",
+        "GGML_ALL_WARNINGS_3RD_PARTY": "OFF",
+        "GGML_AMX_BF16": "OFF",
+        "GGML_AMX_INT8": "OFF",
+        "GGML_AMX_TILE": "OFF",
+        "GGML_AVX": "OFF",
+        "GGML_AVX2": "OFF",
+        "GGML_AVX512": "OFF",
+        "GGML_AVX512_BF16": "OFF",
+        "GGML_AVX512_VBMI": "OFF",
+        "GGML_AVX512_VNNI": "OFF",
+        "GGML_AVX_VNNI": "OFF",
+        "GGML_BACKEND_DL": "OFF",
+        "GGML_BLAS": "OFF",
+        "GGML_BLAS_VENDOR": "Generic",
+        "GGML_BMI2": "OFF",
+        "GGML_BUILD_EXAMPLES": "OFF",
+        "GGML_BUILD_TESTS": "OFF",
+        "GGML_CCACHE": "ON",
+        "GGML_CPU": "ON",
+        "GGML_CPU_ALL_VARIANTS": "OFF",
+        "GGML_CPU_ARM_ARCH": "",
+        "GGML_CPU_HBM": "OFF",
+        "GGML_CPU_KLEIDIAI": "OFF",
+        "GGML_CPU_POWERPC_CPUTYPE": "",
+        "GGML_CPU_REPACK": "ON",
+        "GGML_CUDA": "OFF",
+        "GGML_CUDA_CCCL_VERSION": "",
+        "GGML_CUDA_COMPRESSION_MODE": "size",
+        "GGML_CUDA_FA": "ON",
+        "GGML_CUDA_FA_ALL_QUANTS": "OFF",
+        "GGML_CUDA_FA_QUANTS": "q4_0-q4_0;q8_0-q8_0;f16-f16;bf16-bf16",
+        "GGML_CUDA_FORCE_CUBLAS": "OFF",
+        "GGML_CUDA_FORCE_MMQ": "OFF",
+        "GGML_CUDA_GRAPHS": "ON",
+        "GGML_CUDA_NCCL": "ON",
+        "GGML_CUDA_NO_PEER_COPY": "OFF",
+        "GGML_CUDA_NO_VMM": "OFF",
+        "GGML_ET": "OFF",
+        "GGML_ET_SYSEMU": "OFF",
+        "GGML_F16C": "OFF",
+        "GGML_FMA": "OFF",
+        "GGML_GPROF": "OFF",
+        "GGML_HEXAGON": "OFF",
+        "GGML_HIP": "ON",
+        "GGML_HIP_EXPORT_METRICS": "OFF",
+        "GGML_HIP_GRAPHS": "ON",
+        "GGML_HIP_MMQ_MFMA": "ON",
+        "GGML_HIP_NO_VMM": "ON",
+        "GGML_HIP_RCCL": "OFF",
+        "GGML_LASX": "ON",
+        "GGML_LLAMAFILE": "ON",
+        "GGML_LSX": "ON",
+        "GGML_LTO": "OFF",
+        "GGML_METAL": "OFF",
+        "GGML_METAL_EMBED_LIBRARY": "OFF",
+        "GGML_METAL_MACOSX_VERSION_MIN": "",
+        "GGML_METAL_NDEBUG": "OFF",
+        "GGML_METAL_SHADER_DEBUG": "OFF",
+        "GGML_METAL_STD": "",
+        "GGML_METAL_TARGET_OS": "macos",
+        "GGML_MUSA": "OFF",
+        "GGML_MUSA_GRAPHS": "OFF",
+        "GGML_MUSA_MUDNN_COPY": "OFF",
+        "GGML_NATIVE": "ON",
+        "GGML_OPENCL": "OFF",
+        "GGML_OPENCL_EMBED_KERNELS": "ON",
+        "GGML_OPENCL_PROFILING": "OFF",
+        "GGML_OPENCL_TARGET_VERSION": "300",
+        "GGML_OPENCL_USE_ADRENO_KERNELS": "ON",
+        "GGML_OPENMP": "ON",
+        "GGML_OPENMP_FETCH": "OFF",
+        "GGML_OPENVINO": "OFF",
+        "GGML_RPC": "OFF",
+        "GGML_RVV": "ON",
+        "GGML_RV_ZFH": "ON",
+        "GGML_RV_ZICBOP": "ON",
+        "GGML_RV_ZIHINTPAUSE": "ON",
+        "GGML_RV_ZVFBFWMA": "OFF",
+        "GGML_RV_ZVFH": "ON",
+        "GGML_SANITIZE_ADDRESS": "OFF",
+        "GGML_SANITIZE_THREAD": "OFF",
+        "GGML_SANITIZE_UNDEFINED": "OFF",
+        "GGML_SCHED_MAX_COPIES": "4",
+        "GGML_SCHED_NO_REALLOC": "OFF",
+        "GGML_SSE42": "OFF",
+        "GGML_STATIC": "OFF",
+        "GGML_SYCL": "OFF",
+        "GGML_SYCL_DEVICE_ARCH": "",
+        "GGML_SYCL_DNN": "ON",
+        "GGML_SYCL_F16": "OFF",
+        "GGML_SYCL_GRAPH": "ON",
+        "GGML_SYCL_HOST_MEM_FALLBACK": "ON",
+        "GGML_SYCL_SUPPORT_LEVEL_ZERO_API": "ON",
+        "GGML_SYCL_TARGET": "INTEL",
+        "GGML_VIRTGPU": "OFF",
+        "GGML_VIRTGPU_BACKEND": "OFF",
+        "GGML_VULKAN": "OFF",
+        "GGML_VULKAN_CHECK_RESULTS": "OFF",
+        "GGML_VULKAN_DEBUG": "OFF",
+        "GGML_VULKAN_MEMORY_DEBUG": "OFF",
+        "GGML_VULKAN_RUN_TESTS": "OFF",
+        "GGML_VULKAN_SHADER_DEBUG_INFO": "OFF",
+        "GGML_VULKAN_VALIDATE": "OFF",
+        "GGML_VXE": "ON",
+        "GGML_WEBGPU": "OFF",
+        "GGML_WEBGPU_CPU_PROFILE": "OFF",
+        "GGML_WEBGPU_DEBUG": "OFF",
+        "GGML_WEBGPU_GPU_PROFILE": "OFF",
+        "GGML_WEBGPU_JSPI": "ON",
+        "GGML_XTHEADVECTOR": "OFF",
+        "GGML_ZDNN": "OFF",
+        "GGML_ZENDNN": "OFF",
+        "LLAMA_BUILD_TESTS": "OFF",
+        "LLAMA_BUILD_MTMD": "OFF",
+        "LLAMA_BUILD_UI": "OFF",
+        "LLAMA_CURL": "OFF",
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_HIP_COMPILER": "/sdk/venv/lib/python3.12/site-packages/_rocm_sdk_devel/lib/llvm/bin/clang++",
+        "CMAKE_HIP_COMPILER_ROCM_ROOT": "/sdk/venv/lib/python3.12/site-packages/_rocm_sdk_devel",
+        "CMAKE_HIP_ARCHITECTURES": "gfx1100",
+        "AMDGPU_TARGETS": "gfx1100",
+        "CMAKE_PREFIX_PATH": "/sdk/venv/lib/python3.12/site-packages/_rocm_sdk_devel"
+      },
+      "binary_sha256": "40299ceab604bd58a74d76675d864adf28e9107c643a89b54328d3c3ec543f84"
+    },
+    "vulkan": {
+      "exitcode": 0,
+      "options": {
+        "GGML_ACCELERATE": "ON",
+        "GGML_ALL_WARNINGS_3RD_PARTY": "OFF",
+        "GGML_AMX_BF16": "OFF",
+        "GGML_AMX_INT8": "OFF",
+        "GGML_AMX_TILE": "OFF",
+        "GGML_AVX": "OFF",
+        "GGML_AVX2": "OFF",
+        "GGML_AVX512": "OFF",
+        "GGML_AVX512_BF16": "OFF",
+        "GGML_AVX512_VBMI": "OFF",
+        "GGML_AVX512_VNNI": "OFF",
+        "GGML_AVX_VNNI": "OFF",
+        "GGML_BACKEND_DL": "OFF",
+        "GGML_BLAS": "OFF",
+        "GGML_BLAS_VENDOR": "Generic",
+        "GGML_BMI2": "OFF",
+        "GGML_BUILD_EXAMPLES": "OFF",
+        "GGML_BUILD_TESTS": "OFF",
+        "GGML_CCACHE": "ON",
+        "GGML_CPU": "ON",
+        "GGML_CPU_ALL_VARIANTS": "OFF",
+        "GGML_CPU_ARM_ARCH": "",
+        "GGML_CPU_HBM": "OFF",
+        "GGML_CPU_KLEIDIAI": "OFF",
+        "GGML_CPU_POWERPC_CPUTYPE": "",
+        "GGML_CPU_REPACK": "ON",
+        "GGML_CUDA": "OFF",
+        "GGML_CUDA_CCCL_VERSION": "",
+        "GGML_CUDA_COMPRESSION_MODE": "size",
+        "GGML_CUDA_FA": "ON",
+        "GGML_CUDA_FA_ALL_QUANTS": "OFF",
+        "GGML_CUDA_FA_QUANTS": "q4_0-q4_0;q8_0-q8_0;f16-f16;bf16-bf16",
+        "GGML_CUDA_FORCE_CUBLAS": "OFF",
+        "GGML_CUDA_FORCE_MMQ": "OFF",
+        "GGML_CUDA_GRAPHS": "ON",
+        "GGML_CUDA_NCCL": "ON",
+        "GGML_CUDA_NO_PEER_COPY": "OFF",
+        "GGML_CUDA_NO_VMM": "OFF",
+        "GGML_ET": "OFF",
+        "GGML_ET_SYSEMU": "OFF",
+        "GGML_F16C": "OFF",
+        "GGML_FMA": "OFF",
+        "GGML_GPROF": "OFF",
+        "GGML_HEXAGON": "OFF",
+        "GGML_HIP": "OFF",
+        "GGML_HIP_EXPORT_METRICS": "OFF",
+        "GGML_HIP_GRAPHS": "ON",
+        "GGML_HIP_MMQ_MFMA": "ON",
+        "GGML_HIP_NO_VMM": "ON",
+        "GGML_HIP_RCCL": "OFF",
+        "GGML_LASX": "ON",
+        "GGML_LLAMAFILE": "ON",
+        "GGML_LSX": "ON",
+        "GGML_LTO": "OFF",
+        "GGML_METAL": "OFF",
+        "GGML_METAL_EMBED_LIBRARY": "OFF",
+        "GGML_METAL_MACOSX_VERSION_MIN": "",
+        "GGML_METAL_NDEBUG": "OFF",
+        "GGML_METAL_SHADER_DEBUG": "OFF",
+        "GGML_METAL_STD": "",
+        "GGML_METAL_TARGET_OS": "macos",
+        "GGML_MUSA": "OFF",
+        "GGML_MUSA_GRAPHS": "OFF",
+        "GGML_MUSA_MUDNN_COPY": "OFF",
+        "GGML_NATIVE": "ON",
+        "GGML_OPENCL": "OFF",
+        "GGML_OPENCL_EMBED_KERNELS": "ON",
+        "GGML_OPENCL_PROFILING": "OFF",
+        "GGML_OPENCL_TARGET_VERSION": "300",
+        "GGML_OPENCL_USE_ADRENO_KERNELS": "ON",
+        "GGML_OPENMP": "ON",
+        "GGML_OPENMP_FETCH": "OFF",
+        "GGML_OPENVINO": "OFF",
+        "GGML_RPC": "OFF",
+        "GGML_RVV": "ON",
+        "GGML_RV_ZFH": "ON",
+        "GGML_RV_ZICBOP": "ON",
+        "GGML_RV_ZIHINTPAUSE": "ON",
+        "GGML_RV_ZVFBFWMA": "OFF",
+        "GGML_RV_ZVFH": "ON",
+        "GGML_SANITIZE_ADDRESS": "OFF",
+        "GGML_SANITIZE_THREAD": "OFF",
+        "GGML_SANITIZE_UNDEFINED": "OFF",
+        "GGML_SCHED_MAX_COPIES": "4",
+        "GGML_SCHED_NO_REALLOC": "OFF",
+        "GGML_SSE42": "OFF",
+        "GGML_STATIC": "OFF",
+        "GGML_SYCL": "OFF",
+        "GGML_SYCL_DEVICE_ARCH": "",
+        "GGML_SYCL_DNN": "ON",
+        "GGML_SYCL_F16": "OFF",
+        "GGML_SYCL_GRAPH": "ON",
+        "GGML_SYCL_HOST_MEM_FALLBACK": "ON",
+        "GGML_SYCL_SUPPORT_LEVEL_ZERO_API": "ON",
+        "GGML_SYCL_TARGET": "INTEL",
+        "GGML_VIRTGPU": "OFF",
+        "GGML_VIRTGPU_BACKEND": "OFF",
+        "GGML_VULKAN": "ON",
+        "GGML_VULKAN_CHECK_RESULTS": "OFF",
+        "GGML_VULKAN_DEBUG": "OFF",
+        "GGML_VULKAN_MEMORY_DEBUG": "OFF",
+        "GGML_VULKAN_RUN_TESTS": "OFF",
+        "GGML_VULKAN_SHADER_DEBUG_INFO": "OFF",
+        "GGML_VULKAN_VALIDATE": "OFF",
+        "GGML_VXE": "ON",
+        "GGML_WEBGPU": "OFF",
+        "GGML_WEBGPU_CPU_PROFILE": "OFF",
+        "GGML_WEBGPU_DEBUG": "OFF",
+        "GGML_WEBGPU_GPU_PROFILE": "OFF",
+        "GGML_WEBGPU_JSPI": "ON",
+        "GGML_XTHEADVECTOR": "OFF",
+        "GGML_ZDNN": "OFF",
+        "GGML_ZENDNN": "OFF",
+        "LLAMA_BUILD_TESTS": "OFF",
+        "LLAMA_BUILD_MTMD": "OFF",
+        "LLAMA_BUILD_UI": "OFF",
+        "LLAMA_CURL": "OFF",
+        "CMAKE_BUILD_TYPE": "Release"
+      },
+      "binary_sha256": "24209ea8ea1188fcfe744d8e3f37181addb87cfc5f3887f53595420783132148"
+    }
+  },
+  "versions": {
+    "host": "mesa-vulkan-drivers-26.2.4-1.fc44.x86_64\nmesa-vulkan-drivers-26.2.4-1.fc44.i686\nvulkan-loader-1.4.341.0-1.fc44.x86_64\nvulkan-loader-1.4.341.0-1.fc44.i686\ngcc-16.2.1-2.fc44.x86_64\nglibc-2.43-9.fc44.x86_64\nglibc-2.43-9.fc44.i686\n",
+    "cmake": "cmake version 4.3.0\n\nCMake suite maintained and supported by Kitware (kitware.com/cmake).\n",
+    "glslc": "shaderc v2026.1 2026-01-23spirv-tools v2026.1 2026-02-03glslang 301b4ede53d59b68bf55f95bb26412d9233c8187\nTarget: SPIR-V 1.0\n",
+    "rocm101-metadata": "{\n  \"pip\": \"26.2.1\",\n  \"rocm-sdk-libraries\": \"10.1.0\",\n  \"rocm-sdk-devel\": \"10.1.0\",\n  \"rocm-sdk-core\": \"10.1.0\",\n  \"mpmath\": \"1.3.0\",\n  \"typing_extensions\": \"4.16.0\",\n  \"triton\": \"3.8.0+git669b31ac.rocm10.1.0\",\n  \"tqdm\": \"4.70.1\",\n  \"sympy\": \"1.14.0\",\n  \"shellingham\": \"1.5.4\",\n  \"setuptools\": \"84.0.0\",\n  \"safetensors\": \"0.8.0\",\n  \"rocm-sdk-device-gfx1100\": \"10.1.0\",\n  \"rocm-bootstrap\": \"0.3.0\",\n  \"rocm\": \"10.1.0\",\n  \"regex\": \"2026.9.29\",\n  \"PyYAML\": \"6.0.3\",\n  \"Pygments\": \"2.21.0\",\n  \"pillow\": \"12.3.0\",\n  \"packaging\": \"26.3\",\n  \"numpy\": \"2.5.3\",\n  \"ninja\": \"1.13.2\",\n  \"networkx\": \"3.7\",\n  \"mdurl\": \"0.1.2\",\n  \"MarkupSafe\": \"3.0.4\",\n  \"marisa-trie\": \"1.4.1\",\n  \"llguidance\": \"1.9.1\",\n  \"idna\": \"3.20\",\n  \"hf-xet\": \"1.7.0\",\n  \"h11\": \"0.16.0\",\n  \"fsspec\": \"2026.9.0\",\n  \"filelock\": \"4.0.12\",\n  \"click\": \"8.5.0\",\n  \"certifi\": \"2026.7.22\",\n  \"annotated-types\": \"0.8.0\",\n  \"annotated-doc\": \"0.0.5\",\n  \"uvicorn\": \"0.54.0\",\n  \"typing-inspection\": \"0.4.4\",\n  \"pydantic_core\": \"2.46.5\",\n  \"opentelemetry-api\": \"1.45.0\",\n  \"markdown-it-py\": \"4.2.0\",\n  \"Jinja2\": \"3.1.6\",\n  \"httpcore\": \"1.0.9\",\n  \"anyio\": \"4.15.1\",\n  \"torch\": \"2.14.0+rocm10.1.0\",\n  \"starlette\": \"1.7.0\",\n  \"rich\": \"15.0.0\",\n  \"pydantic\": \"2.13.5\",\n  \"httpx\": \"0.28.1\",\n  \"typer\": \"0.27.2\",\n  \"sse-starlette\": \"3.5.0\",\n  \"huggingface_hub\": \"1.33.0\",\n  \"fastapi\": \"0.142.2\",\n  \"amd-torch-device-gfx110x\": \"2.14.0+rocm10.1.0\",\n  \"amd-torch-device-gfx1100\": \"2.14.0+rocm10.1.0\",\n  \"tokenizers\": \"0.23.2\",\n  \"transformers\": \"5.18.0\"\n}"
+  }
+}

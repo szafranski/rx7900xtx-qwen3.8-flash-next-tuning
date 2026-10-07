@@ -1,0 +1,13 @@
+{
+  "rocm101": {},
+  "vulkan": {
+    "GGML_HIP": [
+      "ON",
+      "OFF"
+    ],
+    "GGML_VULKAN": [
+      "OFF",
+      "ON"
+    ]
+  }
+}

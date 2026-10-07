@@ -1,6 +1,6 @@
 # Hardware, models, and builds
 
-The measurements came from one AMD Radeon RX 7900 XTX (24 GB VRAM, `gfx1100`) host with 32 GiB RAM. GGUF ROCm tests used ROCm 7.14.1; EXL3 tests used ROCm 7.2.4 with Torch 2.13.0+rocm7.2. Container memory and swap limits vary by experiment, including 27-28.5 GiB RAM and runs with container swap disabled. Use the linked report and raw record for the effective limits, not a shared default. These are test-period settings, not a claim about the current host.
+The measurements came from one AMD Radeon RX 7900 XTX (24 GB VRAM, `gfx1100`) host with 32 GiB RAM. GGUF ROCm tests used ROCm 7.14.1 (one 7 October A/B also built with stable ROCm 10.1 SDK wheels and Vulkan); EXL3 tests used ROCm 7.2.4 with Torch 2.13.0+rocm7.2. Container memory and swap limits vary by experiment, including 27-28.5 GiB RAM and runs with container swap disabled. Use the linked report and raw record for the effective limits, not a shared default. These are test-period settings, not a claim about the current host.
 
 | Model used in the tests | Source | Notes |
 | --- | --- | --- |

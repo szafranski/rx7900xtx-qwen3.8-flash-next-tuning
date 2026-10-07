@@ -36,3 +36,12 @@ Experimental expert cache produced incorrect text in a short Vulkan check
 and was not taken to a long request. These results supersede the earlier
 loading failure for this profile, not for every Vulkan configuration.
 [Report, settings and four response records](../reports/flashnext-vulkan-nohost-2026-09-29.md).
+
+## Fixed build, matched A/B on 7 October
+
+The same `bed0a856` source and production profile (ubatch 1024 on both
+backends, q8_0 KV, 65k) built for Vulkan with `--no-host` and compared with
+ROCm 7.14.1 controls. Vulkan generated 18.5-20.7% faster (16.0 versus 13.2
+tok/s at 61k) and used about 1 GiB less VRAM, but processed prompts 62-64%
+slower (235 versus 610 tok/s), so a fresh 61k request took about twice as long.
+Gates and 61k recall passed. [Report](../reports/flashnext-gguf-backend-ab-2026-10-07.md).
