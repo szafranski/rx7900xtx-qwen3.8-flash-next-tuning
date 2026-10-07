@@ -1,0 +1,348 @@
+{
+  "rocm101": {
+    "raw_status": "PASS",
+    "core_status": "PASS",
+    "observed_turns": 22,
+    "all_turns_ok": true,
+    "auto_compactions": 2,
+    "capacity": "PASS",
+    "actual_exit": 0,
+    "elapsed_s": 535.2354690670036,
+    "task_s": 420.3141830460081,
+    "min_RAM_GiB": 2.4242706298828125,
+    "peak_VRAM_GiB": 23.878299713134766,
+    "generated_tokens": 1759,
+    "weighted_TG": 22.845482525964137,
+    "heap_after_prefix_MiB": [
+      983.6875,
+      1002.6484375,
+      1002.96484375
+    ],
+    "events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "kernel_faults": [],
+    "median_TG_ctx_ge30k": 23.26080829923063,
+    "median_TG_ctx_ge30k_n": 9,
+    "median_PP_processed_gt10k": 547.8033346014731,
+    "median_PP_processed_gt10k_n": 6,
+    "guards": [],
+    "oom_killed": false,
+    "clean_container_exit": true,
+    "pi_exits": [
+      {
+        "exit": 0,
+        "forced_kill": false
+      },
+      {
+        "exit": 0,
+        "forced_kill": false
+      },
+      {
+        "exit": 0,
+        "forced_kill": false
+      }
+    ],
+    "payload_verified": true,
+    "vram_after": 871206912,
+    "capacity_min_free_VRAM_MiB": 255.140625,
+    "short_gate": {
+      "off": {
+        "status": "PASS",
+        "user_turns": 4,
+        "requests": 8,
+        "pi_exit": 0,
+        "payload_verified": true
+      },
+      "medium": {
+        "status": "PASS",
+        "user_turns": 4,
+        "requests": 8,
+        "pi_exit": 0,
+        "payload_verified": true
+      }
+    },
+    "short_gate_exit": 0,
+    "reproducer": "PASS_3_OF_3_RETAINED",
+    "hostpool_reserve_mb": 0,
+    "first_attempt": {
+      "raw_status": "INFRASTRUCTURE_FAILURE",
+      "core_status": "NOTRUN_LOAD_FAILURE",
+      "observed_turns": 0,
+      "all_turns_ok": null,
+      "auto_compactions": 0,
+      "capacity": "NOTRUN_STAGE3_FAILURE",
+      "actual_exit": 1,
+      "elapsed_s": 108.516851,
+      "task_s": null,
+      "min_RAM_GiB": 3.330303192138672,
+      "peak_VRAM_GiB": 22.97467803955078,
+      "generated_tokens": 0,
+      "weighted_TG": null,
+      "heap_after_prefix_MiB": [
+        null,
+        null,
+        null
+      ],
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0,
+        "sock_throttled": 0
+      },
+      "kernel_faults": [],
+      "median_TG_ctx_ge30k": null,
+      "median_TG_ctx_ge30k_n": 0,
+      "median_PP_processed_gt10k": null,
+      "median_PP_processed_gt10k_n": 0,
+      "capacity_min_free_VRAM_MiB": null,
+      "status": "LOAD_FAILURE",
+      "stages": {
+        "0": "PASS",
+        "1": "VERIFIED_EXISTING",
+        "2": "VERIFIED_EXISTING",
+        "3_reproducer": "PASS_3_OF_3",
+        "3_pi": "NOTRUN_LOAD_FAILURE",
+        "4": "NOTRUN_STAGE3_FAILURE",
+        "5": "NOTRUN_STAGE3_FAILURE"
+      },
+      "oom_killed": false,
+      "guards": [],
+      "monitor_samples": 106,
+      "cgroup_peak_bytes": 29024313344,
+      "cgroup_last_pressure": [
+        "some avg10=2.36 avg60=0.82 avg300=0.19 total=625285",
+        "full avg10=1.87 avg60=0.67 avg300=0.16 total=588986"
+      ],
+      "failure": "CPU MoE arena chunk 20 allocation rejected: 1024 MiB requested, 2945 MiB available, default EXL3_HOST_MEM_RESERVE_MB=2048 MiB",
+      "loaded_library_verification": "PARTIAL_REPRO_HSA_ONLY; model maps unavailable after load failure",
+      "extension_sha256": "fb0990ba3743d43a98757c7c1d84ce1fb8f742700ab58108fafcee7d67648cca",
+      "repro": [
+        {
+          "name": "flashnext-rocm101-coop-20261007-1",
+          "launcher_exit": 0,
+          "container_exit": 0,
+          "oom_killed": false,
+          "vram_after": 871206912,
+          "guard": false,
+          "status": "PASS"
+        },
+        {
+          "name": "flashnext-rocm101-coop-20261007-2",
+          "launcher_exit": 0,
+          "container_exit": 0,
+          "oom_killed": false,
+          "vram_after": 871206912,
+          "guard": false,
+          "status": "PASS"
+        },
+        {
+          "name": "flashnext-rocm101-coop-20261007-3",
+          "launcher_exit": 0,
+          "container_exit": 0,
+          "oom_killed": false,
+          "vram_after": 871206912,
+          "guard": false,
+          "status": "PASS"
+        }
+      ],
+      "versions": {
+        "rocm-sdk-libraries": "10.1.0",
+        "rocm-sdk-devel": "10.1.0",
+        "rocm-sdk-core": "10.1.0",
+        "triton": "3.8.0+git669b31ac.rocm10.1.0",
+        "rocm-sdk-device-gfx1100": "10.1.0",
+        "rocm-bootstrap": "0.3.0",
+        "rocm": "10.1.0",
+        "torch": "2.14.0+rocm10.1.0"
+      },
+      "final_state": {
+        "running_containers": "",
+        "launcher": "inactive",
+        "inhibitor_unit": "active",
+        "inhibitors": "WHO            UID  USER  PID     COMM            WHAT                                                                       WHY                                       MODE\nModemManager   0    root  1320    ModemManager    sleep                                                                      ModemManager needs to reset devices       delay\nNetworkManager 0    root  1318    NetworkManager  sleep                                                                      NetworkManager needs to turn off networks delay\nUPower         0    root  1149    upowerd         sleep                                                                      Pause device polling                      delay\nPowerDevil     1000 user 3165    org_kde_powerde handle-power-key:handle-suspend-key:handle-hibernate-key:handle-lid-switch KDE handles power events                  block\nqwen-tests     1000 user 2467747 systemd-inhibit sleep:idle                                                                 GPU tests until reboot                    block\n\n5 inhibitors listed.",
+        "user_timers": "NEXT                             LEFT LAST                          PASSED UNIT                         ACTIVATES\nWed 2026-10-07 11:41:54 CEST 3h 46min Tue 2026-10-06 10:47:06 CEST 20h ago systemd-tmpfiles-clean.timer systemd-tmpfiles-clean.service\n-                                   - Tue 2026-10-06 10:44:06 CEST 20h ago grub-boot-success.timer      grub-boot-success.service\n\n2 timers listed.",
+        "system_timers": "NEXT                             LEFT LAST                               PASSED UNIT                         ACTIVATES\nWed 2026-10-07 11:51:54 CEST 3h 56min Tue 2026-10-06 10:57:06 CEST      20h ago systemd-tmpfiles-clean.timer systemd-tmpfiles-clean.service\nThu 2026-10-08 00:00:00 CEST      16h Wed 2026-10-07 00:00:10 CEST       7h ago unbound-anchor.timer         unbound-anchor.service\nThu 2026-10-08 00:09:02 CEST      16h Wed 2026-10-07 00:04:01 CEST       7h ago logrotate.timer              logrotate.service\nThu 2026-10-08 04:02:37 CEST      20h Wed 2026-10-07 04:09:27 CEST 3h 46min ago uupd.timer                   uupd.service\nSat 2026-10-10 15:15:24 CEST   3 days Tue 2026-10-06 15:56:50 CEST      15h ago rpm-ostree-countme.timer     rpm-ostree-countme.service\nSun 2026-10-11 01:00:00 CEST   3 days Sun 2026-10-04 03:00:15 CEST            - raid-check.timer             raid-check.service\nMon 2026-10-12 00:27:49 CEST   4 days Mon 2026-10-05 00:22:31 CEST            - fstrim.timer                 fstrim.service\n-                                   - -                                       - dnf-makecache.timer          dnf-makecache.service\n\n8 timers listed.",
+        "checked_utc": "2026-10-07T05:55:51Z",
+        "model_processes": [],
+        "ports": {
+          "3953": false,
+          "8094": false,
+          "8084": false
+        },
+        "vram_total_bytes": 25753026560,
+        "vram_used_bytes": 871206912,
+        "vram_free_bytes": 24881819648,
+        "mem_available_bytes": 29299396608,
+        "disk_free_bytes": 37404233728
+      }
+    },
+    "capacity_stage": {
+      "raw_status": "PASS",
+      "core_status": "SKIPPED_SEPARATE_STAGE4",
+      "observed_turns": 0,
+      "all_turns_ok": null,
+      "auto_compactions": 0,
+      "capacity": "PASS",
+      "actual_exit": 0,
+      "elapsed_s": 179.51745082400157,
+      "task_s": 66.75772987899836,
+      "min_RAM_GiB": 2.7531585693359375,
+      "peak_VRAM_GiB": 23.735252380371094,
+      "generated_tokens": 2,
+      "weighted_TG": 5.072810845884929,
+      "heap_after_prefix_MiB": [],
+      "events": {
+        "low": 0,
+        "high": 0,
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0,
+        "oom_group_kill": 0,
+        "sock_throttled": 0
+      },
+      "kernel_faults": [],
+      "median_TG_ctx_ge30k": null,
+      "median_TG_ctx_ge30k_n": 0,
+      "median_PP_processed_gt10k": 569.1275224541107,
+      "median_PP_processed_gt10k_n": 1,
+      "guards": [],
+      "oom_killed": false,
+      "clean_container_exit": true,
+      "pi_exits": [],
+      "payload_verified": null,
+      "vram_after": 871206912,
+      "pre_request": {
+        "status": "PASS",
+        "mem_available": 3215499264,
+        "vram_free": 889712640,
+        "resource_sample": {
+          "t": 1791353672.6584435,
+          "avail": 3362148352,
+          "swapfree": 15661408256,
+          "vram": 24863313920,
+          "heap": {
+            "Size": 881659904,
+            "Rss": 878788608,
+            "Pss": 878788608,
+            "Private_Dirty": 878788608,
+            "VmSize": 70752112640,
+            "VmRSS": 4248268800
+          },
+          "psi": {
+            "some": [
+              "avg10=5.28",
+              "avg60=1.60",
+              "avg300=0.43",
+              "total=183969376"
+            ],
+            "full": [
+              "avg10=5.28",
+              "avg60=1.60",
+              "avg300=0.43",
+              "total=161324035"
+            ]
+          },
+          "pswpin": 1821522,
+          "pswpout": 6449929,
+          "cg": {
+            "cur": 27778064384,
+            "peak": 28125597696,
+            "ev": [
+              "low",
+              "0",
+              "high",
+              "0",
+              "max",
+              "0",
+              "oom",
+              "0",
+              "oom_kill",
+              "0",
+              "oom_group_kill",
+              "0",
+              "sock_throttled",
+              "0"
+            ],
+            "pressure": [
+              "some avg10=2.02 avg60=0.54 avg300=0.12 total=453813",
+              "full avg10=2.02 avg60=0.54 avg300=0.12 total=429493"
+            ]
+          }
+        },
+        "timings": [
+          {
+            "prompt_tokens": 37626,
+            "cached_tokens": 0,
+            "new_tokens": 2,
+            "time_prefill": 66.11172103881836,
+            "time_generate": 0.3942587375640869,
+            "eos_reason": "stop_token"
+          }
+        ]
+      },
+      "min_free_VRAM_during_request_MiB": 255.140625,
+      "request_monitor_samples": 61,
+      "answer": "OK",
+      "cgroup_peak_bytes": 28125597696,
+      "cgroup_last_pressure": [
+        "some avg10=0.00 avg60=0.16 avg300=0.08 total=453815",
+        "full avg10=0.00 avg60=0.16 avg300=0.08 total=429495"
+      ]
+    },
+    "final_state": {
+      "checked_utc": "2026-10-07T06:18:10Z",
+      "running_containers": [],
+      "launcher": "inactive",
+      "inhibitor_unit": "active",
+      "inhibitors": "WHO            UID  USER  PID     COMM            WHAT                                                                       WHY                                       MODE\nModemManager   0    root  1320    ModemManager    sleep                                                                      ModemManager needs to reset devices       delay\nNetworkManager 0    root  1318    NetworkManager  sleep                                                                      NetworkManager needs to turn off networks delay\nUPower         0    root  1149    upowerd         sleep                                                                      Pause device polling                      delay\nPowerDevil     1000 user 3165    org_kde_powerde handle-power-key:handle-suspend-key:handle-hibernate-key:handle-lid-switch KDE handles power events                  block\nqwen-tests     1000 user 2467747 systemd-inhibit sleep:idle                                                                 GPU tests until reboot                    block\n\n5 inhibitors listed.\n",
+      "user_timers": "NEXT                             LEFT LAST                          PASSED UNIT                         ACTIVATES\nWed 2026-10-07 11:41:54 CEST 3h 23min Tue 2026-10-06 10:47:06 CEST 20h ago systemd-tmpfiles-clean.timer systemd-tmpfiles-clean.service\n-                                   - Tue 2026-10-06 10:44:06 CEST 20h ago grub-boot-success.timer      grub-boot-success.service\n\n2 timers listed.\n",
+      "system_timers": "NEXT                             LEFT LAST                              PASSED UNIT                         ACTIVATES\nWed 2026-10-07 11:51:54 CEST 3h 33min Tue 2026-10-06 10:57:06 CEST     20h ago systemd-tmpfiles-clean.timer systemd-tmpfiles-clean.service\nThu 2026-10-08 00:00:00 CEST      15h Wed 2026-10-07 00:00:10 CEST      8h ago unbound-anchor.timer         unbound-anchor.service\nThu 2026-10-08 00:09:02 CEST      15h Wed 2026-10-07 00:04:01 CEST      8h ago logrotate.timer              logrotate.service\nThu 2026-10-08 04:02:37 CEST      19h Wed 2026-10-07 04:09:27 CEST 4h 8min ago uupd.timer                   uupd.service\nSat 2026-10-10 15:15:24 CEST   3 days Tue 2026-10-06 15:56:50 CEST     16h ago rpm-ostree-countme.timer     rpm-ostree-countme.service\nSun 2026-10-11 01:00:00 CEST   3 days Sun 2026-10-04 03:00:15 CEST           - raid-check.timer             raid-check.service\nMon 2026-10-12 00:27:49 CEST   4 days Mon 2026-10-05 00:22:31 CEST           - fstrim.timer                 fstrim.service\n-                                   - -                                      - dnf-makecache.timer          dnf-makecache.service\n\n8 timers listed.\n",
+      "ports": {
+        "3953": false,
+        "8094": false,
+        "8084": false
+      },
+      "mem_available_bytes": 29636677632,
+      "disk_free_bytes": 37187895296,
+      "model_processes": [],
+      "vram_used_bytes": 871206912,
+      "vram_total_bytes": 25753026560,
+      "vram_free_bytes": 24881819648
+    },
+    "extension_sha256": "fb0990ba3743d43a98757c7c1d84ce1fb8f742700ab58108fafcee7d67648cca",
+    "versions": {
+      "rocm-sdk-libraries": "10.1.0",
+      "rocm-sdk-devel": "10.1.0",
+      "rocm-sdk-core": "10.1.0",
+      "triton": "3.8.0+git669b31ac.rocm10.1.0",
+      "rocm-sdk-device-gfx1100": "10.1.0",
+      "rocm-bootstrap": "0.3.0",
+      "rocm": "10.1.0",
+      "torch": "2.14.0+rocm10.1.0"
+    },
+    "loaded_library_verification": "PASS_MODEL_MAPS_AND_HASHES",
+    "stages": {
+      "0": "PASS",
+      "1": "VERIFIED_EXISTING",
+      "2": "VERIFIED_EXISTING",
+      "3": "PASS",
+      "4": "PASS",
+      "5": "PASS"
+    },
+    "cgroup_peak_bytes": 29022289920,
+    "cgroup_last_pressure": [
+      "some avg10=0.00 avg60=0.00 avg300=0.00 total=388334",
+      "full avg10=0.00 avg60=0.00 avg300=0.00 total=371144"
+    ]
+  }
+}

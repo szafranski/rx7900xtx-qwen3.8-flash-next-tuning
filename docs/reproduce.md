@@ -75,14 +75,14 @@ podman run --rm --name pi-wrapper \
   -v "$PWD/adapter:/wrapper:ro" \
   -e PYTHONPATH=/fork:/wrapper -e WRAPPER_FORK_DIR=/fork -e WRAPPER_OUT_DIR=/out \
   -e EXL3_MOE_CPU_SWAP=0 -e EXL3_MOE_SPLIT_FUSED=1 -e OMP_NUM_THREADS=6 \
-  -e EXL3_BC_ATTN=0 \
+  -e EXL3_BC_ATTN=0 -e EXL3_HOST_MEM_RESERVE_MB=0 \
   -e MALLOC_MMAP_THRESHOLD_=1048576 -e MALLOC_TRIM_THRESHOLD_=131072 -e MALLOC_ARENA_MAX=2 \
   rocm/dev-ubuntu-24.04:7.2.4 /opt/venv/bin/python /wrapper/wrapper_server.py \
   -m /models -cs 43008 -cq 8,8 -mcs 296 -mct 6 -chunk_size 1024 -ambs 1 -rcs 0.125 \
   -host 0.0.0.0 -port 8080 -smn qwen38-flashnext -maxr 4096
 ```
 
-Key flags: `-mcs 296` (routed experts per layer kept on CPU), `-mct 6` (six MoE worker threads), `-chunk_size 1024`, `-cs 43008` (cache and window), `-rcs 0.125` (recurrent cache), `-maxr 4096`. `EXL3_BC_ATTN=0` and the three `MALLOC_*` settings are workarounds from the [2 October stability report](../reports/flashnext-exl3-pi32k-stability-2026-10-02.md); with them, free VRAM was only about 0.3 GiB at `-mcs 296`. Load takes about two minutes.
+Key flags: `-mcs 296` (routed experts per layer kept on CPU), `-mct 6` (six MoE worker threads), `-chunk_size 1024`, `-cs 43008` (cache and window), `-rcs 0.125` (recurrent cache), `-maxr 4096`. `EXL3_BC_ATTN=0` and the three `MALLOC_*` settings are workarounds from the [2 October stability report](../reports/flashnext-exl3-pi32k-stability-2026-10-02.md); with them, free VRAM was only about 0.3 GiB at `-mcs 296`. `EXL3_HOST_MEM_RESERVE_MB=0` only matters on HostPool builds: it disables HostPool's own 2 GiB host-RAM reserve, which refused a load on a 32 GiB host ([details](../reports/flashnext-exl3-variants-2026-10-06.md#hostpool-host-memory-reserve)). Run a host RAM monitor instead. Load takes about two minutes.
 
 **Pi settings:** `contextWindow` 43008, `maxTokens` 4096 (equal to `-maxr`), compaction `reserveTokens` 10240 (compaction triggers near 32k). Use the same provider shape as in the GGUF section with `baseUrl` `http://127.0.0.1:8080/v1`, and thinking OFF or `medium`.
 

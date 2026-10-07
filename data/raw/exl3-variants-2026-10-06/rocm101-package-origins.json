@@ -1,0 +1,50 @@
+[
+  {
+    "name": "torch",
+    "version": "2.14.0+rocm10.1.0",
+    "url": "https://stable.repo.amd.com/rocm/pytorch/whl-next/torch/torch-2.14.0%2Brocm10.1.0-cp312-cp312-linux_x86_64.whl",
+    "sha256": "3182f6f166f42d6f186fd8c4a4ea65e1ed02fba8a98c48f977b68f15cca82636"
+  },
+  {
+    "name": "rocm-sdk-core",
+    "version": "10.1.0",
+    "url": "https://stable.repo.amd.com/rocm/core/whl-next/rocm-sdk-core/rocm_sdk_core-10.1.0-py3-none-linux_x86_64.whl",
+    "sha256": "a1a2433334ac61a526c6bae2f58f6bbc9b525f5a9e008e76a1a48d07f64f0703"
+  },
+  {
+    "name": "rocm-sdk-libraries",
+    "version": "10.1.0",
+    "url": "https://stable.repo.amd.com/rocm/core/whl-next/rocm-sdk-libraries/rocm_sdk_libraries-10.1.0-py3-none-linux_x86_64.whl",
+    "sha256": "ffb36d5e1d97e96c191052a10c39a1a7a4ddb4da4a88d3166ab4bf7bfdb94cf6"
+  },
+  {
+    "name": "rocm-sdk-devel",
+    "version": "10.1.0",
+    "url": "https://stable.repo.amd.com/rocm/core/whl-next/rocm-sdk-devel/rocm_sdk_devel-10.1.0-py3-none-linux_x86_64.whl",
+    "sha256": "05ae5a21df8909c37e692dd74477ce58b083a740be8b3d857b43ab0808ef4a1a"
+  },
+  {
+    "name": "triton",
+    "version": "3.8.0+git669b31ac.rocm10.1.0",
+    "url": "https://stable.repo.amd.com/rocm/pytorch/whl-next/triton/triton-3.8.0%2Bgit669b31ac.rocm10.1.0-cp312-cp312-linux_x86_64.whl",
+    "sha256": "2f745c62aebb33167bfb6d586f569fbea67f8fc5181b03798b91a6b9187a625e"
+  },
+  {
+    "name": "rocm",
+    "version": "10.1.0",
+    "url": "https://stable.repo.amd.com/rocm/core/whl-next/rocm/rocm-10.1.0.tar.gz",
+    "sha256": "e6616e62ebd1324031681e6e59349d46ee4f143a8d8f4f901a91c35c993041fc"
+  },
+  {
+    "name": "rocm-sdk-device-gfx1100",
+    "version": "10.1.0",
+    "url": "https://stable.repo.amd.com/rocm/core/whl-next/rocm-sdk-device-gfx1100/rocm_sdk_device_gfx1100-10.1.0-py3-none-linux_x86_64.whl",
+    "sha256": "55fc9d7505c78178060d11bc8dc44b52b3e715f319bd61dd7e7f37c5bec2a94d"
+  },
+  {
+    "name": "rocm-bootstrap",
+    "version": "0.3.0",
+    "url": "https://stable.repo.amd.com/rocm/core/whl-next/rocm-bootstrap/rocm_bootstrap-0.3.0-py3-none-any.whl",
+    "sha256": "62d0160ecdd86f7132dbab9aec257cb2c96327df2592b0633aa6bb56399cc095"
+  }
+]
