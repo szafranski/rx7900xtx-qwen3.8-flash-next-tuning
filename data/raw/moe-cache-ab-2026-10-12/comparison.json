@@ -1,0 +1,315 @@
+{
+  "time": "2026-10-12T00:35:09.848038+02:00",
+  "worker_model": "gpt-6-luna",
+  "worker_reasoning": "high",
+  "source_revision": "f2cc7282ce0042641df55e0e563b75e824e2b647",
+  "GGUF": "ISTA GSQ-RCO IQ3_XXS",
+  "ROCm": "7.14.1",
+  "context": 65536,
+  "actual_prompt_tokens": 32043,
+  "thinking": "OFF",
+  "repeats_per_arm": 2,
+  "tokens_generated_per_repeat": 512,
+  "arms": {
+    "cache0": {
+      "mean_TG": 13.632933600508771,
+      "mean_PP": 677.2487768146773,
+      "repeats": [
+        {
+          "tag": "tg512-repeat-1",
+          "wall_s": 84.44043493270874,
+          "usage": {
+            "completion_tokens": 512,
+            "prompt_tokens": 32043,
+            "total_tokens": 32555,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 32043,
+            "prompt_ms": 47305.74,
+            "prompt_per_token_ms": 1.4763205692350903,
+            "prompt_per_second": 677.3596607938065,
+            "predicted_n": 512,
+            "predicted_ms": 37065.277,
+            "predicted_per_token_ms": 72.53478864970646,
+            "predicted_per_second": 13.786488092345836
+          },
+          "finish_reason": "length",
+          "content": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 ",
+          "rendered_tokens": 32043
+        },
+        {
+          "tag": "tg512-repeat-2",
+          "wall_s": 85.30010986328125,
+          "usage": {
+            "completion_tokens": 512,
+            "prompt_tokens": 32043,
+            "total_tokens": 32555,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 32043,
+            "prompt_ms": 47321.233,
+            "prompt_per_token_ms": 1.4768040757731797,
+            "prompt_per_second": 677.1378928355481,
+            "predicted_n": 512,
+            "predicted_ms": 37909.758,
+            "predicted_per_token_ms": 74.18739334637965,
+            "predicted_per_second": 13.479379108671704
+          },
+          "finish_reason": "length",
+          "content": "BEGIN-7a963e5d MIDDLE-c4b81726 END-f2950c84\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 14",
+          "rendered_tokens": 32043
+        }
+      ],
+      "resources": {
+        "samples": 302,
+        "min_MemAvailable_bytes": 2443313152,
+        "peak_VRAM_used_bytes": 24681046016,
+        "peak_cgroup_current_bytes": 29486899200,
+        "peak_cgroup_bytes": 29566570496,
+        "final_cgroup_events": {
+          "low": 0,
+          "high": 0,
+          "max": 0,
+          "oom": 0,
+          "oom_kill": 0,
+          "oom_group_kill": 0,
+          "sock_throttled": 0
+        },
+        "max_host_swap_MiBs": 203.50664066384934,
+        "host_swap_in_bytes": 189669376,
+        "host_swap_out_bytes": 442834944,
+        "host_oom_kill_delta": 0
+      },
+      "load": {
+        "host": {
+          "MemAvailable_bytes": 3058372608,
+          "VRAM_used_bytes": 24304246784,
+          "VRAM_total_bytes": 25753026560,
+          "VRAM_free_bytes": 1448779776
+        },
+        "cgroup": {
+          "current": "29417594880",
+          "peak": "29566570496",
+          "max": "30064771072",
+          "swap_max": "0",
+          "swap_current": "0",
+          "stat": {
+            "anon": 447623168,
+            "file": 28845273088
+          },
+          "events": {
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0
+          },
+          "pressure": "some avg10=0.04 avg60=0.96 avg300=0.42 total=1628297\nfull avg10=0.04 avg60=0.96 avg300=0.42 total=1628297"
+        },
+        "elapsed_s": 74.76204133033752
+      },
+      "initial": {
+        "MemAvailable_bytes": 28456452096,
+        "VRAM_used_bytes": 783667200,
+        "VRAM_total_bytes": 25753026560,
+        "VRAM_free_bytes": 24969359360
+      },
+      "server_exit_code": 0,
+      "server_oom_killed": false,
+      "monitor_exit_code": 0,
+      "after_teardown_resources": {
+        "MemAvailable_bytes": 29792382976,
+        "VRAM_used_bytes": 783667200,
+        "VRAM_total_bytes": 25753026560,
+        "VRAM_free_bytes": 24969359360
+      },
+      "sanity_arithmetic": "PASS",
+      "sanity_recall": "PASS",
+      "minimum_sample_time": 1791757594.2440069,
+      "minimum_sample_cgroup_bytes": 29027319808
+    },
+    "cache512": {
+      "mean_TG": 18.150278628014135,
+      "mean_PP": 676.006314568038,
+      "repeats": [
+        {
+          "tag": "tg512-repeat-1",
+          "wall_s": 75.45245742797852,
+          "usage": {
+            "completion_tokens": 512,
+            "prompt_tokens": 32043,
+            "total_tokens": 32555,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 32043,
+            "prompt_ms": 47414.554,
+            "prompt_per_token_ms": 1.4797164435290078,
+            "prompt_per_second": 675.8051546788778,
+            "predicted_n": 512,
+            "predicted_ms": 27964.715,
+            "predicted_per_token_ms": 54.72546966731898,
+            "predicted_per_second": 18.27302727741012
+          },
+          "finish_reason": "length",
+          "content": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 ",
+          "rendered_tokens": 32043
+        },
+        {
+          "tag": "tg512-repeat-2",
+          "wall_s": 75.80357146263123,
+          "usage": {
+            "completion_tokens": 512,
+            "prompt_tokens": 32043,
+            "total_tokens": 32555,
+            "prompt_tokens_details": {
+              "cached_tokens": 0
+            }
+          },
+          "timings": {
+            "cache_n": 0,
+            "prompt_n": 32043,
+            "prompt_ms": 47386.344,
+            "prompt_per_token_ms": 1.4788360640389475,
+            "prompt_per_second": 676.2074744571981,
+            "predicted_n": 512,
+            "predicted_ms": 28345.536,
+            "predicted_per_token_ms": 55.470716242661446,
+            "predicted_per_second": 18.027529978618148
+          },
+          "finish_reason": "length",
+          "content": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 ",
+          "rendered_tokens": 32043
+        }
+      ],
+      "resources": {
+        "samples": 256,
+        "min_MemAvailable_bytes": 1615015936,
+        "peak_VRAM_used_bytes": 24639283200,
+        "peak_cgroup_current_bytes": 29867778048,
+        "peak_cgroup_bytes": 30011654144,
+        "final_cgroup_events": {
+          "low": 0,
+          "high": 0,
+          "max": 0,
+          "oom": 0,
+          "oom_kill": 0,
+          "oom_group_kill": 0,
+          "sock_throttled": 2
+        },
+        "max_host_swap_MiBs": 43.30773674436813,
+        "host_swap_in_bytes": 63873024,
+        "host_swap_out_bytes": 106098688,
+        "host_oom_kill_delta": 0
+      },
+      "load": {
+        "host": {
+          "MemAvailable_bytes": 2621784064,
+          "VRAM_used_bytes": 24261926912,
+          "VRAM_total_bytes": 25753026560,
+          "VRAM_free_bytes": 1491099648
+        },
+        "cgroup": {
+          "current": "29456740352",
+          "peak": "30011654144",
+          "max": "30064771072",
+          "swap_max": "0",
+          "swap_current": "0",
+          "stat": {
+            "anon": 448524288,
+            "file": 28882362368
+          },
+          "events": {
+            "max": 0,
+            "oom": 0,
+            "oom_kill": 0
+          },
+          "pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=33410\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=33410"
+        },
+        "elapsed_s": 48.621114015579224
+      },
+      "initial": {
+        "MemAvailable_bytes": 29682675712,
+        "VRAM_used_bytes": 783667200,
+        "VRAM_total_bytes": 25753026560,
+        "VRAM_free_bytes": 24969359360
+      },
+      "server_exit_code": 0,
+      "server_oom_killed": false,
+      "monitor_exit_code": 0,
+      "after_teardown_resources": {
+        "MemAvailable_bytes": 29256081408,
+        "VRAM_used_bytes": 783667200,
+        "VRAM_total_bytes": 25753026560,
+        "VRAM_free_bytes": 24969359360
+      },
+      "sanity_arithmetic": "PASS",
+      "sanity_recall": "PASS",
+      "minimum_sample_time": 1791758003.7350042,
+      "minimum_sample_cgroup_bytes": 28323758080
+    }
+  },
+  "TG_change_percent": 33.13553164622456,
+  "PP_change_percent": -0.18345728913428117,
+  "container_limit_bytes": 30064771072,
+  "budget_increased": false,
+  "production_profile_changed": false,
+  "sleep_inhibitor_kept_until": "2026-10-12T02:00:00+02:00",
+  "cache_hit_counters_available": false,
+  "limitations": [
+    "one arm per configuration, two synthetic uncached repetitions; not a soak",
+    "only OFF thinking and32k prompt, not61k orPi sessions",
+    "hostRAMmin marginal; morecontainerbudget cannot createhostRAM"
+  ],
+  "compiled_artifact_hashes": {
+    "libggml-base.so.0.26.0": {
+      "sha256": "5bd8cc3a7e41a3f0fa9c36ea58db99f3cee109d429d3699d6cd20e01dc5437cd",
+      "bytes": 955776
+    },
+    "libggml-cpu.so.0.26.0": {
+      "sha256": "cf02cfa65a97d5207dc67d715cc6963e006d98552e773caea88e8b473f515807",
+      "bytes": 1397776
+    },
+    "libggml-hip.so.0.26.0": {
+      "sha256": "19a5c2286a79bc53397ea6ea79c9144c08f6e1cab5da877b7bcef9b7c63aec83",
+      "bytes": 72759928
+    },
+    "libggml.so.0.26.0": {
+      "sha256": "3cf2f38a15d850667b32db8d33671e3328f0f5b2c1f39e01514749d79d26d20c",
+      "bytes": 60360
+    },
+    "libllama.so.0.6.0": {
+      "sha256": "42f008d2623b84d19422d7511df0d6b75b7155190a4377dba232207bf409dc48",
+      "bytes": 5032848
+    },
+    "libllama-common.so.0.6.0": {
+      "sha256": "d18eae70359d0dd2d123c3ccf9e16844489b8eedb2f2d0b607c2ce6f89ecd769",
+      "bytes": 6369360
+    },
+    "libllama-fit-params-impl.so": {
+      "sha256": "fb1692fd5e00f3b0bcac812308811709b07a826d11fa9c12d916cb0339bb7b5d",
+      "bytes": 39568
+    },
+    "libmtmd.so.0.6.0": {
+      "sha256": "3eea109075438de83b63774ce2a7ebe26545ee267eaf509d7f0b75ba0e117be0",
+      "bytes": 2012528
+    },
+    "libllama-server-impl.so": {
+      "sha256": "d696331f86fc40fa97e666d43db1db5eab8777ea00a1c5dd1ecff7ded13a0cc9",
+      "bytes": 4134576
+    },
+    "llama-server": {
+      "sha256": "fabac9b5b6fe6050606555bc1a4c67daa47d53e6b7586b2bfaa6becb8ceddd0b",
+      "bytes": 17880
+    }
+  }
+}

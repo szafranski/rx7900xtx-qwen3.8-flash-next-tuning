@@ -1,6 +1,6 @@
 # Data and provenance
 
-`raw/` contains 403 selected evidence files grouped by experiment. The experiment-specific sections below describe their counts, reductions and limitations. `manifest.csv` records each repository path, source-relative path, original SHA-256, imported SHA-256, byte count, and whether the import changed the bytes. The older JSON was normalized and local home paths were replaced with `<HOME>`. Long-context response files whose names end in `-prompt.json` had their full request and prompt removed, leaving the response and wall time. This means an imported hash often differs from the source hash. The expert-cache and Vulkan response files are unmodified; the q8_0 KV records were sanitized before import. Source paths in the manifest identify each experiment.
+`raw/` contains 408 selected evidence files grouped by experiment. The experiment-specific sections below describe their counts, reductions and limitations. `manifest.csv` records each repository path, source-relative path, original SHA-256, imported SHA-256, byte count, and whether the import changed the bytes. The older JSON was normalized and local home paths were replaced with `<HOME>`. Long-context response files whose names end in `-prompt.json` had their full request and prompt removed, leaving the response and wall time. This means an imported hash often differs from the source hash. The expert-cache and Vulkan response files are unmodified; the q8_0 KV records were sanitized before import. Source paths in the manifest identify each experiment.
 
 The raw set includes OpenAI-compatible response JSON with `usage` and `timings`, ROCm tuning records with launch arguments and `memory_stats`, memory-counter NDJSON, cgroup text readings, the 28-shard AtomicChat checksum list, and two PNGs of the synthetic vision test. Prompt strings, tokenizer dumps, unrelated production-model listings, Hugging Face directory snapshots, `.pyc`, and full server/build logs were left out. The original local archive remains untouched. Full logs for the Vulkan tests remain in `agents/scratch/flashnext-vulkan-nohost-2026-09-29/`; q8_0 observations and the request driver remain in `agents/scratch/flashnext-q8-65k-2026-09-29/`. Older diagnostics remain in `agents/scratch/flashnext-expert-cache-2026-09-28/` and `agents/scratch/flashnext-bench-2026-09-28/private/`.
 
@@ -227,3 +227,14 @@ process lists and unrelated sensor details are omitted. The manifest binds
 these reductions to the original local samples. The summary distinguishes
 no_alloc estimates from runtime residency and tool exits from the sleep carrier
 container exit. No model weights were loaded and no inference was performed.
+
+## MoE cache A/B, 12 October
+
+`raw/moe-cache-ab-2026-10-12/` adds five files: a parent-verified comparison,
+two original arm summaries and two reduced monitor streams. Summaries retain
+per-request usage/timings and synthetic arithmetic, recall and counting output.
+The monitor retains host RAM/swap, VRAM, cgroup current/peak, separate events,
+pressure and anon/file/shmem/file_mapped. shmem is included in file, not an
+additional charge. Process lists and unrelated sensor fields were omitted.
+Manifest hashes bind reductions to the original local streams. Full requests,
+logs, inspection output, model weights and binaries remain outside this repo.

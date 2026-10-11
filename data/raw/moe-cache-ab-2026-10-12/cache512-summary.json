@@ -1,0 +1,213 @@
+{
+  "label": "cache512",
+  "moe_cache_MiB": 512,
+  "status": "PASS",
+  "benchmark_repeats": 2,
+  "benchmark_tokens_each": 512,
+  "requests": [
+    {
+      "tag": "sanity-arithmetic",
+      "wall_s": 1.7420973777770996,
+      "usage": {
+        "completion_tokens": 4,
+        "prompt_tokens": 34,
+        "total_tokens": 38,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 1515.352,
+        "prompt_per_token_ms": 44.56917647058824,
+        "prompt_per_second": 22.43703113204061,
+        "predicted_n": 4,
+        "predicted_ms": 191.104,
+        "predicted_per_token_ms": 63.70133333333334,
+        "predicted_per_second": 15.698258539852645
+      },
+      "finish_reason": "stop",
+      "content": "323"
+    },
+    {
+      "tag": "sanity-recall",
+      "wall_s": 49.16490888595581,
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 32015,
+        "total_tokens": 32047,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 32015,
+        "prompt_ms": 47435.733,
+        "prompt_per_token_ms": 1.481672122442605,
+        "prompt_per_second": 674.9131503881263,
+        "predicted_n": 32,
+        "predicted_ms": 1659.759,
+        "predicted_per_token_ms": 53.54061290322581,
+        "predicted_per_second": 18.67741039512363
+      },
+      "finish_reason": "stop",
+      "content": "BEGIN-7a963e5d\nMIDDLE-c4b81726\nEND-f2950c84"
+    },
+    {
+      "tag": "tg512-repeat-1",
+      "wall_s": 75.45245742797852,
+      "usage": {
+        "completion_tokens": 512,
+        "prompt_tokens": 32043,
+        "total_tokens": 32555,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 32043,
+        "prompt_ms": 47414.554,
+        "prompt_per_token_ms": 1.4797164435290078,
+        "prompt_per_second": 675.8051546788778,
+        "predicted_n": 512,
+        "predicted_ms": 27964.715,
+        "predicted_per_token_ms": 54.72546966731898,
+        "predicted_per_second": 18.27302727741012
+      },
+      "finish_reason": "length",
+      "content": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 ",
+      "rendered_tokens": 32043
+    },
+    {
+      "tag": "tg512-repeat-2",
+      "wall_s": 75.80357146263123,
+      "usage": {
+        "completion_tokens": 512,
+        "prompt_tokens": 32043,
+        "total_tokens": 32555,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 32043,
+        "prompt_ms": 47386.344,
+        "prompt_per_token_ms": 1.4788360640389475,
+        "prompt_per_second": 676.2074744571981,
+        "predicted_n": 512,
+        "predicted_ms": 28345.536,
+        "predicted_per_token_ms": 55.470716242661446,
+        "predicted_per_second": 18.027529978618148
+      },
+      "finish_reason": "length",
+      "content": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 ",
+      "rendered_tokens": 32043
+    }
+  ],
+  "off_measured_host_residency_delta_bytes": 25398079488,
+  "cache512_nominal_delta_bytes": 541810124,
+  "preload_required_MemAvailable_bytes": 27013631436,
+  "initial": {
+    "MemAvailable_bytes": 29682675712,
+    "VRAM_used_bytes": 783667200,
+    "VRAM_total_bytes": 25753026560,
+    "VRAM_free_bytes": 24969359360
+  },
+  "load": {
+    "host": {
+      "MemAvailable_bytes": 2621784064,
+      "VRAM_used_bytes": 24261926912,
+      "VRAM_total_bytes": 25753026560,
+      "VRAM_free_bytes": 1491099648
+    },
+    "cgroup": {
+      "current": "29456740352",
+      "peak": "30011654144",
+      "max": "30064771072",
+      "swap_max": "0",
+      "swap_current": "0",
+      "stat": {
+        "anon": 448524288,
+        "file": 28882362368
+      },
+      "events": {
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=33410\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=33410"
+    },
+    "elapsed_s": 48.621114015579224
+  },
+  "sanity_arithmetic": "PASS",
+  "sanity_recall": "PASS",
+  "prompt_tokens": [
+    32043,
+    32043
+  ],
+  "stage_gate": "STOP after this arm. Parent reviews measured OFF load residency and request peak before authorizing cache512.",
+  "pre_teardown_status": "PASS",
+  "server_exit_code": 0,
+  "server_oom_killed": false,
+  "monitor_exit_code": 0,
+  "after_teardown_resources": {
+    "MemAvailable_bytes": 29256081408,
+    "VRAM_used_bytes": 783667200,
+    "VRAM_total_bytes": 25753026560,
+    "VRAM_free_bytes": 24969359360
+  },
+  "vram_released_within_256MiB": true,
+  "resources": {
+    "samples": 256,
+    "min_MemAvailable_bytes": 1615015936,
+    "peak_VRAM_used_bytes": 24639283200,
+    "peak_cgroup_current_bytes": 29867778048,
+    "peak_cgroup_bytes": 30011654144,
+    "final_cgroup_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 2
+    },
+    "max_host_swap_MiBs": 43.30773674436813,
+    "host_swap_in_bytes": 63873024,
+    "host_swap_out_bytes": 106098688,
+    "host_oom_kill_delta": 0
+  },
+  "fault_evidence": {
+    "kernel_faults": [],
+    "kernel_oom_lines": [],
+    "cgroup_event_deltas": {
+      "oom": 0,
+      "oom_kill": 0,
+      "max": 0
+    },
+    "first_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "last_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 2
+    },
+    "peak": 30011654144,
+    "last_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=33410\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=33410"
+  }
+}

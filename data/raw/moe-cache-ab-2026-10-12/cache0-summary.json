@@ -1,0 +1,211 @@
+{
+  "label": "cache0",
+  "moe_cache_MiB": 0,
+  "status": "PASS",
+  "benchmark_repeats": 2,
+  "benchmark_tokens_each": 512,
+  "requests": [
+    {
+      "tag": "sanity-arithmetic",
+      "wall_s": 1.7672412395477295,
+      "usage": {
+        "completion_tokens": 4,
+        "prompt_tokens": 34,
+        "total_tokens": 38,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 34,
+        "prompt_ms": 1495.451,
+        "prompt_per_token_ms": 43.98385294117647,
+        "prompt_per_second": 22.735616212099227,
+        "predicted_n": 4,
+        "predicted_ms": 234.49,
+        "predicted_per_token_ms": 78.16333333333334,
+        "predicted_per_second": 12.7937225468037
+      },
+      "finish_reason": "stop",
+      "content": "323"
+    },
+    {
+      "tag": "sanity-recall",
+      "wall_s": 49.72785830497742,
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 32015,
+        "total_tokens": 32047,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 32015,
+        "prompt_ms": 47378.748,
+        "prompt_per_token_ms": 1.4798921755427143,
+        "prompt_per_second": 675.724905183227,
+        "predicted_n": 32,
+        "predicted_ms": 2281.76,
+        "predicted_per_token_ms": 73.60516129032258,
+        "predicted_per_second": 13.586003786550732
+      },
+      "finish_reason": "stop",
+      "content": "BEGIN-7a963e5d\nMIDDLE-c4b81726\nEND-f2950c84"
+    },
+    {
+      "tag": "tg512-repeat-1",
+      "wall_s": 84.44043493270874,
+      "usage": {
+        "completion_tokens": 512,
+        "prompt_tokens": 32043,
+        "total_tokens": 32555,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 32043,
+        "prompt_ms": 47305.74,
+        "prompt_per_token_ms": 1.4763205692350903,
+        "prompt_per_second": 677.3596607938065,
+        "predicted_n": 512,
+        "predicted_ms": 37065.277,
+        "predicted_per_token_ms": 72.53478864970646,
+        "predicted_per_second": 13.786488092345836
+      },
+      "finish_reason": "length",
+      "content": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 ",
+      "rendered_tokens": 32043
+    },
+    {
+      "tag": "tg512-repeat-2",
+      "wall_s": 85.30010986328125,
+      "usage": {
+        "completion_tokens": 512,
+        "prompt_tokens": 32043,
+        "total_tokens": 32555,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 32043,
+        "prompt_ms": 47321.233,
+        "prompt_per_token_ms": 1.4768040757731797,
+        "prompt_per_second": 677.1378928355481,
+        "predicted_n": 512,
+        "predicted_ms": 37909.758,
+        "predicted_per_token_ms": 74.18739334637965,
+        "predicted_per_second": 13.479379108671704
+      },
+      "finish_reason": "length",
+      "content": "BEGIN-7a963e5d MIDDLE-c4b81726 END-f2950c84\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 14",
+      "rendered_tokens": 32043
+    }
+  ],
+  "preload_required_MemAvailable_bytes": 28137297123,
+  "initial": {
+    "MemAvailable_bytes": 28456452096,
+    "VRAM_used_bytes": 783667200,
+    "VRAM_total_bytes": 25753026560,
+    "VRAM_free_bytes": 24969359360
+  },
+  "load": {
+    "host": {
+      "MemAvailable_bytes": 3058372608,
+      "VRAM_used_bytes": 24304246784,
+      "VRAM_total_bytes": 25753026560,
+      "VRAM_free_bytes": 1448779776
+    },
+    "cgroup": {
+      "current": "29417594880",
+      "peak": "29566570496",
+      "max": "30064771072",
+      "swap_max": "0",
+      "swap_current": "0",
+      "stat": {
+        "anon": 447623168,
+        "file": 28845273088
+      },
+      "events": {
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "pressure": "some avg10=0.04 avg60=0.96 avg300=0.42 total=1628297\nfull avg10=0.04 avg60=0.96 avg300=0.42 total=1628297"
+    },
+    "elapsed_s": 74.76204133033752
+  },
+  "sanity_arithmetic": "PASS",
+  "sanity_recall": "PASS",
+  "prompt_tokens": [
+    32043,
+    32043
+  ],
+  "stage_gate": "STOP after this arm. Parent reviews measured OFF load residency and request peak before authorizing cache512.",
+  "pre_teardown_status": "PASS",
+  "server_exit_code": 0,
+  "server_oom_killed": false,
+  "monitor_exit_code": 0,
+  "after_teardown_resources": {
+    "MemAvailable_bytes": 29792382976,
+    "VRAM_used_bytes": 783667200,
+    "VRAM_total_bytes": 25753026560,
+    "VRAM_free_bytes": 24969359360
+  },
+  "vram_released_within_256MiB": true,
+  "resources": {
+    "samples": 302,
+    "min_MemAvailable_bytes": 2443313152,
+    "peak_VRAM_used_bytes": 24681046016,
+    "peak_cgroup_current_bytes": 29486899200,
+    "peak_cgroup_bytes": 29566570496,
+    "final_cgroup_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "max_host_swap_MiBs": 203.50664066384934,
+    "host_swap_in_bytes": 189669376,
+    "host_swap_out_bytes": 442834944,
+    "host_oom_kill_delta": 0
+  },
+  "fault_evidence": {
+    "kernel_faults": [],
+    "kernel_oom_lines": [],
+    "cgroup_event_deltas": {
+      "oom": 0,
+      "oom_kill": 0,
+      "max": 0
+    },
+    "first_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "last_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "peak": 29566570496,
+    "last_pressure": "some avg10=0.00 avg60=0.01 avg300=0.18 total=1628297\nfull avg10=0.00 avg60=0.01 avg300=0.18 total=1628297"
+  }
+}

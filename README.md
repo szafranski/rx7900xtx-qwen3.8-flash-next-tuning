@@ -34,6 +34,11 @@ The [12 October placement check](reports/flashnext-moe-cache-placement-2026-10-1
 shows about 0.505 GiB of extra host weights/maps for a 512 MiB cache request,
 with 447.583 MiB predicted banks. This is not a runtime peak or throughput result.
 
+The [12 October guarded cache A/B](reports/flashnext-moe-cache-ab-2026-10-12.md)
+measured 13.63 vs 18.15 TG tok/s (+33.1%) on two uncached 32k repetitions per arm,
+with similar PP. Both fit within 28 GiB, but ON host-RAM margin was very small.
+Production stays unchanged; this is not 65k/agent-session validation.
+
 ## Selected throughput
 
 These rows describe different workloads and do not form a matched EXL3/GGUF comparison. PP is prompt processing; TG is generation, both in tokens/s.
@@ -80,7 +85,7 @@ See [ROCm tuning](docs/rocm-tuning.md) and [MTP](docs/mtp.md) for each chart's s
 - [Reproduction guide](docs/reproduce.md): one minimal GGUF and one EXL3 recipe, the Pi adapter in [adapter/](adapter/), and what is not available.
 - [Methodology](docs/methodology.md): rates, cached prompts and evidence limits.
 - [Correctness](docs/correctness.md), [context and memory](docs/context-and-memory.md), [Vulkan](docs/vulkan.md): topic summaries with dated findings.
-- [Data guide](data/README.md): 403 selected evidence files and a SHA-256 manifest. Some are reduced responses or report-derived summaries; full prompts, logs, model weights and build binaries are excluded.
+- [Data guide](data/README.md): 408 selected evidence files and a SHA-256 manifest. Some are reduced responses or report-derived summaries; full prompts, logs, model weights and build binaries are excluded.
 - [Reports](reports/): dated field notes with local paths anonymized. Service status and follow-up instructions describe their test period, not current authorization. The [28 September benchmark plan](docs/next-benchmarks.md) is historical.
 
 Most configurations ran once. Small arithmetic, retrieval, vision and tool checks do not rank quantization quality or establish reliable arbitrary 65k agent conversations. There is no common quality suite or multi-user test. Memory readings distinguish host, container and VRAM; use the report's units and sampling scope.
