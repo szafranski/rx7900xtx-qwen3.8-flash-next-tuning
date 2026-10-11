@@ -1,0 +1,7 @@
+{
+  "Running": false,
+  "ExitCode": -1,
+  "OOMKilled": false,
+  "FinishedAt": "2026-10-12T01:02:43.443210156+02:00",
+  "Error": "container bd7ec4c957b442d23111b008ae974e8153e32e11f8bb09e7d1e5f213564b9538 conmon exited prematurely, exit code could not be retrieved: conmon process killed"
+}

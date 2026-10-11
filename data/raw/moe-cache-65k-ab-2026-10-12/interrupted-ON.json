@@ -1,0 +1,6 @@
+{
+  "time": "2026-10-12T01:02:39.163514+02:00",
+  "cause": "worker credit failure killed controller/monitor; server survived",
+  "first_repeat_valid": true,
+  "second_repeat_not_validated": true
+}
