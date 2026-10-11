@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-10-11T23:42:48.503262+02:00",
+  "worker_model": "gpt-6.1-sol",
+  "worker_reasoning": "medium",
+  "checks": [
+    {
+      "check": "check_guards.py",
+      "exit_code": 0,
+      "output": "PASS: fast/slow boundaries, recovery, swap actual page size, missing telemetry\nPASS: missing cgroup counters/stat/events fail, zero counts accepted"
+    },
+    {
+      "check": "placement.py",
+      "exit_code": 0,
+      "output": "PASS: quoted overrides accepted, changed context and unexpected argv rejected"
+    }
+  ],
+  "unchanged_source_file_count": 3768,
+  "source_unchanged": true,
+  "gpu_execution": false,
+  "inference": false
+}

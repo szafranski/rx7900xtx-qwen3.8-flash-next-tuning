@@ -26,6 +26,10 @@ HostPool is the fork's host-memory pool integration; it showed no large memory g
 - **GGUF 61k and MTP, 6 October:** same ISTA IQ3_XXS weights on llama.cpp `f0c41e016` versus `bed0a856`: OFF sessions reached about 54k on both without Pi auto-compaction (later traced offline to the single 47.6k-token fixture message, not the backend). A medium session passed t1-t5 and failed t6 (recall string check, no compaction) after a first attempt stopped by the old 2.0 GiB RAM guard; the guard was then changed. A direct 60,815-token request passed (PP 611.2; TG 12.87 from 38 tokens). An MTP draft-context crash (#29811) needed a local experimental workaround, after which MTP was slower than no MTP in a short context-16384 test (0.87x from two samples, 0.98x on a short request); not beneficial on this build, profile and host. [Gates, guard change, MTP attempts and patch](reports/flashnext-gguf-61k-mtp-2026-10-06.md).
 - **GGUF backend A/B, 7 October:** the same `bed0a856` source and production profile (65k, q8_0 KV, ubatch 1024) built for ROCm 7.14.1, stable ROCm 10.1 and Vulkan, with two ROCm 7.14.1 controls that agreed within 0.1%. ROCm 10.1: PP +1.6-2.2%, TG -6.8% at 32k and -12.1% at 61k. Vulkan (`--no-host`): TG +18.5-20.7% and about 1 GiB less VRAM, but PP -62-64%, so a fresh 61k request with 512 generated tokens took 291 s versus 139 s. All passed gates and 61k recall. ROCm 7.14.1 remains the GGUF build; Vulkan only wins when new prompt tokens are under about 5x the generated tokens. [Builds, rates and wall times](reports/flashnext-gguf-backend-ab-2026-10-07.md).
 
+The [11 October MoE cache preparation](reports/flashnext-moe-cache-preparation-2026-10-11.md)
+adds a static RAM review and a built, guarded placement comparison. No new GPU
+placement or throughput measurement has been run.
+
 ## Selected throughput
 
 These rows describe different workloads and do not form a matched EXL3/GGUF comparison. PP is prompt processing; TG is generation, both in tokens/s.
@@ -72,7 +76,7 @@ See [ROCm tuning](docs/rocm-tuning.md) and [MTP](docs/mtp.md) for each chart's s
 - [Reproduction guide](docs/reproduce.md): one minimal GGUF and one EXL3 recipe, the Pi adapter in [adapter/](adapter/), and what is not available.
 - [Methodology](docs/methodology.md): rates, cached prompts and evidence limits.
 - [Correctness](docs/correctness.md), [context and memory](docs/context-and-memory.md), [Vulkan](docs/vulkan.md): topic summaries with dated findings.
-- [Data guide](data/README.md): 362 selected evidence files and a SHA-256 manifest. Some are reduced responses or report-derived summaries; full prompts, logs, model weights and build binaries are excluded.
+- [Data guide](data/README.md): 397 selected evidence files and a SHA-256 manifest. Some are reduced responses or report-derived summaries; full prompts, logs, model weights and build binaries are excluded.
 - [Reports](reports/): dated field notes with local paths anonymized. Service status and follow-up instructions describe their test period, not current authorization. The [28 September benchmark plan](docs/next-benchmarks.md) is historical.
 
 Most configurations ran once. Small arithmetic, retrieval, vision and tool checks do not rank quantization quality or establish reliable arbitrary 65k agent conversations. There is no common quality suite or multi-user test. Memory readings distinguish host, container and VRAM; use the report's units and sampling scope.

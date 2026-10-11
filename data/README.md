@@ -1,6 +1,6 @@
 # Data and provenance
 
-`raw/` contains 393 selected evidence files grouped by experiment. The experiment-specific sections below describe their counts, reductions and limitations. `manifest.csv` records each repository path, source-relative path, original SHA-256, imported SHA-256, byte count, and whether the import changed the bytes. The older JSON was normalized and local home paths were replaced with `<HOME>`. Long-context response files whose names end in `-prompt.json` had their full request and prompt removed, leaving the response and wall time. This means an imported hash often differs from the source hash. The expert-cache and Vulkan response files are unmodified; the q8_0 KV records were sanitized before import. Source paths in the manifest identify each experiment.
+`raw/` contains 397 selected evidence files grouped by experiment. The experiment-specific sections below describe their counts, reductions and limitations. `manifest.csv` records each repository path, source-relative path, original SHA-256, imported SHA-256, byte count, and whether the import changed the bytes. The older JSON was normalized and local home paths were replaced with `<HOME>`. Long-context response files whose names end in `-prompt.json` had their full request and prompt removed, leaving the response and wall time. This means an imported hash often differs from the source hash. The expert-cache and Vulkan response files are unmodified; the q8_0 KV records were sanitized before import. Source paths in the manifest identify each experiment.
 
 The raw set includes OpenAI-compatible response JSON with `usage` and `timings`, ROCm tuning records with launch arguments and `memory_stats`, memory-counter NDJSON, cgroup text readings, the 28-shard AtomicChat checksum list, and two PNGs of the synthetic vision test. Prompt strings, tokenizer dumps, unrelated production-model listings, Hugging Face directory snapshots, `.pyc`, and full server/build logs were left out. The original local archive remains untouched. Full logs for the Vulkan tests remain in `agents/scratch/flashnext-vulkan-nohost-2026-09-29/`; q8_0 observations and the request driver remain in `agents/scratch/flashnext-q8-65k-2026-09-29/`. Older diagnostics remain in `agents/scratch/flashnext-expert-cache-2026-09-28/` and `agents/scratch/flashnext-bench-2026-09-28/private/`.
 
@@ -203,3 +203,17 @@ M61 recall and M61 fixed-512, two repeats each) with `timings`, `usage`, wall
 time and finish reason. Prompts, generated text, server and monitor logs,
 process maps, binaries and the source archive are not imported. See the
 [report](../reports/flashnext-gguf-backend-ab-2026-10-07.md).
+
+## MoE cache preparation, 11 October
+
+`raw/moe-cache-preparation-2026-10-11/static-summary.json` records a static
+GGUF-header and source review: expert tensor types and stored spans per layer,
+source pins and the unchanged 28 GiB model-container budget. No tensor payloads,
+GPU placement measurements or inference results are included in this record.
+`preparation-checks.json` records the parent review of guard/argument self-checks
+and archive/source equality. The preparation report distinguishes these
+observations from runtime validation.
+
+`build-verification.json` records the parent-verified compiler exit, binary hash,
+device-free container settings and RAM/swap/VRAM telemetry summary. Its resource
+numbers describe compilation only, not the model or cache runtime.

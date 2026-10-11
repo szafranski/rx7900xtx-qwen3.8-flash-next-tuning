@@ -1,0 +1,44 @@
+{
+  "timestamp": "2026-10-11T23:51:07.927468+02:00",
+  "source_revision": "f2cc7282ce0042641df55e0e563b75e824e2b647",
+  "build_target": "llama-fit-params",
+  "build_exit": {
+    "ExitCode": 0,
+    "OOMKilled": false,
+    "Error": "",
+    "FinishedAt": "2026-10-11T23:49:55.860239703+02:00"
+  },
+  "source_modified": false,
+  "binary_sha256": "2ab2fd95b79c333d0c663df4b7c4308854a67347fc641f4e0b3f94b07a8d4dd3",
+  "binary_bytes": 15968,
+  "build_isolation": {
+    "Devices": [],
+    "NetworkMode": "none",
+    "Memory": 4294967296,
+    "MemorySwap": 4294967296,
+    "Privileged": false,
+    "SecurityOpt": [
+      "label=disable"
+    ]
+  },
+  "resource_scope": "isolated CPU compilation, not model load or inference",
+  "samples": 766,
+  "duration_s": 765.0000953674316,
+  "min_host_MemAvailable_bytes": 27384492032,
+  "peak_build_cgroup_bytes": 1304416256,
+  "cgroup_event_maxima": {
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0
+  },
+  "host_oom_kill_delta": 0,
+  "max_sample_host_swap_MiBs": 10.578135088095749,
+  "host_swap_in_bytes": 11649024,
+  "host_swap_out_bytes": 0,
+  "initial_vram_used_bytes": 767643648,
+  "final_vram_used_bytes": 767643648,
+  "guard_triggered": false,
+  "gpu_execution": false,
+  "placement_measured": false,
+  "inference_measured": false
+}
