@@ -44,6 +44,11 @@ confirmed 13.29 vs17.38 TG tok/s (+30.7%) with64,035 uncached prompt tokens
 and two512-token outputs per arm. Recall passed; no budget increase was needed.
 One interrupted ON attempt was excluded and repeated under parent supervision.
 
+The [next validation plan](docs/moe-cache-next-validation.md), reviewed with
+Sonnet medium, prioritizes independent supervision, paired medium/tool behavior,
+real Pi compaction and a conditional short stability check. No new GPU trial
+was performed while planning.
+
 ## Selected throughput
 
 These rows describe different workloads and do not form a matched EXL3/GGUF comparison. PP is prompt processing; TG is generation, both in tokens/s.
@@ -90,7 +95,7 @@ See [ROCm tuning](docs/rocm-tuning.md) and [MTP](docs/mtp.md) for each chart's s
 - [Reproduction guide](docs/reproduce.md): one minimal GGUF and one EXL3 recipe, the Pi adapter in [adapter/](adapter/), and what is not available.
 - [Methodology](docs/methodology.md): rates, cached prompts and evidence limits.
 - [Correctness](docs/correctness.md), [context and memory](docs/context-and-memory.md), [Vulkan](docs/vulkan.md): topic summaries with dated findings.
-- [Data guide](data/README.md): 415 selected evidence files and a SHA-256 manifest. Some are reduced responses or report-derived summaries; full prompts, logs, model weights and build binaries are excluded.
+- [Data guide](data/README.md): 417 selected evidence files and a SHA-256 manifest. Some are reduced responses or report-derived summaries; full prompts, logs, model weights and build binaries are excluded.
 - [Reports](reports/): dated field notes with local paths anonymized. Service status and follow-up instructions describe their test period, not current authorization. The [28 September benchmark plan](docs/next-benchmarks.md) is historical.
 
 Most configurations ran once. Small arithmetic, retrieval, vision and tool checks do not rank quantization quality or establish reliable arbitrary 65k agent conversations. There is no common quality suite or multi-user test. Memory readings distinguish host, container and VRAM; use the report's units and sampling scope.

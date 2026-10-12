@@ -1,0 +1,19 @@
+{
+  "provider": "claude",
+  "model": "sonnet",
+  "effort": "medium",
+  "read_only": true,
+  "exit_code": 0,
+  "smoke_test": "OK exit0",
+  "stage": "planning only, no GPU or production changes",
+  "consultant_had_tools": false,
+  "consultant_given": "selected verified measurements and parent proposal, not full local files",
+  "parent_decisions": {
+    "add_medium_OFF_ON_gate": true,
+    "supervision_first": true,
+    "soak_short_conditional": true,
+    "extra_PP_TG_microbenchmarks": false,
+    "new_1_2GiB_RAM_floor": false,
+    "compaction_absent_not_PASS_even_if_baseline_fails": true
+  }
+}

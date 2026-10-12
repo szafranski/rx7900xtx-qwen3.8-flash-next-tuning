@@ -1,0 +1,48 @@
+**Werdykt ogólny:** plan jest dobry. Zmieniłbym kolejność i dodał jedną małą bramkę. Pełne 60-90 min zostawiłbym jako opcjonalne.
+
+**1. Krok 0 (nadzór) – zostaje, ale okrojony**
+- Jest wymagany przed jakimkolwiek kolejnym testem GPU. Incydent pokazał, że dotychczasowy nadzór ginie razem z workerem.
+- Minimum: transient unit systemd user z `RuntimeMaxSec` i `ExecStopPost`, który sprząta tylko własny kontener. Do tego niezależny watchdog z heartbeatem.
+- Self-check na atrapie CPU ma objąć trzy przypadki: zabicie kontrolera, zabicie monitora i zatrzymanie telemetrii. W każdym z nich zatrzymuje się tylko własny kontener.
+- Dodałbym czwarty przypadek: zabicie conmon (ten, który naprawdę zawiódł). Sprawdzamy, czy sprzątanie działa mimo utraconego ExitCode.
+- PASS tego kroku to także dowód, że nadzór nie dotknął produkcji ani GPU.
+
+**2. Krótka bramka matched OFF/ON przed pełnym Pi: tak**
+- Czekanie na porażkę w pełnej sesji Pi miesza przyczyny, bo nie wiadomo, czy winny jest cache, Pi czy baseline.
+- Bramka: 1 sesja medium, ok. 8-10 tur, ten sam seed i te same zadania, OFF i ON po kolei na tym samym buildzie.
+- Zawartość: thinking medium, 1-2 wywołania narzędzi i odczyt/zapis pliku. Jeden kontrolowany prompt rzędu 40-50k tokenów, żeby sprawdzić rozmiar kontekstu i RAM bez czekania na compaction.
+- Nie porównujemy dokładnych tekstów. Porównujemy statusy funkcjonalne i liczniki: puste odpowiedzi, odpowiedzi thinking-only, `finish_reason=length`, poprawność wywołań narzędzi.
+- Dzięki temu znane błędy Pi (puste odpowiedzi, utrata historii thinking) trafiają do baseline'u OFF. Dopiero różnica ON względem OFF liczy się jako regresja.
+- Koszt jest niski, a pełny Pi dostaje już oczyszczone tło.
+
+**3. Pełna sesja Pi (15-25 tur): kryteria**
+- Mierzymy prawdziwe liczby tokenów z logów serwera (`prompt_tokens`, `n_ctx`), nie chars/4.
+- Compaction musi realnie zmniejszyć kontekst. Wymagane są co najmniej 2 compactiony, każdy z logiem tokenów przed i po. Nie wystarczy sam wpis "compaction wykonana".
+- Fakty zasiane przed compaction (3 markery) muszą być przywołane po niej. Po compaction musi też zadziałać narzędzie.
+- Jeśli compaction nie zadziała mimo >49k, to NO-GO dla scenariusza, ale tylko wtedy, gdy matched OFF zachowuje się inaczej. Znany problem fixture >`keepRecentTokens` zapisujemy w baseline'ie.
+- Thinking i truncation: licznik odpowiedzi z `finish_reason=length`, z pustą treścią lub tylko-thinking. ON nie może mieć istotnie więcej takich przypadków niż OFF.
+- Nie ustawiałbym progu procentowego przy próbie 15-25 tur, bo statystycznie nic nie znaczy. Zamiast tego: każdy taki przypadek w ON, którego nie ma w OFF, wymusza analizę przyczyny i uruchomienie matched OFF. Dopiero wynik matched OFF decyduje o NO-GO.
+
+**4. Kryteria RAM i stop**
+- Twarde stopy zostają: MemAvailable <1 GiB przez 2 próbki, <0,6 GiB natychmiast, swap >50 MiB/s przez 3 próbki.
+- Dodałbym kryterium trendu: wzrost RSS i cgroup po każdej compaction i po idle, względem poprzedniego punktu równowagi. Stały wzrost przez ≥3 punkty bez plateau to wynik "do analizy", nie automatyczne PASS.
+- Aktualny margines (min 1,779 GiB przy 64k, tight) jest ważną informacją. Jeśli w Pi spadnie poniżej ok. 1,2 GiB bez guarda, traktujemy to jako brak zapasu na produkcję, nawet jeśli test przeszedł. Próg 1,2 GiB to moja propozycja do ustalenia, nie wynik pomiaru.
+- Exit musi być czysty: kod 0, `memory.events` max/oom/oom_kill = 0 (osobno), brak delta OOM hosta, VRAM zwolniony, FSYNC przed teardown.
+- Brak guarda bez trafień to dowód tylko dla tego obciążenia, nie dla innych.
+
+**5. 60-90 min: opcjonalne**
+- Pojedyncza sesja plus bramka dają odpowiedź na pytanie o poprawność i RAM. Krok 2 sprawdza głównie narastanie zasobów (cancel, idle-resume, restart).
+- Rekomendacja: zrobić krótszą wersję, ok. 30-40 min, z jednym restartem kontrolowanym i dwoma cyklami load/exit. Pełne 60-90 min robić dopiero, gdy pojawi się sygnał trendu RAM w kroku 1 albo gdy użytkownik chce wyższej pewności przed produkcją.
+- Nie robiłbym 24 h soaku.
+
+**6. Dodatkowe mikrobenchmarki PP/TG: niepotrzebne**
+- Masz już pary 32k i 64k z 2 powtórzeniami. Wnioski o PP (-0,18% i -0,28%) i TG (+33% i +31%) są spójne.
+- Jedyny sensowny dodatek to zapis TG/PP z logów samych sesji Pi, jako obserwacja, bez przewidywań. Nie dodawałbym osobnego benchmarku.
+
+**7. Ryzyka fałszywej pewności**
+- Zestaw testowy to syntetyczny padding. Pi z narzędziami ma inny wzorzec promptów i cache'u KV, więc to osobny dowód.
+- Wynik z jednego seeda i jednego komputera nie uzasadnia wniosku o stabilności ogólnej. Raport musi to jasno mówić.
+- Wersja ON w teście ma zmienione rozmieszczenie wag względem OFF (fit). Dlatego zgodność oceniamy funkcjonalnie, a nie bitowo, i tak to zapisujemy.
+- Pominięty jest przypadek parallel request lub kilku slotów. Jeśli produkcja używa więcej niż jednego slotu, trzeba to jawnie wyłączyć z zakresu lub przetestować.
+
+**Rekomendowana kolejność:** 0 (nadzór, z testem conmon) → bramka matched OFF/ON → pełne Pi ON z kryteriami powyżej → skrócone 30-40 min jako warunek, pełne 60-90 min opcjonalnie → raport dla użytkownika. Rollback do bed0a8566 i obecnego kontenera pozostaje bez zmian.
