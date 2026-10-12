@@ -1,0 +1,35 @@
+{
+  "content": "I need to investigate this further. Let me check the details.",
+  "stop_type": "eos",
+  "stopping_word": "",
+  "tokens_predicted": 14,
+  "tokens_evaluated": 10708,
+  "timings": {
+    "cache_n": 10704,
+    "prompt_n": 4,
+    "prompt_ms": 240.596,
+    "prompt_per_token_ms": 60.149,
+    "prompt_per_second": 16.625380305574488,
+    "predicted_n": 14,
+    "predicted_ms": 955.924,
+    "predicted_per_token_ms": 73.53261538461538,
+    "predicted_per_second": 13.599407484276993
+  },
+  "tokens": [
+    40,
+    1144,
+    310,
+    18730,
+    411,
+    4473,
+    13,
+    6558,
+    728,
+    1716,
+    279,
+    3447,
+    13,
+    248046
+  ],
+  "truncated": false
+}

@@ -1,0 +1,88 @@
+{
+  "source_revision": "f2cc7282ce0042641df55e0e563b75e824e2b647",
+  "source_root": "moe-cache-prepare-20261011-213544Z/source",
+  "proofs": [
+    {
+      "file": "tools/server/server-task.cpp",
+      "lines": [
+        243,
+        249
+      ],
+      "claim": "stop_type maps EOS=eos, stoppingword=word, cap=limit"
+    },
+    {
+      "file": "tools/server/server-task.cpp",
+      "lines": [
+        331,
+        349
+      ],
+      "claim": "native response exposes raw content.text,tokens,stop_type,stopping_word,generation_settings"
+    },
+    {
+      "file": "tools/server/server-task.cpp",
+      "lines": [
+        455,
+        459
+      ],
+      "claim": "chat stream merges EOS and stoppingword to finish_reason stop; cap stayslength"
+    },
+    {
+      "file": "tools/server/server-schema.cpp",
+      "lines": [
+        332,
+        378
+      ],
+      "claim": "native request accepts reasoning_control,budgettokens,start/endtags,message"
+    },
+    {
+      "file": "tools/server/server-common.cpp",
+      "lines": [
+        1439,
+        1451
+      ],
+      "claim": "chat request fills reasoning budget start/end markers from renderedtemplate"
+    },
+    {
+      "file": "tools/server/server-schema.cpp",
+      "lines": [
+        473,
+        476
+      ],
+      "claim": "request sampling defaults copied from server global sampling before overrides"
+    },
+    {
+      "file": "tools/server/server-context.cpp",
+      "lines": [
+        420,
+        433
+      ],
+      "claim": "all prompttokens accepted into sampler, final open<think> entersreasoning state"
+    },
+    {
+      "file": "common/reasoning-budget.cpp",
+      "lines": [
+        93,
+        130
+      ],
+      "claim": "COUNTING decrementsbudget, naturalend setsDONE, exhaustion initiatesFORCING"
+    },
+    {
+      "file": "common/reasoning-budget.cpp",
+      "lines": [
+        165,
+        185
+      ],
+      "claim": "logits unchanged outsideFORCING, hence EOSnotmasked whileCOUNTING"
+    },
+    {
+      "file": "tools/server/README.md",
+      "lines": [
+        658,
+        672
+      ],
+      "claim": "native rawcontent/tokens and stop_type docs; no stopping_eos field"
+    }
+  ],
+  "updated_inference": "Parent reported clean-prefix OFF request13/repeat empty; native raw14token stop_type=eos no closingthink. Thus cacheON is not necessarycause. This finding reportedbyparent, not additionalworkerGPUmeasurement. Different startup/prefix histories yielded different samepayload outcomes.",
+  "scope": "CPU-only sourceproof; no GPU/API requests or private configs; native completion bypasses chatparser/toolgrammar."
+}

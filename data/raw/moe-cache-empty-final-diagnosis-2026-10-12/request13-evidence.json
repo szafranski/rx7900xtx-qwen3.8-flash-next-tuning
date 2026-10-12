@@ -1,0 +1,33 @@
+{
+  "request": 13,
+  "messages": 26,
+  "sampling": {
+    "temperature": 1,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0,
+    "seed": 20261006,
+    "max_completion_tokens": 16384,
+    "chat_template_kwargs": {
+      "enable_thinking": true,
+      "reasoning_effort": "medium",
+      "preserve_thinking": true
+    }
+  },
+  "reasoning": "I need to look into this further. Please let me confirm the details.",
+  "content": "",
+  "tool_calls": 0,
+  "finish_reasons": [
+    "stop"
+  ],
+  "usage": {
+    "completion_tokens": 16,
+    "prompt_tokens": 10708,
+    "total_tokens": 10724,
+    "prompt_tokens_details": {
+      "cached_tokens": 7685
+    }
+  },
+  "wire_sha256": "e1d2e878b038301277d614204a4363588a2b3502c003eb390a905a3f6a3fd719",
+  "prompt_sha256": "4ea46bcb91df271fad33f359e6ea92090ae156a565b921a56393ce51b7659343"
+}

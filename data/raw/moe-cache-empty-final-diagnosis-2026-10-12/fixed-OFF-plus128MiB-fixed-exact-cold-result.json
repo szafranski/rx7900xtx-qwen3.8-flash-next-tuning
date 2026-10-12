@@ -1,0 +1,31 @@
+{
+  "tag": "fixed-exact-cold",
+  "content": "OK",
+  "reasoning": "I need to look into this further. Let me check the details.\n",
+  "tool_call_chunks": [],
+  "finish_reasons": [
+    "stop"
+  ],
+  "usage": {
+    "completion_tokens": 19,
+    "prompt_tokens": 10708,
+    "total_tokens": 10727,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 10708,
+    "prompt_ms": 17570.133,
+    "prompt_per_token_ms": 1.6408417071348527,
+    "prompt_per_second": 609.4433092794459,
+    "predicted_n": 19,
+    "predicted_ms": 1333.708,
+    "predicted_per_token_ms": 74.09488888888889,
+    "predicted_per_second": 13.496207565674045
+  },
+  "wall_seconds": 18.933982561982702,
+  "exact_body_sha256": "09cfb8a34aab44e1dc4cb7f1b110898c7ca2739f33dc90212029c51890fb9c07",
+  "empty_final": false
+}

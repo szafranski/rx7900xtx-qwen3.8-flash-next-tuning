@@ -1,0 +1,253 @@
+{
+  "label": "cache512",
+  "moe_cache_MiB": 512,
+  "status": "PASS",
+  "requests": [
+    {
+      "tag": "fixed-exact-cold",
+      "content": "OK",
+      "reasoning": "I need to look into this further. Let me check the details.\n",
+      "tool_call_chunks": [],
+      "finish_reasons": [
+        "stop"
+      ],
+      "usage": {
+        "completion_tokens": 19,
+        "prompt_tokens": 10708,
+        "total_tokens": 10727,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 10708,
+        "prompt_ms": 16861.735,
+        "prompt_per_token_ms": 1.5746857489727306,
+        "prompt_per_second": 635.0473423998183,
+        "predicted_n": 19,
+        "predicted_ms": 895.511,
+        "predicted_per_token_ms": 49.75061111111111,
+        "predicted_per_second": 20.100255608250485
+      },
+      "wall_seconds": 17.78688200598117,
+      "exact_body_sha256": "09cfb8a34aab44e1dc4cb7f1b110898c7ca2739f33dc90212029c51890fb9c07",
+      "empty_final": false
+    },
+    {
+      "tag": "exact-repeat",
+      "content": "OK",
+      "reasoning": "I need to look into this further. Let me check the details.\n",
+      "tool_call_chunks": [],
+      "finish_reasons": [
+        "stop"
+      ],
+      "usage": {
+        "completion_tokens": 19,
+        "prompt_tokens": 10708,
+        "total_tokens": 10727,
+        "prompt_tokens_details": {
+          "cached_tokens": 10704
+        }
+      },
+      "timings": {
+        "cache_n": 10704,
+        "prompt_n": 4,
+        "prompt_ms": 242.904,
+        "prompt_per_token_ms": 60.726,
+        "prompt_per_second": 16.46741099364358,
+        "predicted_n": 19,
+        "predicted_ms": 900.472,
+        "predicted_per_token_ms": 50.02622222222222,
+        "predicted_per_second": 19.989516609067245
+      },
+      "wall_seconds": 1.1720566209987737,
+      "exact_body_sha256": "09cfb8a34aab44e1dc4cb7f1b110898c7ca2739f33dc90212029c51890fb9c07",
+      "empty_final": false
+    },
+    {
+      "tag": "force-no-prompt-cache",
+      "content": "OK",
+      "reasoning": "I'm continuing to think through this.\n",
+      "tool_call_chunks": [],
+      "finish_reasons": [
+        "stop"
+      ],
+      "usage": {
+        "completion_tokens": 13,
+        "prompt_tokens": 10708,
+        "total_tokens": 10721,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 10708,
+        "prompt_ms": 16575.619,
+        "prompt_per_token_ms": 1.5479659133358237,
+        "prompt_per_second": 646.0090570373269,
+        "predicted_n": 13,
+        "predicted_ms": 622.778,
+        "predicted_per_token_ms": 51.89816666666667,
+        "predicted_per_second": 19.26850338322805
+      },
+      "wall_seconds": 17.227875685988693,
+      "exact_body_sha256": "b39893343a017698b476116aa1b7e21c80eec25d215e90cce42ef97f4a97e5fa",
+      "empty_final": false
+    },
+    {
+      "tag": "temperature-zero-cold",
+      "content": "OK",
+      "reasoning": "I need to look into this further. Let me check the details.\n",
+      "tool_call_chunks": [],
+      "finish_reasons": [
+        "stop"
+      ],
+      "usage": {
+        "completion_tokens": 19,
+        "prompt_tokens": 10708,
+        "total_tokens": 10727,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 10708,
+        "prompt_ms": 16563.448,
+        "prompt_per_token_ms": 1.5468292865147553,
+        "prompt_per_second": 646.4837514507849,
+        "predicted_n": 19,
+        "predicted_ms": 910.714,
+        "predicted_per_token_ms": 50.595222222222226,
+        "predicted_per_second": 19.764712083046923
+      },
+      "wall_seconds": 17.503858796000713,
+      "exact_body_sha256": "a5c0526dc74a170ebac644a096145a1705201d924959c89bf9da305c52489c2a",
+      "empty_final": false
+    }
+  ],
+  "off_measured_load_residency_delta_bytes": 27235393536,
+  "off_observed_request_peak_residency_delta_bytes": 28103180288,
+  "off_measured_required_residency_delta_bytes": 28103180288,
+  "cache512_nominal_delta_bytes": 541810124,
+  "preload_required_MemAvailable_bytes": 29718732236,
+  "initial": {
+    "MemAvailable_bytes": 29949001728,
+    "VRAM_used_bytes": 783663104,
+    "VRAM_total_bytes": 25753026560,
+    "VRAM_free_bytes": 24969363456
+  },
+  "load": {
+    "host": {
+      "MemAvailable_bytes": 2479751168,
+      "VRAM_used_bytes": 24001441792,
+      "VRAM_total_bytes": 25753026560,
+      "VRAM_free_bytes": 1751584768
+    },
+    "cgroup": {
+      "current": "28815093760",
+      "peak": "28903505920",
+      "max": "30198988800",
+      "swap_max": "0",
+      "swap_current": "0",
+      "stat": {
+        "anon": 456966144,
+        "file": 28234260480
+      },
+      "events": {
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=61133\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=61133"
+    },
+    "elapsed_s": 56.53014588356018
+  },
+  "temporary_extra_budget_bytes": 134217728,
+  "budget_probe": "Bounded capacity probe after max pressure; actual excess measured only after clean run.",
+  "placement_mode": "fixed",
+  "native_raw": {
+    "content": "I need to investigate this further. Let me check the details.\n</think>\n\nOK",
+    "stop_type": "eos",
+    "stopping_word": "",
+    "tokens_predicted": 18,
+    "tokens_evaluated": 10708,
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 10708,
+      "prompt_ms": 16017.554,
+      "prompt_per_token_ms": 1.495849271572656,
+      "prompt_per_second": 668.5165537759386,
+      "predicted_n": 18,
+      "predicted_ms": 846.08,
+      "predicted_per_token_ms": 49.769411764705886,
+      "predicted_per_second": 20.092662632375188
+    },
+    "truncated": false
+  },
+  "functional_empty_final_count": 0,
+  "diagnosis": "Diagnostic completion status only, not functional all-pass.",
+  "stage_gate": "Bounded medium functional test only.",
+  "pre_teardown_status": "PASS",
+  "server_exit_code": 0,
+  "server_oom_killed": false,
+  "monitor_exit_code": 0,
+  "after_teardown_resources": {
+    "MemAvailable_bytes": 29883961344,
+    "VRAM_used_bytes": 783663104,
+    "VRAM_total_bytes": 25753026560,
+    "VRAM_free_bytes": 24969363456
+  },
+  "vram_released_within_256MiB": true,
+  "resources": {
+    "samples": 132,
+    "min_MemAvailable_bytes": 1636917248,
+    "peak_VRAM_used_bytes": 24356405248,
+    "peak_cgroup_current_bytes": 28944048128,
+    "peak_cgroup_bytes": 28947267584,
+    "final_cgroup_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "max_host_swap_MiBs": 4.382741444964824,
+    "host_swap_in_bytes": 10981376,
+    "host_swap_out_bytes": 8269824,
+    "host_oom_kill_delta": 0
+  },
+  "fault_evidence": {
+    "kernel_faults": [],
+    "kernel_oom_lines": [],
+    "cgroup_event_deltas": {
+      "oom": 0,
+      "oom_kill": 0,
+      "max": 0
+    },
+    "first_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "last_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "peak": 28947267584,
+    "last_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=61133\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=61133"
+  }
+}

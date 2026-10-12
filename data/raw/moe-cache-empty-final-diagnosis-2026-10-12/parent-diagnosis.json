@@ -1,0 +1,17 @@
+{
+  "conclusions": {
+    "Numeric fixture": "Pi chars/4 estimated all three numeric blocks below keepRecent2048, so they were kept. The summary added tokens:9009 ->9139. Prose blocks corrected eligibility and reduced10688 ->4276 with recall preserved.",
+    "Post-compaction tool fixture": "The system forbade re-reading files, but the test requested notes_a again. Returning the known marker without a tool respected that system rule. A new unread file fixes the test contradiction.",
+    "Empty final mechanism": "Native raw generation confirms premature EOS after14-16 reasoning tokens, without </think> or final text. Pi faithfully relayed backend output. Not16384-output exhaustion, parser loss, OOM or compaction.",
+    "Not exclusive to MoE cache": "A fresh captured-prefix replay produces empty finals with both cache0 and512. The primed OFF path passed whereas the clean OFF path failed. Cache512 is not necessary for the defect.",
+    "Prompt reuse effect": "At automatic OFF placement, same saved body/seed/temp1 gave empty final with7685 or10704 cached tokens. Adding only cache_prompt:false gave uncached10708 and OK; native cold generation includes </think> and OK. This is execution-state sensitivity, not proof of corrupted KV.",
+    "Fixed placement control": "Identical explicit ngl49/CPU overrides/fitoff and matched rounded model buffers: both OFF and ON returned OK for cold, repeat, no-prompt-cache and temperature0 controls. Actual automatic placement was not recorded, so earlier automatic-fit differences cannot be uniquely assigned to cache or to a particular tensor.",
+    "Reasoning budget": "4096 counts until it forces the end tag, but allows earlier EOS. It cannot guarantee a final answer.",
+    "Memory pressure": "Initial fixed OFF hit memory.max1711 events at28GiB without OOM. It remains resource NO-GO. A single temporary+128MiB probe pair completed with max/oom/kill0. Final peaks26.626/26.960GiB are below28GiB, so an actual128MiB residency shortage was not demonstrated; transient loading/page-cache effects remain a limit.",
+    "Recommendation": "Keep production unchanged. Fix the two harness defects, then use a short Pi check with explicit controlled placement and the fresh-file fixture. Do not call the cache production-ready from this single-request control. No soak or model/backend migration is needed to diagnose this case.",
+    "Unresolved": "The exact numerical/source reason why reuse and automatic fitting change the EOS branch is not established. No general-quality claim, full two-compaction Pi pass or permanent mitigation."
+  },
+  "fixed_control_all_four_cases_each_pass": true,
+  "explicit_recipe_and_buffer_totals_match": true,
+  "production_change": false
+}

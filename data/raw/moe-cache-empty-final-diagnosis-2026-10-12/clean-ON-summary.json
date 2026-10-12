@@ -1,0 +1,870 @@
+{
+  "label": "cache512",
+  "moe_cache_MiB": 512,
+  "status": "PASS",
+  "requests": [
+    {
+      "tag": "clean-prefix-1",
+      "content": "OK",
+      "reasoning": "The user is asking to memorize three facts without saving them, and to just confirm with \"OK\". Simple.\n",
+      "tool_call_chunks": [],
+      "finish_reasons": [
+        "stop"
+      ],
+      "usage": {
+        "completion_tokens": 28,
+        "prompt_tokens": 836,
+        "total_tokens": 864,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 836,
+        "prompt_ms": 4016.118,
+        "prompt_per_token_ms": 4.803968899521531,
+        "prompt_per_second": 208.16121438662907,
+        "predicted_n": 28,
+        "predicted_ms": 1328.913,
+        "predicted_per_token_ms": 49.219,
+        "predicted_per_second": 20.317357118186067
+      },
+      "wall_seconds": 5.352619194018189,
+      "exact_body_sha256": "78a443de65dca5e391a4940d4d74371cf123e9577bb9e9832be29edfd76ffb83",
+      "empty_final": false
+    },
+    {
+      "tag": "clean-prefix-2",
+      "content": "",
+      "reasoning": "The user is requesting a read of notes_a.txt.\n",
+      "tool_call_chunks": [
+        {
+          "index": 0,
+          "id": "w1q6T5JdPDgyyFvkB8xtiXNfocCKFngu",
+          "type": "function",
+          "function": {
+            "name": "read",
+            "arguments": "{"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "\"path\":\""
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "notes"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "_a"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": ".txt"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "\""
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "}"
+          }
+        }
+      ],
+      "finish_reasons": [
+        "tool_calls"
+      ],
+      "usage": {
+        "completion_tokens": 40,
+        "prompt_tokens": 894,
+        "total_tokens": 934,
+        "prompt_tokens_details": {
+          "cached_tokens": 863
+        }
+      },
+      "timings": {
+        "cache_n": 863,
+        "prompt_n": 31,
+        "prompt_ms": 1192.337,
+        "prompt_per_token_ms": 38.462483870967745,
+        "prompt_per_second": 25.99936091893483,
+        "predicted_n": 40,
+        "predicted_ms": 1996.291,
+        "predicted_per_token_ms": 51.18694871794872,
+        "predicted_per_second": 19.536229938420803
+      },
+      "wall_seconds": 3.1957117929996457,
+      "exact_body_sha256": "3e78de5094cb05f4a38a1c185669d32901825ad88a44c36417c2a93f1a34a4ab",
+      "empty_final": false
+    },
+    {
+      "tag": "clean-prefix-3",
+      "content": "MARKER_A=MARKER-ALFA-72",
+      "reasoning": "Please answer only MARKER_A.\n",
+      "tool_call_chunks": [],
+      "finish_reasons": [
+        "stop"
+      ],
+      "usage": {
+        "completion_tokens": 23,
+        "prompt_tokens": 961,
+        "total_tokens": 984,
+        "prompt_tokens_details": {
+          "cached_tokens": 933
+        }
+      },
+      "timings": {
+        "cache_n": 933,
+        "prompt_n": 28,
+        "prompt_ms": 1044.379,
+        "prompt_per_token_ms": 37.299249999999994,
+        "prompt_per_second": 26.81019055342936,
+        "predicted_n": 23,
+        "predicted_ms": 1126.947,
+        "predicted_per_token_ms": 51.22486363636363,
+        "predicted_per_second": 19.52176987915137
+      },
+      "wall_seconds": 2.179555448994506,
+      "exact_body_sha256": "eecc8d96b8d979dcd9fc72e5aba394ea563413b86800c493d3ef11a9b08724b0",
+      "empty_final": false
+    },
+    {
+      "tag": "clean-prefix-4",
+      "content": "",
+      "reasoning": "The user is requesting a full read of record_a.txt using only the path parameter.\n",
+      "tool_call_chunks": [
+        {
+          "index": 0,
+          "id": "AikA2lHqGYmsk0Mv7mNlwQiwiPz8VtUP",
+          "type": "function",
+          "function": {
+            "name": "read",
+            "arguments": "{"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "\"path\":\""
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "record"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "_a"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": ".txt"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "\""
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "}"
+          }
+        }
+      ],
+      "finish_reasons": [
+        "tool_calls"
+      ],
+      "usage": {
+        "completion_tokens": 46,
+        "prompt_tokens": 1067,
+        "total_tokens": 1113,
+        "prompt_tokens_details": {
+          "cached_tokens": 983
+        }
+      },
+      "timings": {
+        "cache_n": 983,
+        "prompt_n": 84,
+        "prompt_ms": 915.61,
+        "prompt_per_token_ms": 10.900119047619048,
+        "prompt_per_second": 91.74211727700659,
+        "predicted_n": 46,
+        "predicted_ms": 2340.189,
+        "predicted_per_token_ms": 52.0042,
+        "predicted_per_second": 19.229216101776398
+      },
+      "wall_seconds": 3.264924888004316,
+      "exact_body_sha256": "865113f981fff08c1ddbc9c9a491e0bca9e4c5b47c5452943c097b0487bd3f58",
+      "empty_final": false
+    },
+    {
+      "tag": "clean-prefix-5",
+      "content": "record_a.txt=ID-RECORD-42",
+      "reasoning": "Following the format and outputting: file=ID.\n",
+      "tool_call_chunks": [],
+      "finish_reasons": [
+        "stop"
+      ],
+      "usage": {
+        "completion_tokens": 26,
+        "prompt_tokens": 1137,
+        "total_tokens": 1163,
+        "prompt_tokens_details": {
+          "cached_tokens": 1112
+        }
+      },
+      "timings": {
+        "cache_n": 1112,
+        "prompt_n": 25,
+        "prompt_ms": 983.373,
+        "prompt_per_token_ms": 39.334920000000004,
+        "prompt_per_second": 25.4227032875623,
+        "predicted_n": 26,
+        "predicted_ms": 1263.211,
+        "predicted_per_token_ms": 50.52844,
+        "predicted_per_second": 19.790834626994222
+      },
+      "wall_seconds": 2.2569912140024826,
+      "exact_body_sha256": "4c19e02c201dbd9e1b0e9d19ea8d57c0bf1797fb6ff8a7c86824b9bb3124a0f0",
+      "empty_final": false
+    },
+    {
+      "tag": "clean-prefix-6",
+      "content": "",
+      "reasoning": "I need to first read the file, then edit it. The instructions say to use read and edit. I need to read to know the content in order to edit.\n",
+      "tool_call_chunks": [
+        {
+          "index": 0,
+          "id": "bTTqOSP1BsmZWEsnu6O9a2xrLPaG3haB",
+          "type": "function",
+          "function": {
+            "name": "read",
+            "arguments": "{"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "\"path\":\""
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "edit"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "-check"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": ".txt"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "\""
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "}"
+          }
+        }
+      ],
+      "finish_reasons": [
+        "tool_calls"
+      ],
+      "usage": {
+        "completion_tokens": 63,
+        "prompt_tokens": 1202,
+        "total_tokens": 1265,
+        "prompt_tokens_details": {
+          "cached_tokens": 1162
+        }
+      },
+      "timings": {
+        "cache_n": 1162,
+        "prompt_n": 40,
+        "prompt_ms": 777.893,
+        "prompt_per_token_ms": 19.447325,
+        "prompt_per_second": 51.42095378156122,
+        "predicted_n": 63,
+        "predicted_ms": 3217.384,
+        "predicted_per_token_ms": 51.89329032258065,
+        "predicted_per_second": 19.270314019091288
+      },
+      "wall_seconds": 4.007230745017296,
+      "exact_body_sha256": "c9d04d82bc80bd5b6df11b990c7b7926e5db2a2374a4912790df8a17706d54b1",
+      "empty_final": false
+    },
+    {
+      "tag": "clean-prefix-7",
+      "content": "",
+      "reasoning": "I need to investigate this further. Let me confirm the details.\n",
+      "tool_call_chunks": [
+        {
+          "index": 0,
+          "id": "BZUd4dv8KNPfx6EBKicih8O4dLbj8UeE",
+          "type": "function",
+          "function": {
+            "name": "edit",
+            "arguments": "{"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "\"path\":\""
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "edit"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "-check"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": ".txt"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "\""
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": ",\"edits\":"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "["
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "{\""
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "old"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "Text"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "\":"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": " \""
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "status"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "="
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "OLD"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "\","
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": " \""
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "new"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "Text"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "\":"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": " \""
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "status"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "="
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "NEW"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "\"}"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "]"
+          }
+        },
+        {
+          "index": 0,
+          "function": {
+            "arguments": "}"
+          }
+        }
+      ],
+      "finish_reasons": [
+        "tool_calls"
+      ],
+      "usage": {
+        "completion_tokens": 75,
+        "prompt_tokens": 1283,
+        "total_tokens": 1358,
+        "prompt_tokens_details": {
+          "cached_tokens": 1264
+        }
+      },
+      "timings": {
+        "cache_n": 1264,
+        "prompt_n": 19,
+        "prompt_ms": 815.397,
+        "prompt_per_token_ms": 42.91563157894737,
+        "prompt_per_second": 23.301532872944097,
+        "predicted_n": 75,
+        "predicted_ms": 3774.673,
+        "predicted_per_token_ms": 51.00909459459459,
+        "predicted_per_second": 19.60434718451108
+      },
+      "wall_seconds": 4.602449831989361,
+      "exact_body_sha256": "226f58be2bc9214df7d17f18434289569eb26686e2761e1f94ba94119f1db28d",
+      "empty_final": false
+    },
+    {
+      "tag": "clean-prefix-8",
+      "content": "OK",
+      "reasoning": "\"Please confirm OK.\"\n",
+      "tool_call_chunks": [],
+      "finish_reasons": [
+        "stop"
+      ],
+      "usage": {
+        "completion_tokens": 10,
+        "prompt_tokens": 1385,
+        "total_tokens": 1395,
+        "prompt_tokens_details": {
+          "cached_tokens": 1357
+        }
+      },
+      "timings": {
+        "cache_n": 1357,
+        "prompt_n": 28,
+        "prompt_ms": 1094.293,
+        "prompt_per_token_ms": 39.081892857142854,
+        "prompt_per_second": 25.587297003636138,
+        "predicted_n": 10,
+        "predicted_ms": 528.607,
+        "predicted_per_token_ms": 58.734111111111105,
+        "predicted_per_second": 17.02588123123606
+      },
+      "wall_seconds": 1.6353471820184495,
+      "exact_body_sha256": "61b57ca35cec43f5cd67cc10471558ceca6f123bff4d281548717f5c124b6430",
+      "empty_final": false
+    },
+    {
+      "tag": "clean-prefix-9",
+      "content": "- kryptonim: KORAL\n- numer: 731\n- miasto: Toruń\n- MARKER_A: MARKER-ALFA-72\n- ID: ID-RECORD-42",
+      "reasoning": "Facts: kryptonim=KORAL, number=731, city=Torun (from the initial memorization). MARKER_A=MARKER-ALFA-72 (from loading notes_a.txt). ID=ID-RECORD-42 (from record_a.txt).\n",
+      "tool_call_chunks": [],
+      "finish_reasons": [
+        "stop"
+      ],
+      "usage": {
+        "completion_tokens": 114,
+        "prompt_tokens": 1434,
+        "total_tokens": 1548,
+        "prompt_tokens_details": {
+          "cached_tokens": 1394
+        }
+      },
+      "timings": {
+        "cache_n": 1394,
+        "prompt_n": 40,
+        "prompt_ms": 766.048,
+        "prompt_per_token_ms": 19.1512,
+        "prompt_per_second": 52.21604912485902,
+        "predicted_n": 114,
+        "predicted_ms": 5767.792,
+        "predicted_per_token_ms": 51.04240707964602,
+        "predicted_per_second": 19.591552538649104
+      },
+      "wall_seconds": 6.547392211999977,
+      "exact_body_sha256": "cf010a37ed8c1be0c06b7b67fed840edaf9e14f6582cb378e4e3b104a9b5da63",
+      "empty_final": false
+    },
+    {
+      "tag": "clean-prefix-10",
+      "content": "status=NEW",
+      "reasoning": "The edit-check. Edit-check.txt was changed from status=OLD to status=NEW. The new line is status=NEW.\n",
+      "tool_call_chunks": [],
+      "finish_reasons": [
+        "stop"
+      ],
+      "usage": {
+        "completion_tokens": 33,
+        "prompt_tokens": 1575,
+        "total_tokens": 1608,
+        "prompt_tokens_details": {
+          "cached_tokens": 1547
+        }
+      },
+      "timings": {
+        "cache_n": 1547,
+        "prompt_n": 28,
+        "prompt_ms": 1140.572,
+        "prompt_per_token_ms": 40.73471428571428,
+        "prompt_per_second": 24.549085897251558,
+        "predicted_n": 33,
+        "predicted_ms": 1644.534,
+        "predicted_per_token_ms": 51.3916875,
+        "predicted_per_second": 19.45839976552628
+      },
+      "wall_seconds": 2.7993268969876226,
+      "exact_body_sha256": "9d69d3b853f538524216d72fe126cdbfbaeac3a86b07adbf8935de8729c647a2",
+      "empty_final": false
+    },
+    {
+      "tag": "clean-prefix-11",
+      "content": "OK",
+      "reasoning": "The user is retaining facts and only requesting confirmation with OK.\n",
+      "tool_call_chunks": [],
+      "finish_reasons": [
+        "stop"
+      ],
+      "usage": {
+        "completion_tokens": 17,
+        "prompt_tokens": 4630,
+        "total_tokens": 4647,
+        "prompt_tokens_details": {
+          "cached_tokens": 1607
+        }
+      },
+      "timings": {
+        "cache_n": 1607,
+        "prompt_n": 3023,
+        "prompt_ms": 4642.261,
+        "prompt_per_token_ms": 1.5356470393648696,
+        "prompt_per_second": 651.1913052712891,
+        "predicted_n": 17,
+        "predicted_ms": 811.683,
+        "predicted_per_token_ms": 50.7301875,
+        "predicted_per_second": 19.71212899617215
+      },
+      "wall_seconds": 5.472182058001636,
+      "exact_body_sha256": "2b1a575eec37712ee0af9c0d8ce5fda45d1d15f98e3f6a433d6244350835744e",
+      "empty_final": false
+    },
+    {
+      "tag": "clean-prefix-12",
+      "content": "OK",
+      "reasoning": "I need to investigate further. Let me check the details.\n",
+      "tool_call_chunks": [],
+      "finish_reasons": [
+        "stop"
+      ],
+      "usage": {
+        "completion_tokens": 17,
+        "prompt_tokens": 7669,
+        "total_tokens": 7686,
+        "prompt_tokens_details": {
+          "cached_tokens": 4646
+        }
+      },
+      "timings": {
+        "cache_n": 4646,
+        "prompt_n": 3023,
+        "prompt_ms": 4715.829,
+        "prompt_per_token_ms": 1.5599831293417135,
+        "prompt_per_second": 641.0325734881396,
+        "predicted_n": 17,
+        "predicted_ms": 890.533,
+        "predicted_per_token_ms": 55.6583125,
+        "predicted_per_second": 17.966768216337854
+      },
+      "wall_seconds": 5.629356858000392,
+      "exact_body_sha256": "baebfc1f704feeb8d65ed5b07bc5f8b0d135c521dfd8570c32bd09160e2a145f",
+      "empty_final": false
+    },
+    {
+      "tag": "clean-prefix-13",
+      "content": "",
+      "reasoning": "I need to look into this further. Please let me confirm the details.",
+      "tool_call_chunks": [],
+      "finish_reasons": [
+        "stop"
+      ],
+      "usage": {
+        "completion_tokens": 16,
+        "prompt_tokens": 10708,
+        "total_tokens": 10724,
+        "prompt_tokens_details": {
+          "cached_tokens": 7685
+        }
+      },
+      "timings": {
+        "cache_n": 7685,
+        "prompt_n": 3023,
+        "prompt_ms": 4861.447,
+        "prompt_per_token_ms": 1.6081531591134635,
+        "prompt_per_second": 621.8313189468074,
+        "predicted_n": 16,
+        "predicted_ms": 750.024,
+        "predicted_per_token_ms": 50.0016,
+        "predicted_per_second": 19.999360020479344
+      },
+      "wall_seconds": 5.639006114011863,
+      "exact_body_sha256": "09cfb8a34aab44e1dc4cb7f1b110898c7ca2739f33dc90212029c51890fb9c07",
+      "empty_final": true
+    },
+    {
+      "tag": "exact-repeat-after-clean-prefix",
+      "content": "",
+      "reasoning": "I need to look into this further. Please let me confirm the details.",
+      "tool_call_chunks": [],
+      "finish_reasons": [
+        "stop"
+      ],
+      "usage": {
+        "completion_tokens": 16,
+        "prompt_tokens": 10708,
+        "total_tokens": 10724,
+        "prompt_tokens_details": {
+          "cached_tokens": 10704
+        }
+      },
+      "timings": {
+        "cache_n": 10704,
+        "prompt_n": 4,
+        "prompt_ms": 239.45,
+        "prompt_per_token_ms": 59.8625,
+        "prompt_per_second": 16.704948841094176,
+        "predicted_n": 16,
+        "predicted_ms": 776.675,
+        "predicted_per_token_ms": 51.77833333333333,
+        "predicted_per_second": 19.313097498953876
+      },
+      "wall_seconds": 1.0439618290110957,
+      "exact_body_sha256": "09cfb8a34aab44e1dc4cb7f1b110898c7ca2739f33dc90212029c51890fb9c07",
+      "empty_final": true
+    }
+  ],
+  "off_measured_load_residency_delta_bytes": 26672599040,
+  "off_observed_request_peak_residency_delta_bytes": 27457466368,
+  "off_measured_required_residency_delta_bytes": 27457466368,
+  "cache512_nominal_delta_bytes": 541810124,
+  "preload_required_MemAvailable_bytes": 29073018316,
+  "initial": {
+    "MemAvailable_bytes": 29753257984,
+    "VRAM_used_bytes": 783663104,
+    "VRAM_total_bytes": 25753026560,
+    "VRAM_free_bytes": 24969363456
+  },
+  "load": {
+    "host": {
+      "MemAvailable_bytes": 2708168704,
+      "VRAM_used_bytes": 24261980160,
+      "VRAM_total_bytes": 25753026560,
+      "VRAM_free_bytes": 1491046400
+    },
+    "cgroup": {
+      "current": "27717648384",
+      "peak": "27736604672",
+      "max": "30064771072",
+      "swap_max": "0",
+      "swap_current": "0",
+      "stat": {
+        "anon": 448770048,
+        "file": 27148169216
+      },
+      "events": {
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=6017\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=6017"
+    },
+    "elapsed_s": 32.01306676864624
+  },
+  "native_raw": {
+    "content": "I need to look into this further. Please let me confirm the details.",
+    "stop_type": "eos",
+    "stopping_word": "",
+    "tokens_predicted": 16,
+    "tokens_evaluated": 10708,
+    "timings": {
+      "cache_n": 10704,
+      "prompt_n": 4,
+      "prompt_ms": 224.451,
+      "prompt_per_token_ms": 56.11275,
+      "prompt_per_second": 17.82126165621895,
+      "predicted_n": 16,
+      "predicted_ms": 739.425,
+      "predicted_per_token_ms": 49.294999999999995,
+      "predicted_per_second": 20.286033066233898
+    },
+    "truncated": false
+  },
+  "functional_empty_final_count": 2,
+  "diagnosis": "Completed captured clean prefix and native raw diagnostic; PASS means resources/lifecycle, not all finals correct.",
+  "stage_gate": "Bounded medium functional test only.",
+  "pre_teardown_status": "PASS",
+  "server_exit_code": 0,
+  "server_oom_killed": false,
+  "monitor_exit_code": 0,
+  "after_teardown_resources": {
+    "MemAvailable_bytes": 29678137344,
+    "VRAM_used_bytes": 783663104,
+    "VRAM_total_bytes": 25753026560,
+    "VRAM_free_bytes": 24969363456
+  },
+  "vram_released_within_256MiB": true,
+  "resources": {
+    "samples": 92,
+    "min_MemAvailable_bytes": 1918021632,
+    "peak_VRAM_used_bytes": 24628510720,
+    "peak_cgroup_current_bytes": 28437094400,
+    "peak_cgroup_bytes": 28437311488,
+    "final_cgroup_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "max_host_swap_MiBs": 6.3516518467566865,
+    "host_swap_in_bytes": 7413760,
+    "host_swap_out_bytes": 15261696,
+    "host_oom_kill_delta": 0
+  },
+  "fault_evidence": {
+    "kernel_faults": [],
+    "kernel_oom_lines": [],
+    "cgroup_event_deltas": {
+      "oom": 0,
+      "oom_kill": 0,
+      "max": 0
+    },
+    "first_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "last_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "peak": 28437311488,
+    "last_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=6017\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=6017"
+  }
+}

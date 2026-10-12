@@ -1,0 +1,31 @@
+{
+  "tag": "temperature-zero-cold",
+  "content": "OK",
+  "reasoning": "I need to look into this further. Let me check the details.\n",
+  "tool_call_chunks": [],
+  "finish_reasons": [
+    "stop"
+  ],
+  "usage": {
+    "completion_tokens": 19,
+    "prompt_tokens": 10708,
+    "total_tokens": 10727,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 10708,
+    "prompt_ms": 16822.619,
+    "prompt_per_token_ms": 1.5710327792304817,
+    "prompt_per_second": 636.5239562282187,
+    "predicted_n": 19,
+    "predicted_ms": 1346.286,
+    "predicted_per_token_ms": 74.79366666666667,
+    "predicted_per_second": 13.370116008039895
+  },
+  "wall_seconds": 18.19773813401116,
+  "exact_body_sha256": "a5c0526dc74a170ebac644a096145a1705201d924959c89bf9da305c52489c2a",
+  "empty_final": false
+}

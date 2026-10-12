@@ -1,0 +1,31 @@
+{
+  "tag": "exact-repeat-after-clean-prefix",
+  "content": "",
+  "reasoning": "I need to look into this further. Please let me confirm the details.",
+  "tool_call_chunks": [],
+  "finish_reasons": [
+    "stop"
+  ],
+  "usage": {
+    "completion_tokens": 16,
+    "prompt_tokens": 10708,
+    "total_tokens": 10724,
+    "prompt_tokens_details": {
+      "cached_tokens": 10704
+    }
+  },
+  "timings": {
+    "cache_n": 10704,
+    "prompt_n": 4,
+    "prompt_ms": 239.45,
+    "prompt_per_token_ms": 59.8625,
+    "prompt_per_second": 16.704948841094176,
+    "predicted_n": 16,
+    "predicted_ms": 776.675,
+    "predicted_per_token_ms": 51.77833333333333,
+    "predicted_per_second": 19.313097498953876
+  },
+  "wall_seconds": 1.0439618290110957,
+  "exact_body_sha256": "09cfb8a34aab44e1dc4cb7f1b110898c7ca2739f33dc90212029c51890fb9c07",
+  "empty_final": true
+}

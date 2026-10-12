@@ -1,0 +1,41 @@
+{
+  "checked_epoch": 1791792289.7130575,
+  "scope": "New fixed placement recipe only, not the earlier live automatic fit",
+  "arms": {
+    "cache0": {
+      "flags": {
+        "--n-gpu-layers": "49",
+        "--fit": "off",
+        "--fit-target": "2048",
+        "--moe-cache-mib": "0",
+        "-ot": "blk\\.21\\.ffn_(gate|up|gate_up|down).*=CPU,blk\\.22\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.23\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.24\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.25\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.26\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.27\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.28\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.29\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.30\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.31\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.32\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.33\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.34\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.35\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.36\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.37\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.38\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.39\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.40\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.41\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.42\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.43\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.44\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.45\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.46\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.47\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.48\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU",
+        "--memory": "28800m",
+        "--memory-swap": "28800m"
+      },
+      "model_buffers_MiB_rounded_2dp": {
+        "ROCm0": 19247.17,
+        "ROCm_Host": 25603.04,
+        "CPU_Mapped": 27465.95
+      }
+    },
+    "cache512": {
+      "flags": {
+        "--n-gpu-layers": "49",
+        "--fit": "off",
+        "--fit-target": "2048",
+        "--moe-cache-mib": "512",
+        "-ot": "blk\\.21\\.ffn_(gate|up|gate_up|down).*=CPU,blk\\.22\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.23\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.24\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.25\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.26\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.27\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.28\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.29\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.30\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.31\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.32\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.33\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.34\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.35\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.36\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.37\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.38\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.39\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.40\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.41\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.42\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.43\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.44\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.45\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.46\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.47\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU,blk\\.48\\.ffn_(up|down|gate_up|gate)_(ch|)exps=CPU",
+        "--memory": "28800m",
+        "--memory-swap": "28800m"
+      },
+      "model_buffers_MiB_rounded_2dp": {
+        "ROCm0": 19247.17,
+        "ROCm_Host": 25603.04,
+        "CPU_Mapped": 27465.95
+      }
+    }
+  },
+  "limitation": "lv4 exposes rounded model buffers, no tensor-by-tensor runtime assignment trace",
+  "same_explicit_weight_placement": true,
+  "same_rounded_model_buffers": true
+}

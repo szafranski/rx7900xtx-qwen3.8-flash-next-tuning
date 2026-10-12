@@ -1,0 +1,31 @@
+{
+  "tag": "clean-prefix-13",
+  "content": "",
+  "reasoning": "I need to look into this further. Please let me confirm the details.",
+  "tool_call_chunks": [],
+  "finish_reasons": [
+    "stop"
+  ],
+  "usage": {
+    "completion_tokens": 16,
+    "prompt_tokens": 10708,
+    "total_tokens": 10724,
+    "prompt_tokens_details": {
+      "cached_tokens": 7685
+    }
+  },
+  "timings": {
+    "cache_n": 7685,
+    "prompt_n": 3023,
+    "prompt_ms": 4861.447,
+    "prompt_per_token_ms": 1.6081531591134635,
+    "prompt_per_second": 621.8313189468074,
+    "predicted_n": 16,
+    "predicted_ms": 750.024,
+    "predicted_per_token_ms": 50.0016,
+    "predicted_per_second": 19.999360020479344
+  },
+  "wall_seconds": 5.639006114011863,
+  "exact_body_sha256": "09cfb8a34aab44e1dc4cb7f1b110898c7ca2739f33dc90212029c51890fb9c07",
+  "empty_final": true
+}

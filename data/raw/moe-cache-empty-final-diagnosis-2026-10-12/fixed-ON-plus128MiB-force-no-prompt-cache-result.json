@@ -1,0 +1,31 @@
+{
+  "tag": "force-no-prompt-cache",
+  "content": "OK",
+  "reasoning": "I'm continuing to think through this.\n",
+  "tool_call_chunks": [],
+  "finish_reasons": [
+    "stop"
+  ],
+  "usage": {
+    "completion_tokens": 13,
+    "prompt_tokens": 10708,
+    "total_tokens": 10721,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 10708,
+    "prompt_ms": 16575.619,
+    "prompt_per_token_ms": 1.5479659133358237,
+    "prompt_per_second": 646.0090570373269,
+    "predicted_n": 13,
+    "predicted_ms": 622.778,
+    "predicted_per_token_ms": 51.89816666666667,
+    "predicted_per_second": 19.26850338322805
+  },
+  "wall_seconds": 17.227875685988693,
+  "exact_body_sha256": "b39893343a017698b476116aa1b7e21c80eec25d215e90cce42ef97f4a97e5fa",
+  "empty_final": false
+}
