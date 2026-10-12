@@ -108,7 +108,7 @@ See [ROCm tuning](docs/rocm-tuning.md) and [MTP](docs/mtp.md) for each chart's s
 - [Reproduction guide](docs/reproduce.md): one minimal GGUF and one EXL3 recipe, the Pi adapter in [adapter/](adapter/), and what is not available.
 - [Methodology](docs/methodology.md): rates, cached prompts and evidence limits.
 - [Correctness](docs/correctness.md), [context and memory](docs/context-and-memory.md), [Vulkan](docs/vulkan.md): topic summaries with dated findings.
-- [Data guide](data/README.md): 533 selected evidence files and a SHA-256 manifest. Some are reduced responses or report-derived summaries; full prompts, logs, model weights and build binaries are excluded.
+- [Data guide](data/README.md): 534 selected evidence files and a SHA-256 manifest. Some are reduced responses or report-derived summaries; full prompts, logs, model weights and build binaries are excluded.
 - [Reports](reports/): dated field notes with local paths anonymized. Service status and follow-up instructions describe their test period, not current authorization. The [28 September benchmark plan](docs/next-benchmarks.md) is historical.
 
 Most configurations ran once. Small arithmetic, retrieval, vision and tool checks do not rank quantization quality or establish reliable arbitrary 65k agent conversations. There is no common quality suite or multi-user test. Memory readings distinguish host, container and VRAM; use the report's units and sampling scope.

@@ -18,7 +18,8 @@ EXL3 migration. No temperature, prompt reuse or Pi setting was changed.
   reasoning on/budget4096. Activation smoke requests explicitly use temperature 0;
   these do not validate general quality at the production default.
 - Container memory and memory-swap stay at 28 GiB. The Flash-only preload guard
-  changes 26.5 ->27.25 GiB MemAvailable. The measured largest host-availability
+  is currently 26.5 GiB MemAvailable after the user-requested correction below.
+  The initial activation used 27.25 GiB. The measured largest host-availability
   drop was 26.14 GiB, plus the single project 1 GiB floor, rounded upward.
   This is a start condition, not permanent reserved memory or a larger cgroup cap.
   Qwen27B keeps its existing start guard and backend arguments.
@@ -109,3 +110,7 @@ leaves less than 27.25 GiB available. Rollback restores 26.5 GiB. The 26.14 GiB
 maximum drop came from the 32k candidate A/B archive moe-cache-test-20261011-221619Z;
 near-65k recovery and medium/compaction checks had drops 25.83 and 26.13 GiB.
 These bounded samples do not validate full 65k with long production generation.
+
+## RAM admission correction, 12 October 2026
+
+The user requested restoring the Flash-only startup threshold to 26.5 GiB (28454158336 bytes). The earlier increase to 27.25 GiB lacked explicit user authorization. Cache 512 MiB, the 28 GiB no-swap cap and stop policy are unchanged. Configuration validation passed; the manager was stopped, so its next start reads the restored threshold. No GPU test was run. Earlier activation records retain the historical 27.25 GiB value.

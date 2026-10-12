@@ -1,0 +1,9 @@
+{
+  "timestamp_utc": "2026-10-12T09:36:40.073146+00:00",
+  "user_authorized": "Restore only Flash RAM startup threshold to 26.5 GiB",
+  "previous_bytes": 29259464704,
+  "current_bytes": 28454158336,
+  "cache_mib": 512,
+  "other_configuration_unchanged": true,
+  "GPU_test_performed": false
+}
