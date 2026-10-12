@@ -1,0 +1,80 @@
+{
+  "start_epoch": 1791800098.0395863,
+  "checks": [
+    {
+      "label": "cold-proxy-medium",
+      "exit_code": 0,
+      "seconds": 44.45777082443237,
+      "done": true,
+      "content_chars": 489,
+      "events": 278,
+      "stderr": "",
+      "http_headers": "HTTP/1.1 200 OK\nContent-Type: text/event-stream\nServer: llama.cpp\nX-Accel-Buffering: no\nDate: Mon, 12 Oct 2026 10:15:29 GMT\nTransfer-Encoding: chunked\n\n"
+    },
+    {
+      "label": "warm-proxy-off",
+      "exit_code": 0,
+      "seconds": 7.849652528762817,
+      "done": true,
+      "content_chars": 380,
+      "events": 114,
+      "stderr": "",
+      "http_headers": "HTTP/1.1 200 OK\nContent-Type: text/event-stream\nServer: llama.cpp\nX-Accel-Buffering: no\nDate: Mon, 12 Oct 2026 10:15:44 GMT\nTransfer-Encoding: chunked\n\n"
+    },
+    {
+      "label": "pi-proxy-off",
+      "exit_code": 0,
+      "seconds": 7.853785514831543,
+      "stop_reason": "stop",
+      "error": null,
+      "content": "Długie połączenia strumieniowe pozwalają na ciągłą transmisję danych w czasie rzeczywistym, co jest kluczowe dla usług takich jak video streaming czy wideokonferencje. Utrzymanie stabilności takich połączeń wymaga często zastosowania protokołów adaptacyjnych oraz mechanizmów buforowania, aby zminimalizować opóźnienia i zrywanie transmisji. W środowiskach sieciowych o zmiennym przepustowości, techniki takie jak TCP z rozszerzeniami czy HTTP/2 zapewniają płynność działania strumieni mimo zmiennych warunków sieciowych.",
+      "tool_executed": false,
+      "event_count": 141
+    },
+    {
+      "label": "pi-proxy-read",
+      "exit_code": 0,
+      "seconds": 5.441993713378906,
+      "stop_reason": "stop",
+      "error": null,
+      "content": "RIVER-582",
+      "tool_executed": true,
+      "event_count": 36
+    },
+    {
+      "label": "pi-proxy-medium",
+      "exit_code": 0,
+      "seconds": 6.502859115600586,
+      "stop_reason": "stop",
+      "error": null,
+      "content": "17 × 19 = **323**",
+      "tool_executed": false,
+      "event_count": 110
+    }
+  ],
+  "production_profile_changed": false,
+  "status": "PASS",
+  "end_epoch": 1791800172.151683,
+  "monitor_exit_code": 0,
+  "min_available_gib": 1.5447425842285156,
+  "guard_triggered": false,
+  "cgroup_events_first": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0,
+    "sock_throttled": 0
+  },
+  "cgroup_events_last": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0,
+    "sock_throttled": 0
+  },
+  "host_oom_delta": 0
+}

@@ -24,6 +24,8 @@ GPU rollback remain unvalidated. Isolated CPU rollback checks passed. Activation
 smoke used temperature 0; production sampling remains at temperature 1.
 Older tables and activation snapshots below describe their dated measurements.
 
+The [local client stream check](reports/flashnext-client-stream-diagnosis-2026-10-12.md) completed seven routed inference requests with curl and Pi, including a cold start and an Origin/CORS simulation. The mobile disconnect was not reproduced; the client or network cause remains unresolved.
+
 ## Start here
 
 | Configuration | Real context reached | Typical TG tok/s | Required workarounds | Unresolved issues | Report |

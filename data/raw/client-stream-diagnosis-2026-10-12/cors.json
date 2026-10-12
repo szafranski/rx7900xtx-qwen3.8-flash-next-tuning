@@ -1,0 +1,8 @@
+{
+  "origin": "capacitor://localhost",
+  "exit_code": 0,
+  "options_headers": "HTTP/1.1 204 No Content\nAccess-Control-Allow-Headers: authorization, content-type\nAccess-Control-Allow-Methods: GET, POST, PUT, PATCH, DELETE, OPTIONS\nAccess-Control-Allow-Origin: *\nAccess-Control-Max-Age: 86400\nVary: Origin, Access-Control-Request-Headers\nDate: Mon, 12 Oct 2026 10:17:15 GMT\nServer: Python/3.14 aiohttp/3.13.5\n\n",
+  "post_headers": "HTTP/1.1 200 OK\nAccess-Control-Allow-Origin: *\nContent-Type: text/event-stream\nServer: llama.cpp\nVary: Origin\nX-Accel-Buffering: no\nDate: Mon, 12 Oct 2026 10:17:15 GMT\nTransfer-Encoding: chunked\n\n",
+  "done": true,
+  "allow_origin_count": 1
+}
