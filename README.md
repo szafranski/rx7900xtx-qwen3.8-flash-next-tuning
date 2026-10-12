@@ -8,13 +8,21 @@ This repository stores selected evidence, reports and charts. Runtime repairs an
 
 ## Production trial, 12 October
 
-The user authorized Flash-Next GGUF with MoE cache512 on pinned ROCm7.14.1 /
-llama.cpp f2cc7282ce, preserving the previous container/build and a
-[one-command rollback](docs/moe-cache-production-trial.md). Model ID, endpoint,
-weights,65k q8 context and production sampling remain unchanged. Container28GiB,
-Flash-only preload minimum27.25GiB. Activation and stop-retest evidence are
-recorded in the deployment report; thinking-only finals and full Pi compaction
-remain limitations. Older configuration tables below retain their historical scope.
+The on-demand Flash-Next profile uses GGUF IQ3_XXS and pinned llama.cpp
+`f2cc7282ce` on ROCm 7.14.1 with `--moe-cache-mib 512`. The previous container
+and build are preserved with a [one-command rollback](docs/moe-cache-production-trial.md).
+Model ID, endpoint, weights, 65k q8 context and production sampling are unchanged.
+The container cap is 28 GiB without swap. The Flash-only startup threshold is
+**26.5 GiB MemAvailable**, restored at the user's request after an unauthorized
+increase during deployment. See the [RAM correction](reports/flashnext-moe-cache-ram-guard-correction-2026-10-12.md).
+
+The [activation report](reports/flashnext-moe-cache-production-activation-2026-10-12.md)
+records the successful direct and routed checks, the failed first stop and one
+successful corrected stop. Thinking-only empty finals remain unresolved; two
+complete Pi compactions, the Qwen 27B GPU stop path and a full post-correction
+GPU rollback remain unvalidated. Isolated CPU rollback checks passed. Activation
+smoke used temperature 0; production sampling remains at temperature 1.
+Older tables and activation snapshots below describe their dated measurements.
 
 ## Start here
 
