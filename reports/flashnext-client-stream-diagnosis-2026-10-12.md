@@ -61,3 +61,7 @@ Reduced telemetry retains RAM/swap, VRAM and cgroup counters; process inventorie
 are omitted. Manifest hashes bind original and imported bytes. No push was requested.
 
 Sonnet medium reviewed the local results through skonsultuj-z (exit 0, no tools or changes). It agreed that local non-reproduction does not mean the mobile issue is fixed and recommended a same-app, same-endpoint comparison with streaming OFF, if supported. This is advice, not additional runtime evidence; one phone comparison cannot prove the cause of an intermittent failure. Opinion and exit code remain in the local scratch directory.
+
+## Phone follow-up, 12:23-12:24 CEST
+
+After confirming the model was unloaded, the user repeated the phone request and reported success. The cold POST completed with HTTP 200 in 50.734 s; model loading finished at 12:24:35. An overlapping POST at 12:23:51 still received 429. Another POST completed with 200 in 10.157 s at 12:24:53. No downstream reset was recorded for this attempt. Thus extra requests still occur, while the earlier disconnect is intermittent and was not reproduced in this repetition. Request intent remains unknown. This was ordinary user traffic, not another controlled local test; no runtime settings were changed. The [derived log summary](../data/raw/client-stream-diagnosis-2026-10-12/phone-followup.json) is a transcription of observed proxy/launcher log fields, not a full trace.

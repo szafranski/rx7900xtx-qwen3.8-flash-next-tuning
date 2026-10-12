@@ -1,0 +1,33 @@
+{
+  "kind": "derived_proxy_and_launcher_log_summary",
+  "date": "2026-10-12",
+  "timezone": "Europe/Warsaw",
+  "user_report": "Phone request succeeded",
+  "requests": [
+    {
+      "proxy_id": 1289,
+      "finished": "12:23:51",
+      "http_status": 429,
+      "wall_ms": 9,
+      "bytes": 126
+    },
+    {
+      "proxy_id": 1288,
+      "finished": "12:24:41",
+      "http_status": 200,
+      "wall_ms": 50734,
+      "bytes": 22836
+    },
+    {
+      "proxy_id": 1290,
+      "finished": "12:24:53",
+      "http_status": 200,
+      "wall_ms": 10157,
+      "bytes": 46632
+    }
+  ],
+  "model_loaded": "12:24:35",
+  "downstream_errors": 0,
+  "interpretation": "Cold request succeeded; an overlapping request was still rejected. Intent of extra requests remains unknown. Earlier disconnect was not reproduced.",
+  "runtime_changes": false
+}
