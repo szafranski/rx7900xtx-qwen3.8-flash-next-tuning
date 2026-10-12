@@ -1,0 +1,10 @@
+{
+  "first_manual_compaction": "PASS",
+  "actual_prompt_before": 10688,
+  "actual_prompt_after": 4276,
+  "reduction": 6412,
+  "recall": "PASS",
+  "post_compaction_tool": "NOT_EXECUTED",
+  "cause": "The harness system prompt prohibits re-reading previously read files; post-compaction user prompt requested the same notes_a.txt. Model returned correct marker from history while obeying the system constraint. Required tool scenario remains unvalidated, not cache-specific regression.",
+  "followup": "Fresh copy asks to read a new, previously unread file after each compaction. Same profile and success criteria."
+}

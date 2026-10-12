@@ -1,0 +1,15 @@
+{
+  "first_compaction_trigger": "manual",
+  "actual_prompt_before": 9009,
+  "actual_prompt_after": 9139,
+  "reduction": -130,
+  "post_compaction_recall": "PASS",
+  "kept_numeric_growth_messages": 3,
+  "kept_growth_serialized_chars": [
+    2521,
+    2521,
+    2521
+  ],
+  "explanation": "Pi keeps recent messages by estimated tokens; all three numeric growth messages remained in next ordinary request. Summary increased actual context. No cache-specific attribution; fixture failed actual reduction acceptance.",
+  "server_prompt_tokens_after_from_log": 9139
+}

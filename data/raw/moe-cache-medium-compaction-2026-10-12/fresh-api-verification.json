@@ -1,0 +1,215 @@
+{
+  "requests": [
+    {
+      "id": 1,
+      "max_tokens": null,
+      "max_completion_tokens": 16384,
+      "reasoning_effort": null,
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "reasoning_effort": "medium",
+        "preserve_thinking": true
+      }
+    },
+    {
+      "id": 2,
+      "max_tokens": null,
+      "max_completion_tokens": 16384,
+      "reasoning_effort": null,
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "reasoning_effort": "medium",
+        "preserve_thinking": true
+      }
+    },
+    {
+      "id": 3,
+      "max_tokens": null,
+      "max_completion_tokens": 16384,
+      "reasoning_effort": null,
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "reasoning_effort": "medium",
+        "preserve_thinking": true
+      }
+    },
+    {
+      "id": 4,
+      "max_tokens": null,
+      "max_completion_tokens": 16384,
+      "reasoning_effort": null,
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "reasoning_effort": "medium",
+        "preserve_thinking": true
+      }
+    },
+    {
+      "id": 5,
+      "max_tokens": null,
+      "max_completion_tokens": 16384,
+      "reasoning_effort": null,
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "reasoning_effort": "medium",
+        "preserve_thinking": true
+      }
+    },
+    {
+      "id": 6,
+      "max_tokens": null,
+      "max_completion_tokens": 16384,
+      "reasoning_effort": null,
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "reasoning_effort": "medium",
+        "preserve_thinking": true
+      }
+    },
+    {
+      "id": 7,
+      "max_tokens": null,
+      "max_completion_tokens": 16384,
+      "reasoning_effort": null,
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "reasoning_effort": "medium",
+        "preserve_thinking": true
+      }
+    },
+    {
+      "id": 8,
+      "max_tokens": null,
+      "max_completion_tokens": 16384,
+      "reasoning_effort": null,
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "reasoning_effort": "medium",
+        "preserve_thinking": true
+      }
+    },
+    {
+      "id": 9,
+      "max_tokens": null,
+      "max_completion_tokens": 16384,
+      "reasoning_effort": null,
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "reasoning_effort": "medium",
+        "preserve_thinking": true
+      }
+    },
+    {
+      "id": 10,
+      "max_tokens": null,
+      "max_completion_tokens": 16384,
+      "reasoning_effort": null,
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "reasoning_effort": "medium",
+        "preserve_thinking": true
+      }
+    },
+    {
+      "id": 11,
+      "max_tokens": null,
+      "max_completion_tokens": 16384,
+      "reasoning_effort": null,
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "reasoning_effort": "medium",
+        "preserve_thinking": true
+      }
+    },
+    {
+      "id": 12,
+      "max_tokens": null,
+      "max_completion_tokens": 16384,
+      "reasoning_effort": null,
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "reasoning_effort": "medium",
+        "preserve_thinking": true
+      }
+    },
+    {
+      "id": 13,
+      "max_tokens": null,
+      "max_completion_tokens": 16384,
+      "reasoning_effort": null,
+      "chat_template_kwargs": {
+        "enable_thinking": true,
+        "reasoning_effort": "medium",
+        "preserve_thinking": true
+      }
+    }
+  ],
+  "templates": [
+    {
+      "id": 1,
+      "verified": true,
+      "applied": "medium"
+    },
+    {
+      "id": 2,
+      "verified": true,
+      "applied": "medium"
+    },
+    {
+      "id": 3,
+      "verified": true,
+      "applied": "medium"
+    },
+    {
+      "id": 4,
+      "verified": true,
+      "applied": "medium"
+    },
+    {
+      "id": 5,
+      "verified": true,
+      "applied": "medium"
+    },
+    {
+      "id": 6,
+      "verified": true,
+      "applied": "medium"
+    },
+    {
+      "id": 7,
+      "verified": true,
+      "applied": "medium"
+    },
+    {
+      "id": 8,
+      "verified": true,
+      "applied": "medium"
+    },
+    {
+      "id": 9,
+      "verified": true,
+      "applied": "medium"
+    },
+    {
+      "id": 10,
+      "verified": true,
+      "applied": "medium"
+    },
+    {
+      "id": 11,
+      "verified": true,
+      "applied": "medium"
+    },
+    {
+      "id": 12,
+      "verified": true,
+      "applied": "medium"
+    },
+    {
+      "id": 13,
+      "verified": true,
+      "applied": "medium"
+    }
+  ],
+  "errors": []
+}

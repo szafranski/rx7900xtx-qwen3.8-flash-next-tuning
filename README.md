@@ -95,7 +95,7 @@ See [ROCm tuning](docs/rocm-tuning.md) and [MTP](docs/mtp.md) for each chart's s
 - [Reproduction guide](docs/reproduce.md): one minimal GGUF and one EXL3 recipe, the Pi adapter in [adapter/](adapter/), and what is not available.
 - [Methodology](docs/methodology.md): rates, cached prompts and evidence limits.
 - [Correctness](docs/correctness.md), [context and memory](docs/context-and-memory.md), [Vulkan](docs/vulkan.md): topic summaries with dated findings.
-- [Data guide](data/README.md): 417 selected evidence files and a SHA-256 manifest. Some are reduced responses or report-derived summaries; full prompts, logs, model weights and build binaries are excluded.
+- [Data guide](data/README.md): 443 selected evidence files and a SHA-256 manifest. Some are reduced responses or report-derived summaries; full prompts, logs, model weights and build binaries are excluded.
 - [Reports](reports/): dated field notes with local paths anonymized. Service status and follow-up instructions describe their test period, not current authorization. The [28 September benchmark plan](docs/next-benchmarks.md) is historical.
 
 Most configurations ran once. Small arithmetic, retrieval, vision and tool checks do not rank quantization quality or establish reliable arbitrary 65k agent conversations. There is no common quality suite or multi-user test. Memory readings distinguish host, container and VRAM; use the report's units and sampling scope.
@@ -120,3 +120,5 @@ The neighboring [Qwen3.8-27B tuning repository](https://github.com/szafranski/rx
   - `data/raw/gguf-61k-mtp-2026-10-06/kpool-fix.patch` modifies upstream llama.cpp, which GitHub reports as MIT (checked 6 October 2026); no copy of that license text is stored here.
   - Model weights, projectors and build binaries are not included. Model, project and product names belong to their owners; their use here is for identification only.
 - `data/raw` contains model-generated text (API responses, reduced transcripts) and a synthetic test image. It is included as measurement evidence, not as a licensed dataset, and model-output terms of the respective models may apply.
+
+The [12 October medium and manual compaction check](reports/flashnext-moe-cache-medium-compaction-2026-10-12.md) extends cache validation to functional medium tasks and bounded actual Pi compaction. It preserves the failed numeric fixture and separates direct API coverage from isolated manual Pi coverage. No production switch or soak.

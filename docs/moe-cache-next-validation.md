@@ -6,7 +6,11 @@ near65k, with PP changes below0.3%. They cover OFF-thinking synthetic text,
 one slot, two repetitions per arm; they do not establish normal Pi sessions,
 medium thinking or compaction. See the [near-65k report](../reports/flashnext-moe-cache-65k-ab-2026-10-12.md).
 
-This is a proposed execution plan. No GPU test, service change or production
+The user subsequently capped all test work at30 minutes including preparation and
+production restoration, and explicitly ruled out soaks. The bounded execution
+report records actual coverage and deviations from the original plan.
+
+This was the proposed execution plan. No GPU test, service change or production
 migration was performed while planning. The user's production choice remains
 open. Existing production/build/container artifacts stay available for rollback.
 
@@ -68,19 +72,12 @@ is not PASS. Use an isolated OFF reproduction to attribute the problem only when
 needed. Record known Pi history issues separately. Do not silently change cache,
 KV, profile or reasoning settings to obtain a passing result.
 
-## 3. Bounded stability check, conditional
+## 3. Stability work deferred
 
-If1 and2 pass, run30-40 minutes of mixed turns with several histories and
-compactions, one cancellation, idle/resume and a controlled stop/start.
-Capture two full load/exit cycles. Record resource checkpoints after warm-up,
-compaction, idle and teardown; RSS changes alone do not establish a leak.
-Compare cgroup anon/file/shmem, lazy pages, host availability/swap and reclaimed
-state across equivalent checkpoints. Persistent growth without a plateau needs
-analysis, not automatic PASS or an invented fixed RSS ceiling.
-
-Extend to60-90 minutes only if a growth signal remains unresolved or the user
-requests more confidence. Time alone is not a reliability proof. A24-hour soak
-is not currently justified.
+No soak is authorized in the current run. The user limited the entire test job
+to30 minutes, including preparation and cleanup. Longer stability work would
+need a separate request. Do not turn a short functional pass into a production
+reliability claim.
 
 ## Common acceptance and stop rules
 

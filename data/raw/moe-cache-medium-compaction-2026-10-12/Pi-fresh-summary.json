@@ -1,0 +1,105 @@
+{
+  "label": "pi-cache512",
+  "moe_cache_MiB": 512,
+  "status": "NO-GO",
+  "requests": [],
+  "off_measured_load_residency_delta_bytes": 25883766784,
+  "off_observed_request_peak_residency_delta_bytes": 26966765568,
+  "off_measured_required_residency_delta_bytes": 26966765568,
+  "cache512_nominal_delta_bytes": 541810124,
+  "preload_required_MemAvailable_bytes": 28582317516,
+  "initial": {
+    "MemAvailable_bytes": 29857939456,
+    "VRAM_used_bytes": 783663104,
+    "VRAM_total_bytes": 25753026560,
+    "VRAM_free_bytes": 24969363456
+  },
+  "load": {
+    "host": {
+      "MemAvailable_bytes": 2761416704,
+      "VRAM_used_bytes": 24261894144,
+      "VRAM_total_bytes": 25753026560,
+      "VRAM_free_bytes": 1491132416
+    },
+    "cgroup": {
+      "current": "28105068544",
+      "peak": "28266745856",
+      "max": "30064771072",
+      "swap_max": "0",
+      "swap_current": "0",
+      "stat": {
+        "anon": 448790528,
+        "file": 27533918208
+      },
+      "events": {
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=27436\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=27436"
+    },
+    "elapsed_s": 41.58996939659119
+  },
+  "pi_driver_exit_code": 1,
+  "error": "AssertionError('Pi scenario not complete/pass')",
+  "pre_teardown_status": "NO-GO",
+  "server_exit_code": 0,
+  "server_oom_killed": false,
+  "monitor_exit_code": 0,
+  "after_teardown_resources": {
+    "MemAvailable_bytes": 29939486720,
+    "VRAM_used_bytes": 783663104,
+    "VRAM_total_bytes": 25753026560,
+    "VRAM_free_bytes": 24969363456
+  },
+  "vram_released_within_256MiB": true,
+  "resources": {
+    "samples": 100,
+    "min_MemAvailable_bytes": 1740304384,
+    "peak_VRAM_used_bytes": 24628371456,
+    "peak_cgroup_current_bytes": 28262404096,
+    "peak_cgroup_bytes": 28267327488,
+    "final_cgroup_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "max_host_swap_MiBs": 14.122090938908764,
+    "host_swap_in_bytes": 16396288,
+    "host_swap_out_bytes": 61616128,
+    "host_oom_kill_delta": 0
+  },
+  "fault_evidence": {
+    "kernel_faults": [],
+    "kernel_oom_lines": [],
+    "cgroup_event_deltas": {
+      "oom": 0,
+      "oom_kill": 0,
+      "max": 0
+    },
+    "first_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "last_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "peak": 28267327488,
+    "last_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=27436\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=27436"
+  }
+}

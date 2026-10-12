@@ -1,0 +1,8 @@
+{
+  "watchdog_decision_selfcheck": "PASS",
+  "real_process_loss_selfcheck": "PASS",
+  "real_controller_monitor_conmon_fault_injection": "NOT_RUN",
+  "first_cleanup_hook": "203/EXEC: wrong /usr/bin/rtk path; parent ran cleanup immediately after detection",
+  "corrected_hook_unit_check": "PASS",
+  "rtk_executable": "<HOME>/.local/bin/rtk"
+}

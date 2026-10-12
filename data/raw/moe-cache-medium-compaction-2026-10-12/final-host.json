@@ -1,0 +1,18 @@
+{
+  "finished_at": "2026-10-12T09:37:28.051387+02:00",
+  "test_total_elapsed_seconds": 1654.0513434410095,
+  "test_total_cap_seconds": 1800,
+  "launcher": "active",
+  "running_containers": "",
+  "kfd_users": "",
+  "test_sleep_inhibitors_removed": true,
+  "production_hashes_unchanged": true,
+  "VRAM_total_bytes": 25753026560,
+  "VRAM_used_bytes": 783663104,
+  "unit_states": {
+    "qwen-cache-short-controller.service": "ActiveState=failed\nResult=exit-code\nExecMainStatus=0\n",
+    "qwen-cache-pi-controller.service": "ActiveState=failed\nResult=exit-code\nExecMainStatus=1\n",
+    "qwen-cache-pi-prose-controller.service": "ActiveState=failed\nResult=exit-code\nExecMainStatus=1\n",
+    "qwen-cache-pi-fresh-controller.service": "ActiveState=failed\nResult=exit-code\nExecMainStatus=1\n"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "actual_enable_thinking": true,
+  "actual_top_effort": "medium",
+  "controls": {
+    "low": {
+      "same_as_actual": false,
+      "marker": true
+    },
+    "medium": {
+      "same_as_actual": true,
+      "marker": false
+    },
+    "xhigh": {
+      "same_as_actual": false,
+      "marker": true
+    }
+  },
+  "verified": true
+}
