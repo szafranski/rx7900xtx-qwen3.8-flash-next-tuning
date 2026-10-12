@@ -1,0 +1,131 @@
+{
+  "source_revision": "f2cc7282ce0042641df55e0e563b75e824e2b647",
+  "source": "<HOME>/agents/scratch/moe-cache-test-20261011-221619Z/build/bin",
+  "files": {
+    "libggml-base.so": {
+      "sha256": "5bd8cc3a7e41a3f0fa9c36ea58db99f3cee109d429d3699d6cd20e01dc5437cd",
+      "bytes": 955776,
+      "symlink": "libggml-base.so.0"
+    },
+    "libggml-base.so.0": {
+      "sha256": "5bd8cc3a7e41a3f0fa9c36ea58db99f3cee109d429d3699d6cd20e01dc5437cd",
+      "bytes": 955776,
+      "symlink": "libggml-base.so.0.26.0"
+    },
+    "libggml-base.so.0.26.0": {
+      "sha256": "5bd8cc3a7e41a3f0fa9c36ea58db99f3cee109d429d3699d6cd20e01dc5437cd",
+      "bytes": 955776,
+      "symlink": null
+    },
+    "libggml-cpu.so": {
+      "sha256": "cf02cfa65a97d5207dc67d715cc6963e006d98552e773caea88e8b473f515807",
+      "bytes": 1397776,
+      "symlink": "libggml-cpu.so.0"
+    },
+    "libggml-cpu.so.0": {
+      "sha256": "cf02cfa65a97d5207dc67d715cc6963e006d98552e773caea88e8b473f515807",
+      "bytes": 1397776,
+      "symlink": "libggml-cpu.so.0.26.0"
+    },
+    "libggml-cpu.so.0.26.0": {
+      "sha256": "cf02cfa65a97d5207dc67d715cc6963e006d98552e773caea88e8b473f515807",
+      "bytes": 1397776,
+      "symlink": null
+    },
+    "libggml-hip.so": {
+      "sha256": "19a5c2286a79bc53397ea6ea79c9144c08f6e1cab5da877b7bcef9b7c63aec83",
+      "bytes": 72759928,
+      "symlink": "libggml-hip.so.0"
+    },
+    "libggml-hip.so.0": {
+      "sha256": "19a5c2286a79bc53397ea6ea79c9144c08f6e1cab5da877b7bcef9b7c63aec83",
+      "bytes": 72759928,
+      "symlink": "libggml-hip.so.0.26.0"
+    },
+    "libggml-hip.so.0.26.0": {
+      "sha256": "19a5c2286a79bc53397ea6ea79c9144c08f6e1cab5da877b7bcef9b7c63aec83",
+      "bytes": 72759928,
+      "symlink": null
+    },
+    "libggml.so": {
+      "sha256": "3cf2f38a15d850667b32db8d33671e3328f0f5b2c1f39e01514749d79d26d20c",
+      "bytes": 60360,
+      "symlink": "libggml.so.0"
+    },
+    "libggml.so.0": {
+      "sha256": "3cf2f38a15d850667b32db8d33671e3328f0f5b2c1f39e01514749d79d26d20c",
+      "bytes": 60360,
+      "symlink": "libggml.so.0.26.0"
+    },
+    "libggml.so.0.26.0": {
+      "sha256": "3cf2f38a15d850667b32db8d33671e3328f0f5b2c1f39e01514749d79d26d20c",
+      "bytes": 60360,
+      "symlink": null
+    },
+    "libllama-common.so": {
+      "sha256": "d18eae70359d0dd2d123c3ccf9e16844489b8eedb2f2d0b607c2ce6f89ecd769",
+      "bytes": 6369360,
+      "symlink": "libllama-common.so.0"
+    },
+    "libllama-common.so.0": {
+      "sha256": "d18eae70359d0dd2d123c3ccf9e16844489b8eedb2f2d0b607c2ce6f89ecd769",
+      "bytes": 6369360,
+      "symlink": "libllama-common.so.0.6.0"
+    },
+    "libllama-common.so.0.6.0": {
+      "sha256": "d18eae70359d0dd2d123c3ccf9e16844489b8eedb2f2d0b607c2ce6f89ecd769",
+      "bytes": 6369360,
+      "symlink": null
+    },
+    "libllama-fit-params-impl.so": {
+      "sha256": "fb1692fd5e00f3b0bcac812308811709b07a826d11fa9c12d916cb0339bb7b5d",
+      "bytes": 39568,
+      "symlink": null
+    },
+    "libllama-server-impl.so": {
+      "sha256": "d696331f86fc40fa97e666d43db1db5eab8777ea00a1c5dd1ecff7ded13a0cc9",
+      "bytes": 4134576,
+      "symlink": null
+    },
+    "libllama.so": {
+      "sha256": "42f008d2623b84d19422d7511df0d6b75b7155190a4377dba232207bf409dc48",
+      "bytes": 5032848,
+      "symlink": "libllama.so.0"
+    },
+    "libllama.so.0": {
+      "sha256": "42f008d2623b84d19422d7511df0d6b75b7155190a4377dba232207bf409dc48",
+      "bytes": 5032848,
+      "symlink": "libllama.so.0.6.0"
+    },
+    "libllama.so.0.6.0": {
+      "sha256": "42f008d2623b84d19422d7511df0d6b75b7155190a4377dba232207bf409dc48",
+      "bytes": 5032848,
+      "symlink": null
+    },
+    "libmtmd.so": {
+      "sha256": "3eea109075438de83b63774ce2a7ebe26545ee267eaf509d7f0b75ba0e117be0",
+      "bytes": 2012528,
+      "symlink": "libmtmd.so.0"
+    },
+    "libmtmd.so.0": {
+      "sha256": "3eea109075438de83b63774ce2a7ebe26545ee267eaf509d7f0b75ba0e117be0",
+      "bytes": 2012528,
+      "symlink": "libmtmd.so.0.6.0"
+    },
+    "libmtmd.so.0.6.0": {
+      "sha256": "3eea109075438de83b63774ce2a7ebe26545ee267eaf509d7f0b75ba0e117be0",
+      "bytes": 2012528,
+      "symlink": null
+    },
+    "llama-fit-params": {
+      "sha256": "2ab2fd95b79c333d0c663df4b7c4308854a67347fc641f4e0b3f94b07a8d4dd3",
+      "bytes": 15968,
+      "symlink": null
+    },
+    "llama-server": {
+      "sha256": "fabac9b5b6fe6050606555bc1a4c67daa47d53e6b7586b2bfaa6becb8ceddd0b",
+      "bytes": 17880,
+      "symlink": null
+    }
+  }
+}

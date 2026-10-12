@@ -1,0 +1,16 @@
+{
+  "pwm1": 42,
+  "pwm1_enable": 5,
+  "pwm2": 76,
+  "pwm2_enable": 5,
+  "pwm3": 76,
+  "pwm3_enable": 5,
+  "pwm4": 42,
+  "pwm4_enable": 5,
+  "pwm5": 41,
+  "pwm5_enable": 5,
+  "pwm6": 77,
+  "pwm6_enable": 1,
+  "pwm7": 42,
+  "pwm7_enable": 5
+}

@@ -1,0 +1,63 @@
+{
+  "time": "2026-10-12T11:03:47.858330+02:00",
+  "production_trial": "ACTIVE ON DEMAND",
+  "container": "llama-flashnext-gsq-moe512-20261012",
+  "current_candidate_state": {
+    "OciVersion": "1.2.1",
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-12T10:55:39.579149276+02:00",
+    "FinishedAt": "2026-10-12T10:56:28.096964528+02:00",
+    "CheckpointedAt": "0001-01-01T00:00:00Z",
+    "RestoredAt": "0001-01-01T00:00:00Z",
+    "StoppedByUser": true
+  },
+  "old_container_state": {
+    "OciVersion": "1.2.1",
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 0,
+    "Error": "",
+    "StartedAt": "2026-10-11T12:55:31.055459405+02:00",
+    "FinishedAt": "2026-10-11T13:07:43.253967458+02:00",
+    "CheckpointedAt": "0001-01-01T00:00:00Z",
+    "RestoredAt": "0001-01-01T00:00:00Z",
+    "StoppedByUser": true
+  },
+  "source_revision": "f2cc7282ce0042641df55e0e563b75e824e2b647",
+  "memory_bytes": 30064771072,
+  "memory_swap_bytes": 30064771072,
+  "preload_RAM_bytes": 29259464704,
+  "model_ID": "Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-65k",
+  "aliases": [
+    "flashnext-gsq"
+  ],
+  "launcher": "active",
+  "no_KFD_owner": true,
+  "VRAM_total_bytes": 25753026560,
+  "VRAM_used_bytes": 767885312,
+  "Qwen27B_routing_unchanged": true,
+  "trial_stop_policy": "ExecStop+mixed+guardedfanrestore",
+  "Qwen27B_stop_path_tested": false,
+  "user_sleep_inhibitor": {
+    "unit": "qwen-no-sleep-user-hour-20261012-104612.service",
+    "start": "2026-10-12T10:46:12.855602+02:00",
+    "expires": "2026-10-12T11:46:12.855602+02:00",
+    "maximum_seconds": 3600,
+    "preserve_after_deployment": true
+  },
+  "test_sleep_inhibitor_removed": true,
+  "validation_elapsed_seconds": 1890.6896119117737
+}

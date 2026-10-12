@@ -1,0 +1,7 @@
+{
+  "GPU_validation_and_cleanup_completed_at": "2026-10-12T10:56:31.551757+02:00",
+  "GPU_validation_scope_elapsed_seconds": 1454.3828411102295,
+  "cap_seconds": 1800,
+  "completion_accounting_journal_message": "qwen-cache-production-route-retry.service: Consumed 10.371s CPU time over 1min 45.118s wall clock time, 1.6G memory peak, 256K memory swap peak.",
+  "final_host_elapsed_field_includes_later_CPU_documentation": true
+}

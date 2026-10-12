@@ -1,0 +1,44 @@
+# Werdykt: dokumenty nie są jeszcze gotowe do commita, NO-GO do czasu poprawek
+
+Fakty techniczne są ze sobą spójne. Dotyczy to metryk aktywacji (n=1, PP 673.64 / TG 18.23), historycznego A/B (+33.1% / +30.7%), NO-GO pierwszego stopu, jednego udanego retestu, temp0 i niezmienionego samplingu. Zgodne są też progi w bajtach (27.25 GiB = 29259464704 B) oraz zapis 28 GiB bez swapu. Poniższe punkty to braki w dokumentach. Nie wymagają nowych testów.
+
+## Konieczne poprawki
+
+1. **Projektowy README zawiera twierdzenia sprzeczne z obecnym trialem.**
+   - Akapit o cache A/B mówi „Production stays unchanged”. Medium/compaction mówi „No production switch”, a diagnoza thinking-only „without changing production”. Te zdania były prawdziwe w dniu raportów, a teraz w czasie teraźniejszym przeczą trialowi. Przepisz je jako stan z tamtego testu, np. „At that time production stayed unchanged”.
+   - Te dwa akapity stoją po sekcji License. Przenieś je do sekwencji MoE przed „Selected throughput”.
+
+2. **Treść README nie zgadza się z opisem poprawek.** Napisałeś, że README ma już ograniczenia dotyczące stopu, Qwena, rollbacku i temp0. Wklejone wersje obu README ich nie zawierają. Projektowy README wymienia tylko thinking-only i Pi compaction, a `~/llm/README.md` tylko EOS i compaction. Upewnij się, że wkleiłeś aktualne wersje. Jeśli tak, dodaj jedno zdanie o każdym z tych ograniczeń i link do raportu aktywacji. Teraz żaden z README nie linkuje `reports/flashnext-moe-cache-production-activation-2026-10-12.md`, a trial doc pisze „see the deployment report” bez linku.
+
+3. **Runbook nie mówi, czy pełny rollback został sprawdzony.** Sekcja „Powrót” opisuje, co robi `rollback.py`, ale nie podaje, że pełny rollback GPU po poprawce nie był wykonany, a przeszedł tylko izolowany test CPU restore. Operator przeczyta to jako sprawdzoną procedurę. Dopisz to wprost.
+
+4. **Wyższy próg RAM może blokować start.** 9 października próg obniżono do 26.5 GiB, bo start był odrzucany przy około 26.9 GiB MemAvailable. Nowe 27.25 GiB jest wyżej, więc przy zwykłym pulpicie można się spodziewać 503 `Host busy`. W sekcji resource guard dopisz:
+   - aktualizację z 12 października (26.5 → 27.25);
+   - to ryzyko odmowy startu;
+   - że rollback przez przywrócenie `swap.yaml` wraca do progu 26.5;
+   - z jakich przebiegów pochodzi maksimum 26.14 GiB i że nie potwierdza ono pełnych 65k z długą generacją w produkcji.
+
+5. **`routing/rollback.sh` może nie pasować do obecnego stanu.** Ten stary skrypt prawdopodobnie zatrzymuje kontener `llama-flashnext-gsq` i nie zna drop-inu `30-moe-cache-stop.conf`. Dopisz w runbooku: „najpierw rollback trialu przez `rollback.py`; `rollback.sh` nie był dostosowany ani testowany z trialem”. Jeśli to nieprawda, sprawdź skrypt bez uruchamiania i popraw opis.
+
+6. **Słowa w runbooku mocniejsze niż dowody.**
+   - „dwa compactiony Pi niezaliczone” brzmi jak FAIL. Pozostałe dokumenty mówią „not validated”. Zmień na „niezwalidowane”.
+   - „Stary stop-policy może mieć taki sam niezweryfikowany race” przesądza mechanizm. Gdzie indziej przyczyna to hipoteza. Zmień na „ten sam problem; przyczyna niepotwierdzona”.
+
+7. **Stan chwilowy zapisany w czasie teraźniejszym.**
+   - „Sleep block remains until 11:46:12” i „blokada … pozostaje” będą nieprawdziwe po 11:46. Zapisz to jako stan z chwili zapisu, np. „was scheduled until”.
+   - To samo dotyczy zdania „Launcher is active … VRAM released” w raporcie. Dodaj „at final snapshot”.
+
+8. **Czas walidacji.** Raport powinien podać wprost obie liczby: walidacja GPU 1454.4 s w limicie 1800 s oraz 1890 s w `final-host.json`, bo ten czas obejmuje późniejszą pracę CPU. Teraz czytelnik `final-host.json` zobaczy pozorne przekroczenie limitu.
+
+9. **Błąd w składni flagi.** W raporcie aktywacji jest `--moe-cache-mib512`. Poprawnie: `--moe-cache-mib 512`. Do tego dochodzą liczne sklejone słowa:
+   - `ROCm7.14.1`, `Container28GiB`, `TG18.229`, `and512`;
+   - `zwolnilGPU`, `usuwazkonfiguracji`, `mialtemperature0`, `domyslnejproductiontemperature1`, `jegoGPUstop`, `KFDowner`, `do11:46:12CEST`, `userhour`.
+
+## Do sprawdzenia przed commitem
+
+- Liczba „529 selected evidence files” w README po dodaniu nowych surowych danych. `scripts/data.py check` wykaże różnicę.
+- Sekcja wentylatorów w runbooku mówi, że po SIGKILL przywrócenie się nie wykona. Dodaj odnośnik do nowego awaryjnego `ExecStopPost`.
+- Opis `cmdStop` sprawdzanego 6 października podaje teraz nazwę nowego kontenera. Zaznacz, że test dotyczył starego.
+- Upewnij się, że `fan-wrapper` i `flashnext.sh` zatrzymują nowy kontener, a nie zakodowaną starą nazwę.
+
+`HANDOFF.md` nie został wklejony, więc go nie sprawdziłem. Po poprawkach 1–9 dokumenty nadają się do commita.

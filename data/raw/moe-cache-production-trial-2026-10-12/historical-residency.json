@@ -1,0 +1,26 @@
+[
+  {
+    "run": "moe-cache-test-20261011-221619Z",
+    "status": "PASS",
+    "initial": 29682675712,
+    "min": 1615015936,
+    "observed_drop_GiB": 26.140045166015625,
+    "required_with_1GiB_floor_GiB": 27.140045166015625
+  },
+  {
+    "run": "moe-cache-65k-recovery-20261011-230333Z",
+    "status": "PASS",
+    "initial": 29641433088,
+    "min": 1910218752,
+    "observed_drop_GiB": 25.826705932617188,
+    "required_with_1GiB_floor_GiB": 26.826705932617188
+  },
+  {
+    "run": "moe-cache-short-20261012-071000Z",
+    "status": "PASS",
+    "initial": 29809946624,
+    "min": 1751363584,
+    "observed_drop_GiB": 26.131591796875,
+    "required_with_1GiB_floor_GiB": 27.131591796875
+  }
+]

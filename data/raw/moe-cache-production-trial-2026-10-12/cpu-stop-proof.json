@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "exit_code_expected": 0,
+  "exit_code": 0,
+  "conmon_exit_record_preserved": true,
+  "no_orphan": true,
+  "explicit_SIGTERM_handler": true,
+  "no_GPU_devices": true,
+  "earlier_invalid_sleep_PID1_fixture_preserved": true,
+  "changes_not_adopted": [
+    "no ignore-failure on mandatory stop",
+    "fan fallback requires no live LLM"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "status": "NO-GO fixture",
+  "state": {
+    "OciVersion": "1.2.1",
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": 137,
+    "Error": "",
+    "StartedAt": "2026-10-12T10:52:26.429845932+02:00",
+    "FinishedAt": "2026-10-12T10:52:32.429610854+02:00",
+    "CheckpointedAt": "0001-01-01T00:00:00Z",
+    "RestoredAt": "0001-01-01T00:00:00Z",
+    "StoppedByUser": true
+  },
+  "cause": "sleep as PID1 without TERM handler ignored TERM; forced stop137 is expected for this invalid graceful-exit fixture",
+  "OOM": false
+}

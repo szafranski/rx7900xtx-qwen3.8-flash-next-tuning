@@ -1,0 +1,6 @@
+{
+  "ExecStop": "{ path=/usr/bin/podman ; argv[]=/usr/bin/podman stop --time 20 llama-flashnext-gsq-moe512-20261012 ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+  "ExecStopPost": "{ path=/usr/bin/python3 ; argv[]=/usr/bin/python3 <HOME>/llama-launcher/routing/moe-cache-stop-post.py ; ignore_errors=no ; start_time=[n/a] ; stop_time=[n/a] ; pid=0 ; code=(null) ; status=0/0 }",
+  "KillMode": "mixed",
+  "TimeoutStopUSec": "1min 30s"
+}

@@ -1,10 +1,20 @@
 # Qwen3.8 Flash-Next on an RX 7900 XTX
 
-A tuning log for one 24 GB RDNA3 card with 32 GiB of host RAM. Measurements cover 24 September to 7 October 2026, two GGUF quantizations and one EXL3 quantization.
+A tuning log for one 24 GB RDNA3 card with 32 GiB of host RAM. Measurements cover 24 September to 12 October 2026, two GGUF quantizations and one EXL3 quantization.
 
 The practical goal is useful sessions of Pi (the pi coding agent CLI) with thinking OFF/ON, tools and history, at 32k and eventually 65k, targeting about 20 generated tokens/s at 65k. That full goal is not demonstrated: EXL3 reached about 23 TG tok/s in synthetic 65k checks, but its Pi sessions stayed at about 35k real prompt tokens (bounded 22-turn sessions on 6 October; earlier ones about 32k). Separately, one direct 37,626-token request passed, and that is a capacity check, not a Pi session. Fixed-build GGUF reached about 63k, with lower throughput and unresolved answer failures.
 
 This repository stores selected evidence, reports and charts. Runtime repairs and launchers belong to the separate local `qwen-3.8-flash-next-tweaks` repository. It is not a turn-key launcher or a common model-quality benchmark.
+
+## Production trial, 12 October
+
+The user authorized Flash-Next GGUF with MoE cache512 on pinned ROCm7.14.1 /
+llama.cpp f2cc7282ce, preserving the previous container/build and a
+[one-command rollback](docs/moe-cache-production-trial.md). Model ID, endpoint,
+weights,65k q8 context and production sampling remain unchanged. Container28GiB,
+Flash-only preload minimum27.25GiB. Activation and stop-retest evidence are
+recorded in the deployment report; thinking-only finals and full Pi compaction
+remain limitations. Older configuration tables below retain their historical scope.
 
 ## Start here
 
@@ -37,7 +47,7 @@ with 447.583 MiB predicted banks. This is not a runtime peak or throughput resul
 The [12 October guarded cache A/B](reports/flashnext-moe-cache-ab-2026-10-12.md)
 measured 13.63 vs 18.15 TG tok/s (+33.1%) on two uncached 32k repetitions per arm,
 with similar PP. Both fit within 28 GiB, but ON host-RAM margin was very small.
-Production stays unchanged; this is not 65k/agent-session validation.
+At the time of that A/B, production stayed unchanged; this is not 65k/agent-session validation.
 
 The [near-65k cache test](reports/flashnext-moe-cache-65k-ab-2026-10-12.md)
 confirmed 13.29 vs17.38 TG tok/s (+30.7%) with64,035 uncached prompt tokens
@@ -48,6 +58,9 @@ The [next validation plan](docs/moe-cache-next-validation.md), reviewed with
 Sonnet medium, prioritizes independent supervision, paired medium/tool behavior,
 real Pi compaction and a conditional short stability check. No new GPU trial
 was performed while planning.
+
+The [12 October medium and manual compaction check](reports/flashnext-moe-cache-medium-compaction-2026-10-12.md) extends cache validation to functional medium tasks and bounded actual Pi compaction. It preserves the failed numeric fixture and separates direct API coverage from isolated manual Pi coverage. That check did not switch production or run a soak.
+The [thinking-only final diagnosis](reports/flashnext-moe-cache-empty-final-diagnosis-2026-10-12.md) reproduces early reasoning EOS with cache OFF and ON and checks prompt reuse, explicit placement and sampling without changing production during that diagnostic.
 
 ## Selected throughput
 
@@ -95,7 +108,7 @@ See [ROCm tuning](docs/rocm-tuning.md) and [MTP](docs/mtp.md) for each chart's s
 - [Reproduction guide](docs/reproduce.md): one minimal GGUF and one EXL3 recipe, the Pi adapter in [adapter/](adapter/), and what is not available.
 - [Methodology](docs/methodology.md): rates, cached prompts and evidence limits.
 - [Correctness](docs/correctness.md), [context and memory](docs/context-and-memory.md), [Vulkan](docs/vulkan.md): topic summaries with dated findings.
-- [Data guide](data/README.md): 498 selected evidence files and a SHA-256 manifest. Some are reduced responses or report-derived summaries; full prompts, logs, model weights and build binaries are excluded.
+- [Data guide](data/README.md): 533 selected evidence files and a SHA-256 manifest. Some are reduced responses or report-derived summaries; full prompts, logs, model weights and build binaries are excluded.
 - [Reports](reports/): dated field notes with local paths anonymized. Service status and follow-up instructions describe their test period, not current authorization. The [28 September benchmark plan](docs/next-benchmarks.md) is historical.
 
 Most configurations ran once. Small arithmetic, retrieval, vision and tool checks do not rank quantization quality or establish reliable arbitrary 65k agent conversations. There is no common quality suite or multi-user test. Memory readings distinguish host, container and VRAM; use the report's units and sampling scope.
@@ -121,6 +134,6 @@ The neighboring [Qwen3.8-27B tuning repository](https://github.com/szafranski/rx
   - Model weights, projectors and build binaries are not included. Model, project and product names belong to their owners; their use here is for identification only.
 - `data/raw` contains model-generated text (API responses, reduced transcripts) and a synthetic test image. It is included as measurement evidence, not as a licensed dataset, and model-output terms of the respective models may apply.
 
-The [12 October medium and manual compaction check](reports/flashnext-moe-cache-medium-compaction-2026-10-12.md) extends cache validation to functional medium tasks and bounded actual Pi compaction. It preserves the failed numeric fixture and separates direct API coverage from isolated manual Pi coverage. No production switch or soak.
 
-The [thinking-only final diagnosis](reports/flashnext-moe-cache-empty-final-diagnosis-2026-10-12.md) reproduces early reasoning EOS with cache OFF and ON and checks prompt reuse, explicit placement and sampling without changing production.
+
+Activation limitations: The first stop had a GPF; one corrected retest passed, without proving the race eliminated. The shared Qwen 27B GPU stop path and full post-correction GPU rollback remain untested; isolated CPU restore passed. Smoke used temperature 0, while production remains at 1. [Activation report](reports/flashnext-moe-cache-production-activation-2026-10-12.md).

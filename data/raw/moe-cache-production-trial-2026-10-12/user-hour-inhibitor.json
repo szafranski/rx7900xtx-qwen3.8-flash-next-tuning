@@ -1,0 +1,7 @@
+{
+  "unit": "qwen-no-sleep-user-hour-20261012-104612.service",
+  "start": "2026-10-12T10:46:12.855602+02:00",
+  "expires": "2026-10-12T11:46:12.855602+02:00",
+  "maximum_seconds": 3600,
+  "preserve_after_deployment": true
+}

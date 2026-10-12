@@ -1,0 +1,30 @@
+{
+  "time": "2026-10-12T10:49:01.826856+02:00",
+  "routed_attempt_status": "NO-GO",
+  "current_candidate_state": {
+    "OciVersion": "1.2.1",
+    "Status": "exited",
+    "Running": false,
+    "Paused": false,
+    "Restarting": false,
+    "OOMKilled": false,
+    "Dead": false,
+    "Pid": 0,
+    "ExitCode": -1,
+    "Error": "container 674125fe0c307c6a138d58c84eafc3abe7daac857d87bcbbc297f5afc91bd807 conmon exited prematurely, exit code could not be retrieved: conmon process killed",
+    "StartedAt": "2026-10-12T10:42:05.709758404+02:00",
+    "FinishedAt": "2026-10-12T10:44:18.527110353+02:00",
+    "CheckpointedAt": "0001-01-01T00:00:00Z",
+    "RestoredAt": "0001-01-01T00:00:00Z",
+    "StoppedByUser": true
+  },
+  "kernel_general_protection_fault_lines": [
+    "Oct 12 10:42:39 atomic-pc kernel: traps: llama-server[1578058] general protection fault ip:7f93833b7339 sp:7fff4e221110 error:0 in libc.so.6[47339,7f9383398000+188000]"
+  ],
+  "fan_failed_restore_from_attempt": [
+    "pwm1_enable expected5 observed1"
+  ],
+  "rollback_completed": true,
+  "GPU_reset_or_reboot": false,
+  "cause_hypothesis": "simultaneous cgroup SIGTERM killed controller/conmon; no isolated native backtrace yet"
+}

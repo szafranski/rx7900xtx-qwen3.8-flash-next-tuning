@@ -1,0 +1,208 @@
+{
+  "label": "direct-retry",
+  "moe_cache_MiB": 512,
+  "status": "PASS",
+  "requests": [
+    {
+      "tag": "off-arithmetic",
+      "wall_s": 1.4115054607391357,
+      "usage": {
+        "completion_tokens": 4,
+        "prompt_tokens": 26,
+        "total_tokens": 30,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 26,
+        "prompt_ms": 1178.47,
+        "prompt_per_token_ms": 45.32576923076923,
+        "prompt_per_second": 22.062504773138052,
+        "predicted_n": 4,
+        "predicted_ms": 188.213,
+        "predicted_per_token_ms": 62.73766666666666,
+        "predicted_per_second": 15.93938782124508
+      },
+      "finish_reason": "stop",
+      "content": "323"
+    },
+    {
+      "tag": "medium-tool-result",
+      "wall_s": 2.678516149520874,
+      "usage": {
+        "completion_tokens": 20,
+        "prompt_tokens": 335,
+        "total_tokens": 355,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 335,
+        "prompt_ms": 1673.176,
+        "prompt_per_token_ms": 4.994555223880597,
+        "prompt_per_second": 200.21802846801532,
+        "predicted_n": 20,
+        "predicted_ms": 966.446,
+        "predicted_per_token_ms": 50.86557894736842,
+        "predicted_per_second": 19.6596602396823
+      },
+      "finish_reason": "stop",
+      "content": "ORION-742"
+    },
+    {
+      "tag": "medium-recall",
+      "wall_s": 4.0461390018463135,
+      "usage": {
+        "completion_tokens": 52,
+        "prompt_tokens": 130,
+        "total_tokens": 182,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 130,
+        "prompt_ms": 1453.677,
+        "prompt_per_token_ms": 11.182130769230769,
+        "prompt_per_second": 89.42839434069604,
+        "predicted_n": 52,
+        "predicted_ms": 2552.827,
+        "predicted_per_token_ms": 50.05543137254902,
+        "predicted_per_second": 19.97785200485579
+      },
+      "finish_reason": "stop",
+      "content": "ORION-742"
+    },
+    {
+      "tag": "speed32k",
+      "wall_s": 75.64403009414673,
+      "usage": {
+        "completion_tokens": 512,
+        "prompt_tokens": 32026,
+        "total_tokens": 32538,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 32026,
+        "prompt_ms": 47541.654,
+        "prompt_per_token_ms": 1.4844705551739212,
+        "prompt_per_second": 673.640845562504,
+        "predicted_n": 512,
+        "predicted_ms": 28031.512,
+        "predicted_per_token_ms": 54.85618786692759,
+        "predicted_per_second": 18.22948401784392
+      },
+      "finish_reason": "length",
+      "content": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 "
+    }
+  ],
+  "off_measured_load_residency_delta_bytes": 25883766784,
+  "off_observed_request_peak_residency_delta_bytes": 26966765568,
+  "off_measured_required_residency_delta_bytes": 26966765568,
+  "cache512_nominal_delta_bytes": 541810124,
+  "preload_required_MemAvailable_bytes": 28582317516,
+  "initial": {
+    "MemAvailable_bytes": 29885083648,
+    "VRAM_used_bytes": 767885312,
+    "VRAM_total_bytes": 25753026560,
+    "VRAM_free_bytes": 24985141248
+  },
+  "load": {
+    "host": {
+      "MemAvailable_bytes": 2701922304,
+      "VRAM_used_bytes": 24247611392,
+      "VRAM_total_bytes": 25753026560,
+      "VRAM_free_bytes": 1505415168
+    },
+    "cgroup": {
+      "current": "27816697856",
+      "peak": "27963932672",
+      "max": "30064771072",
+      "swap_max": "0",
+      "swap_current": "0",
+      "stat": {
+        "anon": 448602112,
+        "file": 27246891008
+      },
+      "events": {
+        "max": 0,
+        "oom": 0,
+        "oom_kill": 0
+      },
+      "pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=16210\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=16210"
+    },
+    "elapsed_s": 36.081456422805786
+  },
+  "libraries_verified": true,
+  "benchmark_rendered_tokens": 32026,
+  "direct_functional": "PASS",
+  "stage_gate": "Bounded medium functional test only.",
+  "pre_teardown_status": "PASS",
+  "server_exit_code": 0,
+  "server_oom_killed": false,
+  "monitor_exit_code": 0,
+  "after_teardown_resources": {
+    "MemAvailable_bytes": 29863661568,
+    "VRAM_used_bytes": 767885312,
+    "VRAM_total_bytes": 25753026560,
+    "VRAM_free_bytes": 24985141248
+  },
+  "vram_released_within_256MiB": true,
+  "resources": {
+    "samples": 128,
+    "min_MemAvailable_bytes": 2133241856,
+    "peak_VRAM_used_bytes": 24601141248,
+    "peak_cgroup_current_bytes": 28047687680,
+    "peak_cgroup_bytes": 28047949824,
+    "final_cgroup_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "max_host_swap_MiBs": 5.96498312195443,
+    "host_swap_in_bytes": 548864,
+    "host_swap_out_bytes": 14745600,
+    "host_oom_kill_delta": 0
+  },
+  "fault_evidence": {
+    "kernel_faults": [],
+    "kernel_oom_lines": [],
+    "cgroup_event_deltas": {
+      "oom": 0,
+      "oom_kill": 0,
+      "max": 0
+    },
+    "first_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "last_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "peak": 28047949824,
+    "last_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=16210\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=16210"
+  }
+}

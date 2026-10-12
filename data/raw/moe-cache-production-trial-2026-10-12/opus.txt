@@ -1,0 +1,59 @@
+# Krytyka planu: przełączenie produkcji na GGUF MoE cache512
+
+**Ocena:** krytycznego blokera nie widzę, jeśli przed przełączeniem domkniesz cztery warunki z pkt 5. Plan jest minimalny i spójny z tym, co zmierzyłeś. Największe ryzyka to nie sam cache512, tylko otoczenie: skąd ładują się biblioteki, który kontener zatrzymują wrapper, router i monitor, oraz zapas RAM przy preloadzie.
+
+## 1) Minimalna migracja i luki w powrocie
+
+- **Biblioteki:** sprawdź RUNPATH/RPATH binarki (`readelf -d`). Jeśli wskazuje na oryginalny katalog builda, `LD_LIBRARY_PATH` może nie wystarczyć. Po starcie zajrzyj do `/proc/<pid>/maps` w kontenerze i potwierdź, że `libggml*` i `libllama*` pochodzą z `/work/bin`, a nie z obrazu. Bez tego wyniki i rollout mogą dotyczyć innego kodu niż testowany.
+- **Manifest SHA:** ma obejmować wszystkie pliki `.so` (po rozwiązaniu symlinków), nie tylko `llama-server`. Kopia przez `cp -a`, a po niej porównanie manifestu ze źródłem.
+- **Etykiety SELinux:** skopiuj z inspect starego kontenera, nie wymyślaj nowych. Zapisz w repo pełną komendę `podman create` (z inspect), żeby kontener dało się odtworzyć.
+- **Kopie zapasowe:** trzymaj je poza katalogiem, który launcher lub router może globować. `swap.yaml.bak` obok `swap.yaml` bywa wczytany albo myli walidację.
+- **Atomowość:** dwa pliki to nie jest operacja atomowa. Podmieniaj tylko przy zatrzymanym launcherze i upewnij się, że systemd nie zrestartuje go w trakcie (Restart=, path units).
+- **Rollback bez ćwiczenia:** sama walidacja plików to za mało. Minimum na sucho:
+  - `podman container exists` i inspect starego kontenera,
+  - obraz o tym samym digeście istnieje,
+  - mounty starego kontenera istnieją,
+  - diff przywróconych plików z kopią daje zero,
+  - parse YAML przechodzi.
+
+  Pełny GPU-start starego kontenera tylko przy faktycznym rollbacku.
+- **Kolejność w rollbacku:** najpierw stop nowego kontenera, potem weryfikacja zwolnionego VRAM i RAM, dopiero potem start launchera. Dwa kontenery po 28 GiB naraz to pewny OOM. Rollback powinien twardo sprawdzać, że nowy kontener jest w stanie `exited`.
+
+## 2) Auto-fit czy stały placement
+
+- **Rekomendacja:** zostaw auto-fit, bo to profil, który dał zmierzone +30%. Stały placement nie usunął anomalii EOS i zmienia profil, więc to raczej plan B.
+- **Warunek:** loguj przy każdym starcie wynik dopasowania (warstwy, tensory na CPU/GPU, wolny VRAM na starcie) i porównaj z testowanym runem. Auto-fit zależy od wolnego VRAM w chwili startu, więc desktop na tym samym GPU może przesunąć placement.
+- **Na czas trialu:** jeśli placement różni się od testowanego, traktuj start jako odchylenie i zapisz je, ale go nie maskuj. Na stały placement przejdź dopiero przy powtarzalnym dryfie albo OOM.
+
+## 3) Guard preloadu RAM
+
+- **Obecne 26.5 GiB jest za nisko.** Przy zmierzonym spadku do 26.14 GiB zostaje w najgorszym razie około 0.36 GiB, czyli poniżej twojego progu awaryjnego 1 GiB. Guard i monitor byłyby ze sobą sprzeczne: preload przepuszcza model, który monitor potem ubije.
+- **Rekomendacja:** podnieś guard do około 27.25 GiB (maksymalny spadek plus 1 GiB, zaokrąglone w górę do 0.25). Przy typowym starcie z 29.6-29.8 GiB dostępnej pamięci zostaje około 2.4 GiB luzu. Odmowa preloadu przy obciążonym hoście to pożądane zachowanie, nie regresja.
+- **Zastrzeżenie:** trzy próbki to nie rozkład, więc max+1 nie jest konserwatywne statystycznie. Ogranicza je jednak twardy limit 28 GiB kontenera, więc to wystarcza.
+- **Zakres guarda:** jeśli jest globalny, sprawdź, że Qwen27B nadal go przechodzi. Lepiej ustawić go per model Flash, jeśli router na to pozwala.
+
+## 4) Najkrótsza akceptacja
+
+**Bezpośrednio, bez routera:**
+- start nowego kontenera, w logu: `moe-cache 512`, ctx 65536, wynik dopasowania; sprawdzenie bibliotek w `/proc/maps`,
+- krótkie zapytanie OFF i jedno medium z narzędziem i recall,
+- jeden przebieg około 32k z wyjściem 512. Kryterium zapisz z góry, np. TG co najmniej +20% względem cache0 na tym samym kontekście. Wynik EOS samo-thinking zapisuj jako znane ograniczenie, nie jako fail. Fail to crash, OOM, przekroczony próg monitora albo brak przyspieszenia,
+- naturalny stop: kod wyjścia 0, VRAM zwolniony, wentylator wrócił do stanu sprzed startu (sprawdź `pwm_enable`, nie tylko że wrapper "coś ustawił").
+
+**Przez router i proxy na 8085:**
+- `/v1/models` pokazuje niezmienione ID i aliasy,
+- jedno zapytanie SSE ze streamingiem i tool call; `reasoning_content` i `tool_calls` przechodzą przez middleware,
+- kontrolowany unload przez router: zatrzymuje się nowy kontener, stary nadal `exited`, wentylator przywrócony,
+- jeden zimny reload przez router,
+- **test sieroty:** stop launchera przy załadowanym Flash, a potem sprawdzenie, że kontener zatrzymał się sam. Nie pomijaj tego - porzucony kontener trzyma 28 GiB,
+- na koniec: launcher gotowy, żaden model niezaładowany, inhibitor zdjęty.
+
+Swap Flash -> Qwen27B jest opcjonalny. `cmdStop` przetestujesz już przy unloadzie.
+
+## 5) Krytyczne punkty mimo akceptacji ryzyka
+
+- **Monitor bezpieczeństwa:** w akcji stop musi mieć nazwę nowego kontenera. Jeśli zostanie stara, monitor przy OOM zatrzyma nie ten kontener, który trzeba. To jedyny punkt, który uważam za twardy blocker do sprawdzenia przed startem.
+- **Ładowanie bibliotek z `/work/bin`:** jak w pkt 1. Bez tej weryfikacji nie wiesz, co wdrażasz.
+- **Guard 26.5 GiB:** jak w pkt 3. Zostawienie go oznacza świadomie dopuszczony stan poniżej progu awaryjnego.
+- **Brak sierot po stopie launchera lub wrappera:** jak w pkt 4.
+- **EOS samo-thinking:** nie blokuje, ale w dokumentacji trialu opisz, jak to widać po stronie klienta (pusta odpowiedź finalna przy reasoningu) i jak to logować, żeby decyzję o utrzymaniu profilu opierać na liczbach, a nie na wrażeniu. Zgodnie z ustaleniami: bez retry, bez zmiany temperatury, bez wyłączania cache.

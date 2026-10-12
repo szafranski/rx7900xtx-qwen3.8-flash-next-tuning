@@ -1,0 +1,39 @@
+**Verdict:** go ahead with ExecStop plus `KillMode=mixed`, after a few small adjustments. Mixed alone is not enough. This fits inside the authorized trial as long as it's disclosed. The real proof is still the one GPU stop retest.
+
+**Is ExecStop + mixed necessary and sufficient?**
+- Mixed alone isn't enough. systemd would SIGTERM only the launcher, and the launcher's path is terminate the manager, wait 20s, then SIGKILL the manager. If the manager is SIGKILLed or exits before the container stops, systemd's final SIGKILL hits the rest of the cgroup, including conmon. That is the same conmon loss as before. ExecStop is the part that actually stops the container in order. Mixed is the supporting part.
+- ExecStop + mixed is necessary but not proven sufficient, for two reasons:
+  - **The GPF may not be explained by the race.** `podman stop` still sends SIGTERM to llama-server. A libc GPF while handling SIGTERM could come from llama-server's own teardown under load, not only from the concurrent signals and conmon loss. Earlier clean `podman stop` and router-unload exits make the race hypothesis plausible, not proven. The CPU sleep-container test only checks the systemd/conmon mechanics. It can't test the GPF.
+  - **Fans are still at risk.** With mixed, once the launcher exits, anything left in the cgroup (including the fan wrapper) gets SIGKILL. If the launcher's shutdown doesn't gracefully stop the fan wrapper before exiting, `pwm_enable` can be left manual again. Add `ExecStopPost=-<fanwrapper> --restore`, but only if `--restore` is idempotent and safe when nothing is running. Then fan restore doesn't depend on shutdown ordering.
+
+**Adjustments to the drop-in:**
+- Write it as `ExecStop=-/usr/bin/podman stop --time 20 <name>`. The leading `-` means a missing container (exit 125) or another error won't mark the unit failed. That covers the Qwen-active case, and later name drift.
+- If the base unit or an earlier drop-in already has an ExecStop, this one appends to it. Put a bare `ExecStop=` line first if you mean to replace it. Afterwards, confirm the effective values with `systemctl --user show -p ExecStop,ExecStopPost,KillMode,TimeoutStopSec`. Also check that no later-sorting drop-in overrides them.
+- The timeout budget is tight: up to 20s for `podman stop` plus 20s launcher wait plus margin. `TimeoutStopSec=60` probably works, but 90 is safer.
+- Make sure the manager doesn't treat the backend exit during ExecStop as a crash and restart or reload it. If you have a minute, grep for restart-on-exit logic in the launcher or manager.
+
+**Rollback flaws:**
+- Don't rely on the new drop-in to stop the service during rollback, since that stop path is what's under test. Run an explicit `podman stop --time 20 <new container>` first, confirm the GPU resources are released, then `systemctl --user stop`.
+- After moving the drop-in out and running `daemon-reload`, check with `systemctl show` that ExecStop and KillMode are back to their original values before starting the launcher. Add the same check to `--check`.
+- The old production config may have the same concurrent-SIGTERM race. Its stop path was never shown clean. Record this as a possible pre-existing issue, not something the candidate introduced.
+
+**Scope:**
+- This is within the authorized deployment-with-rollback: it lives in a trial-specific drop-in, the rollback removes it, and no shared code changes. But it changes stop behavior for every backend the service runs, including Qwen 27B. State that plainly, and record the Qwen stop path as not validated. No new decision is needed unless the drop-in is meant to outlive the trial.
+
+**Safest next steps (deadline 11:01:30):**
+1. CPU proof. Pass criteria: conmon records 143, there are no orphans, and the effective unit values match. Give it about 4 minutes at most.
+2. If at least about 8 minutes remain, run one GPU test: the shortest routed SSE/unload/reload, then `systemctl stop` with the launcher loaded. Monitor the kernel log for a GPF, conmon and the exit code, KFD/VRAM release, and `pwm_enable` and the fan route check.
+3. Any failure, or not enough time: roll back as above, report the blocker, and don't retry on the GPU. Clean-up removes only the test inhibitor, matched by its exact who/PID, and leaves the user's 10:46:12-11:46:12 inhibitor in place.
+
+**Documentation points:**
+- The first runtime attempt as a FAIL: the exact GPF trap at 10:42:39, conmon loss, the forced KILL, fans left manual, the automatic recovery, and that there was no GPU reset or reboot. Note that the fault regex missed the GPF and that the raw logs are kept.
+- The cause, written as a hypothesis, not a proof.
+- The drop-in's full contents, why it exists, its effective `systemctl show` values, and the one-command rollback including the explicit `podman stop`.
+- The retest result. If it passes, word it as "the stop path passed once", not "fixed".
+- The source pin, cap 28, preload 27.25, and model ID, all unchanged.
+- That the historical +30% is not broad quality proof.
+- The existing EOS limitation, and that multiple compactions weren't validated.
+- That the smoke tests ran at temperature 0, which doesn't validate quality at the production default of temperature 1.
+- That the Qwen stop path under the drop-in wasn't validated.
+- The possible pre-existing stop race in the old config.
+- That containers, builds and models were preserved.

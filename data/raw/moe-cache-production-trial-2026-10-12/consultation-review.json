@@ -1,0 +1,27 @@
+{
+  "provider": "claude",
+  "model": "opus",
+  "effort": "medium",
+  "read_only": true,
+  "consultations": [
+    {
+      "file": "opus.txt",
+      "exit_code": 0
+    },
+    {
+      "file": "opus-shutdown.txt",
+      "exit_code": 0
+    },
+    {
+      "file": "opus-docs.txt",
+      "exit_code": 0
+    },
+    {
+      "file": "opus-docs-followup.txt",
+      "exit_code": 0
+    }
+  ],
+  "first_docs_review_scope": "local README and supplied HANDOFF only; outside repository access unavailable",
+  "followup_scope": "results docs and READMEs plus runtime runbook supplied verbatim in stdin",
+  "parent_resolution": "Corrected stale present-tense production claims, incomplete limitation summaries, rollback coverage, RAM admission risk, timestamp scope, syntax and links. No new GPU tests. Advice is not validation."
+}

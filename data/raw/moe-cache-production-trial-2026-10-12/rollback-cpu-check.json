@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "original_rollback_source_sha256": "223e05f13771528f48d9d6badb5932ba5c53466b726378468b8d331c37e8042b",
+  "actual_restore_logic_executed_with_only_IO_paths_and_subprocesses_isolated": true,
+  "two_routing_files_restored_byte_identically": true,
+  "only_trial_dropin_removed_and_preserved": true,
+  "effective_baseline_assertions_executed": true,
+  "candidate_stop_precedes_launcher_stop": true,
+  "launcher_start_follows_restore_checks": true,
+  "real_GPU_or_service_mutation": false
+}

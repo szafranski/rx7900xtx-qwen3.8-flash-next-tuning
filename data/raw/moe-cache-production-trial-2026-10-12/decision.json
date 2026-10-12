@@ -1,0 +1,23 @@
+{
+  "consultation": "opus medium",
+  "consultation_exitcode": 0,
+  "production_trial_authorized": true,
+  "auto_fit_retained": true,
+  "memory_cap_bytes": 30064771072,
+  "preload_RAM_bytes": 29259464704,
+  "no_sampling_or_prompt_cache_changes": true,
+  "new_container": "llama-flashnext-gsq-moe512-20261012",
+  "rollback_container": "llama-flashnext-gsq",
+  "durable_build": "<HOME>/llm/BUILDS/llama-cpp-f2cc7282-rocm7141-moe512",
+  "backup": "<HOME>/llama-launcher/routing/backup/moe-cache-20261012T082200Z",
+  "accepted_limitations": [
+    "thinking-only EOS also seen cacheOFF",
+    "two Pi compactions not validated",
+    "no soak"
+  ],
+  "opus_proposal_not_adopted": [
+    "new arbitrary performance threshold: use one descriptive repeat plus historical matched evidence",
+    "thinking-only final never relabelled functional PASS"
+  ],
+  "source_and_binary_pins_verified": true
+}

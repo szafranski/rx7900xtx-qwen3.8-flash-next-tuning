@@ -1,0 +1,25 @@
+Mogłem przeczytać tylko jeden z pięciu plików. Narzędzia są ograniczone do `qwen-3.8-flash-next-tweaks`, więc nie dało się otworzyć `docs/moe-cache-production-trial.md`, raportu aktywacji, README repo tuning ani `model-routing-runbook.md`. Sprawdziłem `qwen-3.8-flash-next-tweaks/README.md` i wklejony tekst sekcji 15 HANDOFF. Pozostałych czterech plików nie oceniam.
+
+## Konieczne poprawki przed commitem
+
+1. **Nieaktualne zdanie o produkcji w README (`README.md:45`).** Wiersz gguf-pi-65k nadal mówi „Produkcja zostaje na `bed0a856`”. To przeczy sekcji „Produkcja - trial od 12 X 2026”. Trzeba dopisać datę, np. „do 12 X; od 12 X trial `f2cc7282ce`+cache512, `bed0a8566` jako rollback”. Przy okazji ujednolić hash: tu jest `bed0a856`, w HANDOFF `bed0a8566`.
+2. **README (`README.md:16-17`) pomija ograniczenia trialu.** Wymienia tylko EOS, compaction i brak soaka. Brakuje czterech rzeczy, które muszą tam zostać:
+   - pierwszy stop skończył się GPF/conmon exit -1; po override był tylko jeden czysty retest, więc to nie jest dowód usunięcia race;
+   - wspólna stop-policy dotyczy też Qwen27B, a jego stop na GPU nie był testowany;
+   - pełnego rollbacku na GPU po poprawce nie wykonano, przeszedł tylko `--check` i izolowany test CPU;
+   - smoke i PP/TG były na temp0, a produkcja działa na temp1.
+3. **Niejednoznaczny zapis pamięci w HANDOFF.** „memory28GiB=swap” można przeczytać jako 28 GiB swapu. Lepiej: „memory = memory-swap = 28 GiB (bez swapu), preload guard 27.25 GiB”. W README `:10-11` dopisać „bez swapu”.
+4. **Wpis o blokadzie uśpienia w HANDOFF się przeterminuje.** „pozostaje do 11:46:12 CEST” po commicie będzie nieaktualne. Zapisać to jako stan na chwilę zapisu, np. „unit wygasa samoczynnie 11:46:12 CEST; po tej godzinie brak blokady”.
+
+## Drobne uwagi
+
+- W wklejonym tekście brakuje wielu spacji („jakoPID1”, „bezswap”, „coldreload”, „VRAMreleased”). Merytorycznie to nie przeszkadza, ale utrudnia grep. Jeśli to artefakt wklejenia, można zignorować.
+- Czas: jeśli HANDOFF lub raport podaje 1890 s, trzeba wyraźnie oddzielić czas GPU (1454.4 s) od final-host, który obejmuje dokumentację na CPU. W wklejonym fragmencie nie ma żadnej z tych liczb, więc tylko odnotowuję.
+- W tabeli PP673.64/TG18.23 warto dopisać n=1 i temp0, tak jak w HANDOFF.
+- `README.md:50` („ROCm 7.14.1 (produkcja)”) to opis raportu z 7 X. Może zostać, ale lepiej dopisać „wtedy”.
+- `production-trial-2026-10-12.json` jest nieśledzony. Trzeba świadomie zdecydować, czy wchodzi do commitu (rozmiar, ścieżki lokalne). Nie czytałem go, bo nie było go na liście.
+- W wklejonym HANDOFF nie znalazłem nieuprawnionych twierdzeń. Poprawnie zastrzega, że to „jeden pass, nie dowód eliminacji race”, że stop Qwen27B jest nieweryfikowany, że rollback był sprawdzony tylko na CPU, a temp0 nie świadczy o jakości przy temp1. Zgadza się z podanymi przez Ciebie faktami.
+
+## Werdykt
+
+Merytorycznie nic nie blokuje wdrożenia jako kontrolowanego trialu, a sekcja HANDOFF jest spójna z faktami. Przed commitem trzeba jednak poprawić punkty 1 i 2 w README: obecnie jest tam sprzeczność co do aktualnej produkcji i niepełna lista ograniczeń. Punkty 3 i 4 to szybkie doprecyzowania. Czterech plików spoza tego repo nie zweryfikowałem. Jeśli chcesz ich oceny, wklej ich treść albo uruchom konsultację z dostępem do tych katalogów.
