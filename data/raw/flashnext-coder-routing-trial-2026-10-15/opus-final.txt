@@ -1,0 +1,21 @@
+## Werdykt: brak MUSTFIX przed nadzorowanym użyciem testowym
+
+Ocena opiera się wyłącznie na treściach z wiadomości. Niczego nie uruchamiałem.
+
+**Konfiguracja i guardy są spójne:**
+- Coder: `minAvailableRAMBytes` 18253611008 to dokładnie 17 GiB, a `maxUsedVRAMBytes` 1.2 GiB. Zgadza się to z runbookiem: 15.534 GiB + 1 GiB, zaokrąglone w górę.
+- Flash: 28132035789 to 26.2 GiB. Pozostałe progi zostały bez zmian.
+- `cmdStop` Codera, `concurrencyLimit: 1`, wspólna grupa exclusive/swap i `ExecStop` w efektywnej usłudze są zgodne z opisem.
+
+**Obietnice w README:** nie znalazłem błędnych. LIMITED, FAIL ORION, brak 250k przez proxy, około 10 min prefillu i nierozstrzygnięta przyczyna są opisane uczciwie.
+
+## Poprawki zalecane, nie blokujące
+
+1. **Czas w runbooku.** „Podczas walidacji **działa** monitor” sugeruje, że monitor działa dalej. Lepiej napisać „**działał**”, bo w zwykłej pracy go nie ma.
+2. **`ExecStop`.** Oba wpisy mają `ignore_errors=no`. Jeśli kontener Flash kiedyś zniknie, nieudane `podman stop` pominie zatrzymanie Codera. Warto dać prefiks `-` w drop-inie albo opisać to ryzyko.
+3. **Rollback.**
+   - Warunek „jeśli konfiguracja nie była później zmieniana” wymaga sposobu sprawdzenia, np. `diff` bieżącego pliku z backupem.
+   - Po `daemon-reload` warto sprawdzić efektywny `ExecStop` (`systemctl --user show`), czyli czy zostało tylko zatrzymanie Flasha.
+   - Warto dodać `podman ps`, żeby potwierdzić, że kontener Codera jest zatrzymany.
+4. **Link w drugim README.** Ścieżki `../../llm/docs/...` nie da się tu zweryfikować. Sprawdź, czy prowadzi do runbooka.
+5. **Limit 28 GiB.** Przy pierwszym starcie trafiono w limit (max=10228). Warto dopisać, że przy `memory-swap` równym limitowi możliwy jest OOM-kill w trakcie zapytania, a nie tylko odmowa startu.

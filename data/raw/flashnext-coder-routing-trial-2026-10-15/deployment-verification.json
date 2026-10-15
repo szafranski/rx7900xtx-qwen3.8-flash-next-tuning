@@ -1,0 +1,30 @@
+{
+  "old_model_entries_unchanged": true,
+  "old_stop_dropin_unchanged": true,
+  "exclusive_group_members": [
+    "qwen3.8-27b-128k",
+    "Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-65k",
+    "Qwen3.8-Flash-Next-GSQ-RCO-Coder-256k"
+  ],
+  "model_id": "Qwen3.8-Flash-Next-GSQ-RCO-Coder-256k",
+  "context": 262144,
+  "capabilities": {
+    "function_calling": true,
+    "vision": true
+  },
+  "model_status": {
+    "value": "unloaded"
+  },
+  "container_running": false,
+  "container_exit": 0,
+  "container_oom_killed": false,
+  "memory_limit_bytes": 30064771072,
+  "memory_swap_bytes": 30064771072,
+  "effective_stop_commands": 2,
+  "kill_mode": "mixed",
+  "timeout_stop_seconds": 90,
+  "config_sha256": "9e7fe4835f7019a03bb44132e9cdc74c833a0d60486c6fd9da9679b889147d69",
+  "script_sha256": "c899864c58da755a418911eb709a04294e9a3a1989fbe17ea46c46bceb4ce861",
+  "deployed_config_matches_backup": true,
+  "proxy_timeout_check": "read-only source inspection of LXC190 /opt/llama-proxy/proxy.py: ClientTimeout(total=None, connect=10, sock_connect=10, sock_read=None)"
+}

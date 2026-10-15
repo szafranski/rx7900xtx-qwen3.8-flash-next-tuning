@@ -1,0 +1,12 @@
+{
+  "content": "{\n  \"code\": \"KITE 742\",\n  \"left\": \"red circle\",\n  \"right\": \"blue square\"\n}",
+  "reasoning_content": "",
+  "tool_calls": [],
+  "finish_reasons": [
+    "stop"
+  ],
+  "tag": "coder-vision",
+  "model": "Qwen3.8-Flash-Next-GSQ-RCO-Coder-256k",
+  "done": true,
+  "wall_seconds": 4.772563005972188
+}

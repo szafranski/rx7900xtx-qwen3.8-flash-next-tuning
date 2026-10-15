@@ -1,0 +1,13 @@
+{
+  "provider": "claude",
+  "model": "opus",
+  "effort": "medium",
+  "exit_code": 0,
+  "verdict": "ready for explicitly marked supervised testing, no blocker identified",
+  "read_limit": "consultant reported filesystem access limited to current project; runtime and external docs assessed from supplied facts only",
+  "requested_fixes": [
+    "explicit supervised-use and tool-result verification sentence in README",
+    "commit completed documentation"
+  ],
+  "followup": "Provide actual config, script, effective stop policy, README and runbook excerpts through stdin for direct review"
+}

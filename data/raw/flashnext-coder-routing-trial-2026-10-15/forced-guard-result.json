@@ -1,0 +1,12 @@
+{
+  "status": 503,
+  "body": {
+    "src": "llama-swap",
+    "error": {
+      "message": "Host busy: model guard-coder-check; RAM available = 27.252 GiB (29262045184 bytes, required >= 64.000 GiB), VRAM used = 0.713 GiB (765177856 bytes, required <= 1.200 GiB). Retry after freeing resources.",
+      "type": "server_error",
+      "param": null,
+      "code": "insufficient_resources"
+    }
+  }
+}

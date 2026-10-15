@@ -1,0 +1,12 @@
+{
+  "content": "323",
+  "reasoning_content": "The user wants me to calculate 17 × 19.\n\n17 × 19 = 17 × 20 - 17 = 340 - 17 = 323.\n\nThe final number is 323.\n",
+  "tool_calls": [],
+  "finish_reasons": [
+    "stop"
+  ],
+  "tag": "coder-thinking",
+  "model": "Qwen3.8-Flash-Next-GSQ-RCO-Coder-256k",
+  "done": true,
+  "wall_seconds": 4.424517688981723
+}

@@ -1,0 +1,116 @@
+{
+  "data": [
+    {
+      "id": "Qwen3.8-Flash-Next-GSQ-RCO-Coder-256k",
+      "object": "model",
+      "created": 1792077103,
+      "owned_by": "llama-swap",
+      "architecture": {
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "modality": "text+image+video->text",
+        "output_modalities": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "function_calling": true,
+        "vision": true
+      },
+      "supported_parameters": [
+        "tools",
+        "tool_choice"
+      ],
+      "context_length": 262144,
+      "context_window": 262144,
+      "meta": {
+        "llamaswap": {
+          "aliases": [
+            "flashnext-coder"
+          ],
+          "type": "model"
+        },
+        "n_ctx": 262144
+      },
+      "status": {
+        "value": "unloaded"
+      }
+    },
+    {
+      "id": "Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-65k",
+      "object": "model",
+      "created": 1792077103,
+      "owned_by": "llama-swap",
+      "architecture": {
+        "input_modalities": [
+          "text"
+        ],
+        "modality": "text->text",
+        "output_modalities": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "function_calling": true
+      },
+      "supported_parameters": [
+        "tools",
+        "tool_choice"
+      ],
+      "context_length": 65536,
+      "context_window": 65536,
+      "meta": {
+        "llamaswap": {
+          "aliases": [
+            "flashnext-gsq"
+          ],
+          "type": "model"
+        },
+        "n_ctx": 65536
+      },
+      "status": {
+        "value": "unloaded"
+      }
+    },
+    {
+      "id": "qwen3.8-27b-128k",
+      "object": "model",
+      "created": 1792077103,
+      "owned_by": "llama-swap",
+      "architecture": {
+        "input_modalities": [
+          "text",
+          "image",
+          "video"
+        ],
+        "modality": "text+image+video->text",
+        "output_modalities": [
+          "text"
+        ]
+      },
+      "capabilities": {
+        "function_calling": true,
+        "vision": true
+      },
+      "supported_parameters": [
+        "tools",
+        "tool_choice"
+      ],
+      "context_length": 147456,
+      "context_window": 147456,
+      "meta": {
+        "llamaswap": {
+          "type": "model"
+        },
+        "n_ctx": 147456
+      },
+      "status": {
+        "value": "unloaded"
+      }
+    }
+  ],
+  "object": "list"
+}

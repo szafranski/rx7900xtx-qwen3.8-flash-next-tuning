@@ -1,0 +1,128 @@
+{
+  "status": "FAIL",
+  "requests": [
+    {
+      "content": "323",
+      "reasoning_content": "",
+      "tool_calls": [],
+      "finish_reasons": [
+        "stop"
+      ],
+      "tag": "qwen-before-switch",
+      "model": "qwen3.8-27b-128k",
+      "done": true,
+      "wall_seconds": 11.679087900032755
+    },
+    {
+      "content": "323",
+      "reasoning_content": "",
+      "tool_calls": [],
+      "finish_reasons": [
+        "stop"
+      ],
+      "tag": "coder-cold-switch",
+      "model": "Qwen3.8-Flash-Next-GSQ-RCO-Coder-256k",
+      "done": true,
+      "wall_seconds": 43.20881219598232
+    },
+    {
+      "content": "",
+      "reasoning_content": "",
+      "tool_calls": [
+        {
+          "id": "8NQ3ge8AV0t4NQbU80z765GeHE1twNcf",
+          "type": "function",
+          "function": {
+            "name": "lookup",
+            "arguments": "{}"
+          }
+        }
+      ],
+      "finish_reasons": [
+        "tool_calls"
+      ],
+      "tag": "coder-tool",
+      "model": "Qwen3.8-Flash-Next-GSQ-RCO-Coder-256k",
+      "done": true,
+      "wall_seconds": 2.30229446105659
+    },
+    {
+      "content": "ORION-7",
+      "reasoning_content": "",
+      "tool_calls": [],
+      "finish_reasons": [
+        "stop"
+      ],
+      "tag": "coder-tool-result",
+      "model": "Qwen3.8-Flash-Next-GSQ-RCO-Coder-256k",
+      "done": true,
+      "wall_seconds": 1.4887872820254415
+    }
+  ],
+  "lifecycle": [],
+  "initial": {
+    "MemAvailable_bytes": 29266255872,
+    "VRAM_used_bytes": 765177856,
+    "VRAM_total_bytes": 25753026560,
+    "VRAM_free_bytes": 24987848704
+  },
+  "error": "AssertionError()",
+  "fault_evidence": {
+    "kernel_faults": [],
+    "kernel_oom_lines": [],
+    "cgroup_event_deltas": {
+      "oom": 0,
+      "oom_kill": 0,
+      "max": 0
+    },
+    "first_events": {
+      "low": 0,
+      "high": 0,
+      "max": 10228,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 1
+    },
+    "last_events": {
+      "low": 0,
+      "high": 0,
+      "max": 10228,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 1
+    },
+    "peak": 30064771072,
+    "last_pressure": "some avg10=0.16 avg60=0.41 avg300=0.13 total=460683\nfull avg10=0.16 avg60=0.41 avg300=0.13 total=460683",
+    "segfault_or_gpf": []
+  },
+  "resources": {
+    "min_available": 12997021696,
+    "peak_vram": 24850219008,
+    "max_swap_MiBs": 172.76240594262853,
+    "host_oom_delta": 0
+  },
+  "after": {
+    "MemAvailable_bytes": 29737885696,
+    "VRAM_used_bytes": 765177856,
+    "VRAM_total_bytes": 25753026560,
+    "VRAM_free_bytes": 24987848704
+  },
+  "fan_restored_final": {
+    "pwm1": 42,
+    "pwm1_enable": 5,
+    "pwm2": 88,
+    "pwm2_enable": 5,
+    "pwm3": 88,
+    "pwm3_enable": 5,
+    "pwm4": 42,
+    "pwm4_enable": 5,
+    "pwm5": 41,
+    "pwm5_enable": 5,
+    "pwm6": 77,
+    "pwm6_enable": 1,
+    "pwm7": 42,
+    "pwm7_enable": 5
+  }
+}

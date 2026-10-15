@@ -1,0 +1,22 @@
+{
+  "provider": "claude",
+  "model": "opus",
+  "effort": "medium",
+  "final_exit_code": 0,
+  "verdict": "ready for explicitly marked supervised test use; no MUSTFIX in supplied concrete config and docs",
+  "applied": [
+    "explicit supervised/manual-use and verify tool results in READMEs",
+    "client timeout and untested250kproxy statement",
+    "past tense for validation-only monitor",
+    "deployed config snapshot and cmp rollback check",
+    "post-rollback effective ExecStop and stopped-container checks",
+    "cgroup limit may OOM-kill in-flight requests"
+  ],
+  "kept_strict_stop_errors": "Did not add ignore-error prefix. Old and new containers are preserved and verified present; masking mandatory stop failures would weaken the established stop policy.",
+  "limitations_retained": [
+    "repeatable tool-result error in SSE direct and proxy",
+    "no nonstream control for that payload at256k",
+    "no loaded-launcher full stop test",
+    "no full250kproxy or Pi/compaction/soak or admission boundary proof"
+  ]
+}

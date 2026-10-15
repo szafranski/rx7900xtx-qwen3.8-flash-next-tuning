@@ -1,6 +1,6 @@
 # Data and provenance
 
-`raw/` contains 555 selected evidence files grouped by experiment. The experiment-specific sections below describe their counts, reductions and limitations. `manifest.csv` records each repository path, source-relative path, original SHA-256, imported SHA-256, byte count, and whether the import changed the bytes. The older JSON was normalized and local home paths were replaced with `<HOME>`. Long-context response files whose names end in `-prompt.json` had their full request and prompt removed, leaving the response and wall time. This means an imported hash often differs from the source hash. The expert-cache and Vulkan response files are unmodified; the q8_0 KV records were sanitized before import. Source paths in the manifest identify each experiment.
+`raw/` contains 569 selected evidence files grouped by experiment. The experiment-specific sections below describe their counts, reductions and limitations. `manifest.csv` records each repository path, source-relative path, original SHA-256, imported SHA-256, byte count, and whether the import changed the bytes. The older JSON was normalized and local home paths were replaced with `<HOME>`. Long-context response files whose names end in `-prompt.json` had their full request and prompt removed, leaving the response and wall time. This means an imported hash often differs from the source hash. The expert-cache and Vulkan response files are unmodified; the q8_0 KV records were sanitized before import. Source paths in the manifest identify each experiment.
 
 The raw set includes OpenAI-compatible response JSON with `usage` and `timings`, ROCm tuning records with launch arguments and `memory_stats`, memory-counter NDJSON, cgroup text readings, the 28-shard AtomicChat checksum list, and four PNGs from synthetic vision tests. Prompt strings, tokenizer dumps, unrelated production-model listings, Hugging Face directory snapshots, `.pyc`, and full server/build logs were left out. The original local archive remains untouched. Full logs for the Vulkan tests remain in `agents/scratch/flashnext-vulkan-nohost-2026-09-29/`; q8_0 observations and the request driver remain in `agents/scratch/flashnext-q8-65k-2026-09-29/`. Older diagnostics remain in `agents/scratch/flashnext-expert-cache-2026-09-28/` and `agents/scratch/flashnext-bench-2026-09-28/private/`.
 
@@ -295,3 +295,12 @@ configured limits, runtime allocation lines, the resource/shutdown summary,
 synthetic fixture metadata, and the 250,074-token request response. No long
 prompt is imported. This was one uncached direct retrieval with three correct
 codes, not a Pi session or model-quality comparison.
+
+
+## Flash-Next Coder routing trial, 15 October 2026
+
+`raw/flashnext-coder-routing-trial-2026-10-15/` adds 14 records: the first FAIL
+and completed LIMITED summaries, matched tool-result SSE records, thinking
+and image results, final model discovery, forced admission refusal, swap
+analysis, deployment checks and Opus advice/resolution. Advice is not a GPU
+test. The known ORION tool-result failure is retained, without output repair.

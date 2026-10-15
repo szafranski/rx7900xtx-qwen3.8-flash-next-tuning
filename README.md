@@ -2,10 +2,25 @@
 
 A tuning log for one 24 GB RDNA3 card with 32 GiB of host RAM. Measurements cover 24 September to 15 October 2026, three GGUF quantizations and one EXL3 quantization.
 
+## Coder 256k configuration under test
+
+Use only for supervised manual tests. Verify tool results; do not delegate
+unsupervised repository changes or other actions that require exact transfer
+of tool data. A cold prompt near 250k may need about ten minutes before the
+first token; that full request has not been repeated through the proxy.
+
+Coder is now an additional on-demand model through llamaproxy, ID
+`Qwen3.8-Flash-Next-GSQ-RCO-Coder-256k`. This is a TEST profile, with a
+known tool-result error, not a production-quality certification. Discovery,
+SSE, thinking/final, an image and 27B -> Coder -> 27B switching passed;
+matched direct/backend and proxy SSE both returned ORION-7 instead of the
+expected ORION-742. The retained integration result is LIMITED.
+[Deployment and limitations](reports/flashnext-coder-routing-trial-2026-10-15.md).
+
 15 October: [GSQ-RCO Coder text/tools/vision smoke](reports/flashnext-coder-smoke-2026-10-15.md)
 passed five short requests with clean exit and VRAM release. This is an 8k
 allocation smoke, not a quality or throughput comparison against Qwen 27B.
-Production routing remains unchanged.
+Those isolated smoke checks did not change production routing. The later test-profile addition is described above.
 
 A subsequent [256k-window check](reports/flashnext-coder-context-2026-10-15.md)
 processed 250,074 uncached prompt tokens and recalled three synthetic codes,
@@ -128,7 +143,7 @@ See [ROCm tuning](docs/rocm-tuning.md) and [MTP](docs/mtp.md) for each chart's s
 - [Reproduction guide](docs/reproduce.md): one minimal GGUF and one EXL3 recipe, the Pi adapter in [adapter/](adapter/), and what is not available.
 - [Methodology](docs/methodology.md): rates, cached prompts and evidence limits.
 - [Correctness](docs/correctness.md), [context and memory](docs/context-and-memory.md), [Vulkan](docs/vulkan.md): topic summaries with dated findings.
-- [Data guide](data/README.md): 555 selected evidence files and a SHA-256 manifest. Some are reduced responses or report-derived summaries; full prompts, logs, model weights and build binaries are excluded.
+- [Data guide](data/README.md): 569 selected evidence files and a SHA-256 manifest. Some are reduced responses or report-derived summaries; full prompts, logs, model weights and build binaries are excluded.
 - [Reports](reports/): dated field notes with local paths anonymized. Service status and follow-up instructions describe their test period, not current authorization. The [28 September benchmark plan](docs/next-benchmarks.md) is historical.
 
 Most configurations ran once. Small arithmetic, retrieval, vision and tool checks do not rank quantization quality or establish reliable arbitrary 65k agent conversations. There is no common quality suite or multi-user test. Memory readings distinguish host, container and VRAM; use the report's units and sampling scope.
