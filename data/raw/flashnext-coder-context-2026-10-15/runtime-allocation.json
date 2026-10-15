@@ -1,0 +1,10 @@
+{
+  "lines": [
+    "0.10.527.205 I load_tensors:        ROCm0 model buffer size = 13787.91 MiB",
+    "0.10.527.207 I load_tensors:    ROCm_Host model buffer size = 14438.41 MiB",
+    "0.10.527.208 I load_tensors:   CPU_Mapped model buffer size = 27465.95 MiB",
+    "0.28.177.161 I llama_kv_cache:      ROCm0 KV buffer size =  3264.00 MiB",
+    "0.28.244.743 I llama_kv_cache:      ROCm0 KV buffer size =   816.00 MiB",
+    "0.29.120.014 I slot   load_model: id  0 | task -1 | new slot, n_ctx = 262144"
+  ]
+}

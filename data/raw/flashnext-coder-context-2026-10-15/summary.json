@@ -1,0 +1,144 @@
+{
+  "status": "PASS",
+  "initial": {
+    "MemAvailable_bytes": 29225332736,
+    "VRAM_used_bytes": 765177856,
+    "VRAM_total_bytes": 25753026560,
+    "VRAM_free_bytes": 24987848704
+  },
+  "required_ram": 15649802784,
+  "context_requested": 262144,
+  "requests": [
+    {
+      "tag": "text",
+      "wall_seconds": 1.2083006390021183,
+      "usage": {
+        "completion_tokens": 4,
+        "prompt_tokens": 29,
+        "total_tokens": 33,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 29,
+        "prompt_ms": 977.277,
+        "prompt_per_token_ms": 33.69920689655173,
+        "prompt_per_second": 29.674288865899843,
+        "predicted_n": 4,
+        "predicted_ms": 192.416,
+        "predicted_per_token_ms": 64.13866666666667,
+        "predicted_per_second": 15.591219025444868
+      },
+      "message": {
+        "role": "assistant",
+        "content": "323"
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "tag": "context250k-recall",
+      "wall_seconds": 589.3133851269959,
+      "usage": {
+        "completion_tokens": 32,
+        "prompt_tokens": 250074,
+        "total_tokens": 250106,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 250074,
+        "prompt_ms": 586226.982,
+        "prompt_per_token_ms": 2.344214040643969,
+        "prompt_per_second": 426.58220736758926,
+        "predicted_n": 32,
+        "predicted_ms": 2805.897,
+        "predicted_per_token_ms": 90.5128064516129,
+        "predicted_per_second": 11.048160356563338
+      },
+      "message": {
+        "role": "assistant",
+        "content": "BEGIN-7a963e5d\nMIDDLE-c4b81726\nEND-f2950c84"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "deadline_seconds": 1200,
+  "loaded": {
+    "MemAvailable_bytes": 13190307840,
+    "VRAM_used_bytes": 24394575872,
+    "VRAM_total_bytes": 25753026560,
+    "VRAM_free_bytes": 1358450688
+  },
+  "context_allocated": 262144,
+  "recall_correct": true,
+  "actual_prompt_tokens": 250074,
+  "evaluated_prompt_tokens": 250074,
+  "cgroup_before_stop": {
+    "current": "17499820032",
+    "peak": "17499820032",
+    "max": "30064771072",
+    "swap_max": "0",
+    "swap_current": "0",
+    "stat": {
+      "anon": 958758912,
+      "file": 16454832128
+    },
+    "events": {
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0
+    },
+    "pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=24161\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=24161"
+  },
+  "server_exit_code": 0,
+  "oom_killed": false,
+  "after": {
+    "MemAvailable_bytes": 29253271552,
+    "VRAM_used_bytes": 765177856,
+    "VRAM_total_bytes": 25753026560,
+    "VRAM_free_bytes": 24987848704
+  },
+  "routing_unchanged": true,
+  "vram_released": true,
+  "fault_evidence": {
+    "kernel_faults": [],
+    "kernel_oom_lines": [],
+    "cgroup_event_deltas": {
+      "oom": 0,
+      "oom_kill": 0,
+      "max": 0
+    },
+    "first_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "last_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 1
+    },
+    "peak": 17499820032,
+    "last_pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=24161\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=24161",
+    "general_protection_or_segfault": []
+  },
+  "resources": {
+    "min_available": 12546519040,
+    "peak_vram": 24728698880,
+    "peak_cgroup": 17499820032,
+    "host_oom_delta": 0,
+    "max_swap_MiBs": 13.714667179101069
+  }
+}

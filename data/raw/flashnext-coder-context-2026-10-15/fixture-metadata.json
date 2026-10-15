@@ -1,0 +1,12 @@
+{
+  "synthetic": true,
+  "target": 250000,
+  "rendered_tokens": 250074,
+  "sha256": "1db1781c3f1ae5ce78e4591ec1bf011cde6eac27c9903d151e942aebaca1cbf3",
+  "unit_repeats": 10416,
+  "markers": [
+    "BEGIN-7a963e5d",
+    "MIDDLE-c4b81726",
+    "END-f2950c84"
+  ]
+}
