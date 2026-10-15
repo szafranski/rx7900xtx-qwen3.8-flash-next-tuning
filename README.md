@@ -1,6 +1,11 @@
 # Qwen3.8 Flash-Next on an RX 7900 XTX
 
-A tuning log for one 24 GB RDNA3 card with 32 GiB of host RAM. Measurements cover 24 September to 12 October 2026, two GGUF quantizations and one EXL3 quantization.
+A tuning log for one 24 GB RDNA3 card with 32 GiB of host RAM. Measurements cover 24 September to 15 October 2026, three GGUF quantizations and one EXL3 quantization.
+
+15 October: [GSQ-RCO Coder text/tools/vision smoke](reports/flashnext-coder-smoke-2026-10-15.md)
+passed five short requests with clean exit and VRAM release. This is an 8k
+allocation smoke, not a quality or throughput comparison against Qwen 27B.
+Production routing remains unchanged.
 
 The practical goal is useful sessions of Pi (the pi coding agent CLI) with thinking OFF/ON, tools and history, at 32k and eventually 65k, targeting about 20 generated tokens/s at 65k. That full goal is not demonstrated: EXL3 reached about 23 TG tok/s in synthetic 65k checks, but its Pi sessions stayed at about 35k real prompt tokens (bounded 22-turn sessions on 6 October; earlier ones about 32k). Separately, one direct 37,626-token request passed, and that is a capacity check, not a Pi session. Fixed-build GGUF reached about 63k, with lower throughput and unresolved answer failures.
 
@@ -118,7 +123,7 @@ See [ROCm tuning](docs/rocm-tuning.md) and [MTP](docs/mtp.md) for each chart's s
 - [Reproduction guide](docs/reproduce.md): one minimal GGUF and one EXL3 recipe, the Pi adapter in [adapter/](adapter/), and what is not available.
 - [Methodology](docs/methodology.md): rates, cached prompts and evidence limits.
 - [Correctness](docs/correctness.md), [context and memory](docs/context-and-memory.md), [Vulkan](docs/vulkan.md): topic summaries with dated findings.
-- [Data guide](data/README.md): 534 selected evidence files and a SHA-256 manifest. Some are reduced responses or report-derived summaries; full prompts, logs, model weights and build binaries are excluded.
+- [Data guide](data/README.md): 550 selected evidence files and a SHA-256 manifest. Some are reduced responses or report-derived summaries; full prompts, logs, model weights and build binaries are excluded.
 - [Reports](reports/): dated field notes with local paths anonymized. Service status and follow-up instructions describe their test period, not current authorization. The [28 September benchmark plan](docs/next-benchmarks.md) is historical.
 
 Most configurations ran once. Small arithmetic, retrieval, vision and tool checks do not rank quantization quality or establish reliable arbitrary 65k agent conversations. There is no common quality suite or multi-user test. Memory readings distinguish host, container and VRAM; use the report's units and sampling scope.

@@ -1,0 +1,49 @@
+{
+  "revision": "f2cc7282ce0042641df55e0e563b75e824e2b647",
+  "files": [
+    {
+      "file": "libggml-base.so.0.26.0",
+      "sha256": "5bd8cc3a7e41a3f0fa9c36ea58db99f3cee109d429d3699d6cd20e01dc5437cd"
+    },
+    {
+      "file": "libggml-cpu.so.0.26.0",
+      "sha256": "cf02cfa65a97d5207dc67d715cc6963e006d98552e773caea88e8b473f515807"
+    },
+    {
+      "file": "libggml-hip.so.0.26.0",
+      "sha256": "19a5c2286a79bc53397ea6ea79c9144c08f6e1cab5da877b7bcef9b7c63aec83"
+    },
+    {
+      "file": "libggml.so.0.26.0",
+      "sha256": "3cf2f38a15d850667b32db8d33671e3328f0f5b2c1f39e01514749d79d26d20c"
+    },
+    {
+      "file": "libllama-common.so.0.6.0",
+      "sha256": "d18eae70359d0dd2d123c3ccf9e16844489b8eedb2f2d0b607c2ce6f89ecd769"
+    },
+    {
+      "file": "libllama-fit-params-impl.so",
+      "sha256": "fb1692fd5e00f3b0bcac812308811709b07a826d11fa9c12d916cb0339bb7b5d"
+    },
+    {
+      "file": "libllama-server-impl.so",
+      "sha256": "d696331f86fc40fa97e666d43db1db5eab8777ea00a1c5dd1ecff7ded13a0cc9"
+    },
+    {
+      "file": "libllama.so.0.6.0",
+      "sha256": "42f008d2623b84d19422d7511df0d6b75b7155190a4377dba232207bf409dc48"
+    },
+    {
+      "file": "libmtmd.so.0.6.0",
+      "sha256": "3eea109075438de83b63774ce2a7ebe26545ee267eaf509d7f0b75ba0e117be0"
+    },
+    {
+      "file": "llama-fit-params",
+      "sha256": "2ab2fd95b79c333d0c663df4b7c4308854a67347fc641f4e0b3f94b07a8d4dd3"
+    },
+    {
+      "file": "llama-server",
+      "sha256": "fabac9b5b6fe6050606555bc1a4c67daa47d53e6b7586b2bfaa6becb8ceddd0b"
+    }
+  ]
+}

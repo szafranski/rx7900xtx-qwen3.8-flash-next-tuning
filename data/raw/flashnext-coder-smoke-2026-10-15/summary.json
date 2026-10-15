@@ -1,0 +1,234 @@
+{
+  "status": "PASS",
+  "initial": {
+    "MemAvailable_bytes": 29324066816,
+    "VRAM_used_bytes": 765177856,
+    "VRAM_total_bytes": 25753026560,
+    "VRAM_free_bytes": 24987848704
+  },
+  "required_ram": 15649802784,
+  "context_allocated": 8192,
+  "requests": [
+    {
+      "tag": "text",
+      "wall_seconds": 1.1435764119960368,
+      "usage": {
+        "completion_tokens": 4,
+        "prompt_tokens": 29,
+        "total_tokens": 33,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 29,
+        "prompt_ms": 964.41,
+        "prompt_per_token_ms": 33.25551724137931,
+        "prompt_per_second": 30.070198359618832,
+        "predicted_n": 4,
+        "predicted_ms": 139.298,
+        "predicted_per_token_ms": 46.43266666666667,
+        "predicted_per_second": 21.536561903257763
+      },
+      "message": {
+        "role": "assistant",
+        "content": "323"
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "tag": "tool-call",
+      "wall_seconds": 1.824525109026581,
+      "usage": {
+        "completion_tokens": 14,
+        "prompt_tokens": 272,
+        "total_tokens": 286,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 272,
+        "prompt_ms": 1264.718,
+        "prompt_per_token_ms": 4.649698529411765,
+        "prompt_per_second": 215.06770679313487,
+        "predicted_n": 14,
+        "predicted_ms": 520.097,
+        "predicted_per_token_ms": 40.007461538461534,
+        "predicted_per_second": 24.99533740821424
+      },
+      "message": {
+        "role": "assistant",
+        "content": "",
+        "tool_calls": [
+          {
+            "type": "function",
+            "function": {
+              "name": "lookup",
+              "arguments": "{}"
+            },
+            "id": "lPYsjZmRCHppQN0iX9TfNQpJW6wLEmXN"
+          }
+        ]
+      },
+      "finish_reason": "tool_calls"
+    },
+    {
+      "tag": "tool-result",
+      "wall_seconds": 1.2685577099910006,
+      "usage": {
+        "completion_tokens": 7,
+        "prompt_tokens": 309,
+        "total_tokens": 316,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 309,
+        "prompt_ms": 937.554,
+        "prompt_per_token_ms": 3.034155339805825,
+        "prompt_per_second": 329.5810161334707,
+        "predicted_n": 7,
+        "predicted_ms": 292.628,
+        "predicted_per_token_ms": 48.77133333333333,
+        "predicted_per_second": 20.50384788878713
+      },
+      "message": {
+        "role": "assistant",
+        "content": "ORION-742"
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "tag": "vision-a",
+      "wall_seconds": 2.403592001996003,
+      "usage": {
+        "completion_tokens": 35,
+        "prompt_tokens": 317,
+        "total_tokens": 352,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 317,
+        "prompt_ms": 1067.045,
+        "prompt_per_token_ms": 3.3660725552050477,
+        "prompt_per_second": 297.0821286824829,
+        "predicted_n": 35,
+        "predicted_ms": 1285.849,
+        "predicted_per_token_ms": 37.81908823529412,
+        "predicted_per_second": 26.441673944607803
+      },
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"code\": \"KITE 742\",\n  \"left\": \"red circle\",\n  \"right\": \"blue square\"\n}"
+      },
+      "finish_reason": "stop"
+    },
+    {
+      "tag": "vision-b",
+      "wall_seconds": 2.3398720039986074,
+      "usage": {
+        "completion_tokens": 35,
+        "prompt_tokens": 317,
+        "total_tokens": 352,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        }
+      },
+      "timings": {
+        "cache_n": 0,
+        "prompt_n": 317,
+        "prompt_ms": 1020.111,
+        "prompt_per_token_ms": 3.2180157728706624,
+        "prompt_per_second": 310.75049675966636,
+        "predicted_n": 35,
+        "predicted_ms": 1273.403,
+        "predicted_per_token_ms": 37.4530294117647,
+        "predicted_per_second": 26.700109863099115
+      },
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"code\": \"MOSS 318\",\n  \"left\": \"yellow triangle\",\n  \"right\": \"green circle\"\n}"
+      },
+      "finish_reason": "stop"
+    }
+  ],
+  "deadline_seconds": 900,
+  "loaded": {
+    "MemAvailable_bytes": 20348338176,
+    "VRAM_used_bytes": 24434278400,
+    "VRAM_total_bytes": 25753026560,
+    "VRAM_free_bytes": 1318748160
+  },
+  "cgroup_before_stop": {
+    "current": "21189562368",
+    "peak": "23156879360",
+    "max": "30064771072",
+    "swap_max": "0",
+    "swap_current": "0",
+    "stat": {
+      "anon": 764669952,
+      "file": 20349874176
+    },
+    "events": {
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0
+    },
+    "pressure": "some avg10=0.20 avg60=0.08 avg300=0.01 total=113620\nfull avg10=0.20 avg60=0.08 avg300=0.01 total=113620"
+  },
+  "server_exit_code": 0,
+  "oom_killed": false,
+  "after": {
+    "MemAvailable_bytes": 28825108480,
+    "VRAM_used_bytes": 765177856,
+    "VRAM_total_bytes": 25753026560,
+    "VRAM_free_bytes": 24987848704
+  },
+  "routing_unchanged": true,
+  "vram_released": true,
+  "fault_evidence": {
+    "kernel_faults": [],
+    "kernel_oom_lines": [],
+    "cgroup_event_deltas": {
+      "oom": 0,
+      "oom_kill": 0,
+      "max": 0
+    },
+    "first_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "last_events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0,
+      "sock_throttled": 0
+    },
+    "peak": 23156879360,
+    "last_pressure": "some avg10=0.16 avg60=0.07 avg300=0.01 total=113620\nfull avg10=0.16 avg60=0.07 avg300=0.01 total=113620",
+    "general_protection_or_segfault": []
+  },
+  "resources": {
+    "min_available": 19603070976,
+    "peak_vram": 24811839488,
+    "peak_cgroup": 23156879360,
+    "host_oom_delta": 0,
+    "max_swap_MiBs": 1.972650135886248
+  }
+}

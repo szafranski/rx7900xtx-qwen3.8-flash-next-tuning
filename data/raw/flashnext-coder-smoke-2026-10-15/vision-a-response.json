@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"code\": \"KITE 742\",\n  \"left\": \"red circle\",\n  \"right\": \"blue square\"\n}"
+      }
+    }
+  ],
+  "created": 1792074527,
+  "model": "flashnext-coder-test",
+  "system_fingerprint": "b0-unknown",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 35,
+    "prompt_tokens": 317,
+    "total_tokens": 352,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-VticclsDeBUB6xly2OdZ2fAQ0UfPMSlt",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 317,
+    "prompt_ms": 1067.045,
+    "prompt_per_token_ms": 3.3660725552050477,
+    "prompt_per_second": 297.0821286824829,
+    "predicted_n": 35,
+    "predicted_ms": 1285.849,
+    "predicted_per_token_ms": 37.81908823529412,
+    "predicted_per_second": 26.441673944607803
+  }
+}

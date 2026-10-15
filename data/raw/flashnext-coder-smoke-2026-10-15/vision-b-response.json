@@ -1,0 +1,36 @@
+{
+  "choices": [
+    {
+      "finish_reason": "stop",
+      "index": 0,
+      "message": {
+        "role": "assistant",
+        "content": "{\n  \"code\": \"MOSS 318\",\n  \"left\": \"yellow triangle\",\n  \"right\": \"green circle\"\n}"
+      }
+    }
+  ],
+  "created": 1792074530,
+  "model": "flashnext-coder-test",
+  "system_fingerprint": "b0-unknown",
+  "object": "chat.completion",
+  "usage": {
+    "completion_tokens": 35,
+    "prompt_tokens": 317,
+    "total_tokens": 352,
+    "prompt_tokens_details": {
+      "cached_tokens": 0
+    }
+  },
+  "id": "chatcmpl-1LDrnhTxuDIYk5a193UadokqYK3CMrwY",
+  "timings": {
+    "cache_n": 0,
+    "prompt_n": 317,
+    "prompt_ms": 1020.111,
+    "prompt_per_token_ms": 3.2180157728706624,
+    "prompt_per_second": 310.75049675966636,
+    "predicted_n": 35,
+    "predicted_ms": 1273.403,
+    "predicted_per_token_ms": 37.4530294117647,
+    "predicted_per_second": 26.700109863099115
+  }
+}
