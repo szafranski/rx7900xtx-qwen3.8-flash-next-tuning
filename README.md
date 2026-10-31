@@ -10,7 +10,7 @@ The [llama.cpp IQ3_S report](reports/flashnext-iq3s-cache-mtp-context-2026-10-30
 
 The [Strata IQ3_S report](reports/strata-iq3s-context-mtp-2026-10-31.md) covers configuration comparisons, context, MTP and prose. One 244,466-token request completed in a 262,144-token window. The 57 GiB cgroup cap was tested on a physical 96 GB host, not a physical 64 GB machine.
 
-## Coder 256k configuration under test
+## Coder 256k test profile, 15 October
 
 Use only for supervised manual tests. Verify tool results; do not delegate
 unsupervised repository changes or other actions that require exact transfer
@@ -43,10 +43,11 @@ This repository stores selected evidence, reports and charts. Runtime repairs an
 
 The on-demand Flash-Next profile uses GGUF IQ3_XXS and pinned llama.cpp
 `f2cc7282ce` on ROCm 7.14.1 with `--moe-cache-mib 512`. The previous container
-and build are preserved with a [one-command rollback](docs/moe-cache-production-trial.md).
+and build are preserved with a historical rollback (adapt before use, see [docs/moe-cache-production-trial.md](docs/moe-cache-production-trial.md)).
 Model ID, endpoint, weights, 65k q8 context and production sampling are unchanged.
-The container cap is 28 GiB without swap. The Flash-only startup threshold is
-**26.5 GiB MemAvailable**, restored at the user's request after an unauthorized
+The container cap is 28 GiB without swap. As of 12 October, the Flash-only startup threshold was
+**26.5 GiB MemAvailable** (a later 26.2 GiB threshold is documented in the
+22 October update of [docs/moe-cache-production-trial.md](docs/moe-cache-production-trial.md)), restored at the user's request after an unauthorized
 increase during deployment. See the [RAM correction](reports/flashnext-moe-cache-ram-guard-correction-2026-10-12.md).
 
 The [activation report](reports/flashnext-moe-cache-production-activation-2026-10-12.md)
