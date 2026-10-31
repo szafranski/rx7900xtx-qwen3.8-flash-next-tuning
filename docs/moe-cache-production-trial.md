@@ -4,6 +4,21 @@ The user authorized an on-demand production trial with a preserved rollback.
 The client model ID and endpoint are unchanged. This is GGUF IQ3_XXS, not an
 EXL3 migration. No temperature, prompt reuse or Pi setting was changed.
 
+## Later configuration changes, 22 October 2026
+
+This report preserves the 12 October deployment and its tests. The Flash-only
+RAM admission threshold was subsequently reduced to 26.2 GiB (28132035789 bytes)
+on 15 October and still has that value in the routing configuration checked
+on 22 October. The Qwen VRAM admission threshold is now 1.2 GiB, and the routing
+also includes the separate `custom-model` test profile.
+
+The old rollback helper restores the entire 12 October `swap.yaml`. Running it
+unchanged would remove `custom-model` and restore the older Flash RAM and Qwen
+VRAM thresholds. Its `--check` validates the preserved backup and prerequisites;
+it does not check whether restoring that backup would discard later changes.
+Prepare a scoped return plan before using either old rollback script.
+The current routing runbook is kept in the local `llm/docs` directory, outside this repository.
+
 ## Selected runtime
 
 - Client ID: `Qwen3.8-Flash-Next-GSQ-RCO-IQ3_XXS-65k`, alias `flashnext-gsq`.
@@ -18,7 +33,8 @@ EXL3 migration. No temperature, prompt reuse or Pi setting was changed.
   reasoning on/budget4096. Activation smoke requests explicitly use temperature 0;
   these do not validate general quality at the production default.
 - Container memory and memory-swap stay at 28 GiB. The Flash-only preload guard
-  is currently 26.5 GiB MemAvailable after the user-requested correction below.
+  was corrected to 26.5 GiB MemAvailable on 12 October as recorded below;
+  the later 26.2 GiB threshold is documented in the 22 October update above.
   The initial activation used 27.25 GiB. The measured largest host-availability
   drop was 26.14 GiB, plus the single project 1 GiB floor, rounded upward.
   This is a start condition, not permanent reserved memory or a larger cgroup cap.
@@ -62,15 +78,16 @@ process with an explicit SIGTERM handler; its exit 0 and conmon record were pres
 An earlier PID1 sleep fixture ignored TERM and was forced to137; that invalid
 fixture is preserved separately and is not reported as a successful graceful exit.
 
-## One-command return to the previous Flash profile
+## Historical return to the previous Flash profile
 
-After ending active client requests:
+The following command was the return procedure on 12 October. It must be
+adapted before use with the later routing changes described above:
 
-```bash
+```text
 rtk proxy python3 ~/llama-launcher/routing/backup/moe-cache-20261012T082200Z/rollback.py
 ```
 
-Read-only readiness check:
+Read-only backup and prerequisite check, not a check for later routing changes:
 
 ```bash
 rtk proxy python3 ~/llama-launcher/routing/backup/moe-cache-20261012T082200Z/rollback.py --check

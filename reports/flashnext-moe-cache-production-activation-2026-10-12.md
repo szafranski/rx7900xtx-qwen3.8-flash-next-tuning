@@ -4,7 +4,7 @@ The user authorized this production trial with a preserved return path after
 reviewing the known thinking-only EOS and incomplete Pi compaction checks.
 The on-demand profile is now the pinned f2cc7282ce build on ROCm 7.14.1,
 GGUF IQ3_XXS 65k/q8 and `--moe-cache-mib 512`. The old container/build are retained.
-See [runtime and one-command rollback](../docs/moe-cache-production-trial.md).
+See [runtime, later configuration changes and historical rollback](../docs/moe-cache-production-trial.md).
 
 ## Activation evidence
 
