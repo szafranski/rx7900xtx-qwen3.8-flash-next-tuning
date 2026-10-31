@@ -1,6 +1,14 @@
 # Qwen3.8 Flash-Next on an RX 7900 XTX
 
-A tuning log for one 24 GB RDNA3 card with 32 GiB of host RAM. Measurements cover 24 September to 15 October 2026, three GGUF quantizations and one EXL3 quantization.
+A tuning log for one 24 GB RDNA3 card. Measurements cover 24 September to 31 October 2026.
+
+**Hardware change:** Measurements through 15 October used 32 GiB of host RAM. From 30 October the host had 96 GB nominal, about 94.2 GiB visible to the OS. Results from the two periods are not directly comparable.
+
+## IQ3_S tests, 30-31 October
+
+The [llama.cpp IQ3_S report](reports/flashnext-iq3s-cache-mtp-context-2026-10-30.md) covers 32k cache tests, MTP and real-corpus context. At 32k, 1024 MiB cache averaged 18.64 TG tok/s versus 14.78 at 512 MiB; 2048 MiB averaged 20.09 in a separate pair. MTP n=3 did not reduce full request time in the tested 8k-120k series.
+
+The [Strata IQ3_S report](reports/strata-iq3s-context-mtp-2026-10-31.md) covers configuration comparisons, context, MTP and prose. One 244,466-token request completed in a 262,144-token window. The 57 GiB cgroup cap was tested on a physical 96 GB host, not a physical 64 GB machine.
 
 ## Coder 256k configuration under test
 

@@ -304,3 +304,15 @@ and completed LIMITED summaries, matched tool-result SSE records, thinking
 and image results, final model discovery, forced admission refusal, swap
 analysis, deployment checks and Opus advice/resolution. Advice is not a GPU
 test. The known ORION tool-result failure is retained, without output repair.
+
+
+## IQ3_S cache, MTP and context, 30-31 October
+
+`raw/flashnext-iq3s-cache-mtp-context-2026-10-30/` contains six reduced
+result files for the cache pairs, MTP comparison and real-corpus context.
+`raw/strata-iq3s-context-mtp-2026-10-31/` contains the reduced Strata spec
+sweep summary. The manifest binds each reduction to the original result file.
+Only selected numeric timings, counts, resource counters and case labels are
+retained. Requests, generated text, fixture answers, commands, placements,
+full logs and private runtime records are excluded. These files do not cover
+every measurement in the two reports.

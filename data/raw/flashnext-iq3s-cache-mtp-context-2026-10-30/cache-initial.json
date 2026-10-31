@@ -1,0 +1,104 @@
+[
+  {
+    "arm": "cache512",
+    "cache_mib": 512,
+    "input_tokens": 32768,
+    "output_tokens": 512,
+    "pp": 571.7234560661982,
+    "tg": 14.733399567316672,
+    "wall_s": 92.0194923877716,
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 32768,
+      "prompt_ms": 57314.423,
+      "prompt_per_token_ms": 1.749097381591797,
+      "prompt_per_second": 571.7234560661982,
+      "predicted_n": 512,
+      "predicted_ms": 34683.102,
+      "predicted_per_token_ms": 67.87299804305283,
+      "predicted_per_second": 14.733399567316672
+    },
+    "ram_GiB": 45.07025909423828,
+    "vram_GiB": 23.192455291748047,
+    "peak_vram_GiB": 23.192455291748047,
+    "host_available_min_GiB": 55.25076675415039,
+    "events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0
+    },
+    "container_swap": "0",
+    "host_swap_peak_MiBs": 0.8006357945262363
+  },
+  {
+    "arm": "cache0",
+    "cache_mib": 0,
+    "input_tokens": 32768,
+    "output_tokens": 512,
+    "pp": 571.6218067927713,
+    "tg": 13.81138305000583,
+    "wall_s": 94.3407073020935,
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 32768,
+      "prompt_ms": 57324.615,
+      "prompt_per_token_ms": 1.7494084167480468,
+      "prompt_per_second": 571.6218067927713,
+      "predicted_n": 512,
+      "predicted_ms": 36998.467,
+      "predicted_per_token_ms": 72.40404500978472,
+      "predicted_per_second": 13.81138305000583
+    },
+    "ram_GiB": 46.10383605957031,
+    "vram_GiB": 22.996952056884766,
+    "peak_vram_GiB": 22.996952056884766,
+    "host_available_min_GiB": 55.55624771118164,
+    "events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0
+    },
+    "container_swap": "0",
+    "host_swap_peak_MiBs": 0.0
+  },
+  {
+    "arm": "cache1024",
+    "cache_mib": 1024,
+    "input_tokens": 32768,
+    "output_tokens": 512,
+    "pp": 568.921631514036,
+    "tg": 18.61842878314358,
+    "wall_s": 85.0594687461853,
+    "timings": {
+      "cache_n": 0,
+      "prompt_n": 32768,
+      "prompt_ms": 57596.685,
+      "prompt_per_token_ms": 1.7577113342285156,
+      "prompt_per_second": 568.921631514036,
+      "predicted_n": 512,
+      "predicted_ms": 27445.925,
+      "predicted_per_token_ms": 53.710225048923675,
+      "predicted_per_second": 18.61842878314358
+    },
+    "ram_GiB": 44.0006217956543,
+    "vram_GiB": 23.050891876220703,
+    "peak_vram_GiB": 23.050891876220703,
+    "host_available_min_GiB": 54.67530822753906,
+    "events": {
+      "low": 0,
+      "high": 0,
+      "max": 0,
+      "oom": 0,
+      "oom_kill": 0,
+      "oom_group_kill": 0
+    },
+    "container_swap": "0",
+    "host_swap_peak_MiBs": 0.0937472284659553
+  }
+]
